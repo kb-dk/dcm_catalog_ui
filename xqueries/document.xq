@@ -21,7 +21,8 @@ return $doc
 
 let $params := 
 <parameters>
-   <param name="hostname" value="{request:get-header('HOST')}"/>
+   <param name="hostname"    value="{request:get-header('HOST')}"/>
+   <param name="script_path" value="/storage/cnw/document.xq"/>
 </parameters>
 
 for $doc in $list
