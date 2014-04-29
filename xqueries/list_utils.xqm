@@ -25,6 +25,8 @@ declare variable $app:sortby    := request:get-parameter("sortby",      "person,
 declare variable $app:from      := ($app:page - 1) * $app:number + 1;
 declare variable $app:to        :=  $app:from      + $app:number - 1;
 
+declare variable $app:anthologies := request:get-parameter("anthologies","") cast as xs:string;
+
 declare variable $app:published_only := 
 request:get-parameter("published_only","") cast as xs:string;
 
@@ -52,7 +54,8 @@ declare function app:pass-as-hidden() as node()* {
     <input name="genre"          type="hidden" value="{$app:genre}" />,
     <input name="notbefore"      type="hidden" value="{$app:notbefore}" />,
     <input name="notafter"       type="hidden" value="{$app:notafter}" />,
-    <input name="sortby"         type="hidden" value="{$app:sortby}" />
+    <input name="sortby"         type="hidden" value="{$app:sortby}" />,
+    <input name="anthologies"    type="hidden" value="{$app:anthologies}" />
     )
     return $inputs
 };
@@ -182,7 +185,7 @@ declare function app:generate-href($field as xs:string,
 	  attribute lang {$doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][not(@type/string())][1]/@xml:lang},
 	  element a {
 	    attribute title {"View"},
-	    attribute href  {concat("/storage/document.xq?doc=",util:document-name($doc))},
+	    attribute href  {concat("./document.xq?doc=",util:document-name($doc))},
 	  $doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][not(@type/string())][1]/string()
 	  },
 	  element span {

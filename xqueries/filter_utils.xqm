@@ -4,6 +4,7 @@ module  namespace  filter="http://kb.dk/this/app/filter";
 
 declare namespace m="http://www.music-encoding.org/ns/mei";
 
+declare variable $filter:anthologies := request:get-parameter("anthologies","") cast as xs:string;
 declare variable $filter:sortby := request:get-parameter("sortby", "") cast as xs:string;
 declare variable $filter:page   := request:get-parameter("page",   "1") cast as xs:integer;
 declare variable $filter:number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
@@ -33,6 +34,7 @@ declare function filter:print-filters(
         <input name="published_only" value="{$published_only}" type='hidden' />
         <input name="itemsPerPage"  value='{$number}' type='hidden' />
         <input name="sortby"  value='{$filter:sortby}' type='hidden' />
+        <input name="anthologies"  value='{$filter:anthologies}' type='hidden' />
         <input name="genre"  value='{$genre}' type='hidden' />
         <input name="notbefore" value='{request:get-parameter("notbefore","")}' type='hidden' />
         <input name="notafter" value='{request:get-parameter("notafter","")}' type='hidden' />
@@ -93,6 +95,7 @@ declare function filter:print-filters(
 	</div>
 	<input name="query"  value='{request:get-parameter("query","")}' type="hidden"/>
 	<input name="c"      value='{request:get-parameter("c","")}'    type='hidden' />
+        <input name="anthologies"  value='{$filter:anthologies}' type='hidden' />
 	<input name="published_only" value="{$published_only}" type='hidden' />
 	<input name="itemsPerPage"  value='{$number}' type='hidden' />
 	<input name="sortby"  value='{$filter:sortby}' type='hidden' />
