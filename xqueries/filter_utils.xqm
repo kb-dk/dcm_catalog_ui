@@ -4,8 +4,8 @@ module  namespace  filter="http://kb.dk/this/app/filter";
 
 declare namespace m="http://www.music-encoding.org/ns/mei";
 
-declare variable $filter:anthologies := request:get-parameter("anthologies","") cast as xs:string;
-declare variable $filter:sortby := request:get-parameter("sortby", "") cast as xs:string;
+declare variable $filter:anthologies := request:get-parameter("anthologies","no") cast as xs:string;
+declare variable $filter:sortby := request:get-parameter("sortby", "null,work_number") cast as xs:string;
 declare variable $filter:page   := request:get-parameter("page",   "1") cast as xs:integer;
 declare variable $filter:number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
 declare variable $filter:genre := request:get-parameter("genre", "") cast as xs:string;
@@ -181,7 +181,7 @@ declare function filter:filter-elements()
   let $reset_block :=
       if($genre_block or $year_block or $query_block) then
        <a class="filter_element reset" 
-           href="{fn:concat($filter:uri,'?itemsPerPage=',request:get-parameter("itemsPerPage",""),'&amp;sortby=',request:get-parameter("sortby",""))}">
+           href="{fn:concat($filter:uri,'?itemsPerPage=',request:get-parameter("itemsPerPage",""),'&amp;sortby=',request:get-parameter("sortby",$filter:sortby))}">
            Reset all
        </a> 
     else
@@ -209,10 +209,11 @@ declare function filter:print-filtered-link(
 	concat($filter:uri,"?",
 	  "page=",1,
 	  "&amp;itemsPerPage=",$number,
-	  "&amp;sortby=",request:get-parameter("sortby",""),
+	  "&amp;sortby=",request:get-parameter("sortby",$filter:sortby),
 	  "&amp;c=",$coll,
 	  "&amp;published_only=",$published_only,
 	  "&amp;query=",$query,
+	  "&amp;anthologies=",$filter:anthologies,
 	  "&amp;notbefore=",request:get-parameter("notbefore",""),
 	  "&amp;notafter=",request:get-parameter("notafter",""),
 	  "&amp;genre=",fn:escape-uri($term,true()))},
@@ -233,9 +234,10 @@ declare function filter:get-filtered-link(
 	concat($filter:uri,"?",
 	  "page=",1,
 	  "&amp;itemsPerPage=",$number,
-	  "&amp;sortby=",request:get-parameter("sortby",""),
+	  "&amp;sortby=",request:get-parameter("sortby",$filter:sortby),
 	  "&amp;c=",$coll,
 	  "&amp;query=",$query,
+	  "&amp;anthologies=",$filter:anthologies,
 	  "&amp;notbefore=",request:get-parameter("notbefore",""),
 	  "&amp;notafter=",request:get-parameter("notafter",""),
 	  "&amp;genre=",fn:escape-uri($term,true()))
