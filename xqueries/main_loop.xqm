@@ -6,6 +6,7 @@ declare namespace m="http://www.music-encoding.org/ns/mei";
 declare namespace ft="http://exist-db.org/xquery/lucene";
 declare namespace util="http://exist-db.org/xquery/util";
 
+declare variable $loop:sortby     := "null,work_number";
 declare variable $loop:vocabulary := 
   doc(concat("http://",request:get-header('HOST'),"/editor/forms/mei/model/keywords.xml"));
 
@@ -152,7 +153,7 @@ declare function loop:getlist (
   $genre           as xs:string,
   $query           as xs:string) as node()* 
   {
-    let $sortby := request:get-parameter("sortby","person,title")
+    let $sortby := request:get-parameter("sortby",$loop:sortby)
     let $sort0  := substring-before($sortby,",")
     let $sort1  := substring-after($sortby,",")
     let $list   := 
