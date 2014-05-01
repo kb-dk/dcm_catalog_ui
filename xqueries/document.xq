@@ -7,7 +7,6 @@ declare namespace fn="http://www.w3.org/2005/xpath-functions";
 declare namespace file="http://exist-db.org/xquery/file";
 declare namespace util="http://exist-db.org/xquery/util";
 declare namespace app="http://kb.dk/this/app";
-declare namespace m="http://www.music-encoding.org/ns/mei";
 declare namespace ft="http://exist-db.org/xquery/lucene";
 
 declare option exist:serialize "method=xml media-type=text/html"; 
@@ -23,6 +22,7 @@ let $params :=
 <parameters>
    <param name="hostname"    value="{request:get-header('HOST')}"/>
    <param name="script_path" value="/storage/cnw/document.xq"/>
+   <param name="doc" value="{$document}"/>
 </parameters>
 
 for $doc in $list
