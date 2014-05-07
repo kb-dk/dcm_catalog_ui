@@ -2,7 +2,7 @@ xquery version "1.0" encoding "UTF-8";
 
 module namespace  app="http://kb.dk/this/listapp";
 
-import module namespace  filter="http://kb.dk/this/app/filter" at "./filter_utils.xqm";
+import module namespace  forms="http://kb.dk/this/formutils" at "./form_utils.xqm";
 
 declare namespace file="http://exist-db.org/xquery/file";
 declare namespace fn="http://www.w3.org/2005/xpath-functions";
@@ -48,27 +48,9 @@ let $options:=
 };
 
 
-
-declare function app:pass-as-hidden() as node()* {
-  let $inputs :=
-    (
-    <input name="published_only" type="hidden" value="{$app:published_only}"   />,
-    <input name="c"              type="hidden" value="{$app:coll}"   />,
-    <input name="query"          type="hidden" value="{$app:query}"  />,
-    <input name="page"           type="hidden" value="{$app:page}"   />,
-    <input name="itemsPerPage"   type="hidden" value="{$app:number}" />,
-    <input name="genre"          type="hidden" value="{$app:genre}" />,
-    <input name="notbefore"      type="hidden" value="{$app:notbefore}" />,
-    <input name="notafter"       type="hidden" value="{$app:notafter}" />,
-    <input name="sortby"         type="hidden" value="{$app:sortby}" />,
-    <input name="anthologies"    type="hidden" value="{$app:anthologies}" />
-    )
-    return $inputs
-};
-
 declare function app:generate-href($field as xs:string,
   $value as xs:string) as xs:string {
-    let $inputs := app:pass-as-hidden()
+    let $inputs := forms:pass-as-hidden()
     let $pars   :=
     for $inp in $inputs
     let $str:=
@@ -82,56 +64,6 @@ declare function app:generate-href($field as xs:string,
   let $link := string-join($pars,"&amp;")
   return $link
 
-};
-
-
-declare function app:pass-as-hidden-except(
-  $field as xs:string)  as node()* 
-{
-  let $inputs:=
-  for $input in app:pass-as-hidden()
-  return
-    if($input/@name ne $field) then
-      $input
-    else
-      if($input/@name eq "page") then
-	(<input name="page" type="hidden" value="1" />)
-      else
-	()
-	    
-  return $inputs
-};
-
-
-
-declare function app:emit-select-form(
-  $id    as xs:string,
-  $param as xs:string,
-  $value as xs:string,
-  $options as node()*)  as node()* 
-
-  {    
-  let $form := 
-  <form action="" id="{$id}" style="display:inline;float:right;">
-    <select name="{$param}" onchange="this.form.submit();return true;"> 
-      {
-	for $opt in $options
-	let $option:=
-	  if($opt/@value/string()=$value) then
-	    element option {
-	      attribute value {$opt/@value/string()},
-	      attribute selected {"selected"},
-	      $opt/string()}
-	  else
-	    element option {
-	      attribute value {$opt/@value/string()},$opt/string()}
-	return $option
-      }
-    </select>
-    {app:pass-as-hidden-except($param)}
-  </form>
-
-  return $form
 };
 
 
@@ -274,63 +206,11 @@ declare function app:edit-form-reference($doc as node()) as node()
  	title="Edit" 
 	src="/editor/images/edit.gif" 
 	alt="Edit" />
-	{app:pass-as-hidden()}
+	{forms:pass-as-hidden()}
       </form>
 
       return $ref
 
-    };
-
-
-    declare function app:copy-document-reference($doc as node()) as node() 
-    {
-      let $form-id := util:document-name($doc)
-      let $uri     := concat("/db/public/",util:document-name($doc))
-      let $form := 
-      <form id="copy{$form-id}" action="./copy-file.xq" method="get" style="display:inline;">
-	{app:pass-as-hidden()}
-	<input type="hidden" 
-	value="copy"
-	name="{util:document-name($doc)}" />
-	<input type="image" 
-	src="/editor/images/copy.gif"  
-	name="button"
-	value="copy"
-	title="Copy"/>
-      </form>
-      return  $form
-    };
-
-
-
-    declare function app:delete-document-reference($doc as node()) as node() 
-    {
-      let $form-id := util:document-name($doc)
-      let $uri     := concat("/db/public/",util:document-name($doc))
-      let $form := 
-	if(doc-available($uri)) then
-	<span>
-	  <img src="/editor/images/remove_disabled.gif" alt="Remove (disabled)" title="Only unpublished files may be deleted"/>
-	</span>
-      else
-      <form id="del{$form-id}" 
-      action="http://{request:get-header('HOST')}/filter/delete/dcm/{util:document-name($doc)}"
-      method="post" 
-      style="display:inline;">
-	{app:pass-as-hidden()}
-	<input type="hidden" 
-	name="file"
-	value="{request:get-header('HOST')}/storage/dcm/{util:document-name($doc)}"
-	title="file name"/>
-	<input 
-	onclick="{string-join(('show_confirm(&quot;del',$form-id,'&quot;,&quot;',$doc//m:workDesc/m:work/m:titleStmt/m:title[string()]/string()[1],'&quot;);return false;'),'')}" 
-	type="image" 
-	src="/editor/images/remove.gif"  
-	name="button"
-	value="delete"
-	title="Delete"/>
-      </form>
-      return  $form
     };
 
     declare function app:list-title() 
@@ -418,7 +298,7 @@ declare function app:navigation(
 
 	  let $dates := for $date in $list//m:workDesc/m:work/m:history/m:creation/m:date
 	  for $attr in $date/@notafter|$date/@isodate|$date/@notbeforep
-  	  return filter:get-date($attr/string())
+  	  return forms:get-date($attr/string())
 
 	  let $notafter  := max($dates)
 	  let $notbefore  := min($dates)
@@ -457,7 +337,7 @@ declare function app:navigation(
    			      return $option
 		    }
 		  </select>
-		  {app:pass-as-hidden-except("sortby")}
+		  {forms:pass-as-hidden-except("sortby")}
 		  </form>)
 		else
 		  (),
@@ -497,13 +377,9 @@ declare function app:navigation(
 		    )}
 		  </select>
 
-		  {app:pass-as-hidden-except("itemsPerPage")}
+		  {forms:pass-as-hidden-except("itemsPerPage")}
 		      
 		  </form>),
-		  app:emit-select-form('toggle-anthologies',
-		                       'anthologies',
-				       $app:anthologies,
-				       $app:anthology-options),
 		  if ($total > $app:number) then
 		    element div {
        		      attribute class {"paging_div"},

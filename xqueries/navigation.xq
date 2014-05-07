@@ -1,6 +1,5 @@
 xquery version "1.0" encoding "UTF-8";
 
-
 import module namespace loop="http://kb.dk/this/getlist" at "./main_loop.xqm";
 import module namespace app="http://kb.dk/this/listapp" at "./list_utils.xqm";
 import module namespace filter="http://kb.dk/this/app/filter" at "./filter_utils.xqm";
@@ -29,7 +28,7 @@ declare variable $mode   := request:get-parameter("mode","") cast as xs:string;
 
 declare variable $vocabulary := doc(concat("http://",request:get-header('HOST'),"/editor/forms/mei/model/keywords.xml"));
 
-declare variable $database := "/db/public";
+declare variable $database := "/db/cnw/data";
 
 declare variable $from     := ($page - 1) * $number + 1;
 declare variable $to       :=  $from      + $number - 1;
@@ -143,7 +142,7 @@ declare function local:format-reference(
       <div id="main">
          <div class="content_box">
       {
-      let $list := loop:getlist($database,$published_only,$coll,$genre,$query)
+      let $list := loop:getlist($database,$coll,$genre,$query)
       return
       (
       <div class="files_list">
@@ -159,8 +158,8 @@ declare function local:format-reference(
               {filter:filter-elements()}
            </div>
            {
-                for $doc at $count in $list[position() = ($from to $to)]
-                return local:format-reference($doc,$count)
+             for $doc at $count in $list[position() = ($from to $to)]
+             return local:format-reference($doc,$count)
            }
     	</div>
       </div>)

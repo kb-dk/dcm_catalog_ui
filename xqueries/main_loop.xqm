@@ -1,4 +1,5 @@
 xquery version "1.0" encoding "UTF-8";
+
 module namespace loop="http://kb.dk/this/getlist";
 
 declare namespace fn="http://www.w3.org/2005/xpath-functions";
@@ -87,38 +88,6 @@ declare function loop:genre-filter(
       return $occurrence
 };
 
-
-declare function loop:pubstatus(
-	$published_only  as xs:string,
-	$doc as node())  as xs:boolean 
-{
-  let $uri         := concat("/db/public/",util:document-name($doc))
-  let $dcm_hash    := util:hash($doc,'md5')
-
-  let $status := 
-    if( not($published_only) ) then
-      true()
-    else
-      if( doc-available($uri)) then
-	let $public_hash := util:hash(doc($uri),'md5')
-	return
-	if ($published_only eq 'pending' and $public_hash ne $dcm_hash) then
-	  true()
-	else 
-	  if($published_only eq 'any') then
-	    true()
-	  else
-	    false()
-      else
-	if($published_only eq 'unpublished') then
-	  true()
-	else 
-	  false()
-
-   return $status
-
-};
-
 declare function loop:sort-key (
   $doc as node(),
   $key as xs:string) as xs:string
@@ -148,7 +117,6 @@ declare function loop:sort-key (
 
 declare function loop:getlist (
   $database        as xs:string,
-  $published_only  as xs:string,
   $coll            as xs:string,
   $genre           as xs:string,
   $query           as xs:string) as node()* 
@@ -160,23 +128,23 @@ declare function loop:getlist (
       if($coll) then 
 	if($query) then
           for $doc in collection($database)/m:mei[m:meiHead/m:fileDesc/m:seriesStmt/m:identifier[@type="file_collection"]/string()=$coll  and ft:query(.,$query)] 
-          where loop:pubstatus($published_only,$doc) and loop:genre-filter($genre,$doc) and loop:date-filters($doc) and loop:valid-work-number($doc)
+          where loop:genre-filter($genre,$doc) and loop:date-filters($doc) and loop:valid-work-number($doc)
 	  order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
 	  return $doc 
 	else
 	  for $doc in collection($database)/m:mei[m:meiHead/m:fileDesc/m:seriesStmt/m:identifier[@type="file_collection"]/string()=$coll] 
-          where loop:pubstatus($published_only,$doc) and loop:genre-filter($genre,$doc) and loop:date-filters($doc) and loop:valid-work-number($doc)
+          where loop:genre-filter($genre,$doc) and loop:date-filters($doc) and loop:valid-work-number($doc)
 	  order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
 	  return $doc 
         else
 	  if($query) then
             for $doc in collection($database)/m:mei[ft:query(.,$query)]
-            where loop:pubstatus($published_only,$doc) and loop:genre-filter($genre,$doc) and loop:date-filters($doc) and loop:valid-work-number($doc)
+            where loop:genre-filter($genre,$doc) and loop:date-filters($doc) and loop:valid-work-number($doc)
 	    order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
 	    return $doc
       else
         for $doc in collection($database)/m:mei
-        where loop:pubstatus($published_only,$doc) and loop:genre-filter($genre,$doc) and loop:date-filters($doc) and loop:valid-work-number($doc)
+        where loop:genre-filter($genre,$doc) and loop:date-filters($doc) and loop:valid-work-number($doc)
 	order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
 	return $doc
 	      

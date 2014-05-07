@@ -1,9 +1,10 @@
 xquery version "1.0" encoding "UTF-8";
 
-module  namespace  filter="http://kb.dk/this/app/filter";
+module  namespace filter="http://kb.dk/this/app/filter";
+
+import module namespace  forms="http://kb.dk/this/formutils" at "./form_utils.xqm";
 
 declare namespace m="http://www.music-encoding.org/ns/mei";
-
 declare variable $filter:anthologies := request:get-parameter("anthologies","no") cast as xs:string;
 declare variable $filter:sortby := request:get-parameter("sortby", "null,work_number") cast as xs:string;
 declare variable $filter:page   := request:get-parameter("page",   "1") cast as xs:integer;
@@ -12,6 +13,13 @@ declare variable $filter:genre := request:get-parameter("genre", "") cast as xs:
 declare variable $filter:uri    := "";
 declare variable $filter:vocabulary := 
         doc(concat("http://",request:get-header('HOST'),"/editor/forms/mei/model/keywords.xml"));
+
+declare variable $filter:anthology-options := 
+(<option value="no">Exclude anthologies</option>,
+<option value="yes">Include anthologies</option>);
+
+
+
 
 declare function filter:print-filters(
   $database        as xs:string,
@@ -129,7 +137,11 @@ declare function filter:print-filters(
               href="{$link}" title="Select genre: {$genre}">
 	    {$genre} 
           </a>
-        }
+        }(:$filter:anthologies,:)
+	{forms:emit-checkbox-form('toggle-anthologies',
+	'anthologies',
+	"yes",
+	$filter:anthology-options)}
       </div>
       </div>
     return $filter
@@ -223,7 +235,6 @@ declare function filter:print-filtered-link(
     return $link
 };
 
-
 declare function filter:get-filtered-link(
   $coll            as xs:string,
   $number          as xs:string,
@@ -243,15 +254,6 @@ declare function filter:get-filtered-link(
 	  "&amp;genre=",fn:escape-uri($term,true()))
     return $link
 };
-
-declare function filter:get-date($date as xs:string) as xs:string
-{
-  let $xsdate :=
-      substring($date,1,4)
-
-  return $xsdate
-};
-
 
 (:
 declare function filter:collections() {
