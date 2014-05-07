@@ -50,7 +50,7 @@ declare function forms:emit-select-form(
 
   {    
   let $form := 
-  <form action="" id="{$id}" style="display:inline;float:right;">
+  <form action="" id="{$id}">
     <select name="{$param}" onchange="this.form.submit();return true;"> 
       {
 	for $opt in $options
@@ -84,11 +84,11 @@ declare function forms:emit-checkbox-form(
    element form {
      attribute action {""},
      attribute id {$id},
-     attribute style {"display:inline;float:right;"},
      element input {
 	attribute type {"checkbox"},
         attribute name {$param},
         attribute value {$value},
+        attribute class {"checkbox"},
 	attribute onclick {"this.form.submit();return true;"},
 	if($forms:anthologies=$value) then
 	  attribute checked {"checked"}
