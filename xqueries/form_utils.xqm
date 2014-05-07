@@ -72,6 +72,36 @@ declare function forms:emit-select-form(
   return $form
 };
 
+declare function forms:emit-checkbox-form(
+  $id    as xs:string,
+  $param as xs:string,
+  $value as xs:string,
+  $options as node()*)  as node()* 
+
+{    
+
+  let $form := 
+   element form {
+     attribute action {""},
+     attribute id {$id},
+     attribute style {"display:inline;float:right;"},
+     element input {
+	attribute type {"checkbox"},
+        attribute name {$param},
+        attribute value {$value},
+	attribute onclick {"this.form.submit();return true;"},
+	if($forms:anthologies=$value) then
+	  attribute checked {"checked"}
+	else
+	  ()
+      },
+      $options[@value/string()=$value]/string(),
+      forms:pass-as-hidden-except($param)
+    }
+
+  return $form
+};
+
 declare function forms:pass-as-hidden-except(
   $field as xs:string)  as node()* 
 {
