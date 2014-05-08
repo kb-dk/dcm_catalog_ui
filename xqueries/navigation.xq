@@ -42,7 +42,6 @@ declare variable $sort-options :=
 );
 
 
-
 declare function local:format-reference(
   $doc as node(),
   $pos as xs:integer ) as node() 

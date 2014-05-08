@@ -85,19 +85,8 @@ declare function layout:page-menu($mode as xs:string) as node()
   <div id="menu">
     { 
     let $browse:= if ($mode="") then "selected" else ""
-    return (<a href="navigation.xq" class="{$browse}">Browse catalogue</a>)
+    return (<a href="navigation.xq" class="{$browse}">Catalogue</a>)
     }
-    { 
-    let $alpha:= if ($mode="alpha") then "selected" else ""
-    return (<a href="navigation.xq?itemsPerPage=9999&amp;c=CNW&amp;sortby=null%2Ctitle&amp;mode=alpha" 
-      class="{$alpha}">Alphabetic list</a>)
-    }
-    { 
-    let $sys:= if ($mode="sys") then "selected" else ""
-    return (<a href="navigation.xq?itemsPerPage=9999&amp;c=CNW&amp;sortby=work_number%2Ctitle&amp;mode=sys" 
-      class="{$sys}">Systematic list</a>)
-    }
-
     <a href="example-page.xq">About CNW</a> 
   </div> 
 

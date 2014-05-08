@@ -85,18 +85,21 @@ declare function forms:emit-checkbox-form(
      attribute action {""},
      attribute id {$id},
      element input {
-	attribute type {"checkbox"},
+	    attribute type {"checkbox"},
         attribute name {$param},
         attribute value {$value},
         attribute class {"checkbox"},
-	attribute onclick {"this.form.submit();return true;"},
+	    attribute onclick {"this.form.submit();return true;"},
 	if($forms:anthologies=$value) then
 	  attribute checked {"checked"}
 	else
 	  ()
       },
-      $options[@value/string()=$value]/string(),
-      forms:pass-as-hidden-except($param)
+      element label {
+        attribute for {$id},
+        $options[@value/string()=$value]/string(),
+        forms:pass-as-hidden-except($param)
+      }
     }
 
   return $form
