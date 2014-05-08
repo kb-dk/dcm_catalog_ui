@@ -8,7 +8,7 @@ declare variable $mode   := request:get-parameter("mode","") cast as xs:string;
   {layout:head("About Carl Nielsen Works (CNW)")}
   <body class="list_files">
     <div id="all">
-      {layout:page-head("A major theme","The impossibility of fully escaping structures in order to study them")}
+      {layout:page-head("CNW","A Thematic Catalogue of Carl Nielsen&apos;s Works")}
       {layout:page-menu($mode)}
       <div id="main">
 	<p>

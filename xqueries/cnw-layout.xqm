@@ -87,7 +87,10 @@ declare function layout:page-menu($mode as xs:string) as node()
     let $browse:= if ($mode="") then "selected" else ""
     return (<a href="navigation.xq" class="{$browse}">Catalogue</a>)
     }
-    <a href="example-page.xq">About CNW</a> 
+    { 
+    let $about:= if ($mode="about") then "selected" else ""
+    return (<a href="about.xq" class="{$about}">About CNW</a>)
+    } 
   </div> 
 
   return $menu
