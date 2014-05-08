@@ -1,5 +1,7 @@
 xquery version "1.0" encoding "UTF-8";
 
+import module namespace layout="http://kb.dk/this/app/layout" at "./cnw-layout.xqm";
+
 declare namespace transform="http://exist-db.org/xquery/transform";
 declare namespace request="http://exist-db.org/xquery/request";
 declare namespace response="http://exist-db.org/xquery/response";
@@ -11,20 +13,43 @@ declare namespace ft="http://exist-db.org/xquery/lucene";
 
 declare option exist:serialize "method=xml media-type=text/html"; 
 declare variable $document := request:get-parameter("doc", "");
-
+declare variable $mode   := request:get-parameter("mode","") cast as xs:string;
 
 let $list := 
 for $doc in collection("/db/cnw/data")
 where util:document-name($doc)=$document
 return $doc
 
-let $params := 
-<parameters>
-   <param name="hostname"    value="{request:get-header('HOST')}"/>
-   <param name="script_path" value="/storage/cnw/document.xq"/>
-   <param name="doc" value="{$document}"/>
-</parameters>
-
-for $doc in $list
-return transform:transform($doc,xs:anyURI(concat("","http://",request:get-header('HOST'),"/editor/transforms/mei/mei_to_html_public.xsl")),$params)
+let $result :=
+<html xmlns="http://www.w3.org/1999/xhtml">
+  {layout:head("About Carl Nielsen Works (CNW)",
+	  (<link rel="stylesheet" type="text/css" href="/editor/style/dcm.css"/>,
+	  <link rel="stylesheet" type="text/css" href="/editor/style/cnw.css"/>,
+	  <link rel="stylesheet" type="text/css" href="/editor/style/public_list_style.css"/>,
+	  <link rel="stylesheet" type="text/css" href="/editor/style/mei_to_html_public.css"/>,
+	  <script type="text/javascript" src="/editor/js/toggle_openness.js">
+	  {"
+	  "}
+	  </script>
+	  ))}
+  <body class="list_files">
+    <div id="all">
+      {layout:page-head("CNW","A Thematic Catalogue of Carl Nielsen&apos;s Works")}
+      {layout:page-menu($mode)}
+      <div id="main">
+      {
+	for $doc in $list
+	let $params := 
+	<parameters>
+	  <param name="hostname"    value="{request:get-header('HOST')}"/>
+	  <param name="script_path" value="/storage/cnw/document.xq"/>
+	  <param name="doc" value="{$document}"/>
+	</parameters>
+	return transform:transform($doc,xs:anyURI(concat("","http://",request:get-header('HOST'),"/editor/transforms/mei/mei_to_html_public.xsl")),$params)
+      }
+      </div>
+    </div>
+  </body>
+</html>
  
+return $result

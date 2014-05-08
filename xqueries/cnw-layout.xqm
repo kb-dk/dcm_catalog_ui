@@ -3,7 +3,10 @@ xquery version "1.0" encoding "UTF-8";
 module  namespace  layout="http://kb.dk/this/app/layout";
 
 
-declare function layout:head($title as xs:string) as node() {
+declare function layout:head($title as xs:string,
+                             $additions as node()*
+			) as node() 
+{
   let $head :=
   <head>
     <title>{$title}</title>
@@ -13,7 +16,7 @@ declare function layout:head($title as xs:string) as node() {
       
     <link type="text/css" href="/editor/style/dcm.css" rel="stylesheet" />
     <link type="text/css" href="/editor/style/cnw.css" rel="stylesheet" />
-
+    {$additions}
     <link 
        rel="styleSheet" 
        href="/editor/style/public_list_style.css" 

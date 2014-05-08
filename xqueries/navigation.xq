@@ -131,7 +131,7 @@ declare function local:format-reference(
 };
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-   {layout:head("Carl Nielsen Works (CNW)")}
+   {layout:head("Carl Nielsen Works (CNW)",())}
     <body class="list_files">
     
       <div id="all">
