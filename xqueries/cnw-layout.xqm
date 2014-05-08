@@ -11,7 +11,7 @@ declare function layout:head($title as xs:string,
   <head>
     <title>{$title}</title>
       
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
       
     <link type="text/css" href="/editor/style/dcm.css" rel="stylesheet" />

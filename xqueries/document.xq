@@ -27,10 +27,8 @@ let $result :=
 	  <link rel="stylesheet" type="text/css" href="/editor/style/cnw.css"/>,
 	  <link rel="stylesheet" type="text/css" href="/editor/style/public_list_style.css"/>,
 	  <link rel="stylesheet" type="text/css" href="/editor/style/mei_to_html_public.css"/>,
-	  <script type="text/javascript" src="/editor/js/toggle_openness.js">
-	  {"
-	  "}
-	  </script>
+	  <script type="text/javascript" src="/editor/js/toggle_openness.js">{"
+	  "}</script>
 	  ))}
   <body class="list_files">
     <div id="all">
