@@ -15,6 +15,7 @@ declare option exist:serialize "method=xml media-type=text/html";
 declare variable $document := request:get-parameter("doc", "");
 declare variable $mode   := request:get-parameter("mode","") cast as xs:string;
 
+
 let $list := 
 for $doc in collection("/db/cnw/data")
 where util:document-name($doc)=$document
@@ -23,9 +24,7 @@ return $doc
 let $result :=
 <html xmlns="http://www.w3.org/1999/xhtml">
   {layout:head("About Carl Nielsen Works (CNW)",
-	  (<link rel="stylesheet" type="text/css" href="/editor/style/dcm.css"/>,
-	  <link rel="stylesheet" type="text/css" href="/editor/style/cnw.css"/>,
-	  <link rel="stylesheet" type="text/css" href="/editor/style/public_list_style.css"/>,
+	  (<link rel="stylesheet" type="text/css" href="/editor/style/public_list_style.css"/>,
 	  <link rel="stylesheet" type="text/css" href="/editor/style/mei_to_html_public.css"/>,
 	  <script type="text/javascript" src="/editor/js/toggle_openness.js">{"
 	  "}</script>
@@ -46,6 +45,7 @@ let $result :=
 	return transform:transform($doc,xs:anyURI(concat("","http://",request:get-header('HOST'),"/editor/transforms/mei/mei_to_html_public.xsl")),$params)
       }
       </div>
+      {layout:page-footer($mode)}
     </div>
   </body>
 </html>

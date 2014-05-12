@@ -17,10 +17,6 @@ declare function layout:head($title as xs:string,
     <link type="text/css" href="/editor/style/dcm.css" rel="stylesheet" />
     <link type="text/css" href="/editor/style/cnw.css" rel="stylesheet" />
     {$additions}
-    <link 
-       rel="styleSheet" 
-       href="/editor/style/public_list_style.css" 
-       type="text/css"/>
 
     <link href="/editor/jquery/jquery-ui-1.10.3/css/base/jquery-ui.css" 
        rel="stylesheet" 
