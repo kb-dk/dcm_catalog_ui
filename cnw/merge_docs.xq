@@ -1,5 +1,6 @@
 xquery version "1.0" encoding "UTF-8";
 
+
 import module namespace loop="http://kb.dk/this/getlist" at "./main_loop.xqm";
 
 declare namespace xl="http://www.w3.org/1999/xlink";
@@ -63,7 +64,7 @@ return
   for $doc in $list
   let $html := transform:transform($doc,xs:anyURI(concat("","http://",request:get-header('HOST'),"/editor/transforms/mei/mei_to_html_print.xsl")),$params)//div[@class='main']
   return 
-  <div>
+  <div class="work">
     {local:copy($html)}
   </div>
 }
