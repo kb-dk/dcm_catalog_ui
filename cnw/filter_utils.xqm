@@ -11,8 +11,7 @@ declare variable $filter:page   := request:get-parameter("page",   "1") cast as 
 declare variable $filter:number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
 declare variable $filter:genre := request:get-parameter("genre", "") cast as xs:string;
 declare variable $filter:uri    := "";
-declare variable $filter:vocabulary := 
-        doc(concat("http://",request:get-header('HOST'),"/editor/forms/mei/model/keywords.xml"));
+declare variable $filter:vocabulary := doc("./keywords.xml");
 
 declare variable $filter:anthology-options := 
 (<option value="no">Exclude anthologies</option>,
