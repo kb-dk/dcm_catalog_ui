@@ -22,9 +22,10 @@ declare variable $coll   := request:get-parameter("c",    "") cast as xs:string;
 declare variable $query  := request:get-parameter("query","") cast as xs:string;
 declare variable $page   := request:get-parameter("page", "1") cast as xs:integer;
 declare variable $number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
-declare variable $published_only := request:get-parameter("published_only","");
-
-declare variable $database := "/db/dcm";
+declare variable $publ   := request:get-parameter("published_only","");
+declare variable $style  := "http://dcm-udv-01.kb.dk/editor/transforms/mei/mei_to_html_print.xsl";
+declare variable $stURI  := xs:anyURI(request:get-parameter("style",$style));
+declare variable $database := request:get-parameter("db","/db/dcm");
 
 declare variable $from     := ($page - 1) * $number + 1;
 declare variable $to       :=  $from      + $number - 1;
@@ -51,7 +52,7 @@ let $params :=
    <param name="hostname" value="{request:get-header('HOST')}"/>
 </parameters>
 
-let $list := loop:getlist($database,$published_only,$coll,$genre,$query)
+let $list := loop:getlist($database,$coll,$genre,$query)
 
 return
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -62,7 +63,7 @@ return
 <body>
 {
   for $doc in $list
-  let $html := transform:transform($doc,xs:anyURI(concat("","http://",request:get-header('HOST'),"/editor/transforms/mei/mei_to_html_print.xsl")),$params)//div[@class='main']
+  let $html := transform:transform($doc,$stURI,$params)//div[@class='main']
   return 
   <div class="work">
     {local:copy($html)}

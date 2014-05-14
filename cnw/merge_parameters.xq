@@ -36,10 +36,6 @@ let $formpage :=
 	      <input style="color:black;" type="text" value="{$coll}"  name="c" /></p>
 	      <p><strong>Search query</strong><br/>
 	      <input style="color:black;" type="text" value="{$query}" name="query"/></p>
-	      <p><strong>Start page number</strong><br/>
-	      <input style="color:black;" type="text" value="{$page}"  name="page"/></p>
-	      <p><strong>Records per page</strong><br/>
-	      <input style="color:black;" type="text" value="{$number}" name="itemsPerPage"/></p>
 	      <p><strong>Style sheet URI</strong><br/>
 	      <input style="color:black;" type="text" value="{$style}" name="style" /></p>
 	      <p><strong>eXist database</strong><br/>
