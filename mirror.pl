@@ -21,7 +21,10 @@ my $before    = "2099-12-31T24:00:00";
 
 #####
 #
-# Collecting data on source files
+# Collecting data on source files The database treats dates gracefully, and so
+# does the deprecated version of this script. However I'm not prepared to
+# resolve the dependencies needed to install DateTime on our servers. RedHat
+# has its limitations.
 #
 
 my $source_files     = $suri . "/document-info.xq?" .
@@ -97,9 +100,7 @@ sub get_data {
 	    my ($file,$date) = split /\s+/,$line;
 	    $data{$file} = $date;
 	}
-
     }
-
     return %data;
 }
 
