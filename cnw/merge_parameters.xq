@@ -30,6 +30,13 @@ let $formpage :=
 	          method="get" 
 		  class="search" 
 		  id="query_form" name="query_form" >
+
+	      <p><strong>Order by</strong><br/>
+	      <select name="sortby">
+		<option value="null,work_number">Work number</option>
+		<option value="null,title">Title</option>
+		<option value="date,title">Year</option>
+	      </select></p>
 	      <p><strong>Genre</strong><br/>
 	      <input style="color:black;" type="text" value="{$genre}" name="genre" /></p>
 	      <p><strong>Collection</strong><br/>
