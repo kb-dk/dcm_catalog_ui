@@ -3,8 +3,6 @@
 use strict;
 use LWP::UserAgent;
 use Getopt::Long;
-use DateTime;
-
 
 my $scheme    = "http://";
 my $source_host_port = "dcm-backend-01.kb.dk:8080";
@@ -48,20 +46,12 @@ my %sources = &get_data($source_files);
 my %targets = &get_data($target_files); 
 my @filelist = keys(%sources);
 
-my $latest_modification = &parse_date_time("2000-01-01T00:00:01");
-
 print "about to process $#filelist files\n";
 
 foreach my $file (@filelist) {
 
     print STDERR "doing $file \n";
     
-    my $docdate = &parse_date_time($sources{$file});
-
-    if(DateTime->compare( $latest_modification, $docdate ) < 0 ) {
-	$latest_modification = $docdate ;
-    }
-
     my $req = new HTTP::Request();
     my $target_url = $turi . $target .'/' .  $file;
     my $source_url = $suri . $source .'/' .  $file;
@@ -111,23 +101,6 @@ sub get_data {
     }
 
     return %data;
-}
-
-
-
-sub parse_date_time {
-    my $dtf = shift;
-
-    $dtf =~ m/^(\d\d\d\d)-?(\d\d)-?(\d\d)T(\d\d):?(\d\d):?(\d\d).*$/;
-
-    return DateTime->new(
-	year       => $1,
-	month      => $2,
-	day        => $3,
-	hour       => $4,
-	minute     => $5,
-	second     => $6,
-	time_zone  => 'CET');
 }
 
 sub delete_file {
