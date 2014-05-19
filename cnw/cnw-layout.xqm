@@ -83,6 +83,14 @@ declare function layout:page-menu($mode as xs:string) as node()
   let $menu := 
   <div id="menu">
     { 
+    let $preface:= if ($mode="preface") then "selected" else ""
+    return (<a href="preface.xq" class="{$preface}">Preface</a>)
+    } 
+    { 
+    let $introduction:= if ($mode="introduction") then "selected" else ""
+    return (<a href="introduction.xq" class="{$introduction}">Introduction</a>)
+    } 
+    { 
     let $browse:= if ($mode="") then "selected" else ""
     return (<a href="navigation.xq" class="{$browse}">Catalogue</a>)
     }
