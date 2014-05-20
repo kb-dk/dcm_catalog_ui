@@ -5,10 +5,10 @@ declare option exist:serialize "method=xml media-type=text/html;charset=UTF-8";
 declare variable $mode   := request:get-parameter("mode","about") cast as xs:string;
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-  {layout:head("About Carl Nielsen Works (CNW)",())}
+  {layout:head("About Carl Nielsen Works Catalogue (CNW)",())}
   <body class="text">
     <div id="all">
-      {layout:page-head("CNW","A Thematic Catalogue of Carl Nielsen&apos;s Works")}
+      {layout:page-head("CNW","Carl Nielsen Works Catalogue")}
       {layout:page-menu($mode)}
       <div id="main">
       <h1>About the Carl Nielsen Works Catalogue (CNW)</h1>
