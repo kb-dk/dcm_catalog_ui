@@ -163,15 +163,13 @@ declare function app:public-view-document-reference($doc as node()) as node()* {
 	  concat($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@type/string()='subordinate'][1]/string(),"&#160;")
 	}
       },
-      element span {
-	attribute style {"display:none;"},
-	attribute lang {"en"},
-	element a {
-	  attribute title {"View"},
-	  attribute href  {concat("/storage/document.xq?doc=",util:document-name($doc))},
-	  concat($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and not(@type/string())]/string(),"&#160;")
-	},
-	element span {
+    element br {},
+    element span {
+	  attribute class {"alternative_language"},
+	  attribute lang {"en"},
+	  concat($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and not(@type/string())]/string(),"&#160;"),
+  	  element span {
+  	  attribute class {"alternative_language"},
 	  attribute style {"font-size: 75%;"},
 	  concat($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate']/string(),"&#160;")
 	}
