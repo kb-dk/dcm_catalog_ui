@@ -382,7 +382,7 @@ declare function app:navigation(
 		  </form>),
 		  if ($total > $app:number) then
 		    element div {
-       		      attribute class {"paging_div"},
+       		      attribute class {"paging_div noprint"},
        		      $previous,"&#160;",
        		      $app:page_nav,
        		      "&#160;", $next}

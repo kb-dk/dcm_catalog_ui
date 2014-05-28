@@ -26,7 +26,7 @@ declare variable $mode   := request:get-parameter("mode","about") cast as xs:str
 	<p><span class="label">&#160;</span><span>2014</span></p>
 	<p><span class="label">Technical development:</span><span>Sigfrid Lundberg</span></p>
 	<p><span class="label">Assistants:</span><span>Katarina Smitt Engberg, Niclas Nørby Hundahl</span></p>
-	<p><span class="label">Sponsor: </span><span>Carl Nielsen og Anne Marie Carl-Nielsen's Legat</span></p>
+	<p><span class="label">Sponsor: </span><span>Carl Nielsen og Anne Marie Carl-Nielsens Legat</span></p>
 	</div>
       </div>
       {layout:page-footer($mode)}

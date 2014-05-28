@@ -81,7 +81,7 @@ declare function layout:page-head(
 declare function layout:page-menu($mode as xs:string) as node()
 {
   let $menu := 
-  <div id="menu">
+  <div id="menu" class="noprint">
     { 
     let $preface:= if ($mode="preface") then "selected" else ""
     return (<a href="preface.xq" class="{$preface}">Preface</a>)
