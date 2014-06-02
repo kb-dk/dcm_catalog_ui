@@ -49,11 +49,60 @@ declare function local:format-reference(
 {
 
    (: the first level 1 and 2 genre keywords are assumed to be the principal ones - all others are hidden :)
+   (:
    let $genre1 := $doc//m:workDesc/m:work/m:classification/m:termList/m:term[contains(string-join($vocabulary//m:termList[@label='level1']/m:term," "),.) and normalize-space(.)!=''][1]/string()
    let $genre2 := $doc//m:workDesc/m:work/m:classification/m:termList/m:term[contains(string-join($vocabulary//m:termList[@label='level2']/m:term," "),.) and normalize-space(.)!=''][1]/string()
    let $class1 := translate(translate($genre1,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')
    let $class2 := translate(translate($genre2,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')
-            
+   :)  
+(:      let $genres1 := 
+      for $genre in $genres2
+	  where string-length($genre) > 0   
+	     return
+           $vocabulary//m:termList/m:term[.=$genre]/../preceding-sibling::m:termList[@label='level1']
+	       
+   let $class1 := 
+      for $genre in $genres1
+         return 
+	         translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')
+:)
+     
+     
+     (: start test :)
+    let $genres2 := 
+      for $genre in 
+	  distinct-values($doc//m:workDesc/m:work/m:classification/m:termList/m:term[contains(string-join($vocabulary//m:termList[@label='level2']/m:term," "),.) and normalize-space(.)!='']/string())
+	  where string-length($genre) > 0   
+	     return
+	       $genre
+
+   let $genres1 := 
+      for $genre in $genres2
+         return 
+	         $vocabulary//m:termList/m:term[.=$genre]/../preceding-sibling::m:termList[@label='level1'][1]/string()
+
+   let $class := 
+      for $genre in $genres2
+         return 
+	         translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')
+
+
+   let $class1 := 
+      for $genre in $genres1
+         return 
+	         translate(translate(normalize-space($genre),' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')
+    
+    let $genre_boxes := 
+      for $genre at $pos in $genres2
+         return 
+            <div class="genre_list">
+              <span class="list_id">{if($pos=1) then app:get-edition-and-number($doc) else " "}{" "}</span>
+              <span class="pos1 {$class[$pos]}_pos1">{$genres1[$pos]}</span>
+              <span class="{$class[$pos]}">{$genre}</span>
+            </div>
+    
+    (: end test :)
+    
    let $date_output :=
      if($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notbefore!='' or $doc//m:workDesc/m:work/m:history/m:creation/m:date/@notafter!='') then
        concat(substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notbefore,1,4),'-',substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notafter,1,4))
@@ -67,22 +116,8 @@ declare function local:format-reference(
         <div class="title">
 	      {app:public-view-document-reference($doc)}{" "}
 	    </div>
-        <div class="info_bar {$class2}">
-	      <span class="list_id">
-	        {app:get-edition-and-number($doc)}{" "}
-	      </span>
-	      <span class="genre">
-	      {
-	        if (string-length($genre1)>0) then 
-	           <span class="pos1">{$genre1}</span>
-	        else ""
-	      }
-	      {
-	        if (string-length($genre2)>0) then 
-	           <span class="pos2">{$genre2}</span>
-	        else ""
-	      }
-	      </span>
+        <div class="info_bar">
+	      {$genre_boxes}
 	    </div>
       </div>
    return $ref
