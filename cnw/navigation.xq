@@ -75,7 +75,7 @@ declare function local:format-reference(
 
 
     let $genre_boxes := 
-      for $genre at $pos in $genres2 order by -$pos
+      for $genre at $pos in $genres2 
          return 
            <div class="genre_list">
               <a class="{$class[$pos]} genre_indicator abbr">&#160;
