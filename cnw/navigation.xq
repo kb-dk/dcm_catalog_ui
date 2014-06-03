@@ -48,27 +48,6 @@ declare function local:format-reference(
 
 {
 
-   (: the first level 1 and 2 genre keywords are assumed to be the principal ones - all others are hidden :)
-   (:
-   let $genre1 := $doc//m:workDesc/m:work/m:classification/m:termList/m:term[contains(string-join($vocabulary//m:termList[@label='level1']/m:term," "),.) and normalize-space(.)!=''][1]/string()
-   let $genre2 := $doc//m:workDesc/m:work/m:classification/m:termList/m:term[contains(string-join($vocabulary//m:termList[@label='level2']/m:term," "),.) and normalize-space(.)!=''][1]/string()
-   let $class1 := translate(translate($genre1,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')
-   let $class2 := translate(translate($genre2,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')
-   :)  
-(:      let $genres1 := 
-      for $genre in $genres2
-	  where string-length($genre) > 0   
-	     return
-           $vocabulary//m:termList/m:term[.=$genre]/../preceding-sibling::m:termList[@label='level1']
-	       
-   let $class1 := 
-      for $genre in $genres1
-         return 
-	         translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')
-:)
-     
-     
-     (: start test :)
     let $genres2 := 
       for $genre in 
 	  distinct-values($doc//m:workDesc/m:work/m:classification/m:termList/m:term[contains(string-join($vocabulary//m:termList[@label='level2']/m:term," "),.) and normalize-space(.)!='']/string())
@@ -76,93 +55,65 @@ declare function local:format-reference(
 	     return
 	       $genre
 
-   let $genres1 := 
-      for $genre in $genres2
-         return 
-	         $vocabulary//m:termList/m:term[.=$genre]/../preceding-sibling::m:termList[@label='level1'][1]/string()
-
    let $class := 
       for $genre in $genres2
          return 
 	         translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')
 
 
+(: Level 1 genres actually not used at the moment :) 
+   let $genres1 := 
+      for $genre in $genres2
+         return 
+	         $vocabulary//m:termList/m:term[.=$genre]/../preceding-sibling::m:termList[@label='level1'][1]/string()
+
    let $class1 := 
       for $genre in $genres1
          return 
 	         translate(translate(normalize-space($genre),' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')
-    
+(: End not used :)
+
+
     let $genre_boxes := 
-      for $genre at $pos in $genres2
+      for $genre at $pos in $genres2 order by -$pos
          return 
-            <div class="genre_list">
-              <span class="list_id">{if($pos=1) then app:get-edition-and-number($doc) else " "}{" "}</span>
-              <span class="pos1 {$class[$pos]}_pos1">{$genres1[$pos]}</span>
-              <span class="{$class[$pos]}">{$genre}</span>
-            </div>
-    
-    (: end test :)
-    
+           <div class="genre_list">
+              <a class="{$class[$pos]} genre_indicator abbr">&#160;
+                <span class="expan">{$genre}</span>
+              </a>
+           </div>
+       
    let $date_output :=
      if($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notbefore!='' or $doc//m:workDesc/m:work/m:history/m:creation/m:date/@notafter!='') then
        concat(substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notbefore,1,4),'-',substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notafter,1,4))
      else
        substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@isodate,1,4)
 
-   let $ref   := 
-     <div class="result_row">
-	    <div class="composer">{comment{$doc//m:workDesc/m:work/m:titleStmt/m:respStmt/m:persName[@role='composer']/text()}}&#160;</div>
-	    <div class="date">&#160;{$date_output}</div>
-        <div class="title">
-	      {app:public-view-document-reference($doc)}{" "}
-	    </div>
-        <div class="info_bar">
-	      {$genre_boxes}
-	    </div>
+(: Composer currently not used :)
+   let $composer :=
+   	        <div class="composer">{$doc//m:workDesc/m:work/m:titleStmt/m:respStmt/m:persName[@role='composer']/text()}&#160;</div>
+
+   let $ref   :=
+     <div class="result_table">
+       <div class="result_row">
+          <div class="list_id result_cell">
+            <a href="{concat('./document.xq?doc=',util:document-name($doc))}">
+              {app:get-edition-and-number($doc)}{" "}
+            </a>
+          </div>
+          <div class="result_cell">
+	        <div class="date">&#160;{$date_output}</div>
+            <div class="title">
+	          {app:public-view-document-reference($doc)}{" "}
+	        </div>
+            <div class="info_bar">
+	          {$genre_boxes}
+	       </div>
+	     </div>
+        </div>
       </div>
    return $ref
 
-(: the following lists ALL genre keywords instead :)
-(:   let $genres := 
-      for $genre in 
-	  distinct-values($doc//m:workDesc/m:work/m:classification/m:termList/m:term/string())
-	  where string-length($genre) > 0   
-	     return
-	       $genre
-
-   let $class := 
-      for $genre in $genres
-         return 
-	         translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')
-
-   let $genre_boxes := 
-      for $genre at $pos in $genres
-         return 
-            <span class="pos{$pos}">{$genre}</span> 
-            
-      let $date_output :=
-        if($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notbefore!='' or $doc//m:workDesc/m:work/m:history/m:creation/m:date/@notafter!='') then
-          concat(substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notbefore,1,4),'-',substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notafter,1,4))
-        else
-          substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@isodate,1,4)
-
-   let $ref   := 
-      <div class="result_row">
-	<div class="composer">{comment{$doc//m:workDesc/m:work/m:titleStmt/m:respStmt/m:persName[@role='composer']/text()}}&#160;</div>
-	<div class="date">&#160;{$date_output}</div>
-        <div class="title">
-	  {app:public-view-document-reference($doc)}{" "}
-	</div>
-        <div class="info_bar {$class}">
-	  <span class="list_id">
-	    {app:get-edition-and-number($doc)}{" "}
-	  </span>
-	  <span class="genre">
-	    {$genre_boxes}{" "}
-	  </span>
-	</div>
-      </div>
-   return $ref  :)
 };
 
 <html xmlns="http://www.w3.org/1999/xhtml">
