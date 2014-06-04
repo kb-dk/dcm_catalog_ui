@@ -71,16 +71,16 @@ declare function loop:genre-filter(
 {
   (: we are searchin in level 2 genre keywords :)
 
-  let $docgenre1 := $doc//m:workDesc/m:work/m:classification/m:termList/m:term[.=$loop:vocabulary//m:termList[@label='level1']/m:term and .!=''][1]/string()
-  let $docgenre2 := $doc//m:workDesc/m:work/m:classification/m:termList/m:term[.=$loop:vocabulary//m:termList[@label='level2']/m:term and .!=''][1]/string()
+  let $docgenre1 := string-join($doc//m:workDesc/m:work/m:classification/m:termList/m:term[.=$loop:vocabulary//m:termList[@label='level1']/m:term and .!='']/string(), " ")
+  let $docgenre2 := string-join($doc//m:workDesc/m:work/m:classification/m:termList/m:term[.=$loop:vocabulary//m:termList[@label='level2']/m:term and .!='']/string(), " ")
 
   let $occurrence :=
     if( string-length($genre)=0) then
       true()
     else 
-      if($genre eq $docgenre1 ) then
+      if(contains($docgenre1,$genre) ) then
 	true()
-      else if($genre eq $docgenre2) then
+      else if( contains($docgenre2,$genre) ) then
 	true()
       else
 	false()

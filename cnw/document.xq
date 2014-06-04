@@ -38,11 +38,11 @@ let $result :=
 	for $doc in $list
 	let $params := 
 	<parameters>
-	  <param name="hostname"    value="{request:get-header('HOST')}"/>
-	  <param name="script_path" value="/storage/cnw/document.xq"/>
+	  <param name="hostname"    value="http://dcm-frontend-01.kb.dk"/>
+	  <param name="script_path" value="./document.xq"/>
 	  <param name="doc" value="{$document}"/>
 	</parameters>
-	return transform:transform($doc,xs:anyURI(concat("","http://",request:get-header('HOST'),"/editor/transforms/mei/mei_to_html_public.xsl")),$params)
+	return transform:transform($doc,xs:anyURI("http://dcm-frontend-01.kb.dk/editor/transforms/mei/mei_to_html_public.xsl"),$params)
       }
       </div>
       {layout:page-footer($mode)}
