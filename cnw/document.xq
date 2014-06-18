@@ -13,8 +13,8 @@ declare namespace ft="http://exist-db.org/xquery/lucene";
 
 declare option exist:serialize "method=xml media-type=text/html"; 
 declare variable $document := request:get-parameter("doc", "");
-declare variable $mode   := request:get-parameter("mode","") cast as xs:string;
-
+declare variable $mode     := request:get-parameter("mode","") cast as xs:string;
+declare variable $host     := request:get-header('HOST');
 
 let $list := 
 for $doc in collection("/db/cnw/data")
@@ -38,11 +38,11 @@ let $result :=
 	for $doc in $list
 	let $params := 
 	<parameters>
-	  <param name="hostname"    value="http://dcm-frontend-01.kb.dk"/>
+	  <param name="hostname"    value="{$host}"/>
 	  <param name="script_path" value="./document.xq"/>
 	  <param name="doc" value="{$document}"/>
 	</parameters>
-	return transform:transform($doc,xs:anyURI("http://dcm-frontend-01.kb.dk/editor/transforms/mei/mei_to_html_public.xsl"),$params)
+	return transform:transform($doc,xs:anyURI(concat("http://",$host,"/editor/transforms/mei/mei_to_html_public.xsl")),$params)
       }
       </div>
       {layout:page-footer($mode)}
