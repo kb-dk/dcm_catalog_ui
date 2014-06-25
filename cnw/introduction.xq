@@ -19,6 +19,7 @@ declare variable $mode   := request:get-parameter("mode","introduction") cast as
         <ul>
           <li><a href="#definition">Definition of 'Work'</a></li>
           <li><a href="#excerpts">Works and excerpts</a></li>
+          <li><a href="#sources">Sources</a></li>
           <li><a href="#songs">Songs originating from plays</a></li>
           <li><a href="#collections">Song collections</a></li>
           <li><a href="#arrangements">Arrangements and re-instrumentations</a></li>
@@ -64,21 +65,27 @@ This applies to a number of songs which originally were composed in relation
 to stage music but were disseminated and became known as independent
 works. In addition, CNW distinguishes between instrumental and vocal music:
 instrumental excerpts of larger works are essentially not interpreted as independent
-works. Thus the <i>‘Aladdin’ Suite</i>, for instance, is placed under <i>Musik til Adam Oehlenschlägers skuespil 
-‘Aladdin eller Den forunderlige Lampe’</i> (Music for Adam
-Oehlenschlägers Play ‘Aladdin or the Wonderful Lamp’) <a class="work_number_reference" href="document.xq?doc=cnw0017.xml">CNW 17</a>.
+works. Thus the <i>&apos;Aladdin&apos; Suite</i>, for instance, is placed under <i>Musik til Adam Oehlenschlägers skuespil 
+&apos;Aladdin eller Den forunderlige Lampe&apos;</i> (Music for Adam
+Oehlenschlägers Play &apos;Aladdin or the Wonderful Lamp&apos;) <a class="work_number_reference" href="document.xq?doc=cnw0017.xml">CNW 17</a>.
 Similarly, <i>Taagen letter</i> (The Fog is Lifting) is only to be found in relation to <i>Music til Helge Rodes
-skuespil ‘Moderen’</i> (Music for Helge Rode’s
-Play ‘The Mother’) <a class="work_number_reference" href="document.xq?doc=cnw0018.xml">CNW 18</a>, in spite of the fact that <i
+skuespil &apos;Moderen&apos;</i> (Music for Helge Rode&apos;s
+Play &apos;The Mother&apos;) <a class="work_number_reference" href="document.xq?doc=cnw0018.xml">CNW 18</a>, in spite of the fact that <i
 >Taagen letter</i>, in various arrangements, is far better known as
 an independent piece than the stage music for the play as a whole. The
 delimitation has been chosen since excerpts and arrangements constitute
 a continuum in which it is difficult to draw a clear line: from a complex
 version of the work or the grouping of a series of movements (e.g. the <i
->‘Aladdin’ Suite</i>), over single movements
+>&apos;Aladdin&apos; Suite</i>), over single movements
 which sometimes are performed independently – e.g. <i>Hanedansen</i> (The
-Cockerel’s Dance) from <i>Maskarade</i> (Masquerade) <a class="work_number_reference" href="document.xq?doc=cnw2.xml">CNW 2</a> – 
+Cockerel&apos;s Dance) from <i>Maskarade</i> (Masquerade) <a class="work_number_reference" href="document.xq?doc=cnw2.xml">CNW 2</a> – 
 and to actual arrangements of such movements (e.g. <i>Taagen letter</i>).</p>
+
+<h3><a name="sources">Sources</a></h3>
+<p><span class="new">CNW lists sources created during Carl Nielsen&apos; lifetime. Only sources directly related 
+to Nielsen as well as sources representing his own versions of his works are listed. 
+Other composers&apos; arrangements of Nielsen&apos;s works thus are not included.
+</span></p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h3><a name="songs">Songs originating from plays</a></h3>
@@ -86,7 +93,7 @@ and to actual arrangements of such movements (e.g. <i>Taagen letter</i>).</p>
 are also listed in the catalogue as separate works – that is, if they in addition were
 published outside their original context, either separately or as part
 of a collection of songs. One good example worth mentioning is <i
->Som en rejselysten Flaade</i> (There’s a Fleet of Floating Islands) <a class="work_number_reference" href="document.xq?doc=cnw0237.xml">CNW 237</a>
+>Som en rejselysten Flaade</i> (There&apos;s a Fleet of Floating Islands) <a class="work_number_reference" href="document.xq?doc=cnw0237.xml">CNW 237</a>
 that originally was composed for the play, <i>Moderen</i> (The Mother) 
 <a class="work_number_reference" href="document.xq?doc=cnw0018.xml">CNW 18</a>, 
 but which furthermore was published as part of an excerpt of the
@@ -110,54 +117,54 @@ listed as separate works (including, of course, the information on the
 collection/s of which they were part) because 1) it is difficult to draw a clear line
 between grouped, separate songs and actual cycles of songs; and 2) the songs are sometimes 
 also found in other contexts. These work criteria imply that a song
-such as Jeronimus’ song (<i>‘Fordum var her Fred paa Gaden’</i>) from <i>Maskarade</i> (Masquerade)
+such as Jeronimus&apos; song (&apos;Fordum var her Fred paa Gaden&apos;) from <i>Maskarade</i> (Masquerade)
 <a class="work_number_reference" href="document.xq?doc=cnw0002.xml">CNW 2</a>, is <em>not</em> to be found in CNW as
-an individual work since it, in spite of its popularity in Nielsen’s
+an individual work since it, in spite of its popularity in Nielsen&apos;s
 lifetime, was never published separately. In other words, it is the source situation
-that determines the evaluation of a song’s status as a work and not its
+that determines the evaluation of a song&apos;s status as a work and not its
 reception history.</p>
 <p>Though the song collections do
 not occur as works assigned one individual CNW number, they are
 described separately. The description of a song collection is contained
-in one single record which also includes a listing of the collection’s contents (that is, those songs
+in one single record which also includes a listing of the collection&apos;s contents (that is, those songs
 which the collection contains) as well as the sources related that particular
 collection. Thus the sources of the collections are not listed under
 each song but are found under the collection or collections in which the song
 appeared. The collection is located by clicking its title
-appearing under the ‘Contained in:’ heading. The description of a single
-song of a collection, however, is found by proceeding to the song’s title in the index of
-of the collection (under the heading ‘Contains:’).</p>
+appearing under the &apos;Contained in:&apos; heading. The description of a single
+song of a collection, however, is found by proceeding to the song&apos;s title in the index of
+of the collection (under the heading &apos;Contains:&apos;).</p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h3><a name="arrangements">Arrangements and re-instrumentations</a></h3> 
 <p>Different arrangements of the same
 composition are not defined as independent works but are included under
 the same CNW number, also when it comes to songs. This overall
-understanding of ‘work’ therefore implies that there is not a one-to-one agreement between a
+understanding of &apos;work&apos; therefore implies that there is not a one-to-one agreement between a
 work in CNW and an edition in CNU in all instances, but that there may be
 several CNU editions under the same CNW number. This applies to <i>Hjemvee</i> 
-(Homesickness; better known with the first line ‘Underlige Aftenlufte’) <a class="work_number_reference" href="document.xq?doc=cnw0205.xml">CNW 205</a>, for
+(Homesickness; better known with the first line &apos;Underlige Aftenlufte&apos;) <a class="work_number_reference" href="document.xq?doc=cnw0205.xml">CNW 205</a>, for
 instance, which has been published in CNU in four distinct arrangements of the
 same melody, all listed under the same number in CNW.</p>
-<p>Nielsen’s second and lesser known melody to the same text has, on the other hand, its
+<p>Nielsen&apos;s second and lesser known melody to the same text has, on the other hand, its
 own number (<a class="work_number_reference" href="document.xq?doc=cnw0296.xml">CNW 296</a>).
 <span class="new">Also songs employing the same melody but having different text are regarded as distinct compositions, 
 for instance <i>Julesang</i> (Christmas Carol; 1923) <a class="work_number_reference" href="document.xq?doc=cnw0313.xml">CNW 313</a>, 
-which Nielsen re-used with a another text  in 1924 ('Danevang med grønne bred') 
+which Nielsen re-used with a another text  in 1924 ('Dannevang med grønne bred') 
 <a class="work_number_reference" href="document.xq?doc=cnw0318.xml">CNW 318</a>.</span>
 </p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h3><a name="order">Order of numbering</a></h3>
-<p>Often Nielsen’s works cannot be dated precisely. They were composed over longer periods, and at a later
+<p>Often Nielsen&apos;s works cannot be dated precisely. They were composed over longer periods, and at a later
 date they were sometimes revised to such an extent that it hardly makes
-sense to assign them to one particular time in Nielsen’s production. The
+sense to assign them to one particular time in Nielsen&apos;s production. The
 catalogue numbers are therefore arranged according to genre 
 though a certain chronology has been sought within each genre. </p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h2><a name="howto">How to use the catalogue</a></h2>
-<p>The catalogue’s primary entry to the records is the list of work titles. 
+<p>The catalogue&apos;s primary entry to the records is the list of work titles. 
 In a column to the left of the titles it
 is possible to modify and limit the search results while at the top of the
 list there are different settings as to how the results may be displayed.</p>
@@ -174,29 +181,29 @@ search is not case sensitive and search words may be truncated with an asterisk 
 <li>Year of composition: 
 the search may be limited to works that are composed in
 a particular period, which is obtained by adjusting the
-slides and then by clicking the ‘Search’ button. Please note that searching by year
+slides and then by clicking the &apos;Search&apos; button. Please note that searching by year
 only includes that year which marks the end of the period. A work listed as having
 been composed between 1880 and 1883 will thus be found by searching for
 works from the period 1882–85, for instance, but not 1880–82. Note also that
 when searching for year of composition, undated works will not turn up.</li>
 <li>Genre:
 by clicking on a genre designation the search is limited to those works
-that are listed under that particular genre as the work’s primary genre.
+that are listed under that particular genre as the work&apos;s primary genre.
 Several works may have the genre added as a secondary designation. These records are
 found by searching the genre in the free text search field instead. </li>
 <li>Anthologies:
 as a standard the list of search results does not include anthologies
 (song collections) as they are not recorded as works with a CNW number (see
 work definition above). In order to include such collections in the search,
-the checkbox ‘Include anthologies’ must be ticked off.</li>
+the checkbox &apos;Include anthologies&apos; must be ticked off.</li>
 </ul>
 <p>All search limitations function
 additively, that is, a simultaneous use of several search parameters confines the
-result further (logically ‘AND’). Each delimiting parameter (filter) is shown
+result further (logically &apos;AND&apos;). Each delimiting parameter (filter) is shown
 at the top of the list of search results when the search has been completed. Each filter may be removed
 one at a time by clicking on the [delete] symbol at the filter in question, thus
 expanding the search again. Filters may be removed all at once by clicking on the red 
-‘Reset all’ button in the list of filters. </p>
+&apos;Reset all&apos; button in the list of filters. </p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h3><a name="sorting">Display and sorting of search results</a></h3>
@@ -215,14 +222,14 @@ Clicking a work&apos;s main title opens the detailed view.</span></p>
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h2><a name="contents">The structure and contents of each record</a></h2>
 <p>A certain amount of information is displayed directly on each record. For the sake of clarity, 
-other data may be hidden under the tabs ‘Music’, ‘Performances’, ‘Sources’,
-‘Primary texts’  and ‘Bibliography’ with a plus sign (+). By clicking the sign
+other data may be hidden under the tabs &apos;Music&apos;, &apos;Performances&apos;, &apos;Sources&apos;,
+&apos;Primary texts&apos;  and &apos;Bibliography&apos; with a plus sign (+). By clicking the sign
 the hidden information will fold out and may be closed again. </p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h3><a name="titles">Work titles</a></h3>
 <p>Precise titles are kept thus reproducing
-Nielsen’s original orthography. They reveal changes in Nielsen’s
+Nielsen&apos;s original orthography. They reveal changes in Nielsen&apos;s
 spelling and punctuation habits throughout his life and are apparent in titles such
 as <i>Har Haand du lagt paa Herrens Plov</i>
 <a class="work_number_reference" href="document.xq?doc=cnw0173.xml">CNW 173</a>
@@ -234,7 +241,7 @@ been retained rather than modernised, partly because it would be just as dated
 (though to a later time) and partly because modernisation is also a question
 of degree which in the extreme would not only include
 spelling and punctuation but also the choice of words.</p>
-<p>Several of Nielsen’s songs were published in various contexts with distinct orthography: 
+<p>Several of Nielsen&apos;s songs were published in various contexts with distinct orthography: 
 <i>Melodier til Sangbogen Danmark</i> (1924), for
 example, employs the older orthography while <i>Folkehøjskolens
 Melodibog</i> (1922) uses the modern. In these instances CNW reproduces
@@ -249,24 +256,24 @@ an actual title; in these cases the first line of the text has been
 added as title in quotation marks. In the remaining instances the text
 incipit is given as the alternative title, also when the song is better known by
 its first line (e.g. <i>Hjemvee</i> <a class="work_number_reference" href="document.xq?doc=cnw205.xml">CNW 205</a>), better
-known as ‘Underlige Aftenlufte!’).</p>
+known as &apos;Underlige Aftenlufte!&apos;).</p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h3><a name="identification">Identification</a></h3>
 <p>In addition to the actual CNW
-number, the catalogue provides each work’s number in an array of other
-contexts including Nielsen’s own opus numbers, Fog/Schousboe numbers and the
-work’s manuscript shelf mark in the Carl Nielsen Collection (CNS) at The Royal Library. </p>
+number, the catalogue provides each work&apos;s number in an array of other
+contexts including Nielsen&apos;s own opus numbers, Fog/Schousboe numbers and the
+work&apos;s manuscript shelf mark in the Carl Nielsen Collection (CNS) at The Royal Library. </p>
 <p>Furthermore, <span class="new">each record lists the number of the work in the Nielsen Edition (CNU);</span> 
 the numbers signify series and volume. The song numbers are preceded by a comma. If several versions occur in
 the same CNU volume these are separated by yet a comma; versions in other volumes
-are divided by a semicolon. Thus ‘CNU III/5, 146, 229; III/6, 324’ refers
+are divided by a semicolon. Thus &apos;CNU III/5, 146, 229; III/6, 324&apos; refers
 to numbers 146, 229 and 324 in the Nielsen Edition of which the two
 first-mentioned are in Series III (songs) volume 5 whereas the latter
 is in Series III volume 6.</p>
 <p>Then the name of a possible text author follows. </p>
 <p>Each song record includes a link
-titled ‘Carl Nielsen Edition (Editorial Texts)’ referring to a PDF-file
+titled &apos;Carl Nielsen Edition (Editorial Texts)&apos; referring to a PDF-file
 of the text volume to all the songs. Since the information regarding each song
 (history, English translation, source descriptions and
 list of revisions) is found in various sections of the volume, the link does
@@ -277,8 +284,8 @@ works or song collections this has been indicated by clickable titles
 linking to information placed under their CNW numbers. </p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
-<h3><a name="history">The work’s history</a></h3>
-<p>In addition to the work’s genesis,
+<h3><a name="history">The work&apos;s history</a></h3>
+<p>In addition to the work&apos;s genesis,
 the brief summary also includes information on the dating of the
 composition of the work, the first known performance and sometimes also a few other
 performances. Besides the date of the performance, also place,
@@ -290,14 +297,14 @@ participants and in some cases information regarding reviews are included.</p>
 instrumentations, this will normally be indicated under each version of
 the work. The instrumentation is given using abbreviations (see list of
 abbreviations). For an unambiguous identification of the works CNW
-provides incipits including the first bars of the work’s main parts
+provides incipits including the first bars of the work&apos;s main parts
 (movements, scenes or similar). Works of a more extensive instrumentation are
 provided with incipits in short score. By clicking on an incipit, a larger edition
 appears in a separate window.</p>
 <p>In records of works of a more complex structure, such as operas divided into acts, scenes and
 sections of scenes, the information constitutes a hierarchy of each individual
-element that may be folded out by clicking on the ‘Sections’ heading.</p>
-<p>A link marked ‘Carl Nielsen Edition’ leads to a PDF-file of that volume (or volumes) of the
+element that may be folded out by clicking on the &apos;Sections&apos; heading.</p>
+<p>A link marked &apos;Carl Nielsen Edition&apos; leads to a PDF-file of that volume (or volumes) of the
 Nielsen Edition which contains the work. Some works, which were originally
 published in a composite volume, were also published as soft-bound
 off-prints, for example the flute and clarinet concertos. In
@@ -305,19 +312,19 @@ these instances the link refers to the off-prints. </p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h3><a name="sources">Sources</a></h3>
-<p>The overview of sources for each work includes sources from Nielsen’s lifetime only.</p>
+<p>The overview of sources for each work includes sources from Nielsen&apos;s lifetime only.</p>
 <p>The source descriptions are minimal, providing the most basic information for identification. More
 detailed descriptions are available in the volumes of the Nielsen Edition (CNU). To
-facilitate the consultation CNW lists the CNU’s source designation (e.g.
-‘CNU Source <b>A</b>’). The appropriate CNU volumes are available via the mentioned link.</p>
+facilitate the consultation CNW lists the CNU&apos;s source designation (e.g.
+&apos;CNU Source <b>A</b>&apos;). The appropriate CNU volumes are available via the mentioned link.</p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h3><a name="bibliography">Bibliography</a></h3>
 <p>At present, the bibliography deals with primary texts mainly consisting of letters to
-and from Nielsen as well as Nielsen’s diaries. The information is based on
+and from Nielsen as well as Nielsen&apos;s diaries. The information is based on
 the forthcoming <a class="abbr" href="javascript:void(0);"><i>Carl Nielsen Brevudgaven</i> (Carl Nielsen Letters)<span 
 class="expan">John Fellow (ed.): <em>Carl Nielsen Brevudgaven</em>. Multivers, Copenhagen 2005-. </span></a>.
-References do not include letters from Nielsen’s latest years but they 
+References do not include letters from Nielsen&apos;s latest years but they 
 will be added as soon as possible when the complete edition is available. </p>
 <p>In so far as it has been possible, references to letters dealing with actual songs have
 been listed under the specific song rather than the collection or those collections
