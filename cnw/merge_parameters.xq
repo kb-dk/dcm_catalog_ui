@@ -11,8 +11,9 @@ declare variable $query  := request:get-parameter("query","") cast as xs:string;
 declare variable $page   := request:get-parameter("page", "1") cast as xs:integer;
 declare variable $number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
 declare variable $publ   := request:get-parameter("published_only","") cast as xs:string;
+declare variable $anthologies := request:get-parameter("anthologies","yes");
 declare variable $style  := "http://dcm-udv-01.kb.dk/editor/transforms/mei/mei_to_html_print.xsl";
-declare variable $database := request:get-parameter("db","/db/dcm") cast as xs:string;
+declare variable $database := request:get-parameter("db","/db/cnw/data") cast as xs:string;
 
 let $stURI    := xs:anyURI(request:get-parameter("style",$style))
 
@@ -43,10 +44,16 @@ let $formpage :=
 	      <input style="color:black;" type="text" value="{$coll}"  name="c" /></p>
 	      <p><strong>Search query</strong><br/>
 	      <input style="color:black;" type="text" value="{$query}" name="query"/></p>
+	      <p><strong>Anthologies</strong><br/>
+	      <input style="color:black;" 
+	             type="text" value="{$anthologies}" name="anthologies"/></p>
 	      <p><strong>Style sheet URI</strong><br/>
-	      <input style="color:black;" type="text" value="{$style}" name="style" /></p>
+	      <input style="color:black;" type="text" value="{$stURI}" name="style" /></p>
 	      <p><strong>eXist database</strong><br/>
 	      <input style="color:black;" type="text" value="{$database}" name="db" /></p>
+
+
+
 	      <p><input type="submit" value="Generate" /></p>
 	    </form>
 	  </div>

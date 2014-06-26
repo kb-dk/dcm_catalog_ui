@@ -21,7 +21,7 @@ declare function loop:valid-work-number($doc as node()) as xs:boolean
 	true()
       else
 	let $num:=fn:number($doc//m:workDesc/m:work/m:identifier[@type="CNW"][1]/string())
-	return $num >= 1 and 413 >= $num
+	return $num >= 1 and 450 >= $num
     else
       true()
 

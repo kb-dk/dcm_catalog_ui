@@ -23,6 +23,7 @@ declare variable $query  := request:get-parameter("query","") cast as xs:string;
 declare variable $page   := request:get-parameter("page", "1") cast as xs:integer;
 declare variable $number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
 declare variable $publ   := request:get-parameter("published_only","");
+declare variable $anthologies := request:get-parameter("anthologies","yes");
 declare variable $style  := "http://dcm-udv-01.kb.dk/editor/transforms/mei/mei_to_html_print.xsl";
 declare variable $stURI  := xs:anyURI(request:get-parameter("style",$style));
 declare variable $database := request:get-parameter("db","/db/dcm");
