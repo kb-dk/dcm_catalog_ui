@@ -58,12 +58,13 @@ return
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Merged documents</title>
-<link rel="stylesheet" type="text/css" href="/editor/style/mei_to_html_print.css"/>
+<link rel="stylesheet" type="text/css" href="/editor/style/cnw.css"/>
+<link rel="stylesheet" type="text/css" href="/editor/style/mei_to_html_public.css"/>
 </head>
 <body>
 {
   for $doc in $list
-  let $html := transform:transform($doc,$stURI,$params)//div[@class='main']
+  let $html := transform:transform($doc,$stURI,$params)//div[@id='main_content']
   return 
   <div class="work">
     {local:copy($html)}
