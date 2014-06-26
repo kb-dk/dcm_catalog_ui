@@ -107,7 +107,7 @@ declare function local:format-reference(
 	          {app:public-view-document-reference($doc)}{" "}
 	        </div>
             <div class="info_bar">
-	          {$genre_boxes}
+	          {$genre_boxes}&#160;
 	       </div>
 	     </div>
         </div>
