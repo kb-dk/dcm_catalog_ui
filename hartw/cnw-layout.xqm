@@ -96,7 +96,7 @@ declare function layout:page-menu($mode as xs:string) as node()
     }
     { 
     let $about:= if ($mode="about") then "selected" else ""
-    return (<a href="about.xq" class="{$about}">About CNW</a>)
+    return (<a href="about.xq" class="{$about}">About HartW</a>)
     } 
   </div> 
 

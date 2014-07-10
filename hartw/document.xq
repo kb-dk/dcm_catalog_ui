@@ -17,7 +17,7 @@ declare variable $mode     := request:get-parameter("mode","") cast as xs:string
 declare variable $host     := request:get-header('HOST');
 
 let $list := 
-for $doc in collection("/db/cnw/data")
+for $doc in collection("/db/hartw/data")
 where util:document-name($doc)=$document
 return $doc
 

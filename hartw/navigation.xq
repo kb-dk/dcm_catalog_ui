@@ -28,7 +28,7 @@ declare variable $mode   := request:get-parameter("mode","") cast as xs:string;
 
 declare variable $vocabulary := doc(concat("http://",request:get-header('HOST'),"/editor/forms/mei/model/keywords.xml"));
 
-declare variable $database := "/db/cnw/data";
+declare variable $database := "/db/hartw/data";
 
 declare variable $from     := ($page - 1) * $number + 1;
 declare variable $to       :=  $from      + $number - 1;
@@ -117,11 +117,11 @@ declare function local:format-reference(
 };
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-   {layout:head("Carl Nielsen Works Catalogue (CNW)",(<link rel="stylesheet" type="text/css" href="/editor/style/public_list_style.css"/>))}
+   {layout:head("J.P.E. Hartmann&apos;s Works Catalogue (HartW)",(<link rel="stylesheet" type="text/css" href="/editor/style/public_list_style.css"/>))}
     <body class="list_files">
     
       <div id="all">
-      {layout:page-head("CNW","Carl Nielsen Works Catalogue")}
+      {layout:page-head("HartW","J.P.E. Hartmann&apos;s Catalogue")}
       {layout:page-menu($mode)}
 
       <div id="main">

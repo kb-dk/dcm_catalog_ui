@@ -14,7 +14,7 @@ declare variable $document := request:get-parameter("doc", "");
 
 
 let $list := 
-for $doc in collection("/db/cnw/data") 
+for $doc in collection("/db/hartw/data") 
 where util:document-name($doc)=$document
 return $doc
 

@@ -13,16 +13,16 @@ declare variable $number := request:get-parameter("itemsPerPage","20") cast as x
 declare variable $publ   := request:get-parameter("published_only","") cast as xs:string;
 declare variable $anthologies := request:get-parameter("anthologies","yes");
 declare variable $style  := "http://dcm-udv-01.kb.dk/editor/transforms/mei/mei_to_html_print.xsl";
-declare variable $database := request:get-parameter("db","/db/cnw/data") cast as xs:string;
+declare variable $database := request:get-parameter("db","/db/hartw/data") cast as xs:string;
 
 let $stURI    := xs:anyURI(request:get-parameter("style",$style))
 
 let $formpage :=
 <html xmlns="http://www.w3.org/1999/xhtml">
-  {layout:head("Set parameters for Carl Nielsen Works (CNW)",())}
+  {layout:head("Set parameters for J.P.E. Hartmann&apos;s Works Catalogue (HartW)",())}
   <body class="list_files">
     <div id="all">
-      {layout:page-head("CNW","Generate a merged catalog for offline study or printing")}
+      {layout:page-head("HartW","Generate a merged catalog for offline study or printing")}
       {layout:page-menu($mode)}
       <div id="main">
 	<div class="filter">
