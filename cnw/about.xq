@@ -11,10 +11,10 @@ declare variable $mode   := request:get-parameter("mode","about") cast as xs:str
       {layout:page-head("CNW","Carl Nielsen Works Catalogue")}
       {layout:page-menu($mode)}
       <div id="main">
-      <h1>About the Carl Nielsen Works Catalogue (CNW)</h1>
+      <h1>Carl Nielsen Works Catalogue (CNW)</h1>
       <div id="colophon">
 	<p>
-	 <span class="label">Editors: </span><span>Niels Bo Foltmann, Axel Teich Geertinger, Peter Hauge, Niels Krabbe, Bjarke Moe, Elly Bruunshuus Petersen</span>
+	 <span class="label">Edited by: </span><span>Niels Bo Foltmann, Axel Teich Geertinger, Peter Hauge, Niels Krabbe, Bjarke Moe, Elly Bruunshuus Petersen</span>
 	</p>
 	<p><span class="label">Published by: </span><span>Danish Centre for Music Publication<br/>
 	The Royal Library<br/>
@@ -23,7 +23,7 @@ declare variable $mode   := request:get-parameter("mode","about") cast as xs:str
 	Denmark<br/>
 	WWW: <a href="http://www.kb.dk/dcm">www.kb.dk/dcm</a><br/>
 	E-mail: <a href="mailto://foa-dcm@kb.dk">foa-dcm@kb.dk</a></span></p> 
-	<p><span class="label">&#160;</span><span>2014</span></p>
+	<p><span class="label">&#160;</span><span>&#169; 2014</span></p>
 	<p><span class="label">Technical development:</span><span>Sigfrid Lundberg</span></p>
 	<p><span class="label">Assistants:</span><span>Katarina Smitt Engberg, Niclas Nørby Hundahl</span></p>
 	<p><span class="label">Sponsor: </span><span>Carl Nielsen og Anne Marie Carl-Nielsens Legat</span></p>

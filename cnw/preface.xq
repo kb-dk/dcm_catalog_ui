@@ -22,9 +22,14 @@ catalogue.<a href="#_ftn2" name="_ftnref2" title="">[2]</a>
  </p> 
  <p>The first complete survey of all Nielsen’s musical works and their sources was not initiated,
 however, until the foundation of the <i>Carl Nielsen
-Edition</i> (CNU; 1997–2009). In more than one sense CNW is a
-natural extension of CNU and builds on to a large extent the information accumulated in
-connection with the editing project. The Danish Centre for Music
+Edition</i> (CNU; published 1997–2009). In more than one sense, 
+CNW is a natural extension of CNU and builds to a large extent on information accumulated 
+in connection with the editing project and to a certain degree also with other projects. 
+The information has been rectified when the editors have either been aware of 
+or had their attention drawn to errors. However, due to limited resources the editors 
+have not been able to verify systematically all information. 
+Original sources have only been consulted in cases of doubt. </p>
+<p>The Danish Centre for Music
 Publication which is responsible for the publication of CNW was established at The
 Royal Library shortly after the termination of the Carl Nielsen Edition, in
 particular in order to maintain and carry on the music philological
