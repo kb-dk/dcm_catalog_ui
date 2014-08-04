@@ -24,8 +24,7 @@ return $doc
 let $result :=
 <html xmlns="http://www.w3.org/1999/xhtml">
   {layout:head("Carl Nielsen Works (CNW)",
-	  (<link rel="stylesheet" type="text/css" href="/editor/style/public_list_style.css"/>,
-	  <link rel="stylesheet" type="text/css" href="/editor/style/mei_to_html_public.css"/>,
+	  (<link rel="stylesheet" type="text/css" href="/editor/style/mei_to_html_public.css"/>,
 	  <script type="text/javascript" src="/editor/js/toggle_openness.js">{"
 	  "}</script>
 	  ))}
