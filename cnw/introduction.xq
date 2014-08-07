@@ -100,15 +100,25 @@ skuespil &apos;Moderen&apos;</i> (Music for Helge Rode&apos;s
 Play &apos;The Mother&apos;) <a class="work_number_reference" href="document.xq?doc=cnw0018.xml"
 title="View work details" >CNW 18</a>, in spite of the fact that <i
 >Taagen letter</i>, in various arrangements, is far better known as
-an independent piece than the stage music for the play as a whole. The
-delimitation has been chosen since excerpts and arrangements constitute
-a continuum in which it is difficult to draw a clear line: from a complex
-version of the work or the grouping of a series of movements (e.g. the <i
+an independent piece than the stage music for the play as a whole.</p>
+<p><span class="new">Nielsen&apos;s orchestral piece <i>Saga-drøm</i> (Saga Dream) 
+<a class="work_number_reference" href="document.xq?doc=cnw0035.xml"
+title="View work details" >CNW 35</a> is, on the other hand, listed as a separate work,
+even if it is part of the music for the play, <i>Moderen</i>, as well.
+This is due to the fact that Nielsen conceived <i>Saga-drøm</i> as a work of its own
+several years before he decided to include it in <i>Moderen</i>.</span>
+</p>
+
+<p><span class="new">This general approach was chosen because it is difficult 
+to draw a clear line between works and versions otherwise: 
+Excerpts and arrangements constitute a continuum ranging 
+from re-instrumentations of
+the work or the grouping of selected movements</span> (e.g. the <i
 >&apos;Aladdin&apos; Suite</i>), over single movements
 which sometimes are performed independently – e.g. <i>Hanedansen</i> (The
 Cockerel&apos;s Dance) from <i>Maskarade</i> (Masquerade) <a class="work_number_reference" 
 title="View work details" href="document.xq?doc=cnw2.xml">CNW 2</a> – 
-and to actual arrangements of such movements (e.g. <i>Taagen letter</i>).</p>
+and to actual arrangements of such individual movements (e.g. <i>Taagen letter</i>).</p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h3><a name="songs">Songs originating from plays</a></h3>
@@ -367,6 +377,7 @@ scholarly literature on the works. Till then we refer the user to
 consult the current bibliography on Nielsen literature which is published in the
 journal <i>Carl Nielsen Studies</i>. The cumulative bibliography is available at &lt;<a
  href="http://www.kb.dk/en/nb/dcm/cnu/cn_bibliography.html">http://www.kb.dk/en/nb/dcm/cnu/cn_bibliography.html</a>&gt;.</p>
+ <p>&#160;</p>
       </div>
       {layout:page-footer($mode)}
     </div>
