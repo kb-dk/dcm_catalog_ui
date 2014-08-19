@@ -78,9 +78,7 @@ declare function local:format-reference(
       for $genre at $pos in $genres2 
          return 
            <div class="genre_list">
-              <a class="{$class[$pos]} genre_indicator abbr">&#160;
-                <span class="expan">{$genre}</span>
-              </a>
+              <a class="{$class[$pos]} genre_indicator abbr"><img src="/editor/images/spacer.png" border="0" width="12" height="12"/><span class="expan">{$genre}</span></a>
            </div>
        
    let $date_output :=
@@ -106,11 +104,17 @@ declare function local:format-reference(
             <div class="title">
 	          {app:public-view-document-reference($doc)}{" "}
 	        </div>
-            <div class="info_bar">
+	     </div>
+       </div>
+       <div  class="result_row">
+          <div class="list_id result_cell">
+           <div class="info_bar">
 	          {$genre_boxes}&#160;
 	       </div>
-	     </div>
-        </div>
+          </div>
+          <div class="result_cell"><img src="/editor/images/spacer.png" border="0" 
+          width="2" height="2"/></div>
+       </div>
       </div>
    return $ref
 

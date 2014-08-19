@@ -170,7 +170,7 @@ declare function app:public-view-document-reference($doc as node()) as node()* {
 	  concat($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and not(@type/string())]/string(),"&#160;"),
   	  element span {
   	  attribute class {"alternative_language"},
-	  attribute style {"font-size: 75%;"},
+	  attribute style {"font-size: 85%;"},
 	  concat($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate']/string(),"&#160;")
 	}
       }
