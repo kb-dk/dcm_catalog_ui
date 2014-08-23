@@ -108,7 +108,7 @@ declare function layout:page-menu($mode as xs:string) as node()
 declare function layout:page-footer($mode as xs:string) as node()
 {
   let $footer :=
-  <div id="footer">
+  <div id="footer" style="text-align: center; height: auto; padding: 10px 20px;">
     <a href="http://www.kb.dk/dcm" title="DCM" 
     style="text-decoration:none;"><img 
     style="border: 0px; vertical-align:middle;" 
@@ -120,8 +120,14 @@ declare function layout:page-footer($mode as xs:string) as node()
     src="/editor/images/dcm_logo_small.png"
     id="dcm_logo_print"
     /></a>
-    2013 Danish Centre for Music Publication | The Royal Library, Copenhagen | <a name="www.kb.dk" id="www.kb.dk" href="http://www.kb.dk/dcm">www.kb.dk/dcm</a>
-  </div> 
+    2014 Danish Centre for Music Publication | The Royal Library | P.O. Box 2149 | Copenhagen K, Denmark | <a name="www.kb.dk" id="www.kb.dk" href="http://www.kb.dk/dcm">www.kb.dk/dcm</a><br/> 
+  <span class="creativecommons" style="font-size: .65em;">
+            <!--<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"
+            title="Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License"><img 
+            alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png" /></a><br/>-->
+		    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>
+  </span>
+  </div>
 
   return $footer
 
