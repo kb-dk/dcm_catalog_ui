@@ -16,7 +16,7 @@ declare variable $mode   := request:get-parameter("mode","introduction") cast as
       <h2>Table of contents</h2>
       <ul id="toc">
         <li><a href="#source_situation">Sources to Nielsen's music</a></li>
-        <li><a href="#methodology">Methodology and work status</a></li>
+        <li><a href="#methodology">Methodology and work concept</a></li>
         <ul>
           <li><a href="#definition">Definition of 'Work'</a></li>
           <li><a href="#excerpts">Works and excerpts</a></li>
