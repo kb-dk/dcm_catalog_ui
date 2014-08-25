@@ -68,7 +68,7 @@ Later a series of individual donations were presented by Nielsen’s acquaintanc
 of which the last large donation was received in 1991. 
 It is most likely that only very few autograph manuscripts remain unknown.</p>
       
-<h2><a name="methodology">Methodology and work status</a></h2>
+<h2><a name="methodology">Methodology and work concept</a></h2>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h3><a name="definition">Definition of 'Work'</a></h3>
@@ -180,10 +180,10 @@ work in CNW and an edition in CNU in all instances, but that there may be
 several CNU editions under the same CNW number. This applies to <i>Hjemvee</i> 
 (Homesickness; better known with the first line &apos;Underlige Aftenlufte&apos;) <a class="work_number_reference" href="document.xq?doc=cnw0205.xml">CNW 205</a>, for
 instance, which has been published in CNU in four distinct arrangements of the
-same melody, all listed under the same number in CNW.</p>
-<p>Nielsen&apos;s second and lesser known melody to the same text has, on the other hand, its
-own number (<a class="work_number_reference" href="document.xq?doc=cnw0296.xml" title="View work details">CNW 296</a>).
-<span class="new">Also songs employing the same melody but having different text are regarded as distinct compositions, 
+same melody, all listed under the same number in CNW. Nielsen&apos;s second and lesser known melody 
+to the same text has, on the other hand, its
+own number (<a class="work_number_reference" href="document.xq?doc=cnw0296.xml" title="View work details">CNW 296</a>).</p>
+<p><span class="new">Also songs employing the same melody but having different text are regarded as distinct compositions, 
 for instance <i>Julesang</i> (Christmas Carol; 1923) <a class="work_number_reference" 
 title="View work details" href="document.xq?doc=cnw0313.xml">CNW 313</a>, 
 which Nielsen re-used with another text in 1924 ('Dannevang med grønne bred') 
@@ -359,6 +359,23 @@ Other composers&apos; arrangements of Nielsen&apos;s works thus are not included
 detailed descriptions are available in the volumes of the Nielsen Edition (CNU). To
 facilitate the consultation CNW lists the CNU&apos;s source designation (e.g.
 &apos;CNU Source <b>A</b>&apos;). The appropriate CNU volumes are available via the mentioned link.</p>
+<p><span class="new">The sources are given a descriptive title indicating the type of source such as 
+'Score, autograph, fair copy'. 'Autograph' with no further qualification designates that the source's 
+main hand is Carl Nielsen's. In some cases a name is added after 'autograph' – for instance, 'autograph (Henrik Knudsen)' – 
+meaning that the manuscript is not written by Nielsen, but that it is not merely copy or transcript of 
+Nielsen's manuscript; the difference between sources listed as a copy and as an autograph (with a name added) 
+is that the latter intentionally adds original content to the work. </span></p>
+<p><span class="new">A systematic classification of the source is given after the title. 
+The classification indicates the content type of the source (musical or textual), type of production (manuscript or print),
+authority (autograph or copy), position in the compositional process (sketch, draft, fair copy etc.), type of scoring 
+(such as score, short score or parts) and completeness (complete, incomplete, excerpt, fragment). 
+'Incomplete' is used in cases where the source represents the entire 
+composition but some material is missing (for instance, a set of parts with one or more parts missing); 'excerpt' 
+describes a source intentionally omitting sections of the overall composition, while 'fragment' is used when the source 
+is left unfinished or portions of it have been lost (for instance, a sketch of the first bars only, or a copy
+of the score whith one or more pages missing).</span>
+</p>
+
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h3><a name="bibliography">Bibliography</a></h3>
@@ -371,12 +388,14 @@ will be added as soon as possible when the complete edition is available. </p>
 <p>In so far as it has been possible, references to letters dealing with actual songs have
 been listed under the specific song rather than the collection or those collections
 in which the song appeared. Letters mentioning a song collection or
-unspecified songs from a collection are, however, listed under the collection. It
-is the intention to expand the bibliography also comprising secondary literature such as 
+unspecified songs from a collection are, however, listed under the collection.</p>
+<p>It is the intention to expand the bibliography also comprising secondary literature such as 
 scholarly literature on the works. Till then we refer the user to
 consult the current bibliography on Nielsen literature which is published in the
-journal <i>Carl Nielsen Studies</i>. The cumulative bibliography is available at &lt;<a
- href="http://www.kb.dk/en/nb/dcm/cnu/cn_bibliography.html">http://www.kb.dk/en/nb/dcm/cnu/cn_bibliography.html</a>&gt;.</p>
+journal <i><a href="https://tidsskrift.dk/index.php/carlnielsenstudies" 
+title="Carl Nielsen Studies">Carl Nielsen Studies</a></i>. <br/>
+The cumulative bibliography is available at <a
+ href="http://www.kb.dk/en/nb/dcm/cnu/cn_bibliography.html">http://www.kb.dk/en/nb/dcm/cnu/cn_bibliography.html</a>.</p>
  <p>&#160;</p>
       </div>
       {layout:page-footer($mode)}
