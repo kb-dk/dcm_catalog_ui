@@ -27,7 +27,7 @@ declare variable $mode   := request:get-parameter("mode","introduction") cast as
         </ul>
         <li><a href="#howto">How to use the catalogue</a></li>
         <ul>
-          <li><a href="#searching">Delimitation and searching</a></li>
+          <li><a href="#searching">Filtering and searching</a></li>
           <li><a href="#sorting">Display and sorting of search results</a></li>
         </ul>
         <li><a href="#contents">The structure and contents of each record</a></li>
@@ -101,19 +101,19 @@ Play &apos;The Mother&apos;) <a class="work_number_reference" href="document.xq?
 title="View work details" >CNW 18</a>, in spite of the fact that <i
 >Taagen letter</i>, in various arrangements, is far better known as
 an independent piece than the stage music for the play as a whole.</p>
-<p><span class="new">Nielsen&apos;s orchestral piece <i>Saga-drøm</i> (Saga Dream) 
+<p>Nielsen&apos;s orchestral piece <i>Saga-drøm</i> (Saga Dream) 
 <a class="work_number_reference" href="document.xq?doc=cnw0035.xml"
 title="View work details" >CNW 35</a> is, on the other hand, listed as a separate work,
 even if it is part of the music for the play, <i>Moderen</i>, as well.
 This is due to the fact that Nielsen conceived <i>Saga-drøm</i> as a work of its own
-several years before he decided to include it in <i>Moderen</i>.</span>
+several years before he decided to include it in <i>Moderen</i>.
 </p>
 
-<p><span class="new">This general approach was chosen because it is difficult 
+<p>This general approach was chosen because it is difficult 
 to draw a clear line between works and versions otherwise: 
 Excerpts and arrangements constitute a continuum ranging 
 from re-instrumentations of
-the work or the grouping of selected movements</span> (e.g. the <i
+the work or the grouping of selected movements (e.g. the <i
 >&apos;Aladdin&apos; Suite</i>), over single movements
 which sometimes are performed independently – e.g. <i>Hanedansen</i> (The
 Cockerel&apos;s Dance) from <i>Maskarade</i> (Masquerade) <a class="work_number_reference" 
@@ -183,11 +183,11 @@ instance, which has been published in CNU in four distinct arrangements of the
 same melody, all listed under the same number in CNW. Nielsen&apos;s second and lesser known melody 
 to the same text has, on the other hand, its
 own number (<a class="work_number_reference" href="document.xq?doc=cnw0296.xml" title="View work details">CNW 296</a>).</p>
-<p><span class="new">Also songs employing the same melody but having different text are regarded as distinct compositions, 
+<p>Also songs employing the same melody but having different text are regarded as distinct compositions, 
 for instance <i>Julesang</i> (Christmas Carol; 1923) <a class="work_number_reference" 
 title="View work details" href="document.xq?doc=cnw0313.xml">CNW 313</a>, 
 which Nielsen re-used with another text in 1924 ('Dannevang med grønne bred') 
-<a class="work_number_reference" href="document.xq?doc=cnw0318.xml" title="View work details">CNW 318</a>.</span>
+<a class="work_number_reference" href="document.xq?doc=cnw0318.xml" title="View work details">CNW 318</a>.
 </p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
@@ -206,7 +206,7 @@ is possible to modify and limit the search results while at the top of the
 list there are different settings as to how the results may be displayed.</p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
-<h3><a name="searching">Delimitation and searching</a></h3>
+<h3><a name="searching">Filtering and searching</a></h3>
 <p>On the menu at the left side of the display,
 the following possibilities to change or limit the search are listed:</p>
 <ul>
@@ -243,17 +243,15 @@ expanding the search again. Filters may be removed all at once by clicking on th
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h3><a name="sorting">Display and sorting of search results</a></h3>
-<p><span class="new">
-The search result is displayed as a list of work titles. By default, only 20 search results are displayed 
+<p>The search result is displayed as a list of work titles. By default, only 20 search results are displayed 
 at a time. Navigate through the result pages using the numbered navigation buttons above the result list. 
-The number of results per page can be changed by selecting a different number in the select box above the navigation buttons.</span></p>
-<p><span class="new">
-The sort order of the results can be changed with the other select box next to the works-per-page selector. 
+The number of results per page can be changed by selecting a different number in the 
+select box above the navigation buttons.</p>
+<p>The sort order of the results can be changed with the other select box next to the works-per-page selector. 
 Possible sort orders are CNW number (default), alphabetically by title, and chronologically by year of composition. 
 The chronological sorting, however, is only a rough approximation. I takes into account only the year in which the composition 
-was completed. Works undated are listed first.</span></p>
-<p><span class="new">
-Clicking a work&apos;s main title opens the detailed view.</span></p>
+was completed. Works undated are listed first.</p>
+<p>Clicking a work&apos;s main title opens the detailed view.</p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h2><a name="contents">The structure and contents of each record</a></h2>
@@ -302,7 +300,7 @@ known as &apos;Underlige Aftenlufte!&apos;).</p>
 number, the catalogue provides each work&apos;s number in an array of other
 contexts including Nielsen&apos;s own opus numbers, Fog/Schousboe numbers and the
 work&apos;s manuscript shelf mark in the Carl Nielsen Collection (CNS) at The Royal Library. </p>
-<p>Furthermore, <span class="new">each record lists the number of the work in the Nielsen Edition (CNU);</span> 
+<p>Furthermore, each record lists the number of the work in the Nielsen Edition (CNU); 
 the numbers signify series and volume. The song numbers are preceded by a comma. If several versions occur in
 the same CNU volume these are separated by yet a comma; versions in other volumes
 are divided by a semicolon. Thus &apos;CNU III/5, 146, 229; III/6, 324&apos; refers
@@ -351,21 +349,21 @@ these instances the link refers to the off-prints. </p>
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h3><a name="sources">Sources</a></h3>
 <p>The overview of sources for each work includes sources from Nielsen&apos;s lifetime only. 
-<span class="new">Only sources directly related 
+Only sources directly related 
 to Nielsen as well as sources representing his own versions of his works are listed. 
 Other composers&apos; arrangements of Nielsen&apos;s works thus are not included.
-</span></p>
+</p>
 <p>The source descriptions are minimal, providing the most basic information for identification. More
 detailed descriptions are available in the volumes of the Nielsen Edition (CNU). To
 facilitate the consultation CNW lists the CNU&apos;s source designation (e.g.
 &apos;CNU Source <b>A</b>&apos;). The appropriate CNU volumes are available via the mentioned link.</p>
-<p><span class="new">The sources are given a descriptive title indicating the type of source such as 
+<p>The sources are given a descriptive title indicating the type of source such as 
 'Score, autograph, fair copy'. 'Autograph' with no further qualification designates that the source's 
 main hand is Carl Nielsen's. In some cases a name is added after 'autograph' – for instance, 'autograph (Henrik Knudsen)' – 
 meaning that the manuscript is not written by Nielsen, but that it is not merely copy or transcript of 
 Nielsen's manuscript; the difference between sources listed as a copy and as an autograph (with a name added) 
-is that the latter intentionally adds original content to the work. </span></p>
-<p><span class="new">A systematic classification of the source is given after the title. 
+is that the latter intentionally adds original content to the work. </p>
+<p>A systematic classification of the source is given after the title. 
 The classification indicates the content type of the source (musical or textual), type of production (manuscript or print),
 authority (autograph or copy), position in the compositional process (sketch, draft, fair copy etc.), type of scoring 
 (such as score, short score or parts) and completeness (complete, incomplete, excerpt, fragment). 
@@ -373,7 +371,7 @@ authority (autograph or copy), position in the compositional process (sketch, dr
 composition but some material is missing (for instance, a set of parts with one or more parts missing); 'excerpt' 
 describes a source intentionally omitting sections of the overall composition, while 'fragment' is used when the source 
 is left unfinished or portions of it have been lost (for instance, a sketch of the first bars only, or a copy
-of the score whith one or more pages missing).</span>
+of the score whith one or more pages missing).
 </p>
 
 
@@ -392,8 +390,8 @@ unspecified songs from a collection are, however, listed under the collection.</
 <p>It is the intention to expand the bibliography also comprising secondary literature such as 
 scholarly literature on the works. Till then we refer the user to
 consult the current bibliography on Nielsen literature which is published in the
-journal <i><a href="https://tidsskrift.dk/index.php/carlnielsenstudies" 
-title="Carl Nielsen Studies">Carl Nielsen Studies</a></i>. <br/>
+journal <a href="https://tidsskrift.dk/index.php/carlnielsenstudies" 
+title="Carl Nielsen Studies"><i>Carl Nielsen Studies</i></a>. <br/>
 The cumulative bibliography is available at <a
  href="http://www.kb.dk/en/nb/dcm/cnu/cn_bibliography.html">http://www.kb.dk/en/nb/dcm/cnu/cn_bibliography.html</a>.</p>
  <p>&#160;</p>
