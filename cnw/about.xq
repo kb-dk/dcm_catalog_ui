@@ -24,7 +24,7 @@ declare variable $mode   := request:get-parameter("mode","about") cast as xs:str
 	WWW: <a href="http://www.kb.dk/dcm">www.kb.dk/dcm</a><br/>
 	E-mail: <a href="mailto://foa-dcm@kb.dk">foa-dcm@kb.dk</a></span></p> 
 	<p><span class="label">&#160;</span><span>&#169; 2014</span></p>
-	<p><span class="label">Technical development:</span><span>Sigfrid Lundberg</span></p>
+	<p><span class="label">Technical development:</span><span>Sigfrid Lundberg, Axel Teich Geertinger</span></p>
 	<p><span class="label">Assistants:</span><span>Katarina Smitt Engberg, Niclas Nørby Hundahl</span></p>
 	<p><span class="label">Sponsor: </span><span>Carl Nielsen og Anne Marie Carl-Nielsens Legat</span></p>
 	</div>
