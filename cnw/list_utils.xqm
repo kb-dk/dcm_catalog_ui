@@ -153,25 +153,22 @@ declare function app:public-view-document-reference($doc as node()) as node()* {
       ($langs,
       element span {
 	attribute lang {$doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][not(@type/string())][1]/@xml:lang},
-	element a {
-	  attribute title {"View"},
-	  attribute href  {concat("./document.xq?doc=",util:document-name($doc))},
-	  $doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][not(@type/string())][1]/string()
-	},
+	$doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][not(@type/string())][1]/string(),
+	" ",
 	element span {
-	  attribute style {"font-size: 75%;"},
-	  concat($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@type/string()='subordinate'][1]/string(),"&#160;")
+	  attribute style {"font-size: 80%;"},
+	  $doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@type/string()='subordinate'][1]/string()
 	}
       },
     element br {},
     element span {
 	  attribute class {"alternative_language"},
 	  attribute lang {"en"},
-	  concat($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and not(@type/string())]/string(),"&#160;"),
+	  concat($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and not(@type/string())]/string()," "),
   	  element span {
   	  attribute class {"alternative_language"},
-	  attribute style {"font-size: 75%;"},
-	  concat($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate']/string(),"&#160;")
+	  attribute style {"font-size: 85%;"},
+	  $doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate']/string()
 	}
       }
       )

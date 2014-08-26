@@ -97,12 +97,10 @@ declare function local:format-reference(
    	        <div class="composer">{$doc//m:workDesc/m:work/m:titleStmt/m:respStmt/m:persName[@role='composer']/text()}&#160;</div>
 
    let $ref   :=
-     <div class="result_table">
+     <div class="result_table" onclick="location.href='{concat('./document.xq?doc=',util:document-name($doc))}'">
        <div class="result_row">
           <div class="list_id result_cell">
-            <a href="{concat('./document.xq?doc=',util:document-name($doc))}">
-              {app:get-edition-and-number($doc)}{" "}
-            </a>
+            {app:get-edition-and-number($doc)}{" "}
           </div>
           <div class="result_cell">
 	        <div class="date">&#160;{$date_output}</div>
