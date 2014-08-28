@@ -59,9 +59,12 @@ and encouraged them to hand over the material to the newly established Carl Niel
 (the enquiry and the replies are kept in The Royal Library, Håndskriftafdelingen, Journalsager nr. 4802). </p>
 <p>The appeal made it possible for the library to establish the Carl Nielsen archives, in the first instance 
 with donations from Hakon Andersen, Harald Balslev, Emilius Bangert, Anders Brems, Knud Jeppesen, Alfred Nielsen, 
-Aage Oxenvad, Margrethe Rosenberg and Margrethe Schnor. However, in 1935, the majority of Nielsen&apos;s manuscripts 
-were still in the family&apos;s possession, in particular his oldest daughter, Irmelin Eggert Møller, and his son-in-law, 
-the violinist Emil Telmányi who was married to Nielsen&apos;s second daughter Anne Marie. </p>
+Aage Oxenvad, Margrethe Rosenberg and Margrethe Schnor. 
+However, in 1935, the majority of Nielsen&apos;s manuscripts were still in the family&apos;s possession, 
+in particular his widow, Anne Marie Carl-Nielsen. After her death in 1945, 
+Nielsen’s oldest daughter, Irmelin Eggert Møller, inherited the collection. 
+Other manuscripts were in the hands of Nielsen’s son-in-law, the violinist Emil Telmányi 
+who was married to Nielsen&apos;s second daughter Anne Marie. </p>
 <p>Substantials parts of the collection, which since then has become the basis
 of the Carl Nielsen archives, were handed over to the library in 1958 
 by Irmelin Eggert Møller. 
