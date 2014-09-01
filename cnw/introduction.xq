@@ -205,6 +205,20 @@ date they were sometimes revised to such an extent that it hardly makes
 sense to assign them to one particular time in Nielsen&apos;s production. The
 catalogue numbers are therefore arranged according to genre 
 though a certain chronology has been sought within each genre. </p>
+<p>As to the songs, CNW retains the overall systematic of the Nielsen Edition. 
+The songs are organised as follows according to the songs' original scoring and context:
+<br/>&#160;</p> 
+<table cellpadding="0" cellspacing="0">
+<tr><td style="padding-top: 8px;">Songs with piano </td><td style="padding-top: 8px;">Songs published in collections<br/>Separate songs</td></tr>
+<tr><td style="padding-top: 8px;">Recitation and piano</td><td>&#160;</td></tr>
+<tr><td style="padding-top: 8px;">Choir and piano</td><td>&#160;</td></tr>
+<tr><td style="padding-top: 8px;">Voice and instrumental ensemble</td><td>&#160;</td></tr>
+<tr><td style="padding-top: 8px;">A cappella choir</td><td>&#160;</td></tr>
+<tr><td style="padding-top: 8px;">Mixed choir</td><td style="padding-top: 8px;">Songs published in collections<br/>Separate songs</td></tr>
+<tr><td style="padding-top: 8px;">Male choir</td><td>&#160;</td></tr>
+<tr><td style="padding-top: 8px;">Equal voices</td><td style="padding-top: 8px;">Songs published in collections<br/>Separate songs</td></tr>
+<tr><td style="padding-top: 8px;">Unison songs</td><td style="padding-top: 8px;">Songs published in collections<br/>Separate songs</td></tr>
+</table>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h2><a name="howto">How to use the catalogue</a></h2>
