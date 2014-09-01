@@ -183,7 +183,8 @@ of the collection (under the heading &apos;Contains:&apos;).</p>
 composition are not defined as independent works but are included under
 the same CNW number, also when it comes to songs. This overall
 understanding of &apos;work&apos; implies therefore that there is not a one-to-one agreement between a
-work in CNW and an edition in The Carl Nielsen Edition (CNU) in all instances, but that there may be
+work in CNW and an edition in <a href="http://www.kb.dk/en/nb/dcm/cnu/" target="_blank"
+title="The Carl Nielsen Edition">The Carl Nielsen Edition (CNU)</a> in all instances, but that there may be
 several CNU editions under the same CNW number. This applies to <i>Hjemvee</i> <a 
 class="work_number_reference" href="document.xq?doc=cnw0205.xml">CNW 205</a>, for
 instance (better known with the first line &apos;Underlige Aftenlufte&apos;), 
@@ -387,7 +388,8 @@ Other composers&apos; arrangements of Nielsen&apos;s works are thus not included
 </p>
 <p>The source descriptions are minimal, providing only the 
 most basic information for identification. More
-detailed descriptions are available in the volumes of the Nielsen Edition (CNU). To
+detailed descriptions are available in the volumes of <a href="http://www.kb.dk/en/nb/dcm/cnu/" target="_blank"
+title="The Carl Nielsen Edition">The Carl Nielsen Edition (CNU)</a>. To
 facilitate the consultation, CNW lists CNU&apos;s source designation (e.g.
 &apos;CNU Source <b>A</b>&apos;). The appropriate CNU volumes are available via the mentioned link.</p>
 <p>The sources are given a descriptive title indicating the type of source such as 

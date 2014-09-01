@@ -21,8 +21,8 @@ one of the most important groundworks though it strictly speaking is not a work
 catalogue.<a href="#_ftn2" name="_ftnref2" title="">[2]</a>
  </p> 
  <p>The first complete survey of all Nielsen’s compositions and their sources was not initiated,
-however, until the foundation of the <i>Carl Nielsen
-Edition</i> (CNU; published 1997–2009). In more than one sense, 
+however, until the foundation of the <a href="http://www.kb.dk/en/nb/dcm/cnu/" target="_blank"
+title="The Carl Nielsen Edition">The Carl Nielsen Edition (CNU)</a> (published 1997–2009). In more than one sense, 
 CNW is a natural extension of CNU and builds to a large degree on information accumulated 
 in connection with the editing project and to a certain extent also with other projects. 
 The information has been rectified when the editors either have been aware of 
