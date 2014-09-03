@@ -24,8 +24,8 @@ declare variable $page   := request:get-parameter("page", "1") cast as xs:intege
 declare variable $number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
 declare variable $publ   := request:get-parameter("published_only","");
 declare variable $anthologies := request:get-parameter("anthologies","yes");
-declare variable $style  := "http://dcm-udv-01.kb.dk/editor/transforms/mei/mei_to_html_print.xsl";
-declare variable $stURI  := xs:anyURI(request:get-parameter("style",$style));
+declare variable $stURI  := xs:anyURI(request:get-parameter("style","/editor/transforms/mei/mei_to_html_print.xsl"));
+declare variable $css    := xs:anyURI(request:get-parameter("css","/editor/style/mei_to_html_print.css"));
 declare variable $database := request:get-parameter("db","/db/dcm");
 
 declare variable $from     := ($page - 1) * $number + 1;
@@ -60,12 +60,15 @@ return
 <head>
 <title>Merged documents</title>
 <link rel="stylesheet" type="text/css" href="/editor/style/cnw.css"/>
-<link rel="stylesheet" type="text/css" href="/editor/style/mei_to_html_public.css"/>
+<link rel="stylesheet" type="text/css" href="{$css}"/>
 </head>
 <body>
 {
   for $doc in $list
-  let $html := transform:transform($doc,$stURI,$params)//div[@id='main_content']
+  let $html := 
+  <div>
+    { transform:transform($doc,$stURI,$params)//div[@id='main_content'] }
+  </div>
   return 
   <div class="work">
     {local:copy($html)}

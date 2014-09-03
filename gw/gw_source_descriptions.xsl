@@ -72,7 +72,7 @@
 
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
 
-		<link rel="stylesheet" type="text/css" href="/editor/style/mei_to_html.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="/editor/style/mei_to_html.css"/>-->
 
 		<script type="text/javascript" src="/editor/js/toggle_openness.js">
 			<xsl:text>
@@ -434,12 +434,9 @@
 	</xsl:template>
 
 	<!-- sources -->
-	<xsl:template match="m:sourceDesc">
+	<xsl:template match="m:sourceDesc[m:source//text()]">
 		<xsl:param name="global"/>
-		<xsl:apply-templates select="." mode="fold_section">
-			<xsl:with-param name="id" select="concat('source',generate-id(.),position())"/>
-			<xsl:with-param name="heading">Sources</xsl:with-param>
-			<xsl:with-param name="content">
+		<p>DESCRIPTION OF THE SOURCES</p>
 				<!-- sort order lists must begin and end with a semicolon -->
 				<xsl:variable name="state_order"
 					select="';sketch;draft;fair copy;printers copy;first edition;later edition;'"/>
@@ -489,10 +486,23 @@
 						select="number(100 + string-length(substring-before($scoring_order,concat(';',m:classification/m:termList/m:term[@classcode='DcmScoringClass'],';'))))"/>
 					<xsl:sort
 						select="m:classification/m:termList/m:term[@classcode='DcmCompletenessClass']"/>
+					<xsl:choose>
+						<xsl:when test="m:classification/m:termList/m:term[@classcode='DcmPresentationClass']='manuscript'
+							and preceding-sibling::m:source/m:classification/m:termList/m:term[@classcode='DcmPresentationClass']!='manuscript'">
+							<p><b>Manuscript</b></p>
+						</xsl:when>
+						<xsl:when test="contains(m:classification/m:termList/m:term[@classcode='DcmPresentationClass'],'print')
+							and not(contains(preceding-sibling::m:source/m:classification/m:termList/m:term[@classcode='DcmPresentationClass'],'print'))">
+							<p><b>Printed</b></p>
+						</xsl:when>
+						<xsl:when test="m:classification/m:termList/m:term[@classcode='DcmContentClass']='text'
+							and preceding-sibling::m:source/m:classification/m:termList/m:term[@classcode='DcmContentClass']!='text'">
+							<p><b>Text</b></p>
+						</xsl:when>
+					</xsl:choose>
+					
 					<xsl:apply-templates select="."/>
 				</xsl:for-each>
-			</xsl:with-param>
-		</xsl:apply-templates>
 	</xsl:template>
 	
 	<xsl:template name="list_agents">
