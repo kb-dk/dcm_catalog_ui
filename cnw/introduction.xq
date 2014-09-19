@@ -206,7 +206,7 @@ date they were sometimes revised to such an extent that it hardly makes
 sense to assign them to one particular time in Nielsen&apos;s production. The
 catalogue numbers are therefore arranged according to genre 
 though a certain chronology has been sought within each genre. </p>
-<p>As to the songs, CNW retains the overall attangement of the Nielsen Edition. 
+<p>As to the songs, CNW retains the overall arrangement of the Nielsen Edition. 
 The songs are organised as follows according to the songs' original scoring and context:
 <br/>&#160;</p> 
 <table cellpadding="0" cellspacing="0">
