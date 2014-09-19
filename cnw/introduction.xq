@@ -195,7 +195,7 @@ own number (<a class="work_number_reference" href="document.xq?doc=cnw0296.xml" 
 <p>Also songs employing the same melody but with a different text are regarded as distinct compositions: 
 for instance <i>Julesang</i> (1923) <a class="work_number_reference" 
 title="View work details" href="document.xq?doc=cnw0313.xml">CNW 313</a>, 
-which Nielsen re-used with another text in 1924 (&apos;Dannevang med grønne bred&apos;) 
+which Nielsen re-used with another text in 1924 (&apos;Danevang med grønne bred&apos;) 
 <a class="work_number_reference" href="document.xq?doc=cnw0318.xml" title="View work details">CNW 318</a>.
 </p>
 
