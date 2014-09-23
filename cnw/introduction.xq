@@ -309,8 +309,9 @@ spelling and punctuation but also the choice of words.</p>
 <p>Several of Nielsen&apos;s songs were published in various contexts with distinct orthography: 
 <i>Melodier til Sangbogen Danmark</i> (1924), for
 example, employs the older orthography while <i>Folkehøjskolens
-Melodibog</i> (1922) uses the modern. In these instances CNW reproduces
-the orthography of the earliest published title. In the description of the
+Melodibog</i> (1922) uses the modern. As a rule, CNW reproduces
+the orthography of the earliest published title in these instances. 
+In the description of the
 contents of the song collections the titles are rendered as in the collection
 concerned.</p>
 <p>Titles that are similar to genre designations have – as have instrument designations –
@@ -324,7 +325,7 @@ added as title in quotation marks. In the remaining instances the text
 incipit is given as the alternative title, also when the song is better known by
 its first line (e.g. <i>Hjemvee</i> <a class="work_number_reference" title="View work details" 
 href="document.xq?doc=cnw205.xml">CNW 205</a>, better
-known as &apos;Underlige Aftenlufte!&apos;).</p>
+known as &apos;Underlige Aftenlufte&apos;).</p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h3><a name="identification">Identification</a></h3>
