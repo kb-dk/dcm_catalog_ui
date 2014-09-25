@@ -133,7 +133,7 @@ and to actual arrangements of such individual movements (e.g. <i>Taagen letter</
 are also listed in the catalogue as individual works – that is, if they were also 
 published outside their original context, either separately or as part
 of a collection of songs. One good example worth mentioning is <i
->Som en rejselysten Flaade</i> <a class="work_number_reference" 
+>Sangen til Danmark</i> <a class="work_number_reference" 
 title="View work details" href="document.xq?doc=cnw0237.xml">CNW 237</a> that 
 was originally composed for the play, <i>Moderen</i> <a 
 class="work_number_reference" href="document.xq?doc=cnw0018.xml"title="View work details" >CNW 18</a>, 
