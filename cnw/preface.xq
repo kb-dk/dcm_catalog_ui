@@ -16,7 +16,7 @@ declare variable $mode   := request:get-parameter("mode","preface") cast as xs:s
 Nielsen’s compositions. A few catalogues have previously been
 prepared of which Fog and Schousboe’s bibliography (1965) was the first.<a
  href="#_ftn1" name="_ftnref1" title="">[1]</a> The Bjørnum and
-Møllerhøj description (1992) of Nielsen’s manuscripts in The Royal Library is
+Møllerhøj description of Nielsen’s manuscripts in The Royal Library (1992) is
 one of the most important groundworks though it strictly speaking is not a work
 catalogue.<a href="#_ftn2" name="_ftnref2" title="">[2]</a>
  </p> 
@@ -24,7 +24,7 @@ catalogue.<a href="#_ftn2" name="_ftnref2" title="">[2]</a>
 however, until the foundation of the <a href="http://www.kb.dk/en/nb/dcm/cnu/" target="_blank"
 title="The Carl Nielsen Edition">The Carl Nielsen Edition (CNU)</a> (published 1997–2009). In more than one sense, 
 CNW is a natural extension of CNU and builds to a large degree on information accumulated 
-in connection with the editing project and to a certain extent also with other projects. 
+in connection with the editing project and to a certain extent also in connection with other projects. 
 The information has been rectified when the editors either have been aware of 
 or had their attention drawn to errors. However, due to limited resources the editors 
 have not been able to verify all information systematically. 

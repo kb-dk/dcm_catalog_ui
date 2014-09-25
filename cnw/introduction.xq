@@ -44,11 +44,11 @@ declare variable $mode   := request:get-parameter("mode","introduction") cast as
 <h2><a name="source_situation">Sources to Nielsen&apos;s music</a></h2>      
 <p>The Royal Library in Copenhagen holds the majority of the surviving sources to Nielsen’s music, 
 presumably amounting to more than ninety-five percent of all the material. 
-The remaining five percent are found in other Danish and foreign libraries among which Musikbiblioteket, 
-Stockholm, and Leipzig Stadtarchiv should be mentioned. Apparently only very few manuscripts are still privately owned. </p>
+The remaining five percent are found in other Danish and foreign libraries among which Musikbiblioteket 
+(Stockholm) and Leipzig Stadtarchiv should be mentioned. Apparently only very few manuscripts are still privately owned. </p>
       <p>Rough drafts as well as ink fair copies to most of Nielsen&apos;s larger musical works have survived. 
       In some instances, the ink fair copy has entirely or partly been produced by a foreign hand 
-      (Knud Jeppesen, Nancy Dalberg, Emil Telmányi or others), authorised by the composer. 
+      (Knud Jeppesen, Nancy Dalberg, Emil Telmányi or others), authorized by the composer. 
       Also foreign corrections carried out in the manuscripts are in most cases sanctioned and approved by Nielsen.</p>
 
 <p>Already in 1935, that is four years after the composer&apos;s death and on occasion of his seventieth anniversary, 
@@ -65,13 +65,13 @@ in particular his widow, Anne Marie Carl-Nielsen. After her death in 1945,
 Nielsen’s oldest daughter, Irmelin Eggert Møller, inherited the collection. 
 Other manuscripts were in the hands of Nielsen’s son-in-law, the violinist Emil Telmányi 
 who was married to Nielsen&apos;s second daughter Anne Marie. </p>
-<p>Substantials parts of the collection, which since then has become the basis
+<p>Substantial parts of the collection, which since then has become the basis
 of the Carl Nielsen archives, were handed over to the library in 1958 
 by Irmelin Eggert Møller. 
 Later a series of individual donations were presented by Nielsen’s acquaintances and associates 
 of which the last large donation was received in 1991. 
 It is most likely that only very few autograph manuscripts remain unknown.</p>
-<p>The Royal Library has organised the material in two distinct collections: 
+<p>The Royal Library has organized the material in two distinct collections: 
 <i>Carl Nielsen Arkivet</i> (the Carl Nielsen Archive, CNA) containing letters and 
 other textual sources, and <i>Carl Nielsens Samling</i> (Carl Nielsen’s Collection, CNS) 
 containing musical sources, both manuscripts and prints.</p>
@@ -100,8 +100,7 @@ to stage music but were disseminated and became known as independent
 works. In addition, CNW distinguishes between instrumental and vocal music:
 instrumental excerpts of larger works are basically not interpreted as independent
 works. Thus the <i>&apos;Aladdin&apos; Suite</i>, for instance, is placed under the music 
-for the play:
-<i>Musik til Adam Oehlenschlägers skuespil 
+for the play, <i>Musik til Adam Oehlenschlägers skuespil 
 &apos;Aladdin eller Den forunderlige Lampe&apos;</i> <a class="work_number_reference" 
 title="View work details" href="document.xq?doc=cnw0017.xml">CNW 17</a>.
 Similarly, <i>Taagen letter</i> (The Fog is Lifting) is only to be found in relation to <i>Musik til Helge Rodes
@@ -112,7 +111,7 @@ an independent piece than the stage music for the play as a whole.</p>
 <p>Nielsen&apos;s orchestral piece, <i>Saga-drøm</i> <a 
 class="work_number_reference" href="document.xq?doc=cnw0035.xml"
 title="View work details" >CNW 35</a>, is on the other hand listed as a separate work,
-even though it was also used as part of the music for the play, <i>Moderen</i>, as well.
+even though it was also used as part of the music for the play, <i>Moderen</i>.
 This is due to the fact that Nielsen conceived <i>Saga-drøm</i> as a work of its own
 several years before he decided to include it in <i>Moderen</i>.
 </p>
@@ -140,7 +139,7 @@ was originally composed for the play, <i>Moderen</i> <a
 class="work_number_reference" href="document.xq?doc=cnw0018.xml"title="View work details" >CNW 18</a>, 
 but which furthermore was published as part of an excerpt of the
 play in piano score and as a four-part arrangement for mixed choir. 
-These songs have been assigned with their own CNW number, even
+These songs have been assigned with their own CNW number, 
 though they also appear as part of another work. </p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
@@ -156,7 +155,7 @@ collections that were composed during a coherent period of time and of
 a more cyclic nature, such as <i>Seks sange til tekster af Ludvig Holstein</i>, Op. 10. 
 The songs have been
 listed as individual works (including, of course, the information on the
-collection/s of which they were part) because 1) it is difficult to draw a clear line
+collection/s of which it was part) because 1) it is difficult to draw a clear line
 between grouped, separate songs and actual cycles of songs; and 2) the songs are sometimes 
 also found in other contexts. These work criteria imply that a song
 such as Jeronimus&apos; song (&apos;Fordum var her Fred paa Gaden&apos;) from <i>Maskarade</i> <a 
@@ -184,14 +183,14 @@ composition are not defined as independent works but are included under
 the same CNW number, also when it comes to songs. This overall
 understanding of &apos;work&apos; implies therefore that there is not a one-to-one agreement between a
 work in CNW and an edition in <a href="http://www.kb.dk/en/nb/dcm/cnu/" target="_blank"
-title="The Carl Nielsen Edition">The Carl Nielsen Edition (CNU)</a> in all instances, but that there may be
-several CNU editions under the same CNW number. This applies to <i>Hjemvee</i> <a 
+title="The Carl Nielsen Edition">The Carl Nielsen Edition (CNU)</a> in all instances; CNU may have
+several editions under the same CNW number. This applies to <i>Hjemvee</i> <a 
 class="work_number_reference" href="document.xq?doc=cnw0205.xml">CNW 205</a>, for
 instance (better known with the first line &apos;Underlige Aftenlufte&apos;), 
 which is published in CNU in four distinct arrangements of the
-same melody, all listed under the same number in CNW. Nielsen&apos;s original and lesser known melody 
+same melody, all listed under the same entry in CNW. Nielsen&apos;s original and lesser known melody 
 to the same text has, on the other hand, its
-own number (<a class="work_number_reference" href="document.xq?doc=cnw0296.xml" title="View work details">CNW 296</a>).</p>
+own entry (<a class="work_number_reference" href="document.xq?doc=cnw0296.xml" title="View work details">CNW 296</a>).</p>
 <p>Also songs employing the same melody but with a different text are regarded as distinct compositions: 
 for instance <i>Julesang</i> (1923) <a class="work_number_reference" 
 title="View work details" href="document.xq?doc=cnw0313.xml">CNW 313</a>, 
@@ -204,10 +203,10 @@ which Nielsen re-used with another text in 1924 (&apos;Danevang med grønne bred
 <p>Often Nielsen&apos;s works cannot be dated precisely. They were composed over longer periods, and at a later
 date they were sometimes revised to such an extent that it hardly makes
 sense to assign them to one particular time in Nielsen&apos;s production. The
-catalogue numbers are therefore arranged according to genre 
+CNW numbers are therefore arranged according to genre 
 though a certain chronology has been sought within each genre. </p>
 <p>As to the songs, CNW retains the overall arrangement of the Nielsen Edition. 
-The songs are organised as follows according to the songs' original scoring and context:
+The songs are organized as follows according to the songs&apos; original scoring and context:
 <br/>&#160;</p> 
 <table cellpadding="0" cellspacing="0">
 <tr><td style="padding-top: 8px;">Songs with piano </td><td style="padding-top: 8px;">Songs published in collections<br/>Separate songs</td></tr>
@@ -224,8 +223,8 @@ The songs are organised as follows according to the songs' original scoring and 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
 <h2><a name="howto">How to use the catalogue</a></h2>
 <p>The catalogue&apos;s primary entry to the records is the list of work titles. 
-In a column to the left of the titles it
-is possible to modify and limit the search results while at the top of the
+In a column to the left of the titles, it
+is possible to modify and limit the search results, while at the top of the
 list there are different settings as to how the results may be displayed.</p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
@@ -246,7 +245,7 @@ been composed between 1880 and 1883 will thus be found only by searching for
 works from a period including the year 1883. Note also that
 when searching for year of composition, undated works will not turn up.</li>
 <li>Genre:
-by clicking on a genre designation the search is limited to those works
+by clicking on a genre designation, the search is limited to those works
 that are listed under that particular genre as the work&apos;s primary genre.
 Several works may have the genre added as a secondary designation. These records are
 found by searching the genre in the free text search field instead. </li>
@@ -279,7 +278,7 @@ select box above the navigation buttons.</p>
 Possible sort orders are CNW number (default), alphabetically by title, and chronologically by year of composition. 
 The chronological sorting, however, is only a rough approximation. 
 It takes into account only the year in which the composition 
-was completed. Undated works undated are listed first. 
+was completed. Undated works are listed first. 
 Clicking on a work&apos;s title opens the detailed view.</p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
@@ -300,13 +299,13 @@ as <i>Har Haand du lagt paa Herrens Plov</i> <a
 class="work_number_reference" title="View work details" 
 href="document.xq?doc=cnw0173.xml">CNW 173</a> and <i>Jeg gik i marken og vogtede får</i> <a 
 class="work_number_reference" title="View work details" href="document.xq?doc=cnw0327.xml">CNW 327</a>. 
-From an orthographical point of view the titles in general expose a
+From an orthographical point of view, the titles in general expose a
 heterogeneous and a seemingly inconsistent practice which, however, has
-been retained rather than modernised, partly because it would be just as dated
-(though to a later time) and partly because modernisation is also a question
+been retained rather than modernized, partly because it would be just as dated
+(though to a later time) and partly because modernization is also a question
 of degree which in the extreme would not only include
 spelling and punctuation but also the choice of words.</p>
-<p>Several of Nielsen&apos;s songs were published in various contexts with distinct orthography: 
+<p>Several of Nielsen&apos;s songs were published in various contexts with distinct orthographies: 
 <i>Melodier til Sangbogen Danmark</i> (1924), for
 example, employs the older orthography while <i>Folkehøjskolens
 Melodibog</i> (1922) uses the modern. As a rule, CNW reproduces
@@ -315,7 +314,7 @@ In the description of the
 contents of the song collections the titles are rendered as in the collection
 concerned.</p>
 <p>Titles that are similar to genre designations have – as have instrument designations –
-been standardised and modernised such as <i>Kvartet
+been standardized and modernized such as <i>Kvartet
 for to violiner, bratsch og cello</i> (Quartet for Two Violins, Viola and Cello) <a 
 class="work_number_reference" title="View work details" 
 href="document.xq?doc=cnw49.xml">CNW 49</a>.</p>
@@ -332,7 +331,7 @@ known as &apos;Underlige Aftenlufte&apos;).</p>
 <p>In addition to the actual CNW
 number, the catalogue provides each work&apos;s number in an array of other
 contexts including Nielsen&apos;s own opus numbers, <a class="abbr" 
-href="javascript:void(0);">Fog/Schousboe<span class="expan">Dan Fog and Torben Schousboe: 
+href="javascript:void(0);">FS (Fog/Schousboe)<span class="expan">Dan Fog and Torben Schousboe: 
 <i>Carl Nielsen. Kompositioner. En Bibliografi</i>. Copenhagen 1965</span></a> numbers and the
 work&apos;s manuscript shelf-mark in the Carl Nielsen Collection (CNS) in The Royal Library. </p>
 <p>Furthermore, each record lists the work&apos;s number in the Nielsen Edition (CNU). 
@@ -340,7 +339,7 @@ The numbers signify series and volume. The song numbers are preceded by a comma.
 the same CNU volume these are separated by yet a comma; versions in other volumes
 are divided by a semicolon. Thus &apos;CNU III/5, 146, 229; III/6, 324&apos; refers
 to numbers 146, 229, and 324 in the Nielsen Edition of which the two
-first-mentioned are in Series III (songs) volume 5 whereas the latter
+first-mentioned are in Series III (songs) volume 5, whereas the latter
 is in Series III volume 6.</p>
 <p>Then follows the name of a possible text author. </p>
 <p>Each song record includes a link
@@ -369,7 +368,8 @@ For an unambiguous identification,
 CNW provides incipits including the first bars of the composition&apos;s main parts
 (movements, scenes or similar). Works of a more extensive instrumentation are
 provided with incipits in short score. By clicking on an incipit, a larger image
-appears in a separate window.</p>
+appears in a separate window. Incipits are based on the Carl Nielsen Edition and therefore 
+do not necessarily reproduce the exact reading of one particular source.</p>
 <p>In records of works of a more complex structure, such as operas divided into acts, scenes and
 sections of scenes, the information constitutes a hierarchy of each individual
 element that may be folded out by clicking on the &apos;Sections&apos; heading.</p>
@@ -387,9 +387,9 @@ and directly related to Nielsen;
 it also includes sources representing his own versions of the works. 
 Other composers&apos; arrangements of Nielsen&apos;s works are thus not included.
 </p>
-<p>The source descriptions are minimal, providing only the 
-most basic information for identification. More
-detailed descriptions are available in the volumes of <a href="http://www.kb.dk/en/nb/dcm/cnu/" target="_blank"
+<p>The source descriptions are minimal, providing only the most basic information for identification. 
+More detailed descriptions are available in the volumes 
+of <a href="http://www.kb.dk/en/nb/dcm/cnu/" target="_blank"
 title="The Carl Nielsen Edition">The Carl Nielsen Edition (CNU)</a>. To
 facilitate the consultation, CNW lists CNU&apos;s source designation (e.g.
 &apos;CNU Source <b>A</b>&apos;). The appropriate CNU volumes are available via the mentioned link.</p>
@@ -397,8 +397,8 @@ facilitate the consultation, CNW lists CNU&apos;s source designation (e.g.
 &apos;Score, autograph, fair copy&apos;. &apos;Autograph&apos; with no further qualification designates that the source&apos;s 
 main hand is Nielsen&apos;s. In some cases a name is added after &apos;autograph&apos; 
 – for instance, &apos;autograph (Henrik Knudsen)&apos; – 
-indicating that the manuscript is not by Nielsen, but that it is not, on the other hand, 
-merely a copy or transcript of Nielsen&apos;s manuscript: 
+indicating that the manuscript is not by Nielsen; nor that it is merely 
+a copy or transcript of Nielsen&apos;s manuscript: 
 the difference between sources listed as a copy and as an autograph (with a name added) 
 is that the latter intentionally adds original content to the work. </p>
 <p>A systematic classification of the source is given after the title. 
@@ -426,7 +426,7 @@ will be added as soon as possible when the complete edition is available. </p>
 been listed under the specific song rather than the collection or those collections
 in which the song appeared. Letters mentioning a song collection or
 unspecified songs from a collection are, however, listed under the collection.</p>
-<p>It is our intention to expand the bibliography to also comprise secondary literature such as 
+<p>It is our intention to expand the bibliography to also include secondary literature such as 
 scholarly literature. Till then we refer the user to
 consult the current bibliography on Nielsen literature published in the
 journal <a href="https://tidsskrift.dk/index.php/carlnielsenstudies" 
