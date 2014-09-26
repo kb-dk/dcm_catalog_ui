@@ -27,6 +27,8 @@ declare variable $mode   := request:get-parameter("mode","about") cast as xs:str
 	<p><span class="label">Translation of song texts' first lines:</span><span><br/>Holger Scheibel</span></p>
 	<p><span class="label">Technical development:</span><span>Sigfrid Lundberg, Axel Teich Geertinger</span></p>
 	<p><span class="label">Assistants:</span><span>Katarina Smitt Engberg, Niclas Nørby Hundahl</span></p>
+	<p><span class="label">Created with:</span><span><a href="http://www.kb.dk/en/nb/dcm/projekter/mermeid.html"
+	title="See MerMEId project page">MerMEId</a></span></p>
 	<p><span class="label">Sponsor: </span><span>Carl Nielsen og Anne Marie Carl-Nielsens Legat</span></p>
 	</div>
       </div>

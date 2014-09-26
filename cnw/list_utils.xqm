@@ -315,7 +315,8 @@ declare function app:navigation(
             let $links := ( 
 	      element div {
 		element strong {
-		  "Found ",$total, $work, $date_span 
+(:		  "Found ",$total, $work, $date_span :) 
+		  "Found ",$total, $work
 		},
 		if($sort-options) then
 		  (<form action="" id="sortForm" style="display:inline;float:right;">
