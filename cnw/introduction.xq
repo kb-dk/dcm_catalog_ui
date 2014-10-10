@@ -169,9 +169,7 @@ reception history.</p>
 described individually. The description of a song collection is contained
 in one record which also includes a listing of the collection&apos;s contents (i.e., those songs
 which the collection contains) as well as the sources related to that particular
-collection. Thus the sources of the collections are not listed under
-each song but are found under the collection or collections in which the song
-appeared. The collection is located by clicking on its title
+collection. The collection is located by clicking on its title
 appearing under the &apos;Contained in:&apos; heading. The description of a single
 song of a collection, however, is found by proceeding to the song&apos;s title in the index 
 of the collection (under the heading &apos;Contains:&apos;).</p>
