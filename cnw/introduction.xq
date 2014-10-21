@@ -15,7 +15,7 @@ declare variable $mode   := request:get-parameter("mode","introduction") cast as
       
       <h2>Table of contents</h2>
       <ul id="toc">
-        <li><a href="#source_situation">Sources to Nielsen&apos;s music</a></li>
+        <li><a href="#source_situation">Source materials</a></li>
         <li><a href="#methodology">Methodology and work concept</a></li>
         <ul>
           <li><a href="#definition">Definition of &apos;Work&apos;</a></li>
@@ -41,7 +41,7 @@ declare variable $mode   := request:get-parameter("mode","introduction") cast as
         </ul>
       </ul>
       
-<h2><a name="source_situation">Sources to Nielsen&apos;s music</a></h2>      
+<h2><a name="source_situation">Source materials</a></h2>      
 <p>The Royal Library in Copenhagen holds the majority of the surviving sources to Nielsen’s music, 
 presumably amounting to more than ninety-five percent of all the material. 
 The remaining five percent are found in other Danish and foreign libraries among which Musikbiblioteket 
@@ -124,7 +124,7 @@ the work or the grouping of selected movements (e.g. the <i
 >&apos;Aladdin&apos; Suite</i>), over single movements
 which sometimes are performed independently (e.g. <i>Hanedansen</i> 
 from <i>Maskarade</i> <a class="work_number_reference" 
-title="View work details" href="document.xq?doc=cnw2.xml">CNW 2</a>) 
+title="View work details" href="document.xq?doc=cnw0002.xml">CNW 2</a>) 
 and to actual arrangements of such individual movements (e.g. <i>Taagen letter</i>).</p>
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
