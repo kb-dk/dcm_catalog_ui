@@ -13,6 +13,8 @@ declare function layout:head($title as xs:string,
       
     <meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/storage/favicon.ico" />
       
     <link type="text/css" href="/editor/style/dcm.css" rel="stylesheet" />
     <link type="text/css" href="/editor/style/cnw.css" rel="stylesheet" />
