@@ -157,7 +157,6 @@ declare function app:public-view-document-reference($doc as node()) as node()* {
 	" ",
 	element span {
 	  attribute class {"list_subtitle"},
-	  attribute style {"font-size: 80%;"},
 	  if ($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@type/string()='subordinate'][1]/string()) 
 	  then
 	     element span {
@@ -174,8 +173,7 @@ declare function app:public-view-document-reference($doc as node()) as node()* {
 	  attribute lang {"en"},
 	  concat($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and not(@type/string())]/string()," "),
   	  element span {
-  	  attribute class {"alternative_language"},
-	  attribute style {"font-size: 85%;"},
+  	  attribute class {"list_subtitle"},
 	  if ($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate']/string())
 	  then 
 	     element span {
