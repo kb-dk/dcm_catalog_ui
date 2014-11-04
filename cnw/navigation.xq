@@ -97,28 +97,26 @@ declare function local:format-reference(
    	        <div class="composer">{$doc//m:workDesc/m:work/m:titleStmt/m:respStmt/m:persName[@role='composer']/text()}&#160;</div>
 
    let $ref   :=
-     <div class="result_table" onclick="location.href='{concat('./document.xq?doc=',util:document-name($doc))}'">
-       <div class="result_row">
-          <div class="list_id result_cell">
+     <table class="result_table" onclick="location.href='{concat('./document.xq?doc=',util:document-name($doc))}'" cellspacing="0" cellpadding="0">
+       <tr class="result_row">
+          <td class="list_id result_cell">
             {app:get-edition-and-number($doc)}{" "}
-          </div>
-          <div class="result_cell">
+          </td>
+          <td class="result_cell" rowspan="2">
 	        <div class="date">&#160;{$date_output}</div>
             <div class="title">
 	          {app:public-view-document-reference($doc)}{" "}
 	        </div>
-	     </div>
-       </div>
-       <div  class="result_row">
-          <div class="list_id result_cell">
+	     </td>
+       </tr>
+       <tr  class="result_row">
+          <td class="list_id result_cell genre_cell">
            <div class="info_bar">
 	          {$genre_boxes}&#160;
 	       </div>
-          </div>
-          <div class="result_cell"><img src="/editor/images/spacer.png" border="0" 
-          width="2" height="2"/></div>
-       </div>
-      </div>
+          </td>
+       </tr>
+     </table>
    return $ref
 
 };
