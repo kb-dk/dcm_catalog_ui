@@ -20,7 +20,7 @@ declare function loop:valid-work-number($doc as node()) as xs:boolean
       if($include eq "yes") then
 	true()
       else
-	let $num:=fn:number($doc//m:workDesc/m:work/m:identifier[@type="CNW"][1]/string())
+	let $num:=fn:number($doc//m:workDesc/m:work/m:identifier[@label="CNW"][1]/string())
 	return $num >= 1 and 9999 >= $num
     else
       true()
@@ -104,7 +104,7 @@ declare function loop:sort-key (
       substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/(@notafter|@isodate|@notbefore)[1],1,4)
     else if($key eq "work_number") then
       (: make the number a 5 character long string padded with zeros :)
-      let $num:=$doc//m:workDesc/m:work/m:identifier[@type=$collection]/string()
+      let $num:=$doc//m:workDesc/m:work/m:identifier[@label=$collection]/string()
       let $padded_number:=concat("000000",normalize-space($num))
       let $len:=string-length($padded_number)-4
 	return substring($padded_number,$len,5)
