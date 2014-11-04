@@ -156,9 +156,11 @@ declare function app:public-view-document-reference($doc as node()) as node()* {
 	$doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][not(@type/string())][1]/string(),
 	" ",
 	element span {
+	  attribute class {"list_subtitle"},
 	  attribute style {"font-size: 80%;"},
 	  $doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@type/string()='subordinate'][1]/string(),
-	  "&#160;"
+	  if ($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[not(@type[.='subordinate'][1]/string())][@type/string()='alternative'][1]/string()) 
+	  then concat( '(',$doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@type/string()='alternative'][1]/string(),')') else ""
 	}
       },
     element br {},
