@@ -141,7 +141,7 @@ declare function local:format-reference(
     	</div>
     	<div class="spacer"><div>&#160;</div></div>
     	<div class="results">
-    	   <div class="nav_bar">
+    	   <div class="nav_bar noprint">
               {app:navigation($sort-options,$list)}
            </div>
            <div class="filter_elements">
