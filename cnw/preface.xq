@@ -59,6 +59,8 @@ and Anne Marie Carl-Nielsen&apos;s Foundation) for
 financial support of the project. Thanks are also due to Knud Ketting
 who most kindly has provided us with information on the first known
 performances of the musical works.</p>
+<p>The Danish Centre for Music Publication collaborates with <a href="http://carlnielsen.org" 
+title="Carl Nielsen 2015"><i>Carl Nielsen 2015</i></a>.</p>
 <div><br clear="all"/>
 
 </div>
