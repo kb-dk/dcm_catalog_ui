@@ -30,7 +30,7 @@ let $result :=
 	  ))}
   <body class="list_files">
     <div id="all">
-      {layout:page-head("CNW","Carl Nielsen Works Catalogue")}
+      {layout:page-head("CNW","Catalogue of Carl Nielsen's Works")}
       {layout:page-menu($mode)}
       <div id="main">
       {
