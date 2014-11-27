@@ -37,6 +37,7 @@ declare variable $mode   := request:get-parameter("mode","introduction") cast as
           <li><a href="#history">The work&apos;s history</a></li>
           <li><a href="#music">Instrumentation and movements</a></li>
           <li><a href="#sources">Sources</a></li>
+          <li><a href="#documents">Documents</a></li>
           <li><a href="#bibliography">Bibliography</a></li>
         </ul>
       </ul>
@@ -412,25 +413,28 @@ of the score with one or more pages missing).
 
 
 <div class="toplink noprint"><a href="#top">To top of page</a></div>
-<h3><a name="bibliography">Bibliography</a></h3>
-<p>At present, the bibliography mainly deals with primary texts such as letters to
-and from Nielsen as well as Nielsen&apos;s diaries. The information is based on
-the forthcoming <a class="abbr" href="javascript:void(0);"><i>Carl Nielsen Brevudgaven</i><span 
+<h3><a name="documents">Documents</a></h3>
+<p>The &apos;Documents&apos; section lists contemporary manuscript documents such as 
+letters to and from Nielsen as well as Nielsen&apos;s diaries. The information is based on the 
+<a class="abbr" href="javascript:void(0);"><i>Carl Nielsen Brevudgaven</i><span 
 class="expan">John Fellow (ed.): <i>Carl Nielsen Brevudgaven</i>. Multivers, Copenhagen 2005-. </span></a>  
-(Carl Nielsen Letters).
-References do not yet include letters from Nielsen&apos;s latest years but they 
+(Carl Nielsen Letters).</p>
+<p>References do not yet include letters from Nielsen&apos;s latest years but they 
 will be added as soon as possible when the complete edition is available. </p>
 <p>In so far as it has been possible, references to letters dealing with actual songs have
 been listed under the specific song rather than the collection or those collections
 in which the song appeared. Letters mentioning a song collection or
 unspecified songs from a collection are, however, listed under the collection.</p>
-<p>It is our intention to expand the bibliography to also include secondary literature such as 
-scholarly literature. Till then we refer the user to
-consult the current bibliography on Nielsen literature published in the
-journal <a href="https://tidsskrift.dk/index.php/carlnielsenstudies" 
-title="Carl Nielsen Studies"><i>Carl Nielsen Studies</i></a>. <br/>
-The cumulative bibliography is available at <a
- href="http://www.kb.dk/en/nb/dcm/cnu/cn_bibliography.html">http://www.kb.dk/en/nb/dcm/cnu/cn_bibliography.html</a>.</p>
+
+<div class="toplink noprint"><a href="#top">To top of page</a></div>
+<h3><a name="bibliography">Bibliography</a></h3>
+<p>The bibliography lists contemporary as well as posthumous literature dealing with the 
+work in question. More references are currently being added, based on compilations 
+such as Mina F. Miller, <i>Carl Nielsen. A guide to research</i> (New York 1987), 
+the current bibliography on Nielsen literature published in the
+journal <i><a href="https://tidsskrift.dk/index.php/carlnielsenstudies" 
+title="Carl Nielsen Studies" target="_blank">Carl Nielsen Studies</a></i>, 
+and <i><a href="http://www.rilm.org/" target="_blank">RILM</a></i>.<br/>&#160;</p>
  <p style="text-align:right; font-style:italic;">The editors</p>
  <p>&#160;</p>
       </div>
