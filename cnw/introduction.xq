@@ -308,7 +308,7 @@ spelling and punctuation but also the choice of words.</p>
 <i>Melodier til Sangbogen Danmark</i> (1924), for
 example, employs the older orthography while <i>Folkehøjskolens
 Melodibog</i> (1922) uses the modern. As a rule, CNW reproduces
-the orthography of the earliest published title in these instances. 
+the orthography of the earliest published title. 
 In the description of the
 contents of the song collections the titles are rendered as in the collection
 concerned.</p>
