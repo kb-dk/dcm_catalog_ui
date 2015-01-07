@@ -316,7 +316,7 @@ concerned.</p>
 been standardized and modernized such as <i>Kvartet
 for to violiner, bratsch og cello</i> (Quartet for Two Violins, Viola and Cello) <a 
 class="work_number_reference" title="View work details" 
-href="document.xq?doc=cnw0049.xml">CNW 49</a>. Music for plays has been given titles such as 
+href="document.xq?doc=cnw0049.xml">CNW 49</a>. Incidental music has been given titles such as 
 <i>Musik til Ludvig Holsteins skuespil "Tove"</i> (Music for Ludvig Holstein&apos;s Play &apos;Tove&apos;) <a 
 class="work_number_reference" title="View work details" 
 href="document.xq?doc=cnw0010.xml">CNW 10</a>, because the title <i>Tove</i> would refer to the play as a whole.</p>
