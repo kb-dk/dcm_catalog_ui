@@ -97,6 +97,10 @@ declare function layout:page-menu($mode as xs:string) as node()
     return (<a href="navigation.xq" class="{$browse}">Catalogue</a>)
     }
     { 
+    let $appendix:= if ($mode="appendix") then "selected" else ""
+    return (<a href="appendix.xq" class="{$appendix}">Appendix</a>)
+    } 
+    { 
     let $about:= if ($mode="about") then "selected" else ""
     return (<a href="about.xq" class="{$about}">About CNW</a>)
     } 
