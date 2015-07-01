@@ -10,6 +10,7 @@ let $html := doc("appendix.html")
 
 let $contents :=
 <html xmlns="http://www.w3.org/1999/xhtml">
+  
   {layout:head("Appendix: Catalogue of Carl Nielsen&apos;s Works (CNW)",(<link rel="stylesheet" type="text/css" href="/editor/style/mei_to_html_public.css"/>))}
   <body class="text">
     <div id="all">

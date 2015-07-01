@@ -18,7 +18,13 @@ declare function layout:head($title as xs:string,
       
     <link type="text/css" href="/editor/style/dcm.css" rel="stylesheet" />
     <link type="text/css" href="/editor/style/cnw.css" rel="stylesheet" />
-    {$additions}
+
+<!-- remove this as soon as the css has been updated on the server -->
+<link rel="stylesheet" type="text/css" href="http://www.kb.dk/dcm/udgivelser/cnw/mei_to_html_public.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.kb.dk/dcm/udgivelser/cnw/cnw.css"/>
+<!-- end remove -->
+
+   {$additions}
 
     <link href="/editor/jquery/jquery-ui-1.10.3/css/base/jquery-ui.css" 
        rel="stylesheet" 
