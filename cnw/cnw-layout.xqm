@@ -19,10 +19,13 @@ declare function layout:head($title as xs:string,
     <link type="text/css" href="/editor/style/dcm.css" rel="stylesheet" />
     <link type="text/css" href="/editor/style/cnw.css" rel="stylesheet" />
 
-<!-- remove this as soon as the css has been updated on the server -->
-<link rel="stylesheet" type="text/css" href="http://www.kb.dk/dcm/udgivelser/cnw/mei_to_html_public.css"/>
+
+
 <link rel="stylesheet" type="text/css" href="http://www.kb.dk/dcm/udgivelser/cnw/cnw.css"/>
-<!-- end remove -->
+<link rel="stylesheet" type="text/css" href="http://www.kb.dk/dcm/udgivelser/cnw/mei_to_html_public.css"/>
+
+
+
 
    {$additions}
 
@@ -102,10 +105,6 @@ declare function layout:page-menu($mode as xs:string) as node()
     let $browse:= if ($mode="") then "selected" else ""
     return (<a href="navigation.xq" class="{$browse}">Catalogue</a>)
     }
-    { 
-    let $appendix:= if ($mode="appendix") then "selected" else ""
-    return (<a href="appendix.xq" class="{$appendix}">Appendix</a>)
-    } 
     { 
     let $about:= if ($mode="about") then "selected" else ""
     return (<a href="about.xq" class="{$about}">About CNW</a>)
