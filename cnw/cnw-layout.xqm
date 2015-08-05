@@ -54,6 +54,21 @@ declare function layout:head($title as xs:string,
       //
     </script>
 
+     <script type="text/javascript">
+     // <!--
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', 'UA-1269676-1']);
+     _gaq.push(['_trackPageview']);
+     _gaq.push(['_setDomainName', 'www.kb.dk']);
+	    
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javas
+cript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      // -->
+     </script>
   </head>
 
   return $head
@@ -131,10 +146,7 @@ declare function layout:page-footer($mode as xs:string) as node()
     /></a>
     2014 Danish Centre for Music Publication | The Royal Library | P.O. Box 2149 | Copenhagen K, Denmark | <a name="www.kb.dk" id="www.kb.dk" href="http://www.kb.dk/dcm">www.kb.dk/dcm</a><br/> 
   <span class="creativecommons" style="font-size: .65em;">
-            <!--<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"
-            title="Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License"><img 
-            alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png" /></a><br/>-->
-		    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>
+  This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>
   </span>
   </div>
 
