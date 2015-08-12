@@ -42,7 +42,7 @@ declare function loop:clean-volumes ($key as xs:string) as xs:string
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<body>
-	
+<!--	
     <div>
     CNS: 
 		    {
@@ -56,12 +56,16 @@ declare function loop:clean-volumes ($key as xs:string) as xs:string
             }
 
     </div>
+-->    
+
+    <h2>Names</h2>
     <div>
-Names: 
+ 
 		    {
             	    for $c in distinct-values(
-            		collection($database)//m:persName[not(name(..)='respStmt' and name(../..)='pubStmt' and name(../../..)='fileDesc')]
-            		/string()[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))])
+            		collection($database)//*[(name()='persName' or name()='author' or name()='recipient') 
+            		and not(name(..)='respStmt' and name(../..)='pubStmt' and name(../../..)='fileDesc')]
+            		/loop:clean-names(string())[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))])
                     order by $c
             	    return 
             	       <div>&gt;{$c}&lt;</div>

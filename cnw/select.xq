@@ -1,5 +1,8 @@
 xquery version "1.0" encoding "UTF-8";
 
+(: A script to generate select boxes for searching by keys such as opus numbers numbers or names. :)
+(: The generated code needs to be cleaned manually, though :)
+
 declare namespace loop="http://kb.dk/this/getlist";
 
 declare namespace request="http://exist-db.org/xquery/request";
@@ -125,8 +128,9 @@ Names: <select name="names">
         <option value=""/>
 		    {
             	    for $c in distinct-values(
-            		collection($database)//m:persName[not(name(..)='respStmt' and name(../..)='pubStmt' and name(../../..)='fileDesc')]
-            		/loop:clean-names(string())[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))])
+            		normalize-space(collection($database)//*[(name()='persName' or name()='author' or name()='recipient') 
+            		and not(name(..)='respStmt' and name(../..)='pubStmt' and name(../../..)='fileDesc')]
+            		/loop:clean-names(string())[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))]))
                     order by loop:invert-names($c)
             	    return 
             	       <option value="{$c}">{loop:invert-names($c)}</option>
