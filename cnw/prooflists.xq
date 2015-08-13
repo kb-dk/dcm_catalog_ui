@@ -63,9 +63,8 @@ declare function loop:clean-volumes ($key as xs:string) as xs:string
  
 		    {
             	    for $c in distinct-values(
-            		collection($database)//*[(name()='persName' or name()='author' or name()='recipient') 
-            		and not(name(..)='respStmt' and name(../..)='pubStmt' and name(../../..)='fileDesc')]
-            		/loop:clean-names(string())[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))])
+            		collection($database)//(m:persName | m:author | m:recipient)[not(name(..)='respStmt' and name(../..)='pubStmt' and name(../../..)='fileDesc')]
+            		/normalize-space(loop:clean-names(string()))[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))])
                     order by $c
             	    return 
             	       <div>&gt;{$c}&lt;</div>

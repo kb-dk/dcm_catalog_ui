@@ -43,7 +43,7 @@ declare function loop:invert-names ($key as xs:string) as xs:string
 declare function loop:simplify-list ($key as xs:string) as xs:string
 {
   (: strip off anything following the first volume reference :)
-  let $txt := concat(translate(normalize-space($key),' ,;/()-–','********'),'*')
+  let $txt := concat(translate(normalize-space($key),' ,;()-–','*******'),'*')
   return substring-before($txt,'*')
 };
 
@@ -96,7 +96,7 @@ FS: <select name="fs">
 
             }
        </select>
-
+<!--
 CNS: <select name="cns">
         <option value=""/>
 		    {
@@ -108,19 +108,18 @@ CNS: <select name="cns">
 
             }
        </select>
-
+-->
 CNU: <select name="cnu">
         <option value=""/>
 		    {
             	    for $c in distinct-values(
             		collection($database)//m:workDesc/m:work/m:identifier[@label='CNU']/loop:clean-volumes(string())[string-length(.) > 0])
-                    order by substring-before(loop:simplify-list($c),'/'), number(substring-after(loop:simplify-list($c),'/')) 
-            	    return 
+                    order by substring-before(loop:simplify-list($c),'/'), number(substring-after(loop:simplify-list($c),'/'))            	    return 
             	       <option value="{$c}">{$c}</option>
 
             }
-       </select>
 
+      </select>
     </div>
 
     <div>
@@ -128,9 +127,8 @@ Names: <select name="names">
         <option value=""/>
 		    {
             	    for $c in distinct-values(
-            		normalize-space(collection($database)//*[(name()='persName' or name()='author' or name()='recipient') 
-            		and not(name(..)='respStmt' and name(../..)='pubStmt' and name(../../..)='fileDesc')]
-            		/loop:clean-names(string())[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))]))
+            		collection($database)//(m:persName | m:author | m:recipient)[not(name(..)='respStmt' and name(../..)='pubStmt' and name(../../..)='fileDesc')]
+            		/loop:clean-names(normalize-space(string()))[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))])
                     order by loop:invert-names($c)
             	    return 
             	       <option value="{$c}">{loop:invert-names($c)}</option>
