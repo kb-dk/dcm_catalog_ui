@@ -43,14 +43,7 @@ declare function loop:invert-names ($key as xs:string) as xs:string
 declare function loop:simplify-list ($key as xs:string) as xs:string
 {
   (: strip off anything following the first volume reference :)
-  let $txt := concat(translate(normalize-space($key),' ,;()-–','*******'),'*')
-  return substring-before($txt,'*')
-};
-
-declare function loop:clean-volumes ($key as xs:string) as xs:string
-{
-  (: format the volume numbers for display :)
-  let $txt := concat(translate(normalize-space($key),' ,;()','*****'),'*')
+  let $txt := concat(translate(normalize-space($key),' ,;()-–/','********'),'*')
   return substring-before($txt,'*')
 };
 
@@ -111,14 +104,27 @@ CNS: <select name="cns">
 -->
 CNU: <select name="cnu">
         <option value=""/>
-		    {
-            	    for $c in distinct-values(
-            		collection($database)//m:workDesc/m:work/m:identifier[@label='CNU']/loop:clean-volumes(string())[string-length(.) > 0])
-                    order by substring-before(loop:simplify-list($c),'/'), number(substring-after(loop:simplify-list($c),'/'))            	    return 
-            	       <option value="{$c}">{$c}</option>
-
-            }
-
+        <option value="I/1–3">I/1–3</option>
+        <option value="I/4–5">I/4–5</option>
+        <option value="II/1">II/1</option>
+        <option value="II/2">II/2</option>
+        <option value="II/3">II/3</option>
+        <option value="II/4">II/4</option>
+        <option value="II/5">II/5</option>
+        <option value="II/6">II/6</option>
+        <option value="II/7">II/7</option>
+        <option value="II/8">II/8</option>
+        <option value="II/9">II/9</option>
+        <option value="II/10">II/10</option>
+        <option value="II/11">II/11</option>
+        <option value="II/12">II/12</option>
+        <option value="III/1">II/1</option>
+        <option value="III/2">II/2</option>
+        <option value="III/3">II/3</option>
+        <option value="III/4">II/4</option>
+        <option value="III/5">II/5</option>
+        <option value="III/6">II/6</option>
+        <option value="IV/1">IV/1</option>
       </select>
     </div>
 
