@@ -129,19 +129,34 @@ CNU: <select name="cnu">
     </div>
 
     <div>
-Names: <select name="names">
+RISM sigla: 
+        <select name="rism">
         <option value=""/>
 		    {
             	    for $c in distinct-values(
+            		collection($database)//m:identifier[@authority='RISM']/string()[string-length(.) > 0])
+                    order by $c
+            	    return 
+            	       <option value="{$c}">{$c}</option>
+
+            }
+        </select>
+    </div>
+<!--
+    <div>
+Names: <select name="names">
+        <option value=""/>
+		    {
+(:            	    for $c in distinct-values(
             		collection($database)//(m:persName | m:author | m:recipient)[not(name(..)='respStmt' and name(../..)='pubStmt' and name(../../..)='fileDesc')]
             		/loop:clean-names(normalize-space(string()))[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))])
                     order by loop:invert-names($c)
             	    return 
             	       <option value="{$c}">{loop:invert-names($c)}</option>
-
+:)
             }
         </select>
     </div>
-
+-->
   </body>
 </html>
