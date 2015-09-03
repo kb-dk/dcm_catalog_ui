@@ -424,8 +424,14 @@
 		<span class="{name()}">
 			<!-- source title -->
 			<xsl:for-each select="m:titleStmt[m:title/text()]">
-				<xsl:if test="normalize-space(../m:identifier[translate(translate(@type,'GWS:','gws '),' ','')='gwsource'])">
-					<b><xsl:apply-templates select="../m:identifier[translate(translate(@type,'GWS:','gws '),' ','')='gwsource']"
+				<!-- should be (the editor is supposed to mention "source" in @type):
+				<xsl:if test="normalize-space(../m:identifier[contains(translate(@type,'S','s'),'source')])">
+					<b><xsl:apply-templates select="../m:identifier[contains(translate(@type,'S','s'),'source')]"
+					/></b>:<xsl:text> </xsl:text>
+				</xsl:if>
+				-->
+				<xsl:if test="normalize-space(../m:identifier)">
+					<b><xsl:apply-templates select="../m:identifier"
 					/></b>:<xsl:text> </xsl:text>
 				</xsl:if>
 				<xsl:apply-templates select="m:title" mode="source_title"/>
@@ -433,8 +439,13 @@
 			<!-- item label -->
 			<xsl:if
 				test="local-name()='item' and normalize-space(@label) and name(..)!='componentGrp'">
-				<xsl:if test="normalize-space(m:identifier[@type='GW source'])">
-					<b><xsl:apply-templates select="m:identifier[@type='GW source']"
+				<!--  should be (the editor is supposed to mention "source" in @type):
+				<xsl:if test="normalize-space(m:identifier[contains(translate(@type,'S','s'),'source')])">
+					<b><xsl:apply-templates select="m:identifier[contains(translate(@type,'S','s'),'source')]"
+					/></b>:<xsl:text> </xsl:text>
+				</xsl:if>-->
+				<xsl:if test="normalize-space(m:identifier[contains(translate(@type,'S','s'),'source')])">
+					<b><xsl:apply-templates select="m:identifier[contains(translate(@type,'S','s'),'source')]"
 					/></b>:<xsl:text> </xsl:text>
 				</xsl:if>
 				<xsl:value-of select="@label"/>

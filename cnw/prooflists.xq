@@ -58,6 +58,20 @@ declare function loop:clean-volumes ($key as xs:string) as xs:string
     </div>
 -->    
 
+    <h2>Titles and CNW numbers</h2>  
+    <div>
+		    {
+            	    for $c in distinct-values(
+            		collection($database)//m:workDesc/m:work/m:identifier[@label='CNW']/string()[string-length(.) > 0 and translate(.,'0123456789','')=''])
+                    order by number($c)
+            	    return 
+            	       <div>{collection($database)//m:workDesc/m:work/m:titleStmt/m:title[1]} * {$c}</div>
+
+            }
+
+    </div>
+
+
     <h2>Names</h2>
     <div>
  
