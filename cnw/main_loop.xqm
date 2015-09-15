@@ -14,17 +14,16 @@ declare variable $loop:vocabulary :=
 declare function loop:valid-work-number($doc as node()) as xs:boolean
 {
   let $coll    :=$doc//m:seriesStmt/m:identifier[@type="file_collection"]/string()[1] 
-  let $include := request:get-parameter("anthologies", "")
+  let $exclude := request:get-parameter("anthologies", "")
   let $result  := 
     if($coll eq "CNW") then
-      if($include eq "yes") then
-	true()
+      if($exclude eq "yes") then
+	   let $num:=fn:number($doc//m:workDesc/m:work/m:identifier[@label="CNW"][1]/string())
+	   return $num >= 1 and 9999 >= $num
       else
-	let $num:=fn:number($doc//m:workDesc/m:work/m:identifier[@label="CNW"][1]/string())
-	return $num >= 1 and 9999 >= $num
+       true()
     else
       true()
-
   return $result
 };
   

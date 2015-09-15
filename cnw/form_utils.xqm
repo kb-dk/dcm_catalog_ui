@@ -18,8 +18,8 @@ declare variable $forms:to        :=  $forms:from      + $forms:number - 1;
 declare variable $forms:anthologies := request:get-parameter("anthologies","no") cast as xs:string;
 
 declare variable $forms:anthology-options := 
-(<option value="no">Exclude anthologies</option>,
-<option value="yes">Include anthologies</option>);
+(<option value="no">Exclude song collections</option>,
+<option value="yes">Include song collections</option>);
 
 
 declare variable $forms:published_only := 

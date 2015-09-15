@@ -5,7 +5,7 @@ module  namespace filter="http://kb.dk/this/app/filter";
 import module namespace  forms="http://kb.dk/this/formutils" at "./form_utils.xqm";
 
 declare namespace m="http://www.music-encoding.org/ns/mei";
-declare variable $filter:anthologies := request:get-parameter("anthologies","no") cast as xs:string;
+declare variable $filter:anthologies := request:get-parameter("anthologies","yes") cast as xs:string;
 declare variable $filter:sortby := request:get-parameter("sortby", "null,work_number") cast as xs:string;
 declare variable $filter:page   := request:get-parameter("page",   "1") cast as xs:integer;
 declare variable $filter:number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
@@ -14,8 +14,8 @@ declare variable $filter:uri    := "";
 declare variable $filter:vocabulary := doc("./keywords.xml");
 
 declare variable $filter:anthology-options := 
-(<option value="no">Exclude anthologies</option>,
-<option value="yes">Include anthologies</option>);
+(<option value="no">Include anthologies</option>,
+<option value="yes">Exclude anthologies</option>);
 
 
 
@@ -36,15 +36,9 @@ declare function filter:print-filters(
     <div class="filter_block">
       <form action="" method="get" class="search" id="query_form" name="query_form">
         <div class="label">Keywords</div>
-        <input name="query"  value='{request:get-parameter("query","")}' id="query_input"/>
-        <input name="c"      value='{request:get-parameter("c","")}'    type='hidden' />
-        <input name="published_only" value="{$published_only}" type='hidden' />
         <input name="itemsPerPage"  value='{$number}' type='hidden' />
         <input name="sortby"  value='{$filter:sortby}' type='hidden' />
-        <input name="anthologies"  value='{$filter:anthologies}' type='hidden' />
-        <input name="genre"  value='{$genre}' type='hidden' />
-        <input name="notbefore" value='{request:get-parameter("notbefore","")}' type='hidden' />
-        <input name="notafter" value='{request:get-parameter("notafter","")}' type='hidden' />
+        <input name="query"  value='{request:get-parameter("query","")}' id="query_input"/>
         <a class="help">?<span class="comment"> 
         Search terms may be combined using boolean operators. Wildcards allowed. 
         Search is case insensitive (except for boolean operators, which must be uppercase).
@@ -75,11 +69,6 @@ declare function filter:print-filters(
         </span>
       </span>
       </a>
-      <div class="search_submit">
-        <input type="submit" value="Search" id="search_submit"/>
-      </div>
-      </form>
-      <form action="" method="get" class="search" id="year_form" name="year_form">
 	<div class="label">Year of composition</div>    
 	<table cellpadding="0" cellspacing="0" border="0">
           <tr>
@@ -99,17 +88,6 @@ declare function filter:print-filters(
             </td>
           </tr>
 	</table>
-	<div class="search_submit">
-          <input type="submit" value="Search" id="year_submit"/>
-	</div>
-	<input name="query"  value='{request:get-parameter("query","")}' type="hidden"/>
-	<input name="c"      value='{request:get-parameter("c","")}'    type='hidden' />
-        <input name="anthologies"  value='{$filter:anthologies}' type='hidden' />
-	<input name="published_only" value="{$published_only}" type='hidden' />
-	<input name="itemsPerPage"  value='{$number}' type='hidden' />
-	<input name="sortby"  value='{$filter:sortby}' type='hidden' />
-	<input name="genre"  value='{$genre}' type='hidden' />
-      </form>     
 
       <div class="genre_filter filter_block">
 	{
@@ -117,34 +95,65 @@ declare function filter:print-filters(
 	    let $selected :=
           if ($genre=$filter:genre) then "selected" else ""
 
-    let $link := filter:get-filtered-link(
-	  $coll,
-	  string($number),
-	  $query,
-	  $genre)		  
  	return 
 	  if ($filter:vocabulary/m:classification/m:termList[m:term/string()=$genre]/@label="level2")
 	    then 
-	    (
-	    <a class="genre_filter_row level2 {$selected}"
-	        href="{$link}" title="Select genre: {$genre}">
-              <span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">
-              &#160;
-              </span> &#160; {$genre} 
-	    </a>
+	    (  
+	    <div class="genre_filter_row level2 {$selected}">
+          <span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">
+	      { element input {
+	            attribute type {"radio"},
+                attribute name {"genre"},
+                attribute value {fn:escape-uri($genre,true())},
+                attribute class {"checkbox"},
+	       if($selected="selected") then
+	           attribute checked {"checked"}
+	       else
+	           ()
+           }
+	      }
+          </span> &#160; {$genre} 
+	    </div>
 	    )
           else
-          <a class="genre_filter_row level1 {$selected}"
-              href="{$link}" title="Select genre: {$genre}">
+          <div class="genre_filter_row level1 {$selected}">
+	      { element input {
+	            attribute type {"radio"},
+                attribute name {"genre"},
+                attribute value {$genre},
+                attribute class {"checkbox"},
+	       if($selected="selected") then
+	           attribute checked {"checked"}
+	       else
+	           ()
+           }
+	      }
 	    {$genre} 
-          </a>
-        }(:$filter:anthologies,:)
-	{forms:emit-checkbox-form('toggle-anthologies',
-	'anthologies',
-	"yes",
-	$filter:anthology-options)}
-      </div>
-      </div>
+          </div>
+        }
+         </div>
+         
+         <div>
+        {     
+            element input {
+    	    attribute type {"checkbox"},
+            attribute name {"anthologies"},
+            attribute value {"yes"},
+            attribute class {"checkbox"},
+	        if($forms:anthologies="yes") then
+	           attribute checked {"checked"}
+	        else
+	           ()
+	        }
+        } Exclude song collections
+         </div>
+         
+	      <div class="search_submit">
+            <input type="submit" value="Search" id="search_submit"/>
+          </div>
+        </form>
+
+    </div>
     return $filter
 };
 
@@ -168,7 +177,7 @@ declare function filter:filter-elements()
   let $this_uri := fn:concat($filter:uri,"?",request:get-query-string())
  
   let $year_block :=
-      if($notbefore or $notafter) then
+      if(($notbefore and $notbefore!="1880") or ($notafter and $notafter!="1931")) then
        <a class="filter_element"
            href="{fn:replace(fn:replace($this_uri,'notbefore=\d*','notbefore='),'notafter=\d*','notafter=')}">
            Year of composition: {$notbefore}–{$notafter} 
@@ -256,52 +265,3 @@ declare function filter:get-filtered-link(
     return $link
 };
 
-(:
-declare function filter:collections() {
-  <div class="filter_block">
-    <span class="label">Collection </span>
-    <select onchange="location.href=this.value; return false;">
-      {
-        for $c in distinct-values(
-          collection($database)//m:seriesStmt/m:identifier[@type="file_collection"]/string()[string-length(.) > 0 ])
-          let $querystring  := 
-            if($query) then
-              fn:string-join(
-            	("c=",$c,
-            	"&amp;published_only=",$published_only,
-            	"&amp;itemsPerPage=",$number cast as xs:string,	
-            	"&amp;sortby=",$filter:sortby,
-            	"&amp;query=",
-            	fn:escape-uri($query,true())),
-            	""
-            	 )
-               else
-            	 concat("c=",$c,
-            	 "&amp;published_only=",$published_only,
-            	"&amp;sortby=",$filter:sortby,
-            	 "&amp;itemsPerPage="  ,$number cast as xs:string)
-            	 return
-            	   if(not($coll=$c)) then 
-            	   <option value="?{$querystring}">{$c}</option>
-            	 else
-            	 <option value="?{$querystring}" selected="selected">{$c}</option>
-               }
-	       {
-            	 let $get-uri := 
-            	   if($query) then
-            	     fn:string-join(("?published_only=",$published_only,"&amp;query=",fn:escape-uri($query,true())),"")
-            	   else
-            	     concat("?c=&amp;published_only=",$published_only)
-            
-  	         let $link := 
-            	   if($coll) then 
-            	   <option value="{$get-uri}">All collections</option>
-            	 else
-            	 <option value="{$get-uri}" selected="selected">All collections</option>
-            	 return $link
-               }
-    </select>
-    </div>
-};
-
-:)
