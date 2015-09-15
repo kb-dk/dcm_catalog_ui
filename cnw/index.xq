@@ -42,84 +42,6 @@ declare variable $sort-options :=
 );
 
 
-declare function local:format-reference(
-  $doc as node(),
-  $pos as xs:integer ) as node() 
-
-{
-
-    let $genres2 := 
-      for $genre in 
-	  distinct-values($doc//m:workDesc/m:work/m:classification/m:termList/m:term[contains(string-join($vocabulary//m:termList[@label='level2']/m:term," "),.) and normalize-space(.)!='']/string())
-	  where string-length($genre) > 0   
-	     return
-	       $genre
-
-   let $class := 
-      for $genre in $genres2
-         return 
-	         translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')
-
-
-(: Level 1 genres actually not used at the moment :) 
-   let $genres1 := 
-      for $genre in $genres2
-         return 
-	         $vocabulary//m:termList/m:term[.=$genre]/../preceding-sibling::m:termList[@label='level1'][1]/string()
-
-   let $class1 := 
-      for $genre in $genres1
-         return 
-	         translate(translate(normalize-space($genre),' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')
-(: End not used :)
-
-
-    let $genre_boxes := 
-      for $genre at $pos in $genres2 
-         return 
-           <div class="genre_list">
-              <a class="{$class[$pos]} genre_indicator abbr"><img src="/editor/images/spacer.png" border="0" width="12" height="12"/><span class="expan">{$genre}</span></a>
-           </div>
-       
-   let $date_output :=
-     if($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notbefore!='' or $doc//m:workDesc/m:work/m:history/m:creation/m:date/@notafter!=''
-       or $doc//m:workDesc/m:work/m:history/m:creation/m:date/@startdate!='' or $doc//m:workDesc/m:work/m:history/m:creation/m:date/@enddate!='') then
-       concat(substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notbefore,1,4),
-       substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@startdate,1,4),
-       '-',
-       substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@enddate,1,4),
-       substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notafter,1,4))
-     else
-       substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@isodate,1,4)
-
-(: Composer currently not used :)
-   let $composer :=
-   	        <div class="composer">{$doc//m:workDesc/m:work/m:titleStmt/m:respStmt/m:persName[@role='composer']/text()}&#160;</div>
-
-   let $ref   :=
-     <table class="result_table" onclick="location.href='{concat('./document.xq?doc=',util:document-name($doc))}'" cellspacing="0" cellpadding="0">
-       <tr class="result_row">
-          <td class="list_id result_cell">
-            {app:get-edition-and-number($doc)}{" "}
-          </td>
-          <td class="result_cell" rowspan="2">
-	        <div class="date">&#160;{$date_output}</div>
-            <div class="title">
-	          {app:public-view-document-reference($doc)}{" "}
-	        </div>
-	     </td>
-       </tr>
-       <tr  class="result_row">
-          <td class="list_id result_cell genre_cell">
-           <div class="info_bar">
-	          {$genre_boxes}&#160;
-	       </div>
-          </td>
-       </tr>
-     </table>
-   return $ref
-
-};
 
 <html xmlns="http://www.w3.org/1999/xhtml">
    {layout:head("Catalogue of Carl Nielsen&apos;s Works (CNW)",(<link rel="stylesheet" type="text/css" href="/editor/style/public_list_style.css"/>))}
@@ -131,29 +53,9 @@ declare function local:format-reference(
 
       <div id="main">
          <div class="content_box">
-      {
-      let $list := loop:getlist($database,$coll,$genre,$query)
-      return
-      (
-      <div class="files_list">
     	<div class="filter">
-    	{filter:print-filters($database,$published_only,$coll,string($number),$genre,$query,$list)}
+    	{filter:print-filters($database,$published_only,$coll,string($number),$genre,$query)}
     	</div>
-    	<div class="spacer"><div>&#160;</div></div>
-    	<div class="results">
-    	   <div class="nav_bar noprint">
-              {app:navigation($sort-options,$list)}
-           </div>
-           <div class="filter_elements">
-              {filter:filter-elements()}
-           </div>
-           {
-             for $doc at $count in $list[position() = ($from to $to)]
-             return local:format-reference($doc,$count)
-           }
-    	</div>
-      </div>)
-    }
     </div> 
     </div> 
 

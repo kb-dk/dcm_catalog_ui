@@ -137,7 +137,7 @@ declare function local:format-reference(
       (
       <div class="files_list">
     	<div class="filter">
-    	{filter:print-filters($database,$published_only,$coll,string($number),$genre,$query,$list)}
+    	{filter:print-filters($database,$published_only,$coll,string($number),$genre,$query)}
     	</div>
     	<div class="spacer"><div>&#160;</div></div>
     	<div class="results">

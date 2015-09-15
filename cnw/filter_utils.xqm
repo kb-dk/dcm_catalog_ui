@@ -26,15 +26,14 @@ declare function filter:print-filters(
   $coll            as xs:string,
   $number          as xs:string,
   $genre           as xs:string,
-  $query           as xs:string,
-  $list as node()*) as node()* 
+  $query           as xs:string) 
 {
   let $notafter  := request:get-parameter("notafter","1931")
   let $notbefore := request:get-parameter("notbefore","1880")
 
   let $filter:=
     <div class="filter_block">
-      <form action="" method="get" class="search" id="query_form" name="query_form">
+      <form action="navigation.xq" method="get" class="search" id="query_form" name="query_form">
         <div class="label">Keywords</div>
         <input name="itemsPerPage"  value='{$number}' type='hidden' />
         <input name="sortby"  value='{$filter:sortby}' type='hidden' />
