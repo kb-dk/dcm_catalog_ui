@@ -26,7 +26,7 @@ declare variable $page   := request:get-parameter("page", "1") cast as xs:intege
 declare variable $number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
 declare variable $mode   := request:get-parameter("mode","") cast as xs:string;
 
-declare variable $vocabulary := doc(concat("http://",request:get-header('HOST'),"/editor/forms/mei/model/keywords.xml"));
+declare variable $vocabulary := doc(concat("http://",request:get-header('HOST'),"/storage/cnw/keywords.xml"));
 
 declare variable $database := "/db/cnw/data";
 
@@ -44,7 +44,7 @@ declare variable $sort-options :=
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-   {layout:head("Catalogue of Carl Nielsen&apos;s Works (CNW)",(<link rel="stylesheet" type="text/css" href="/editor/style/public_list_style.css"/>))}
+   {layout:head("Catalogue of Carl Nielsen&apos;s Works (CNW)",(<link rel="stylesheet" type="text/css" href="/storage/style/public_list_style.css"/>))}
     <body class="list_files">
     
       <div id="all">

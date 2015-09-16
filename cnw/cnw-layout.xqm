@@ -16,41 +16,41 @@ declare function layout:head($title as xs:string,
     
     <link rel="icon" type="image/vnd.microsoft.icon" href="/storage/favicon.ico" />
       
-    <link type="text/css" href="/editor/style/dcm.css" rel="stylesheet" />
-    <link type="text/css" href="/editor/style/cnw.css" rel="stylesheet" />
+    <link type="text/css" href="/storage/style/dcm.css" rel="stylesheet" />
+    <link type="text/css" href="/storage/style/cnw/cnw.css" rel="stylesheet" />
 
 
 
    {$additions}
 
-    <link href="/editor/jquery/jquery-ui-1.10.3/css/base/jquery-ui.css" 
+    <link href="/storage/jquery/jquery-ui-1.10.3/css/base/jquery-ui.css" 
        rel="stylesheet" 
        type="text/css"/>
 
-    <link href="/editor/jquery/jquery-ui-1.10.3/css/style.css" 
+    <link href="/storage/jquery/jquery-ui-1.10.3/css/style.css" 
        rel="stylesheet"  
        type="text/css"/>
       
-    <script type="text/javascript" src="/editor/js/confirm.js">
+    <script type="text/javascript" src="/storage/js/confirm.js">
       //
     </script>
       
-    <script type="text/javascript" src="/editor/js/checkbox.js">
+    <script type="text/javascript" src="/storage/js/checkbox.js">
       //
     </script>
       
-    <script type="text/javascript" src="/editor/js/publishing.js">
+    <script type="text/javascript" src="/storage/js/publishing.js">
       //
     </script>
 
-    <script type="text/javascript" src="/editor/jquery/jquery-ui-1.10.3/js/jquery-1.9.1.js">
+    <script type="text/javascript" src="/storage/jquery/jquery-ui-1.10.3/js/jquery-1.9.1.js">
       //
     </script>
 
-    <script type="text/javascript" src="/editor/jquery/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js">
+    <script type="text/javascript" src="/storage/jquery/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js">
       //
     </script>
-    <script type="text/javascript" src="/editor/jquery/jquery-ui-1.10.3/slider.js">
+    <script type="text/javascript" src="/storage/jquery/jquery-ui-1.10.3/slider.js">
       //
     </script>
 
@@ -62,8 +62,7 @@ declare function layout:head($title as xs:string,
      _gaq.push(['_setDomainName', 'www.kb.dk']);
 	    
      (function() {
-       var ga = document.createElement('script'); ga.type = 'text/javas
-cript'; ga.async = true;
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
@@ -85,13 +84,13 @@ declare function layout:page-head(
       <a href="http://www.kb.dk" title="Det Kongelige Bibliotek"><img
          id="KBLogo"
 	 title="Det Kongelige Bibliotek" 
-	 alt="KB Logo" src="/editor/images/kb_white.png"/><img
+	 alt="KB Logo" src="/storage/style/images/kb_white.png"/><img
 	 id="KBLogo_print"
 	 title="Det Kongelige Bibliotek" 
-	 alt="KB Logo" src="/editor/images/kb.png"/></a>
+	 alt="KB Logo" src="/storage/style/images/kb.png"/></a>
     </div>
-    <h1>{$title}</h1>
-    <h2>{$subtitle}</h2>
+    <h1><a style="text-decoration:none;" href="http://www.kb.dk/dcm/cnw.html" title="CNW – Catalogue of Carl Nielsen's Works – Front page">{$title}</a></h1>
+    <h2><a style="text-decoration:none;" href="http://www.kb.dk/dcm/cnw.html" title="CNW – Catalogue of Carl Nielsen's Works – Front page">{$subtitle}</a></h2>
   </div>
 
   return $header
@@ -137,11 +136,11 @@ declare function layout:page-footer($mode as xs:string) as node()
     style="text-decoration:none;"><img 
     style="border: 0px; vertical-align:middle;" 
     alt="DCM Logo" 
-    src="/editor/images/dcm_logo_small_white.png"
+    src="/storage/style/images/dcm_logo_small_white.png"
     id="dcm_logo"/><img 
     style="border: 0px; vertical-align:middle;" 
     alt="DCM Logo" 
-    src="/editor/images/dcm_logo_small.png"
+    src="/storage/style/images/dcm_logo_small.png"
     id="dcm_logo_print"
     /></a>
     2014 Danish Centre for Music Publication | The Royal Library | P.O. Box 2149 | Copenhagen K, Denmark | <a name="www.kb.dk" id="www.kb.dk" href="http://www.kb.dk/dcm">www.kb.dk/dcm</a><br/> 

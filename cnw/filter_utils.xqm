@@ -32,12 +32,13 @@ declare function filter:print-filters(
   let $notbefore := request:get-parameter("notbefore","1880")
 
   let $filter:=
-    <div class="filter_block">
       <form action="navigation.xq" method="get" class="search" id="query_form" name="query_form">
-        <div class="label">Keywords</div>
+      <div class="filter_block">
         <input name="itemsPerPage"  value='{$number}' type='hidden' />
         <input name="sortby"  value='{$filter:sortby}' type='hidden' />
-        <input name="query"  value='{request:get-parameter("query","")}' id="query_input"/>
+        <!--
+        <span class="label input_label">Title</span>
+        <input name="title" class="query_input" value='{request:get-parameter("title","")}' id="title_input"/>
         <a class="help">?<span class="comment"> 
         Search terms may be combined using boolean operators. Wildcards allowed. 
         Search is case insensitive (except for boolean operators, which must be uppercase).
@@ -67,8 +68,15 @@ declare function filter:print-filters(
           </span>
         </span>
       </span>
-      </a>
-	<div class="label">Year of composition</div>    
+      </a>-->
+      </div>
+      
+      <div class="filter_block">
+        <span class="label input_label">Keywords</span>
+        <input name="query" class="query_input" value='{request:get-parameter("query","")}' id="query_input"/>
+      </div>
+      <div class="filter_block">
+	<span class="label">Year of composition</span>    
 	<table cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td style="padding-left: 0;">
@@ -87,6 +95,7 @@ declare function filter:print-filters(
             </td>
           </tr>
 	</table>
+	</div>
 
       <div class="genre_filter filter_block">
 	{
@@ -98,28 +107,29 @@ declare function filter:print-filters(
 	  if ($filter:vocabulary/m:classification/m:termList[m:term/string()=$genre]/@label="level2")
 	    then 
 	    (  
-	    <div class="genre_filter_row level2 {$selected}">
-          <span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">
-	      { element input {
-	            attribute type {"radio"},
-                attribute name {"genre"},
-                attribute value {fn:escape-uri($genre,true())},
-                attribute class {"checkbox"},
-	       if($selected="selected") then
-	           attribute checked {"checked"}
-	       else
-	           ()
-           }
-	      }
-          </span> &#160; {$genre} 
-	    </div>
-	    )
-          else
-          <div class="genre_filter_row level1 {$selected}">
+	    <label for="{concat('id',translate($genre,' ',''))}" class="genre_filter_row level2 {$selected}">
 	      { element input {
 	            attribute type {"radio"},
                 attribute name {"genre"},
                 attribute value {$genre},
+                attribute id {concat("id",translate($genre," ",""))},
+                attribute class {"radio"},
+	       if($selected="selected") then
+	           attribute checked {"checked"}
+	       else
+	           ()
+           }
+	      }
+          <span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</span> &#160; {$genre} 
+	    </label> 
+	    )
+          else
+          <label for="{concat('id',translate($genre,' ',''))}" class="genre_filter_row level1 {$selected}">
+	      { element input {
+	            attribute type {"radio"},
+                attribute name {"genre"},
+                attribute value {$genre},
+                attribute id {concat("id",translate($genre," ",""))},
                 attribute class {"checkbox"},
 	       if($selected="selected") then
 	           attribute checked {"checked"}
@@ -127,12 +137,13 @@ declare function filter:print-filters(
 	           ()
            }
 	      }
+	      <span class="genre_indicator">&#160;</span>
 	    {$genre} 
-          </div>
+          </label>
         }
          </div>
          
-         <div>
+      <div class="filter_block">
         {     
             element input {
     	    attribute type {"checkbox"},
@@ -147,12 +158,11 @@ declare function filter:print-filters(
         } Exclude song collections
          </div>
          
-	      <div class="search_submit">
-            <input type="submit" value="Search" id="search_submit"/>
+	      <div class="filter_block">
+            <input type="submit" value="Search" class="search_submit" id="search_submit"/>
           </div>
         </form>
 
-    </div>
     return $filter
 };
 
@@ -172,7 +182,9 @@ declare function filter:filter-elements()
   let $notafter  := request:get-parameter("notafter","")
   let $notbefore := request:get-parameter("notbefore","")
   let $query := request:get-parameter("query","")
+  let $title := request:get-parameter("title","")
   let $genre := request:get-parameter("genre","")
+  let $anthologies := request:get-parameter("anthologies","")
   let $this_uri := fn:concat($filter:uri,"?",request:get-query-string())
  
   let $year_block :=
@@ -180,6 +192,14 @@ declare function filter:filter-elements()
        <a class="filter_element"
            href="{fn:replace(fn:replace($this_uri,'notbefore=\d*','notbefore='),'notafter=\d*','notafter=')}">
            Year of composition: {$notbefore}–{$notafter} 
+       </a>
+    else
+       ""
+  let $title_block :=
+      if($title) then
+       <a class="filter_element"
+           href="{fn:replace($this_uri,'title=[^&amp;]+','title=')}">
+           Title: {$title} 
        </a>
     else
        ""
@@ -199,8 +219,16 @@ declare function filter:filter-elements()
        </a>
     else
        ""
+  let $anthology_block :=
+      if($anthologies) then
+       <a class="filter_element" 
+           href="{fn:replace($this_uri,'anthologies=[^&amp;]+','anthologies=')}">
+           Exclude song collections 
+       </a>
+    else
+       ""
   let $reset_block :=
-      if($genre_block or $year_block or $query_block) then
+      if($genre_block or $year_block or $query_block or $anthology_block or $title_block) then
        <a class="filter_element reset" 
            href="{fn:concat($filter:uri,'?itemsPerPage=',request:get-parameter("itemsPerPage",""),'&amp;sortby=',request:get-parameter("sortby",$filter:sortby))}">
            Reset all
@@ -209,7 +237,7 @@ declare function filter:filter-elements()
        ""
   let $clear :=
       <br style="clear:both"/>
-  return ($year_block, $query_block, $genre_block, $reset_block, $clear)
+  return ($title_block, $query_block, $year_block, $genre_block, $anthology_block, $reset_block, $clear)
 };
 
 
