@@ -107,24 +107,28 @@ declare function filter:print-filters(
 	  if ($filter:vocabulary/m:classification/m:termList[m:term/string()=$genre]/@label="level2")
 	    then 
 	    (  
-	    <label for="{concat('id',translate($genre,' ',''))}" class="genre_filter_row level2 {$selected}">
-	      { element input {
+	      <div class="genre_filter_row">
+            <span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</span>
+	         { element input {
 	            attribute type {"radio"},
                 attribute name {"genre"},
                 attribute value {$genre},
                 attribute id {concat("id",translate($genre," ",""))},
                 attribute class {"radio"},
-	       if($selected="selected") then
-	           attribute checked {"checked"}
-	       else
-	           ()
-           }
-	      }
-          <span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</span> &#160; {$genre} 
-	    </label> 
+	           if($selected="selected") then
+	            attribute checked {"checked"}
+	           else
+	            ()
+              }
+	       }
+           <label for="{concat('id',translate($genre,' ',''))}" class="level2 {$selected}">
+              <span><span>&#160;</span></span> {$genre} 
+	       </label>
+	     </div>
 	    )
           else
-          <label for="{concat('id',translate($genre,' ',''))}" class="genre_filter_row level1 {$selected}">
+          <div class="genre_filter_row">
+   	        <span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</span> 
 	      { element input {
 	            attribute type {"radio"},
                 attribute name {"genre"},
@@ -137,9 +141,10 @@ declare function filter:print-filters(
 	           ()
            }
 	      }
-	      <span class="genre_indicator">&#160;</span>
-	    {$genre} 
-          </label>
+              <label for="{concat('id',translate($genre,' ',''))}" class="level1 {$selected}">
+        	      <span><span>&#160;</span></span> {$genre} 
+              </label>
+           </div>
         }
          </div>
          
@@ -149,13 +154,14 @@ declare function filter:print-filters(
     	    attribute type {"checkbox"},
             attribute name {"anthologies"},
             attribute value {"yes"},
+            attribute id {"idAnthologies"},
             attribute class {"checkbox"},
 	        if($forms:anthologies="yes") then
 	           attribute checked {"checked"}
 	        else
 	           ()
 	        }
-        } Exclude song collections
+        } <label for="idAnthologies"><span><span>&#160;</span></span>Exclude song collections</label>
          </div>
          
 	      <div class="filter_block">

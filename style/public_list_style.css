@@ -65,58 +65,8 @@ div.filter_block .label {
     margin-left : 5px;
 }
 
-/* test */
-
-
-/* HTML5 Boilerplate accessible hidden styles */
-div.genre_filter [type="radio"] {
-  border: 0; 
-  clip: rect(0 0 0 0); 
-  height: 1px; margin: -1px; 
-  overflow: hidden; 
-  padding: 0; 
-  position: absolute; 
-  width: 1px;
-}
-
-/* One radio button per line */
-div.genre_filter label {
-  display: block;
-  cursor: pointer;
-}
-
-
-/* the basic, unchecked style */
-div.genre_filter [type="radio"] + span:before {
-  content: '';
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  vertical-align: -0.25em;
-  border-radius: 8px;
-  border: 1px solid #999;
-  margin-right: 24px;
-  transition: 0.5s ease all;
-}
-
-/* the checked style using the :checked pseudo class */
-div.genre_filter [type="radio"]:checked + span:before {
-  box-shadow: 0 0 1px 2px #000;
-}
-
-div.genre_filter span.genre_indicator {
-/*    display: inline-block;*/
-    width: 16px;
-    height: 16px;
-    margin-right: -20px;
-    border-radius: 8px;
-}
-
-.genre_filter_row {
-    padding: 0 0 5px 30px;
-    text-indent: -30px;
-    display: block;
-    text-decoration: none;
+div.genre_filter input[type=text] {
+    background-color: #fff;
 }
 
 .genre_filter_row:hover {
@@ -126,13 +76,65 @@ div.genre_filter span.genre_indicator {
 .level1 {
     font-weight: bold;
     text-transform: uppercase;
-    padding-top: 10px;
+    margin-top: 10px;
 }
 
-.genre_filter_row .num {
-    color: #666;
-    font-weight: normal;
+/* radio buttons and checkboxes */
+
+/* fallback for old browsers: */
+div.genre_filter input[type=checkbox],
+div.genre_filter input[type=radio   ] {
+    background-color: transparent;
+    color: #000;
+    border: 0px;
+    margin: 6px 0 0 6px;
 }
+
+
+input[type=checkbox]:not(old),
+input[type=radio   ]:not(old){
+  width   : 28px;
+  margin  : 0;
+  padding : 0;
+  opacity : 0;
+}
+
+input[type=checkbox]:not(old) + label,
+input[type=radio   ]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -28px;
+  padding-left : 28px;
+  line-height  : 24px;
+}
+
+input[type=checkbox]:not(old) + label {
+  background   : url('images/unchecked.png') no-repeat 0 0;
+}
+
+input[type=radio   ]:not(old) + label{
+  background   : url('images/checkbox_clear.png') no-repeat 0 0;
+}
+
+input[type=checkbox]:not(old):checked + label{
+  background   : url('images/checked.png') no-repeat 0 0;
+}
+
+input[type=radio]:not(old):checked + label{
+  background   : url('images/radio.png') no-repeat 0 0;
+  background-position: 0 -2px;
+}
+
+div.genre_filter span.genre_indicator {
+    width: 14px;
+    height: 14px;
+    border-radius: 8px;
+    border: 1px solid #999;
+    display: inline-block;
+    margin: 0 -32px 0 0;
+}
+
+
+/* end radio buttons and checkboxes */
 
 
 
@@ -447,78 +449,57 @@ a:hover.abbr .expan {
 /* genre color codes */
 
 /* main categories */
-.stage_music                { background-color: #812970;
+
+.stage_music, .instrumental_music, .vocal_music
+                            { background-color: #fff;
+                              color: #000; }
+
+/*.stage_music                { background-color: #812970;
                               color: #fff; }
 .instrumental_music         { background-color: #5b8896;
                               color: #fff; }
 .vocal_music                { background-color: #c9a044;
-                              color: #fff; }
-                              
+                              color: #fff; }*/
                               
 
 /* sub-categories */
-div.genre_filter [type="radio"] + span.opera:before,
-.results .opera
-                            { background-color: #f72c8d;
+.opera                      { background-color: #f72c8d;
                               color: #fff; }
 
-div.genre_filter [type="radio"] + span.incidental_music:before,
-.results .incidental_music
-                            { background-color: #c72279;
+.incidental_music           { background-color: #c72279;
                               color: #fff; }
 
-div.genre_filter [type="radio"] + span.ballet:before,
-.results .ballet
-                            { background-color: #9c1dac;
+.ballet                     { background-color: #9c1dac;
                               color: #fff; }
 
-div.genre_filter [type="radio"] + span.symphony:before,
-.results .symphony 
-                            { background-color: #4c89fe;
+.symphony                   { background-color: #4c89fe;
                               color: #fff; }
 
-div.genre_filter [type="radio"] + span.concerto:before,
-.results .concerto
-                            { background-color: #01aef5;
+.concerto                   { background-color: #01aef5;
                               color: #fff; }
 
-div.genre_filter [type="radio"] + span.other_orchestral_music:before,
-.results .other_orchestral_music
-                            { background-color: #00b7c0;
+.other_orchestral_music     { background-color: #00b7c0;
                               color: #fff; }
 
-div.genre_filter [type="radio"] + span.chamber_music:before,
-.results .chamber_music
-                            { background-color: #01df87;
+.chamber_music              { background-color: #01df87;
                               color: #fff; }
 
-div.genre_filter [type="radio"] + span.piano_music:before,
-.results .piano_music,
-div.genre_filter [type="radio"] + span.organ_music:before,
-.results .organ_music,
-div.genre_filter [type="radio"] + span.music_for_one_instrument:before,
-.results .music_for_one_instrument
-                            { background-color: #55de01;
+.piano_music, .organ_music,
+.music_for_one_instrument   { background-color: #55de01;
                               color: #fff; }
 
-div.genre_filter [type="radio"] + span.music_for_vocal_soloists_and_instruments_with_or_without_choir:before,
-.results .music_for_vocal_soloists_and_instruments_with_or_without_choir
+.music_for_vocal_soloists_and_instruments_with_or_without_choir  
                             { background-color: #f3fb53;
                               color: #000; }
 
-div.genre_filter [type="radio"] + span.choral_music_with_instruments:before,
-.results .choral_music_with_instruments
+.choral_music_with_instruments 
                             { background-color: #ffb147;
                               color: #fff; }
 
-div.genre_filter [type="radio"] + span.a_cappella_choral_music:before,
-.results .a_cappella_choral_music
-                            { background-color: #ff7647;
+.a_cappella_choral_music    { background-color: #ff7647;
                               color: #fff; }
 
-div.genre_filter [type="radio"] + span.song:before,
-.results .song
-                            { background-color: #fc495e;
+.song                       { background-color: #fc495e;
                               color: #fff; }
 
 /* Print style rules */
