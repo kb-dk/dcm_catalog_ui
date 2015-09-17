@@ -69,15 +69,11 @@ div.genre_filter input[type=text] {
     background-color: #fff;
 }
 
-.genre_filter_row:hover {
-    background: #f8f8f8;
-}
-
 .level1 {
     font-weight: bold;
     text-transform: uppercase;
-    margin-top: 10px;
 }
+
 
 /* radio buttons and checkboxes */
 
@@ -90,29 +86,46 @@ div.genre_filter input[type=radio   ] {
     margin: 6px 0 0 6px;
 }
 
+label {
+    cursor: pointer;
+}
+
+input[type=radio   ] + label.level1 {
+    margin-top: 10px;
+}
 
 input[type=checkbox]:not(old),
 input[type=radio   ]:not(old){
-  width   : 28px;
+  width   : 0;
   margin  : 0;
   padding : 0;
   opacity : 0;
+  position: absolute;
+  
 }
 
 input[type=checkbox]:not(old) + label,
 input[type=radio   ]:not(old) + label{
   display      : inline-block;
-  margin-left  : -28px;
-  padding-left : 28px;
-  line-height  : 24px;
+  margin: 2px 0 2px 0;
+  padding : 2px 0 2px 4px;
+  line-height  : 16px;
+  font-size: 9pt;
+}
+
+input[type=radio   ]:not(old) + label{
+  padding : 2px 0 2px 4px;
+  width: 100%;
 }
 
 input[type=checkbox]:not(old) + label {
   background   : url('images/unchecked.png') no-repeat 0 0;
+  padding : 2px 0 2px 24px;
 }
 
-input[type=radio   ]:not(old) + label{
-  background   : url('images/checkbox_clear.png') no-repeat 0 0;
+input[type=checkbox]:not(old) + label:hover,
+input[type=radio   ]:not(old) + label:hover{
+    background-color: #f8f8f8;
 }
 
 input[type=checkbox]:not(old):checked + label{
@@ -120,17 +133,16 @@ input[type=checkbox]:not(old):checked + label{
 }
 
 input[type=radio]:not(old):checked + label{
-  background   : url('images/radio.png') no-repeat 0 0;
-  background-position: 0 -2px;
+  background-color: #f8f8f8;
 }
 
 div.genre_filter span.genre_indicator {
     width: 14px;
     height: 14px;
     border-radius: 8px;
-    border: 1px solid #999;
     display: inline-block;
-    margin: 0 -32px 0 0;
+    margin: 0 0 0 0;
+    vertical-align: text-top;
 }
 
 

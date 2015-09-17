@@ -108,7 +108,6 @@ declare function filter:print-filters(
 	    then 
 	    (  
 	      <div class="genre_filter_row">
-            <span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</span>
 	         { element input {
 	            attribute type {"radio"},
                 attribute name {"genre"},
@@ -122,13 +121,12 @@ declare function filter:print-filters(
               }
 	       }
            <label for="{concat('id',translate($genre,' ',''))}" class="level2 {$selected}">
-              <span><span>&#160;</span></span> {$genre} 
+              <span><span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</span></span> {$genre} 
 	       </label>
 	     </div>
 	    )
           else
           <div class="genre_filter_row">
-   	        <span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</span> 
 	      { element input {
 	            attribute type {"radio"},
                 attribute name {"genre"},
@@ -142,7 +140,7 @@ declare function filter:print-filters(
            }
 	      }
               <label for="{concat('id',translate($genre,' ',''))}" class="level1 {$selected}">
-        	      <span><span>&#160;</span></span> {$genre} 
+        	      <span><span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</span></span> {$genre} 
               </label>
            </div>
         }
