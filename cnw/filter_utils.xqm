@@ -146,7 +146,7 @@ declare function filter:print-filters(
         }
          </div>
          
-      <div class="filter_block">
+      <div class="filter_block anthologies">
         {     
             element input {
     	    attribute type {"checkbox"},
@@ -162,7 +162,7 @@ declare function filter:print-filters(
         } <label for="idAnthologies"><span><span>&#160;</span></span>Exclude song collections</label>
          </div>
          
-	      <div class="filter_block">
+	      <div class="filter_block search_button">
             <input type="submit" value="Search" class="search_submit" id="search_submit"/>
           </div>
         </form>

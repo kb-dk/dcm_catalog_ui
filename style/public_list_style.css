@@ -69,15 +69,19 @@ div.genre_filter input[type=text] {
     background-color: #fff;
 }
 
-.level1 {
+div.genre_filter label.level1 {
     font-weight: bold;
     text-transform: uppercase;
+    margin-top: 20px;
+    display: inline-block;
 }
 
+div.genre_filter input[type=text] {
+    background-color: #fff;
+}
 
 /* radio buttons and checkboxes */
 
-/* fallback for old browsers: */
 div.genre_filter input[type=checkbox],
 div.genre_filter input[type=radio   ] {
     background-color: transparent;
@@ -90,9 +94,7 @@ label {
     cursor: pointer;
 }
 
-input[type=radio   ] + label.level1 {
-    margin-top: 10px;
-}
+/* for newer browsers: */
 
 input[type=checkbox]:not(old),
 input[type=radio   ]:not(old){
@@ -144,10 +146,11 @@ div.genre_filter span.genre_indicator {
     margin: 0 0 0 0;
     vertical-align: text-top;
 }
-
-
 /* end radio buttons and checkboxes */
 
+.filter_block.anthologies, .filter_block.search_button {
+    margin-top: 20px;
+}
 
 
 /* CSS for the "clear filter" elements */

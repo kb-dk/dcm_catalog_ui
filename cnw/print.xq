@@ -28,5 +28,5 @@ let $result :=
 	  <param name="script_path" value="./document.xq"/>
 	  <param name="doc" value="{$document}"/>
 	</parameters>
-	return transform:transform($doc,xs:anyURI("http://dcm-udv-01.kb.dk/editor/transforms/mei/mei_to_html_print.xsl"),$params)
+	return transform:transform($doc,xs:anyURI("http://dcm-udv-01.kb.dk/storage/style/transforms/mei_to_html_print.xsl"),$params)
 return $result

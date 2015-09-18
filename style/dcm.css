@@ -159,9 +159,9 @@ input[type=text] {
 }
 
 input[type="checkbox"] {
-    border: 1px solid #666;
     height: 15px;
     width: 15px;
+    border: 0;
 } 
 
 .button {

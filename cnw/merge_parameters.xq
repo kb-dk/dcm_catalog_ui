@@ -12,8 +12,8 @@ declare variable $page   := request:get-parameter("page", "1") cast as xs:intege
 declare variable $number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
 declare variable $publ   := request:get-parameter("published_only","") cast as xs:string;
 declare variable $anthologies := request:get-parameter("anthologies","yes");
-declare variable $css    := request:get-parameter("css","/editor/style/mei_to_html_print.css") cast as xs:string;
-declare variable $style  := "http://dcm-udv-01.kb.dk/editor/transforms/mei/mei_to_html_print.xsl";
+declare variable $css    := request:get-parameter("css","/storage/style/mei_to_html_print.css") cast as xs:string;
+declare variable $style  := "http://dcm-udv-01.kb.dk/storage/style/transforms/mei_to_html_print.xsl";
 declare variable $database := request:get-parameter("db","/db/cnw/data") cast as xs:string;
 
 let $stURI    := xs:anyURI(request:get-parameter("style",$style))

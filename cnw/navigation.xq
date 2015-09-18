@@ -78,7 +78,7 @@ declare function local:format-reference(
       for $genre at $pos in $genres2 
          return 
            <div class="genre_list">
-              <a class="{$class[$pos]} genre_indicator abbr"><img src="/editor/images/spacer.png" border="0" width="12" height="12"/><span class="expan">{$genre}</span></a>
+              <a class="{$class[$pos]} genre_indicator abbr"><img src="/storage/style/images/spacer.png" border="0" width="12" height="12"/><span class="expan">{$genre}</span></a>
            </div>
        
    let $date_output :=

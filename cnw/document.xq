@@ -24,8 +24,8 @@ return $doc
 let $result :=
 <html xmlns="http://www.w3.org/1999/xhtml">
   {layout:head("Carl Nielsen Works (CNW)",
-	  (<link rel="stylesheet" type="text/css" href="/editor/style/mei_to_html_public.css"/>,
-	  <script type="text/javascript" src="/editor/js/toggle_openness.js">{"
+	  (<link rel="stylesheet" type="text/css" href="/storage/style/mei_to_html_public.css"/>,
+	  <script type="text/javascript" src="/storage/js/toggle_openness.js">{"
 	  "}</script>
 	  ))}
   <body class="list_files">
@@ -41,7 +41,7 @@ let $result :=
 	  <param name="script_path" value="./document.xq"/>
 	  <param name="doc" value="{$document}"/>
 	</parameters>
-	return transform:transform($doc,xs:anyURI(concat("http://",$host,"/editor/transforms/mei/mei_to_html_public.xsl")),$params)
+	return transform:transform($doc,xs:anyURI(concat("http://",$host,"/storage/style/transforms/mei_to_html_public.xsl")),$params)
       }
       </div>
       {layout:page-footer($mode)}

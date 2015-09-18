@@ -253,7 +253,7 @@ declare function app:navigation(
 	    app:generate-href("page",$nextpage)),"")
 	},
 	element img {
-	  attribute src {"/editor/images/next.png"},
+	  attribute src {"/storage/style/images/next.png"},
 	  attribute alt {"Next"},
 	  attribute border {"0"}
 	}
@@ -275,7 +275,7 @@ declare function app:navigation(
 		($uri,"?",
 		app:generate-href("page",$prevpage)),"")},
 		element img {
-		  attribute src {"/editor/images/previous.png"},
+		  attribute src {"/storage/style/images/previous.png"},
 		  attribute alt {"Previous"},
 		  attribute border {"0"}
 		}
