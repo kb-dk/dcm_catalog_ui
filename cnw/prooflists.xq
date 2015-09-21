@@ -58,14 +58,14 @@ declare function loop:clean-volumes ($key as xs:string) as xs:string
     </div>
 -->    
 
-    <h2>Titles and CNW numbers</h2>  
+    <h2>CNW numbers</h2>  
     <div>
 		    {
             	    for $c in distinct-values(
             		collection($database)//m:workDesc/m:work/m:identifier[@label='CNW']/string()[string-length(.) > 0 and translate(.,'0123456789','')=''])
                     order by number($c)
             	    return 
-            	       <div>{collection($database)//m:workDesc/m:work/m:titleStmt/m:title[1]} * {$c}</div>
+            	       <div>{$c} <!-- hvordan tilføjer man så titlen...? --></div> 
 
             }
 
@@ -77,14 +77,30 @@ declare function loop:clean-volumes ($key as xs:string) as xs:string
  
 		    {
             	    for $c in distinct-values(
-            		collection($database)//(m:persName | m:author | m:recipient)[not(name(..)='respStmt' and name(../..)='pubStmt' and name(../../..)='fileDesc')]
+            		collection($database)//(m:persName)[not(name(..)='respStmt' and name(../..)='pubStmt' and name(../../..)='fileDesc')]
             		/normalize-space(loop:clean-names(string()))[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))])
                     order by $c
             	    return 
-            	       <div>&gt;{$c}&lt;</div>
+            	       <div>{$c}</div>
 
             }
     </div>
+    
+    
+    <h2>Instruments</h2>
+    <div>
+ 
+		    {
+            	    for $c in distinct-values(
+            		collection($database)//(m:instrVoice)
+            		/normalize-space(.))
+                    order by $c
+            	    return 
+            	       <div>{$c}</div>
+
+            }
+    </div>
+
 
   </body>
 </html>
