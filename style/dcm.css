@@ -47,6 +47,11 @@ a img {
     border: none;
 }
 
+input[type=submit],
+input[type=button] {
+    cursor: pointer;
+}
+
 #all {
     width: auto;
     min-width: 600px;

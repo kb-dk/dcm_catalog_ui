@@ -152,6 +152,15 @@ div.genre_filter span.genre_indicator {
     margin-top: 20px;
 }
 
+#search_submit {
+    width: 250px;
+    height: 26px;
+    background: url('images/search.png') no-repeat 0 0;
+}
+
+#search_submit:hover {
+    background: url('images/search_hover.png') no-repeat 0 0;
+}
 
 /* CSS for the "clear filter" elements */
 

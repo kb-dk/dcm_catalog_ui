@@ -155,7 +155,7 @@ declare function filter:print-filters(
          </div>
 
 	      <div class="filter_block search_button">
-            <input type="submit" value="Search" class="search_submit" id="search_submit"/>
+            <input type="submit" value="" class="search_submit" id="search_submit"/>
           </div>
         </form>
 
