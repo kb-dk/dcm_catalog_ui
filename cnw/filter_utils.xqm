@@ -13,9 +13,9 @@ declare variable $filter:genre := request:get-parameter("genre", "") cast as xs:
 declare variable $filter:uri    := "";
 declare variable $filter:vocabulary := doc("./keywords.xml");
 
-declare variable $filter:anthology-options := 
+(:declare variable $filter:anthology-options := 
 (<option value="no">Include anthologies</option>,
-<option value="yes">Exclude anthologies</option>);
+<option value="yes">Exclude anthologies</option>);:)
 
 
 
@@ -161,7 +161,7 @@ declare function filter:print-filters(
 	        }
         } <label for="idAnthologies"><span><span>&#160;</span></span>Exclude song collections</label>
          </div>
-         
+
 	      <div class="filter_block search_button">
             <input type="submit" value="Search" class="search_submit" id="search_submit"/>
           </div>
@@ -224,7 +224,7 @@ declare function filter:filter-elements()
     else
        ""
   let $anthology_block :=
-      if($anthologies) then
+      if($anthologies="yes") then
        <a class="filter_element" 
            href="{fn:replace($this_uri,'anthologies=[^&amp;]+','anthologies=')}">
            Exclude song collections 

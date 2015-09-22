@@ -31,8 +31,23 @@ declare function loop:valid-work-number($doc as node()) as xs:boolean
 declare function loop:date-filters(
   $doc as node()) as xs:boolean
 {
-  let $notafter := request:get-parameter("notafter","")
-  let $notbefore:= request:get-parameter("notbefore","")
+  let $get_notbefore:= request:get-parameter("notbefore","")
+  let $notbefore := 
+    if(fn:number($get_notbefore) > 1880) then
+        fn:number($get_notbefore)
+    else
+        1
+
+  let $get_notafter := request:get-parameter("notafter","")
+  let $notafter := 
+    if(fn:number($get_notafter) < 1931) then
+        fn:number($get_notafter)
+    else
+        9998
+        
+(:  let $notafter := fn:number(request:get-parameter("notafter","9999"))
+  let $notbefore:= fn:number(request:get-parameter("notbefore","0")):)
+        
 
   let $date := 
     for $d in $doc//m:workDesc/m:work/m:history/m:creation/m:date
@@ -40,26 +55,32 @@ declare function loop:date-filters(
     
   let $earliest := 
     if($date/@notbefore/string()) then
-      substring($date/@notbefore/string(),1,4)
+      fn:number(substring($date/@notbefore/string(),1,4))
+    else if ($date/@startdate/string()) then
+      fn:number(substring($date/@startdate/string(),1,4))
     else if ($date/@isodate/string()) then
-      substring($date/@isodate/string(),1,4)
+      fn:number(substring($date/@isodate/string(),1,4))
     else
-      ""
+      1000
 
   let $latest   := 
     if($date/@notafter/string()) then
-      substring($date/@notafter/string(),1,4)
+      fn:number(substring($date/@notafter/string(),1,4))
+    else if ($date/@enddate/string()) then 
+      fn:number(substring($date/@enddate/string(),1,4))
     else if ($date/@isodate/string()) then 
-      substring($date/@isodate/string(),1,4)
+      fn:number(substring($date/@isodate/string(),1,4))
     else
-      ""
+      2500
 
-  let $inside := 
+(:  let $inside := 
     if( $notafter and $notbefore ) then
       ($notafter >= $latest and $notbefore <= $earliest)
     else
-      true()
+      true():)
       
+  let $inside := (($earliest>=$notbefore and $earliest<=$notafter) or ($latest>=$notbefore and $latest<=$notafter))       
+
   return $inside
 
 };
@@ -68,7 +89,7 @@ declare function loop:genre-filter(
   $genre as xs:string,
   $doc as node()) as xs:boolean
 {
-  (: we are searchin in level 2 genre keywords :)
+  (: we are searching in level 2 genre keywords :)
 
   let $docgenre1 := string-join($doc//m:workDesc/m:work/m:classification/m:termList/m:term[.=$loop:vocabulary//m:termList[@label='level1']/m:term and .!='']/string(), " ")
   let $docgenre2 := string-join($doc//m:workDesc/m:work/m:classification/m:termList/m:term[.=$loop:vocabulary//m:termList[@label='level2']/m:term and .!='']/string(), " ")
