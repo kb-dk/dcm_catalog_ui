@@ -16,7 +16,6 @@ declare namespace xl="http://www.w3.org/1999/xlink";
 
 declare variable $app:notbefore := request:get-parameter("notbefore",   "") cast as xs:string;
 declare variable $app:notafter  := request:get-parameter("notafter",    "") cast as xs:string;
-declare variable $app:coll      := request:get-parameter("c",           "") cast as xs:string;
 declare variable $app:query     := request:get-parameter("query",       "");
 declare variable $app:page      := request:get-parameter("page",        "1") cast as xs:integer;
 declare variable $app:number    := request:get-parameter("itemsPerPage","20") cast as xs:integer;
@@ -24,40 +23,19 @@ declare variable $app:genre     := request:get-parameter("genre",       "")   ca
 declare variable $app:sortby    := request:get-parameter("sortby",      "null,work_number") cast as xs:string;
 declare variable $app:from      := ($app:page - 1) * $app:number + 1;
 declare variable $app:to        :=  $app:from      + $app:number - 1;
-
-declare variable $app:anthologies := request:get-parameter("anthologies","no") cast as xs:string;
-
-declare variable $app:anthology-options := 
-(<option value="no">Exclude anthologies</option>,
-<option value="yes">Include anthologies</option>);
-
-
-declare variable $app:published_only := 
-request:get-parameter("published_only","") cast as xs:string;
-
-declare function app:options() as node()*
-{ 
-let $options:= 
-  (
-  <option value="">All documents</option>,
-  <option value="any">Published</option>,
-  <option value="pending">Modified</option>,
-  <option value="unpublished">Unpublished</option>)
-
-  return $options
-};
+declare variable $app:anthologies := request:get-parameter("anthologies","") cast as xs:string;
 
 
 declare function app:generate-href($field as xs:string,
   $value as xs:string) as xs:string {
     let $inputs := forms:pass-as-hidden()
     let $pars   :=
-    for $inp in $inputs
+    for $inp in $inputs[@value/string()]
     let $str:=
       if($field = $inp/@name/string() ) then
-	string-join(($field,fn:escape-uri($value,true())),"=")
+    	string-join(($field,fn:escape-uri($value,true())),"=")
       else
-	string-join(($inp/@name,fn:escape-uri($inp/@value,true())),"=")
+    	string-join(($inp/@name,fn:escape-uri($inp/@value,true())),"=")
 	return 
 	  $str
 
@@ -66,53 +44,6 @@ declare function app:generate-href($field as xs:string,
 
 };
 
-
-
-declare function app:get-publication-reference($doc as node() )  as node()* 
-{
-  let $doc-name:=util:document-name($doc)
-  let $color_style := 
-    if(doc-available(concat("public/",$doc-name))) then
-      (
-	let $public_hash:=util:hash(doc(concat("public/",$doc-name)),'md5')
-	let $dcm_hash:=util:hash($doc,'md5')
-	return
-	  if($dcm_hash=$public_hash) then
-	    "publishedIsGreen"
-	  else
-	    "pendingIsYellow"
-      )
-    else
-      "unpublishedIsRed"
-
-   let $form:=
-   <form id="formsourcediv{$doc-name}"
-   action="/storage/list_files.xq" 
-   method="post" style="display:inline;">
-   
-     <div id="sourcediv{$doc-name}"
-     style="display:inline;">
-       <input id="source{$doc-name}" 
-       type="hidden" 
-       value="publish" 
-       name="dcm/{$doc-name}" 
-       title="file name"/>
-
-       <label class="{$color_style}" for='checkbox{$doc-name}'>
-	 <input id='checkbox{$doc-name}'
-	 onclick="add_publish('sourcediv{$doc-name}',
-	 'source{$doc-name}',
-	 'checkbox{$doc-name}');" 
-	 type="checkbox" 
-	 name="button" 
-	 value="" 
-	 title="publish"/>
-       </label>
-       
-     </div>
-   </form>
-   return $form
-};
 
 declare function app:get-edition-and-number($doc as node() ) as xs:string* {
   let $c := 
@@ -187,50 +118,6 @@ declare function app:public-view-document-reference($doc as node()) as node()* {
       return $ref
 };
     
-declare function app:edit-form-reference($doc as node()) as node() 
-{
-  (: 
-      Beware: Partly hard coded reference here!!!
-      It still assumes that the document resides on the same host as this
-      xq script but on port 80
-
-      The old form is called edit_mei_form.xml the refactored one starts on
-      edit-work-case.xml 
-      :)
-
-      let $form-id := util:document-name($doc)
-      let $ref := 
-      <form id="edit{$form-id}" 
-      action="/orbeon/xforms-jsp/mei-form/" style="display:inline;" method="get">
-
-	<input type="hidden"
-        name="uri"
-	value="http://{request:get-header('HOST')}/editor/forms/mei/edit-work-case.xml" />
-	<input type="hidden"
- 	name="doc"
-	value="{util:document-name($doc)}" />
-	<input type="image"
- 	title="Edit" 
-	src="/editor/images/edit.gif" 
-	alt="Edit" />
-	{forms:pass-as-hidden()}
-      </form>
-
-      return $ref
-
-    };
-
-    declare function app:list-title() 
-    {
-      let $title :=
-	if(not($app:coll)) then
-	  "All documents"
-	else
-	  ($app:coll, " documents")
-
-	  return $title
-    };
-
 
 declare function app:navigation( 
   $sort-options as node()*,
@@ -303,20 +190,7 @@ declare function app:navigation(
 	    }
 	  )
 
-	  let $dates := for $date in $list//m:workDesc/m:work/m:history/m:creation/m:date
-	  for $attr in $date/@notafter|$date/@isodate|$date/@notbeforep
-  	  return forms:get-date($attr/string())
-
-	  let $notafter  := max($dates)
-	  let $notbefore  := min($dates)
-	  let $date_span := 
-	    if($notafter and $notafter!=$notbefore) then
-	      fn:concat(" (from ",$notbefore," to ",$notafter,")")
-	    else if ($notafter and $notafter=$notbefore) then
-	      fn:concat(" (composed in ",$notbefore,")")
-	    else
-	      ""
-	      let $work := 
+      let $work := 
 		if($total=1) then
 		  " work"
 		else
@@ -325,7 +199,6 @@ declare function app:navigation(
             let $links := ( 
 	      element div {
 		element strong {
-(:		  "Found ",$total, $work, $date_span :) 
 		  "Found ",$total, $work
 		},
 		if($sort-options) then

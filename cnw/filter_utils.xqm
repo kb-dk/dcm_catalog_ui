@@ -5,7 +5,7 @@ module  namespace filter="http://kb.dk/this/app/filter";
 import module namespace  forms="http://kb.dk/this/formutils" at "./form_utils.xqm";
 
 declare namespace m="http://www.music-encoding.org/ns/mei";
-declare variable $filter:anthologies := request:get-parameter("anthologies","yes") cast as xs:string;
+declare variable $filter:anthologies := request:get-parameter("anthologies","") cast as xs:string;
 declare variable $filter:sortby := request:get-parameter("sortby", "null,work_number") cast as xs:string;
 declare variable $filter:page   := request:get-parameter("page",   "1") cast as xs:integer;
 declare variable $filter:number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
@@ -13,17 +13,9 @@ declare variable $filter:genre := request:get-parameter("genre", "") cast as xs:
 declare variable $filter:uri    := "";
 declare variable $filter:vocabulary := doc("./keywords.xml");
 
-(:declare variable $filter:anthology-options := 
-(<option value="no">Include anthologies</option>,
-<option value="yes">Exclude anthologies</option>);:)
-
-
-
 
 declare function filter:print-filters(
   $database        as xs:string,
-  $published_only  as xs:string,
-  $coll            as xs:string,
   $number          as xs:string,
   $genre           as xs:string,
   $query           as xs:string) 
@@ -189,12 +181,12 @@ declare function filter:filter-elements()
   let $title := request:get-parameter("title","")
   let $genre := request:get-parameter("genre","")
   let $anthologies := request:get-parameter("anthologies","")
-  let $this_uri := fn:concat($filter:uri,"?",request:get-query-string())
+  let $this_uri := fn:replace(fn:concat($filter:uri,"?",request:get-query-string()),'page=[^&amp;]+','')
  
   let $year_block :=
       if(($notbefore and $notbefore!="1880") or ($notafter and $notafter!="1931")) then
        <a class="filter_element"
-           href="{fn:replace(fn:replace($this_uri,'notbefore=\d*','notbefore='),'notafter=\d*','notafter=')}">
+           href="{fn:replace(fn:replace(fn:replace($this_uri,'notbefore=[^&amp;]+[&amp;]?',''),'notafter=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
            Year of composition: {$notbefore}–{$notafter} 
        </a>
     else
@@ -202,7 +194,7 @@ declare function filter:filter-elements()
   let $title_block :=
       if($title) then
        <a class="filter_element"
-           href="{fn:replace($this_uri,'title=[^&amp;]+','title=')}">
+           href="{fn:replace(fn:replace($this_uri,'title=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
            Title: {$title} 
        </a>
     else
@@ -210,7 +202,7 @@ declare function filter:filter-elements()
   let $query_block :=
       if($query) then
        <a class="filter_element"
-           href="{fn:replace($this_uri,'query=[^&amp;]+','query=')}">
+           href="{fn:replace(fn:replace($this_uri,'query=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
            Keyword(s): {$query} 
        </a>
     else
@@ -218,7 +210,7 @@ declare function filter:filter-elements()
   let $genre_block :=
       if($genre) then
        <a class="filter_element" 
-           href="{fn:replace($this_uri,'genre=[^&amp;]+','genre=')}">
+           href="{fn:replace(fn:replace($this_uri,'genre=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
            Genre: {$genre} 
        </a>
     else
@@ -226,7 +218,7 @@ declare function filter:filter-elements()
   let $anthology_block :=
       if($anthologies="yes") then
        <a class="filter_element" 
-           href="{fn:replace($this_uri,'anthologies=[^&amp;]+','anthologies=')}">
+           href="{fn:replace(fn:replace($this_uri,'anthologies=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
            Exclude song collections 
        </a>
     else
@@ -248,8 +240,6 @@ declare function filter:filter-elements()
 
 declare function filter:print-filtered-link(
   $database        as xs:string,
-  $published_only  as xs:string,
-  $coll            as xs:string,
   $number          as xs:string,
   $query           as xs:string,
   $term            as xs:string) as node()*
@@ -263,8 +253,6 @@ declare function filter:print-filtered-link(
 	  "page=",1,
 	  "&amp;itemsPerPage=",$number,
 	  "&amp;sortby=",request:get-parameter("sortby",$filter:sortby),
-	  "&amp;c=",$coll,
-	  "&amp;published_only=",$published_only,
 	  "&amp;query=",$query,
 	  "&amp;anthologies=",$filter:anthologies,
 	  "&amp;notbefore=",request:get-parameter("notbefore",""),
@@ -277,7 +265,6 @@ declare function filter:print-filtered-link(
 };
 
 declare function filter:get-filtered-link(
-  $coll            as xs:string,
   $number          as xs:string,
   $query           as xs:string,
   $term            as xs:string) as xs:string
@@ -287,7 +274,6 @@ declare function filter:get-filtered-link(
 	  "page=",1,
 	  "&amp;itemsPerPage=",$number,
 	  "&amp;sortby=",request:get-parameter("sortby",$filter:sortby),
-	  "&amp;c=",$coll,
 	  "&amp;query=",$query,
 	  "&amp;anthologies=",$filter:anthologies,
 	  "&amp;notbefore=",request:get-parameter("notbefore",""),

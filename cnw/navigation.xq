@@ -20,7 +20,6 @@ declare namespace local="http://kb.dk/this/app";
 declare option exist:serialize "method=xml media-type=text/html"; 
 
 declare variable $genre  := request:get-parameter("genre","") cast as xs:string;
-declare variable $coll   := request:get-parameter("c",    "") cast as xs:string;
 declare variable $query  := request:get-parameter("query","");
 declare variable $page   := request:get-parameter("page", "1") cast as xs:integer;
 declare variable $number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
@@ -33,7 +32,6 @@ declare variable $database := "/db/cnw/data";
 declare variable $from     := ($page - 1) * $number + 1;
 declare variable $to       :=  $from      + $number - 1;
 
-declare variable $published_only := "";
 
 declare variable $sort-options :=
 (<option value="null,work_number">Work number</option>,
@@ -132,12 +130,12 @@ declare function local:format-reference(
       <div id="main">
          <div class="content_box">
       {
-      let $list := loop:getlist($database,$coll,$genre,$query)
+      let $list := loop:getlist($database,$genre,$query)
       return
       (
       <div class="files_list">
     	<div class="filter">
-    	{filter:print-filters($database,$published_only,$coll,string($number),$genre,$query)}
+    	{filter:print-filters($database,string($number),$genre,$query)}
     	</div>
     	<div class="spacer"><div>&#160;</div></div>
     	<div class="results">

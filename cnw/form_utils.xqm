@@ -6,7 +6,6 @@ declare namespace request="http://exist-db.org/xquery/request";
 
 declare variable $forms:notbefore := request:get-parameter("notbefore",   "") cast as xs:string;
 declare variable $forms:notafter  := request:get-parameter("notafter",    "") cast as xs:string;
-declare variable $forms:coll      := request:get-parameter("c",           "") cast as xs:string;
 declare variable $forms:query     := request:get-parameter("query",       "");
 declare variable $forms:page      := request:get-parameter("page",        "1") cast as xs:integer;
 declare variable $forms:number    := request:get-parameter("itemsPerPage","20") cast as xs:integer;
@@ -14,22 +13,12 @@ declare variable $forms:genre     := request:get-parameter("genre",       "")   
 declare variable $forms:sortby    := request:get-parameter("sortby",      "null,work_number") cast as xs:string;
 declare variable $forms:from      := ($forms:page - 1) * $forms:number + 1;
 declare variable $forms:to        :=  $forms:from      + $forms:number - 1;
+declare variable $forms:anthologies := request:get-parameter("anthologies","") cast as xs:string;
 
-declare variable $forms:anthologies := request:get-parameter("anthologies","no") cast as xs:string;
-
-declare variable $forms:anthology-options := 
-(<option value="no">Exclude song collections</option>,
-<option value="yes">Include song collections</option>);
-
-
-declare variable $forms:published_only := 
-request:get-parameter("published_only","") cast as xs:string;
 
 declare function forms:pass-as-hidden() as node()* {
   let $inputs :=
     (
-    <input name="published_only" type="hidden" value="{$forms:published_only}"   />,
-    <input name="c"              type="hidden" value="{$forms:coll}"   />,
     <input name="query"          type="hidden" value="{$forms:query}"  />,
     <input name="page"           type="hidden" value="{$forms:page}"   />,
     <input name="itemsPerPage"   type="hidden" value="{$forms:number}" />,

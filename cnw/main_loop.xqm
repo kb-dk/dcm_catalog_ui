@@ -36,18 +36,15 @@ declare function loop:date-filters(
     if(fn:number($get_notbefore) > 1880) then
         fn:number($get_notbefore)
     else
-        1
+        0
 
   let $get_notafter := request:get-parameter("notafter","")
   let $notafter := 
     if(fn:number($get_notafter) < 1931) then
         fn:number($get_notafter)
     else
-        9998
-        
-(:  let $notafter := fn:number(request:get-parameter("notafter","9999"))
-  let $notbefore:= fn:number(request:get-parameter("notbefore","0")):)
-        
+        9999
+                
 
   let $date := 
     for $d in $doc//m:workDesc/m:work/m:history/m:creation/m:date
@@ -73,11 +70,6 @@ declare function loop:date-filters(
     else
       2500
 
-(:  let $inside := 
-    if( $notafter and $notbefore ) then
-      ($notafter >= $latest and $notbefore <= $earliest)
-    else
-      true():)
       
   let $inside := (($earliest>=$notbefore and $earliest<=$notafter) or ($latest>=$notbefore and $latest<=$notafter))       
 
@@ -137,36 +129,24 @@ declare function loop:sort-key (
 
 declare function loop:getlist (
   $database        as xs:string,
-  $coll            as xs:string,
   $genre           as xs:string,
   $query           as xs:string) as node()* 
   {
     let $sortby := request:get-parameter("sortby",$loop:sortby)
     let $sort0  := substring-before($sortby,",")
     let $sort1  := substring-after($sortby,",")
+	    
     let $list   := 
-      if($coll) then 
-	if($query) then
-          for $doc in collection($database)/m:mei[m:meiHead/m:fileDesc/m:seriesStmt/m:identifier[@type="file_collection"]/string()=$coll  and ft:query(.,$query)] 
-          where loop:genre-filter($genre,$doc) and loop:date-filters($doc) and loop:valid-work-number($doc)
-	  order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
-	  return $doc 
-	else
-	  for $doc in collection($database)/m:mei[m:meiHead/m:fileDesc/m:seriesStmt/m:identifier[@type="file_collection"]/string()=$coll] 
-          where loop:genre-filter($genre,$doc) and loop:date-filters($doc) and loop:valid-work-number($doc)
-	  order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
-	  return $doc 
-        else
-	  if($query) then
-            for $doc in collection($database)/m:mei[ft:query(.,$query)]
-            where loop:genre-filter($genre,$doc) and loop:date-filters($doc) and loop:valid-work-number($doc)
+      if($query) then
+        for $doc in collection($database)/m:mei[ft:query(.,$query)]
+        where loop:genre-filter($genre,$doc) and loop:date-filters($doc) and loop:valid-work-number($doc)
 	    order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
 	    return $doc
-      else
+     else
         for $doc in collection($database)/m:mei
         where loop:genre-filter($genre,$doc) and loop:date-filters($doc) and loop:valid-work-number($doc)
-	order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
-	return $doc
+	    order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
+	    return $doc	    
 	      
     return $list
 
