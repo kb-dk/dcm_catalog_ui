@@ -25,6 +25,18 @@ declare function loop:clean-names ($key as xs:string) as xs:string
   return substring-before($txt,'*') 
 };
 
+declare function loop:invert-names ($key as xs:string) as xs:string
+{
+  (: put last name first :)
+  let $txt := 
+  
+  if(contains($key,' ')) then
+    concat(normalize-space(substring-after($key,' ')),', ', normalize-space(substring-before($key,' ')))
+  else 
+    $key 
+  return $txt 
+};
+
 declare function loop:simplify-list ($key as xs:string) as xs:string
 {
   (: strip off anything following the first volume reference :)
@@ -46,61 +58,65 @@ declare function loop:clean-volumes ($key as xs:string) as xs:string
     <div>
     CNS: 
 		    {
-            	    for $c in distinct-values(
+(:            	    for $c in distinct-values(
             		collection($database)//m:workDesc/m:work/m:identifier[@label='CNS']/string()[string-length(.) > 0
             		and not(number(.))])
                     order by number($c)
             	    return 
             	       <div>{$c}</div>
+:)
+            }
 
+    </div>
+
+    <h2>CNW numbers</h2>  
+    <div>
+		    {
+(:
+                    for $c in distinct-values(
+            		collection($database)//m:workDesc/m:work/m:identifier[@label='CNW']/string()[string-length(.) > 0 and translate(.,'0123456789','')=''])
+                    order by number($c)
+            	    return 
+            	       <div>{$c} </div> 
+:)
             }
 
     </div>
 -->    
 
-    <h2>CNW numbers</h2>  
-    <div>
-		    {
-            	    for $c in distinct-values(
-            		collection($database)//m:workDesc/m:work/m:identifier[@label='CNW']/string()[string-length(.) > 0 and translate(.,'0123456789','')=''])
-                    order by number($c)
-            	    return 
-            	       <div>{$c} <!-- hvordan tilføjer man så titlen...? --></div> 
-
-            }
-
-    </div>
-
 
     <h2>Names</h2>
     <div>
- 
+            
 		    {
-            	    for $c in distinct-values(
-            		collection($database)//(m:persName)[not(name(..)='respStmt' and name(../..)='pubStmt' and name(../../..)='fileDesc')]
-            		/normalize-space(loop:clean-names(string()))[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))])
+
+                    for $c in distinct-values(
+            		collection($database)//(m:sourceDesc//m:persName | m:work//m:persName)
+            		/normalize-space(loop:invert-names(loop:clean-names(string())))[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))])
                     order by $c
-            	    return 
+            	    return
             	       <div>{$c}</div>
 
             }
     </div>
-    
-    
+
+
+<!--    
     <h2>Instruments</h2>
     <div>
  
 		    {
+(:		    
             	    for $c in distinct-values(
             		collection($database)//(m:instrVoice)
             		/normalize-space(.))
                     order by $c
             	    return 
             	       <div>{$c}</div>
-
+:)
             }
     </div>
-
+-->
 
   </body>
 </html>
