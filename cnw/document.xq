@@ -50,7 +50,7 @@ let $result :=
 	  <param name="script_path" value="./document.xq"/>
 	  <param name="doc" value="{concat("./data/",util:document-name($doc))}"/>
 	</parameters>
-	return transform:transform($doc,xs:anyURI(concat("http://",$host,"/storage/cnw/style/transforms/mei_to_html_public.xsl")),$params)
+	return transform:transform($doc,xs:anyURI(concat("http://",$host,"/dcm/cnw/style/transforms/mei_to_html_public.xsl")),$params)
       }
       </div>
       {layout:page-footer($mode)}
