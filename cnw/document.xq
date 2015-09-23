@@ -48,7 +48,7 @@ let $result :=
 	<parameters>
 	  <param name="hostname"    value="{$host}"/>
 	  <param name="script_path" value="./document.xq"/>
-	  <param name="doc" value="{concat("./data/",util:document-name($doc))}"/>
+	  <param name="doc" value="{util:document-name($doc)}"/>
 	</parameters>
 	return transform:transform($doc,xs:anyURI(concat("http://",$host,"/dcm/cnw/style/transforms/mei_to_html_public.xsl")),$params)
       }
