@@ -99,7 +99,7 @@ body.text #main ul.bullet
 
 body.text #toc li {
     margin: 1em 0 0 1.2em;
-    list-style-image: url('/editor/images/html_link.png');
+    list-style-image: url('../images/html_link.png');
 }
 
 body.text #toc li a {

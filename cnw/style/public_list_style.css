@@ -160,6 +160,7 @@ div.genre_filter span.genre_indicator {
 
 #search_submit:hover {
     background: url('images/search_hover.png') no-repeat 0 0;
+    border-color: #999;
 }
 
 /* CSS for the "clear filter" elements */
