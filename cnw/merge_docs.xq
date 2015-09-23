@@ -24,8 +24,8 @@ declare variable $page   := request:get-parameter("page", "1") cast as xs:intege
 declare variable $number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
 declare variable $publ   := request:get-parameter("published_only","");
 declare variable $anthologies := request:get-parameter("anthologies","yes");
-declare variable $stURI  := xs:anyURI(request:get-parameter("style","/storage/style/transforms/mei_to_html_print.xsl"));
-declare variable $css    := xs:anyURI(request:get-parameter("css","/storage/style/mei_to_html_print.css"));
+declare variable $stURI  := xs:anyURI(request:get-parameter("style","style/transforms/mei_to_html_print.xsl"));
+declare variable $css    := xs:anyURI(request:get-parameter("css","style/mei_to_html_print.css"));
 declare variable $database := request:get-parameter("db","/db/dcm");
 
 declare variable $from     := ($page - 1) * $number + 1;
@@ -59,7 +59,7 @@ return
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Merged documents</title>
-<link rel="stylesheet" type="text/css" href="/storage/style/cnw/cnw.css"/>
+<link rel="stylesheet" type="text/css" href="style/cnw/cnw.css"/>
 <link rel="stylesheet" type="text/css" href="{$css}"/>
 </head>
 <body>

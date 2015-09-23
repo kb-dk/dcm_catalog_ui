@@ -11,7 +11,7 @@ let $html := doc("appendix.html")
 let $contents :=
 <html xmlns="http://www.w3.org/1999/xhtml">
   
-  {layout:head("Appendix: Catalogue of Carl Nielsen&apos;s Works (CNW)",(<link rel="stylesheet" type="text/css" href="/storage/style/mei_to_html_public.css"/>))}
+  {layout:head("Appendix: Catalogue of Carl Nielsen&apos;s Works (CNW)",(<link rel="stylesheet" type="text/css" href="style/mei_to_html_public.css"/>))}
   <body class="text">
     <div id="all">
       {layout:page-head("CNW","Catalogue of Carl Nielsen&apos;s Works")}

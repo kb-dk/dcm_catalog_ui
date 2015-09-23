@@ -63,18 +63,16 @@ declare function app:get-edition-and-number($doc as node() ) as xs:string* {
 };
 
 declare function app:view-document-reference($doc as node()) as node() {
-  (: it is assumed that we live in /storage :)
   let $ref := 
   <a  target="_blank"
   title="View" 
-  href="/storage/present.xq?doc={util:document-name($doc)}">
+  href="present.xq?doc={util:document-name($doc)}">
     {$doc//m:workDesc/m:work[@analog="frbr:work"]/m:titleStmt[1]/m:title[1]/string()}
   </a>
   return $ref
 };
 
 declare function app:public-view-document-reference($doc as node()) as node()* {
-  (: it is assumed that we live in /storage :)
   let $langs :=
     comment{
       for $lang in distinct-values($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()]/@xml:lang/string())
@@ -140,7 +138,7 @@ declare function app:navigation(
 	    app:generate-href("page",$nextpage)),"")
 	},
 	element img {
-	  attribute src {"/storage/style/images/next.png"},
+	  attribute src {"style/images/next.png"},
 	  attribute alt {"Next"},
 	  attribute border {"0"}
 	}
@@ -162,7 +160,7 @@ declare function app:navigation(
 		($uri,"?",
 		app:generate-href("page",$prevpage)),"")},
 		element img {
-		  attribute src {"/storage/style/images/previous.png"},
+		  attribute src {"style/images/previous.png"},
 		  attribute alt {"Previous"},
 		  attribute border {"0"}
 		}

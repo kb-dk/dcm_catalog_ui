@@ -8,8 +8,7 @@ declare namespace ft="http://exist-db.org/xquery/lucene";
 declare namespace util="http://exist-db.org/xquery/util";
 
 declare variable $loop:sortby     := "null,work_number";
-declare variable $loop:vocabulary := 
-  doc(concat("http://",request:get-header('HOST'),"/storage/cnw/keywords.xml"));
+declare variable $loop:vocabulary := doc("./keywords.xml");
 
 declare function loop:valid-work-number($doc as node()) as xs:boolean
 {

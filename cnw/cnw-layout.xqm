@@ -14,43 +14,43 @@ declare function layout:head($title as xs:string,
     <meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
-    <link rel="icon" type="image/vnd.microsoft.icon" href="/storage/favicon.ico" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
       
-    <link type="text/css" href="/storage/style/dcm.css" rel="stylesheet" />
-    <link type="text/css" href="/storage/style/cnw/cnw.css" rel="stylesheet" />
+    <link type="text/css" href="style/dcm.css" rel="stylesheet" />
+    <link type="text/css" href="style/cnw/cnw.css" rel="stylesheet" />
 
 
 
    {$additions}
 
-    <link href="/storage/jquery/jquery-ui-1.10.3/css/base/jquery-ui.css" 
+    <link href="jquery/jquery-ui-1.10.3/css/base/jquery-ui.css" 
        rel="stylesheet" 
        type="text/css"/>
 
-    <link href="/storage/jquery/jquery-ui-1.10.3/css/style.css" 
+    <link href="jquery/jquery-ui-1.10.3/css/style.css" 
        rel="stylesheet"  
        type="text/css"/>
       
-    <script type="text/javascript" src="/storage/js/confirm.js">
+    <script type="text/javascript" src="js/confirm.js">
       //
     </script>
       
-    <script type="text/javascript" src="/storage/js/checkbox.js">
+    <script type="text/javascript" src="js/checkbox.js">
       //
     </script>
       
-    <script type="text/javascript" src="/storage/js/publishing.js">
+    <script type="text/javascript" src="js/publishing.js">
       //
     </script>
 
-    <script type="text/javascript" src="/storage/jquery/jquery-ui-1.10.3/js/jquery-1.9.1.js">
+    <script type="text/javascript" src="jquery/jquery-ui-1.10.3/js/jquery-1.9.1.js">
       //
     </script>
 
-    <script type="text/javascript" src="/storage/jquery/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js">
+    <script type="text/javascript" src="jquery/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js">
       //
     </script>
-    <script type="text/javascript" src="/storage/jquery/jquery-ui-1.10.3/slider.js">
+    <script type="text/javascript" src="jquery/jquery-ui-1.10.3/slider.js">
       //
     </script>
 
@@ -84,10 +84,10 @@ declare function layout:page-head(
       <a href="http://www.kb.dk" title="Det Kongelige Bibliotek"><img
          id="KBLogo"
 	 title="Det Kongelige Bibliotek" 
-	 alt="KB Logo" src="/storage/style/images/kb_white.png"/><img
+	 alt="KB Logo" src="style/images/kb_white.png"/><img
 	 id="KBLogo_print"
 	 title="Det Kongelige Bibliotek" 
-	 alt="KB Logo" src="/storage/style/images/kb.png"/></a>
+	 alt="KB Logo" src="style/images/kb.png"/></a>
     </div>
     <h1><a style="text-decoration:none;" href="http://www.kb.dk/dcm/cnw.html" title="CNW – Catalogue of Carl Nielsen's Works – Front page">{$title}</a></h1>
     <h2><a style="text-decoration:none;" href="http://www.kb.dk/dcm/cnw.html" title="CNW – Catalogue of Carl Nielsen's Works – Front page">{$subtitle}</a></h2>
@@ -114,8 +114,8 @@ declare function layout:page-menu($mode as xs:string) as node()
     return (<a href="navigation.xq" class="{$browse}">Catalogue</a>)
     }
     { 
-    let $browse:= if ($mode="appendix") then "selected" else ""
-    return (<a href="appendix.xq" class="{$browse}">Appendix</a>)
+    let $appendix:= if ($mode="appendix") then "selected" else ""
+    return (<a href="appendix.xq" class="{$appendix}">Appendix</a>)
     }
     { 
     let $about:= if ($mode="about") then "selected" else ""
@@ -136,11 +136,11 @@ declare function layout:page-footer($mode as xs:string) as node()
     style="text-decoration:none;"><img 
     style="border: 0px; vertical-align:middle;" 
     alt="DCM Logo" 
-    src="/storage/style/images/dcm_logo_small_white.png"
+    src="style/images/dcm_logo_small_white.png"
     id="dcm_logo"/><img 
     style="border: 0px; vertical-align:middle;" 
     alt="DCM Logo" 
-    src="/storage/style/images/dcm_logo_small.png"
+    src="style/images/dcm_logo_small.png"
     id="dcm_logo_print"
     /></a>
     2014 Danish Centre for Music Publication | The Royal Library | P.O. Box 2149 | Copenhagen K, Denmark | <a name="www.kb.dk" id="www.kb.dk" href="http://www.kb.dk/dcm">www.kb.dk/dcm</a><br/> 
