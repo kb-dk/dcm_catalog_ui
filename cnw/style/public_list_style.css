@@ -176,7 +176,7 @@ div.genre_filter span.genre_indicator {
   text-decoration: none;
   margin: 0 5px 5px 0;
   padding: 3px 21px 4px 7px;
-  background: url('/editor/images/filter_remove.png') no-repeat right 0 #515251;
+  background: url('images/filter_remove.png') no-repeat right 0 #515251;
   float: left;
   border-radius: 4px;
 }
