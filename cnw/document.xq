@@ -17,6 +17,7 @@ declare option exist:serialize "method=xml media-type=text/html";
 declare variable $document := request:get-parameter("doc", "");
 declare variable $mode     := request:get-parameter("mode","") cast as xs:string;
 declare variable $host     := request:get-header('HOST');
+declare variable $sheet    := xs:string("/db/cnw/style/transforms/mei_to_html_public.xsl");
 
 let $list := 
 for $doc in collection("/db/cnw/data")
@@ -47,14 +48,16 @@ let $result :=
 	<parameters>
 	  <param name="hostname"    value="{$host}"/>
 	  <param name="script_path" value="./document.xq"/>
-	  <param name="doc" value="{$document}"/>
+	  <param name="doc" value="{concat("./data/",util:document-name($doc))}"/>
 	</parameters>
-	return transform:transform($doc,xs:anyURI("style/transforms/mei_to_html_public.xsl"),$params)
+	return transform:transform($doc,xs:anyURI(concat("http://",$host,"/storage/cnw/style/transforms/mei_to_html_public.xsl")),$params)
       }
       </div>
       {layout:page-footer($mode)}
     </div>
+
   </body>
+
 </html>
  
 return $result
