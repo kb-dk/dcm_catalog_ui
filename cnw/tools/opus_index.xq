@@ -27,9 +27,20 @@ declare variable $database := "/db/cnw/data";
                     order by number(translate($c/m:identifier[@label='Opus'],'abcdefghijklmnopqrstuvwxyz',''))
             	    return 
             	       <tr>
-            	           <td>{$c/m:identifier[@label='Opus']}</td>
-            	           <td>{$c/m:titleStmt/m:title[@type='main' or not(@type)][1]} </td>
-            	           <td>{fn:concat('CNW ',$c/m:identifier[@label='CNW']/string())}</td>
+            	           <td>{
+            	           if(contains($c/m:identifier[@label='Opus'],'.')) then
+            	               ''
+            	           else 
+            	               $c/m:identifier[@label='Opus']
+            	           }</td>
+            	           <td>{
+            	           if(contains($c/m:identifier[@label='Opus'],'.')) then
+            	               fn:concat($c/m:identifier[@label='Opus'],' ',
+            	               fn:substring-before($c/m:titleStmt/m:title[@type='main' or not(@type)][1],', opus'))
+                           else
+                                fn:substring-before($c/m:titleStmt/m:title[@type='main' or not(@type)][1],', opus')
+                                }<!--</td>
+            	           <td>-->{fn:concat(' CNW ',$c/m:identifier[@label='CNW']/string())}</td>
             	       </tr>
 
             }
