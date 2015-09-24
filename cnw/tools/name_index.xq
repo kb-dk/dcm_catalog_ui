@@ -55,7 +55,7 @@ declare function loop:invert-names ($key as xs:string) as xs:string
             		  <div>{concat(loop:invert-names($c),'   CNW ')} 
             		  {let $numbers :=
             		  for $n in collection($database)/m:mei/m:meiHead
-                         where contains($n/(m:workDesc | m:fileDesc/m:sourceDesc)//m:persName,$c)
+                         where contains($n/(m:workDesc | m:fileDesc/m:sourceDesc)//m:persName[not(local-name(..)='event' and count(../preceding-sibling::m:event)>0)],$c)
                          order by $n/m:workDesc/m:work/m:identifier[@label='CNW']/string() 
                 	     return $n/m:workDesc/m:work/m:identifier[@label='CNW']/string()
                 	   return string-join($numbers,', ') 
@@ -64,10 +64,6 @@ declare function loop:invert-names ($key as xs:string) as xs:string
 
             }
     </div>
-<!-- 
-udeluk andre opførelser end første:
-[not(local-name(..)='event' and count(../preceding-sibling::m:event)>0)]
--->
 
 
   </body>

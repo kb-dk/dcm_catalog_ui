@@ -15,35 +15,17 @@ declare option exist:serialize "method=xml media-type=text/html";
 
 declare variable $database := "/db/cnw/data";
 
-declare function local:title-first-line ($titlestmt as node()) as node()
-{
-  (: title (first line) :)
-  let $txt := 
-  
-  if($titlestmt/m:title[@type='main' or not(@type)]/string() and $titlestmt/m:title[@type='alternative']/string()) then
-    element span {
-        element i {$titlestmt/m:title[@type='main' or not(@type)][1]/string()},
-        fn:concat(' (',$titlestmt/m:title[@type='alternative'][1]/string(),') ')
-    }
-  else 
-    element i {
-        $titlestmt/m:title[@type='main' or not(@type)][1]/string(), 
-        ' '
-    }
-  return $txt 
-};
-
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<body>
 
-    <h2>Titles and first lines</h2>
+    <h1>Titles and first lines</h1>
+    <h2>All titles: <i>Title</i> (First line)</h2>
     <div>
             
 		    {
 
-            	    for $c in collection($database)//m:workDesc/m:work
+            	    for $c in collection($database)/m:mei/m:meiHead/m:workDesc/m:work
                     order by $c/m:titleStmt/m:title[1]/string()
             	    return
             	       <div>
@@ -52,11 +34,13 @@ declare function local:title-first-line ($titlestmt as node()) as node()
                             let $output := 
                               if(fn:string-length($c/m:titleStmt/m:title[@type='main' or not(@type)][1])>0 and fn:string-length($c/m:titleStmt/m:title[@type='alternative'][1])>0) then
                                 <span>
-                                    <i>{$c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string()} </i>
+                                    <i>{$c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string()} </i>{
+                                    $c/m:titleStmt/m:title[@type='subordinate'][1]/string()}
                                     {fn:concat(' (',$c/m:titleStmt/m:title[@type='alternative'][1]/string(),') ')
                                 }</span>
                               else 
-                                <i>{$c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string()} </i> 
+                                fn:concat($c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string(),' ',
+                                $c/m:titleStmt/m:title[@type='subordinate'][1]/string()) 
 
                             return $output
                          }
@@ -65,6 +49,38 @@ declare function local:title-first-line ($titlestmt as node()) as node()
 
             }
     </div>
+
+    <h2>First line (<i>Title</i>)</h2>
+    <div>
+            
+		    {
+
+            	    for $c in collection($database)/m:mei/m:meiHead/m:workDesc/m:work[m:titleStmt/m:title[@type='alternative']]
+                    order by $c/m:titleStmt/m:title[@type='alternative'][1]/string()
+            	    return
+            	       <div>
+            	       {
+            	           (: first line (title) :)
+                            let $output := 
+                                <span>
+                                    {fn:concat($c/m:titleStmt/m:title[@type='alternative'][1]/string(),' (')}
+                                    <i>{$c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string()}</i>{
+                                    let $sub:=
+                                    if(fn:string-length($c/m:titleStmt/m:title[@type='subordinate'][1]/string()) > 0) then
+                                        fn:concat(' ',$c/m:titleStmt/m:title[@type='subordinate'][1]/string())
+                                    else
+                                        ''
+                                    return fn:concat($sub,')') }
+                                </span>
+
+                            return $output
+                         }
+                         { fn:concat(' CNW ',$c/m:identifier[@label='CNW']/string())}
+                         </div>
+
+            }
+    </div>
+
 
   </body>
 </html>
