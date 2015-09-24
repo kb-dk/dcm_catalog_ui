@@ -35,10 +35,11 @@ declare variable $database := "/db/cnw/data";
             	           }</td>
             	           <td>{
             	           if(contains($c/m:identifier[@label='Opus'],'.')) then
-            	               fn:concat($c/m:identifier[@label='Opus'],' ',
-            	               fn:substring-before($c/m:titleStmt/m:title[@type='main' or not(@type)][1],', opus'))
+            	               <span>{fn:concat($c/m:identifier[@label='Opus'],' ')}
+                	               <i>{fn:substring-before($c/m:titleStmt/m:title[@type='main' or not(@type)][1],', opus')}</i>
+            	               </span>
                            else
-                                fn:substring-before($c/m:titleStmt/m:title[@type='main' or not(@type)][1],', opus')
+                                <i>{fn:substring-before($c/m:titleStmt/m:title[@type='main' or not(@type)][1],', opus')}</i>
                                 }<!--</td>
             	           <td>-->{fn:concat(' CNW ',$c/m:identifier[@label='CNW']/string())}</td>
             	       </tr>

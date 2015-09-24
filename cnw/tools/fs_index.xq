@@ -23,6 +23,20 @@ declare function local:simplify-list ($key as xs:string) as xs:string
 };
 
 
+declare function local:format-main-title ($key as xs:string) as node()
+{
+  let $txt :=
+  if(fn:contains($key,', opus')) then
+    <span>
+        <i>{fn:substring-before($key,', opus')}</i>
+        {fn:concat(', opus',fn:substring-after($key,', opus'))}
+    </span>
+  else 
+    <i>{$key}</i>
+  return $txt 
+};
+
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<body>
@@ -42,7 +56,7 @@ declare function local:simplify-list ($key as xs:string) as xs:string
             	                   (: no alternative title, i.e. title is first line :)
                     	           $c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string()
                     	       else
-                    	           <span><i>{$c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string()}</i>
+                    	           <span>{local:format-main-title($c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string())}
                     	             {$c/m:titleStmt/m:title[@type='alternative'][1]}
                     	           </span>
             	           }
