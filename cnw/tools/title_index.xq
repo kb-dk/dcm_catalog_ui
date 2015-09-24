@@ -16,6 +16,20 @@ declare option exist:serialize "method=xml media-type=text/html";
 declare variable $database := "/db/cnw/data";
 
 
+declare function local:format-main-title ($key as xs:string) as node()
+{
+  let $txt :=
+  if(fn:contains($key,', opus')) then
+    <span>
+        <i>{fn:substring-before($key,', opus')}</i>
+        {fn:concat(', opus',fn:substring-after($key,', opus'))}
+    </span>
+  else 
+    <i>{$key}</i>
+  return $txt 
+};
+
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<body>
 
@@ -32,16 +46,21 @@ declare variable $database := "/db/cnw/data";
             	       {
             	           (: title (first line) :)
                             let $output := 
-                              if(fn:string-length($c/m:titleStmt/m:title[@type='main' or not(@type)][1])>0 and fn:string-length($c/m:titleStmt/m:title[@type='alternative'][1])>0) then
-                                <span>
-                                    <i>{$c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string()} </i>{
-                                    $c/m:titleStmt/m:title[@type='subordinate'][1]/string()}
-                                    {fn:concat(' (',$c/m:titleStmt/m:title[@type='alternative'][1]/string(),') ')
-                                }</span>
-                              else 
+                               if(not($c/m:titleStmt/m:title[@type='alternative']) and $c/m:classification/m:termList/m:term='Song'
+            	               and not(fn:contains($c/m:identifier[@label='CNW'],'Coll.'))) then
+            	                   (: song with no alternative title, i.e. title is first line :)
                                 fn:concat($c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string(),' ',
                                 $c/m:titleStmt/m:title[@type='subordinate'][1]/string()) 
-
+                    	       else
+                                <span>
+                                    {local:format-main-title($c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string())}
+                                    {let $alt:=
+                                        if($c/m:titleStmt/m:title[@type='alternative']) then 
+                                            fn:concat(' (',$c/m:titleStmt/m:title[@type='alternative'][1]/string(),') ')
+                                        else
+                                            ''
+                                     return fn:concat(' ',$c/m:titleStmt/m:title[@type='subordinate'][1]/string(),$alt)}
+                                </span>
                             return $output
                          }
                          { fn:concat(' CNW ',$c/m:identifier[@label='CNW']/string())}
@@ -63,14 +82,15 @@ declare variable $database := "/db/cnw/data";
             	           (: first line (title) :)
                             let $output := 
                                 <span>
-                                    {fn:concat($c/m:titleStmt/m:title[@type='alternative'][1]/string(),' (')}
-                                    <i>{$c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string()}</i>{
-                                    let $sub:=
+                                   {fn:concat($c/m:titleStmt/m:title[@type='alternative'][1]/string(),' (')}
+                                   {local:format-main-title($c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string())}
+                                   {let $sub:=
                                     if(fn:string-length($c/m:titleStmt/m:title[@type='subordinate'][1]/string()) > 0) then
                                         fn:concat(' ',$c/m:titleStmt/m:title[@type='subordinate'][1]/string())
                                     else
                                         ''
-                                    return fn:concat($sub,')') }
+                                    return fn:concat($sub,')') 
+                                   }
                                 </span>
 
                             return $output
