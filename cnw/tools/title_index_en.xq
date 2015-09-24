@@ -26,14 +26,15 @@ declare variable $database := "/db/cnw/data";
 		    {
 
             	    for $c in collection($database)/m:mei/m:meiHead/m:workDesc/m:work
-                    order by $c/m:titleStmt/m:title[@xml:lang='en'][1]/string()
+                    order by $c/m:titleStmt/m:title[@xml:lang='en' or count($c/m:titleStmt/m:title[@xml:lang='en'])=0][1]/string()
             	    return
             	       <div>
             	       {
-            	           (: title (first line) :)
-            	           
+            	           (: English title (English first line) :)
                             let $output :=
-                              if(fn:string-length($c/m:titleStmt/m:title[@type='main' or not(@type)][@xml:lang='en'][1])>0 and fn:string-length($c/m:titleStmt/m:title[@type='alternative'][1])>0) then
+                            if ($c/m:titleStmt/m:title[@type='main' or not(@type)][@xml:lang='en']) then
+                              if(fn:string-length($c/m:titleStmt/m:title[@type='main' or not(@type)][@xml:lang='en'][1])>0 
+                              and fn:string-length($c/m:titleStmt/m:title[@type='alternative'][@xml:lang='en'][1])>0) then
                                 <span>
                                     <i>{$c/m:titleStmt/m:title[@type='main' or not(@type)][@xml:lang='en'][1]/string()} </i>{
                                     $c/m:titleStmt/m:title[@type='subordinate'][@xml:lang='en'][1]/string()}
@@ -41,6 +42,17 @@ declare variable $database := "/db/cnw/data";
                                 }</span>
                               else 
                                 fn:concat($c/m:titleStmt/m:title[@type='main' or not(@type)][@xml:lang='en'][1]/string(),' ',
+                                $c/m:titleStmt/m:title[@type='subordinate'][@xml:lang='en'][1]/string()) 
+                            else 
+                              (: no English title; use first title instead :)
+                              if(fn:string-length($c/m:titleStmt/m:title[@type='alternative'][@xml:lang='en'][1])>0) then
+                                <span>
+                                    <i>{$c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string()} </i>{
+                                    $c/m:titleStmt/m:title[@type='subordinate'][@xml:lang='en'][1]/string()}
+                                    {fn:concat(' (',$c/m:titleStmt/m:title[@type='alternative'][@xml:lang='en'][1]/string(),') ')
+                                }</span>
+                              else 
+                                fn:concat($c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string(),' ',
                                 $c/m:titleStmt/m:title[@type='subordinate'][@xml:lang='en'][1]/string()) 
 
                             return $output
@@ -61,7 +73,7 @@ declare variable $database := "/db/cnw/data";
             	    return
             	       <div>
             	       {
-            	           (: first line (title) :)
+            	           (: English first line (English title) :)
                             let $output := 
                                 <span>
                                     {fn:concat($c/m:titleStmt/m:title[@type='alternative'][@xml:lang='en'][1]/string(),' (')}
