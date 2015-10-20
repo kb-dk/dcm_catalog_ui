@@ -30,13 +30,28 @@ declare function loop:clean-names ($key as xs:string) as xs:string
 
 declare function loop:invert-names ($key as xs:string) as xs:string
 {
+  let $k := loop:clean-names($key)
   (: put last name first :)
   let $txt := 
   
-  if(contains($key,' ')) then
-    concat(normalize-space(substring-after($key,' ')),', ', normalize-space(substring-before($key,' ')))
+  if(contains($k,' ')) then
+    (: concat(normalize-space(substring-after($key,' ')),', ', normalize-space(substring-before($key,' ')))   :)
+    concat(substring($k,
+                    index-of(string-to-codepoints($k), 
+                             string-to-codepoints(' ')
+                             )[last()] +1,
+                    string-length($k)                             
+                   ),
+    ', ',
+    substring($k,
+                    1, 
+                    index-of(string-to-codepoints($k), 
+                             string-to-codepoints(' ')
+                             )[last()] -1
+                   )
+     )       
   else 
-    $key 
+    $k 
   return $txt 
 };
 
@@ -52,7 +67,26 @@ declare function loop:simplify-list ($key as xs:string) as xs:string
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<body>
 	
-		<div>
+	
+	    <div>
+        Names: <select name="names">
+        <option value=""/>
+		    {
+            	    for $c in distinct-values(
+            		collection($database)//(m:persName | m:author | m:recipient)[not(name(..)='respStmt' and name(../..)='pubStmt' and name(../../..)='fileDesc')]
+            		/loop:clean-names(normalize-space(string()))[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))])
+                    order by loop:invert-names($c)
+            	    return 
+            	       <option value="{$c}">{loop:invert-names($c)}</option>
+
+            }
+        </select>
+    </div>
+
+
+	
+	
+        <div>
 		
 CNW: <select name="cnw">
         <option value=""/>
@@ -65,7 +99,7 @@ CNW: <select name="cnw">
 
             }
        </select>
-
+       
 Opus: <select name="opus">
         <option value=""/>
 		    {
@@ -101,7 +135,7 @@ CNS: <select name="cns">
 
             }
        </select>
--->
+       
 CNU: <select name="cnu">
         <option value=""/>
         <option value="I/1–3">I/1–3</option>
@@ -126,9 +160,10 @@ CNU: <select name="cnu">
         <option value="III/6">II/6</option>
         <option value="IV/1">IV/1</option>
       </select>
+      -->
     </div>
 
-    <div>
+    <div><!--
 RISM sigla: 
         <select name="rism">
         <option value=""/>
@@ -140,23 +175,8 @@ RISM sigla:
             	       <option value="{$c}">{$c}</option>
 
             }
-        </select>
+        </select>-->
     </div>
-<!--
-    <div>
-Names: <select name="names">
-        <option value=""/>
-		    {
-(:            	    for $c in distinct-values(
-            		collection($database)//(m:persName | m:author | m:recipient)[not(name(..)='respStmt' and name(../..)='pubStmt' and name(../../..)='fileDesc')]
-            		/loop:clean-names(normalize-space(string()))[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))])
-                    order by loop:invert-names($c)
-            	    return 
-            	       <option value="{$c}">{loop:invert-names($c)}</option>
-:)
-            }
-        </select>
-    </div>
--->
+
   </body>
 </html>
