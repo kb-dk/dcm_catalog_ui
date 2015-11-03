@@ -14,15 +14,21 @@ declare namespace response="http://exist-db.org/xquery/response";
 declare namespace util="http://exist-db.org/xquery/util";
 declare namespace xl="http://www.w3.org/1999/xlink";
 
-declare variable $app:notbefore := request:get-parameter("notbefore",   "") cast as xs:string;
-declare variable $app:notafter  := request:get-parameter("notafter",    "") cast as xs:string;
-declare variable $app:query     := request:get-parameter("query",       "");
-declare variable $app:page      := request:get-parameter("page",        "1") cast as xs:integer;
-declare variable $app:number    := request:get-parameter("itemsPerPage","20") cast as xs:integer;
-declare variable $app:genre     := request:get-parameter("genre",       "")   cast as xs:string;
-declare variable $app:sortby    := request:get-parameter("sortby",      "null,work_number") cast as xs:string;
-declare variable $app:from      := ($app:page - 1) * $app:number + 1;
-declare variable $app:to        :=  $app:from      + $app:number - 1;
+declare variable $app:notbefore:= request:get-parameter("notbefore","") cast as xs:string;
+declare variable $app:notafter := request:get-parameter("notafter","") cast as xs:string;
+declare variable $app:query    := request:get-parameter("query","");
+declare variable $app:page     := request:get-parameter("page","1") cast as xs:integer;
+declare variable $app:number   := request:get-parameter("itemsPerPage","20") cast as xs:integer;
+declare variable $app:genre    := request:get-parameter("genre","") cast as xs:string;
+declare variable $app:sortby   := request:get-parameter("sortby","null,work_number") cast as xs:string;
+
+declare variable $app:title    := request:get-parameter("title", "") cast as xs:string;
+declare variable $app:name     := request:get-parameter("name", "") cast as xs:string;
+declare variable $app:scheme   := request:get-parameter("scheme","") cast as xs:string;
+declare variable $app:workno   := request:get-parameter("workno", "") cast as xs:string;
+
+declare variable $app:from     := ($app:page - 1) * $app:number + 1;
+declare variable $app:to       :=  $app:from      + $app:number - 1;
 declare variable $app:anthologies := request:get-parameter("anthologies","") cast as xs:string;
 
 
@@ -48,18 +54,18 @@ declare function app:generate-href($field as xs:string,
 declare function app:get-edition-and-number($doc as node() ) as xs:string* {
   let $c := 
     $doc//m:fileDesc/m:seriesStmt/m:identifier[@type="file_collection"][1]/string()
-    let $no := $doc//m:meiHead/m:workDesc/m:work[1]/m:identifier[@label=$c]/string()
-      (: shorten very long identifiers (i.e. lists of numbers) :)
-      let $part1 := substring($no, 1, 11)
-      let $part2 := substring($no, 12)
-      let $delimiter := substring(concat(translate($part2,'0123456789',''),' '),1,1)
-      let $n := 
-	if (string-length($no)>11) then 
-	  concat($part1,substring-before($part2,$delimiter),'...')
-	else
-	  $no
+  let $no := $doc//m:meiHead/m:workDesc/m:work[1]/m:identifier[@label=$c]/string()
+    (: shorten very long identifiers (i.e. lists of numbers) :)
+    let $part1 := substring($no, 1, 11)
+    let $part2 := substring($no, 12)
+    let $delimiter := substring(concat(translate($part2,'0123456789',''),' '),1,1)
+  let $n := 
+    if (string-length($no)>11) then 
+      concat($part1,substring-before($part2,$delimiter),'...')
+    else
+      $no
 
-	  return ($c, $n)	
+  return ($c, $n)	
 };
 
 declare function app:view-document-reference($doc as node()) as node() {

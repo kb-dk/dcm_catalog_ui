@@ -154,7 +154,7 @@ declare function loop:getlist (
       collection($database)/m:mei[
          (not($query)      or ft:query(.,$query))
 	 and
-	 (not($loop:title) or ft:query(.//m:title,$loop:title))
+	 (not($loop:title) or ft:query(.//m:titleStmt/m:title,$loop:title))
 	 and
 	 (not($loop:name)  or ft:query(.//m:recipient|.//m:author|.//m:persName,$loop:name))
 	 and
