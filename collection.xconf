@@ -4,15 +4,15 @@
     <lucene>
       <analyzer 
 	  class="org.apache.lucene.analysis.standard.StandardAnalyzer"/>
-      <text match="//m:mei//*"        type="xs:string"/>
-      <text qname="//m:title//*"      type="xs:string"/>
-      <text match="//m:persName/*"   type="xs:string"/>
-      <text match="//m:author/*"     type="xs:string"/>
-      <text match="//m:recipient/*"  type="xs:string"/>
+      <text qname="m:mei"        type="xs:string"/>
+      <text qname="m:title"      type="xs:string"/>
+      <text qname="m:persName"   type="xs:string"/>
+      <text qname="m:author"     type="xs:string"/>
+      <text qname="m:recipient"  type="xs:string"/>
       <text qname="m:term"       type="xs:string"/>
-      <text match="//m:identifier//*" type="xs:string"/>
-      <text match="@type"    type="xs:string"/>
-      <text match="@label"    type="xs:string"/>
+      <text qname="m:identifier" type="xs:string"/>
+      <text qname="@type"        type="xs:string"/>
+      <text qname="@label"       type="xs:string"/>
     </lucene>
     <range>
       <create qname="m:identifier" type="xs:string"/>

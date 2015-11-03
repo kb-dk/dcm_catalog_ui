@@ -24,50 +24,53 @@ declare function filter:print-filters(
   let $notbefore := request:get-parameter("notbefore","1880")
 
   let $filter:=
-      <form action="navigation.xq" method="get" class="search" id="query_form" name="query_form">
-      <div class="filter_block">
-        <input name="itemsPerPage"  value='{$number}' type='hidden' />
-        <input name="sortby"  value='{$filter:sortby}' type='hidden' />
-        <!--
-        <span class="label input_label">Title</span>
-        <input name="title" class="query_input" value='{request:get-parameter("title","")}' id="title_input"/>
-        <a class="help">?<span class="comment"> 
-        Search terms may be combined using boolean operators. Wildcards allowed. 
-        Search is case insensitive (except for boolean operators, which must be uppercase).
-        Some examples:<br/>
-        <span class="help_table">
-          <span class="help_example">
-            <span class="help_label">carl OR nielsen</span>
-            <span class="help_value">Boolean OR (default)</span>
-          </span>                        
-          <span class="help_example">
-            <span class="help_label">carl AND nielsen</span>
-            <span class="help_value">Boolean AND</span>
-          </span>
-          <span class="help_example">
-            <span class="help_label">"carl nielsen"</span>
-            <span class="help_value">Exact phrase</span>
-          </span>
-          <span class="help_example">
-            <span class="help_label">niels*</span>
-            <span class="help_value">Match any number of characters. Finds Niels, Nielsen and Nielsson<br/>
-            (use only at end of word)
-            </span>
-          </span>
-          <span class="help_example">
-            <span class="help_label">niels?n</span>
-            <span class="help_value">Match 1 character. Finds Nielsen and Nielson, but not Nielsson</span>
+  <form action="navigation.xq" method="get" class="search" id="query_form" name="query_form">
+
+    {forms:pass-as-hidden-except("notafter notbefore name title genre query")}
+
+    <div class="filter_block">
+
+      <span class="label input_label">Keywords</span>
+      <input name="query" class="query_input" value='{request:get-parameter("query","")}' id="query_input"/>
+      <span class="label input_label">Title</span>
+      <input name="title" class="query_input" value='{request:get-parameter("title","")}' id="title_input"/>
+      <span class="label input_label">Name</span>
+      <input name="name" class="query_input" value='{request:get-parameter("name","")}' id="title_input"/>
+
+      <a class="help">?<span class="comment"> 
+      Search terms may be combined using boolean operators. Wildcards allowed. 
+      Search is case insensitive (except for boolean operators, which must be uppercase).
+      Some examples:<br/>
+      <span class="help_table">
+        <span class="help_example">
+          <span class="help_label">carl OR nielsen</span>
+          <span class="help_value">Boolean OR (default)</span>
+        </span>                        
+        <span class="help_example">
+          <span class="help_label">carl AND nielsen</span>
+          <span class="help_value">Boolean AND</span>
+        </span>
+        <span class="help_example">
+          <span class="help_label">"carl nielsen"</span>
+          <span class="help_value">Exact phrase</span>
+        </span>
+        <span class="help_example">
+          <span class="help_label">niels*</span>
+          <span class="help_value">Match any number of characters. Finds Niels, Nielsen and Nielsson<br/>
+          (use only at end of word)
           </span>
         </span>
+        <span class="help_example">
+          <span class="help_label">niels?n</span>
+          <span class="help_value">Match 1 character. Finds Nielsen and Nielson, but not Nielsson</span>
+        </span>
       </span>
-      </a>-->
-      </div>
+    </span>
+      </a>
+    </div>
       
-      <div class="filter_block">
-        <span class="label input_label">Keywords</span>
-        <input name="query" class="query_input" value='{request:get-parameter("query","")}' id="query_input"/>
-      </div>
-      <div class="filter_block">
+     
+    <div class="filter_block">
 	<span class="label">Year of composition</span>    
 	<table cellpadding="0" cellspacing="0" border="0">
           <tr>

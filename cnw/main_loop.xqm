@@ -150,21 +150,22 @@ declare function loop:getlist (
     let $sort1  := substring-after($sortby,",")
 
     let $list   := 
-    for $doc in 
-      collection($database)/m:mei[
-         (not($query)      or ft:query(.,$query))
-	 and
-	 (not($loop:title) or ft:query(.//m:titleStmt/m:title,$loop:title))
-	 and
-	 (not($loop:name)  or ft:query(.//m:recipient|.//m:author|.//m:persName,$loop:name))
-	 and
-	 (not($loop:workno) or .//m:identifier[ft:query(@label,$loop:scheme) and ft:query(.,$loop:workno)] )   ]
-    where 
-      loop:genre-filter($genre,$doc) and 
-      loop:date-filters($doc) and 
-      loop:valid-work-number($doc) 
-    order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
-    return $doc	    
+      for $doc in 
+	collection($database)/m:mei[
+          (not($query) or ft:query(.,$query)) 
+          and
+	  (not($loop:title) or ft:query(.//m:titleStmt/m:title,$loop:title))
+	  and
+	  (not($loop:name)  or ft:query(.//m:recipient|.//m:author|.//m:persName,$loop:name))
+	  and
+	  (not($loop:workno)
+	       or .//m:identifier[ft:query(@label,$loop:scheme) and ft:query(.,$loop:workno)] )]
+      where 
+	loop:genre-filter($genre,$doc) and 
+	loop:date-filters($doc) and 
+	loop:valid-work-number($doc) 
+      order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
+      return $doc	    
 	      
     return $list
 

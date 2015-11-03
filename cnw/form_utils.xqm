@@ -105,12 +105,12 @@ declare function forms:emit-checkbox-form(
 };
 
 declare function forms:pass-as-hidden-except(
-  $field as xs:string)  as node()* 
+  $fields as xs:string)  as node()* 
 {
   let $inputs:=
   for $input in forms:pass-as-hidden()
   return
-    if($input/@name ne $field) then
+    if( not(contains($fields, $input/@name)) ) then
       $input
     else
       if($input/@name eq "page") then
