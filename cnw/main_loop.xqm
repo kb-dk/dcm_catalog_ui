@@ -23,7 +23,7 @@ declare variable $loop:genre        := request:get-parameter("genre","") cast as
 
 declare variable $loop:title        := request:get-parameter("title", "") cast as xs:string;
 declare variable $loop:name         := request:get-parameter("name", "") cast as xs:string;
-declare variable $loop:scheme       := request:get-parameter("scheme","") cast as xs:string;
+declare variable $loop:scheme       := request:get-parameter("scheme","CNW") cast as xs:string;
 declare variable $loop:workno       := request:get-parameter("workno", "") cast as xs:string;
 
 declare function loop:valid-work-number($doc as node()) as xs:boolean
@@ -156,10 +156,13 @@ declare function loop:getlist (
 	 and
 	 (not($loop:title) or ft:query(.//m:title,$loop:title))
 	 and
-	 (not($loop:name)  or ft:query(.//m:persName,$loop:name))]
-    where loop:genre-filter($genre,$doc) and 
+	 (not($loop:name)  or ft:query(.//m:recipient|.//m:author|.//m:persName,$loop:name))
+	 and
+	 (not($loop:workno) or .//m:identifier[ft:query(@label,$loop:scheme) and ft:query(.,$loop:workno)] )   ]
+    where 
+      loop:genre-filter($genre,$doc) and 
       loop:date-filters($doc) and 
-      loop:valid-work-number($doc)
+      loop:valid-work-number($doc) 
     order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
     return $doc	    
 	      
