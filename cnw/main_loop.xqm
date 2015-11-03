@@ -10,12 +10,28 @@ declare namespace util="http://exist-db.org/xquery/util";
 declare variable $loop:sortby     := "null,work_number";
 declare variable $loop:vocabulary := doc("./keywords.xml");
 
+declare variable $loop:collection := "CNW";
+
+(: :=$doc//m:seriesStmt/m:identifier[@type="file_collection"]/string()[1]  :)
+
+declare variable $loop:notbefore    := request:get-parameter("notbefore","") cast as xs:string;
+declare variable $loop:notafter     := request:get-parameter("notafter","") cast as xs:string;
+declare variable $loop:query_string := request:get-parameter("query","");
+declare variable $loop:page         := request:get-parameter("page","1") cast as xs:integer;
+declare variable $loop:number       := request:get-parameter("itemsPerPage","20") cast as xs:integer;
+declare variable $loop:genre        := request:get-parameter("genre","") cast as xs:string;
+
+declare variable $loop:title        := request:get-parameter("title", "") cast as xs:string;
+declare variable $loop:name         := request:get-parameter("name", "") cast as xs:string;
+declare variable $loop:scheme       := request:get-parameter("scheme","") cast as xs:string;
+declare variable $loop:workno       := request:get-parameter("workno", "") cast as xs:string;
+
 declare function loop:valid-work-number($doc as node()) as xs:boolean
 {
-  let $coll    :=$doc//m:seriesStmt/m:identifier[@type="file_collection"]/string()[1] 
+
   let $exclude := request:get-parameter("anthologies", "")
   let $result  := 
-    if($coll eq "CNW") then
+    if($loop:collection eq "CNW") then
       if($exclude eq "yes") then
 	   let $num:=fn:number($doc//m:workDesc/m:work/m:identifier[@label="CNW"][1]/string())
 	   return $num >= 1 and 9999 >= $num
@@ -104,8 +120,6 @@ declare function loop:sort-key (
   $key as xs:string) as xs:string
 {
 
-  let $collection:=$doc//m:seriesStmt/m:identifier[@type="file_collection"]/string()[1] 
-
   let $sort_key:=
     if($key eq "person") then
       replace(lower-case($doc//m:workDesc/m:work[@analog="frbr:work"]/m:titleStmt[1]/m:respStmt/m:persName[1]/string()),"\\\\ ","")
@@ -115,7 +129,7 @@ declare function loop:sort-key (
       substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/(@enddate|@notafter|@isodate|@startdate|@notbefore)[1],1,4)
     else if($key eq "work_number") then
       (: make the number a 5 character long string padded with zeros :)
-      let $num:=$doc//m:workDesc/m:work/m:identifier[@label=$collection]/string()
+      let $num:=$doc//m:workDesc/m:work/m:identifier[@label=$loop:collection]/string()
       let $padded_number:=concat("000000",normalize-space($num))
       let $len:=string-length($padded_number)-4
 	return substring($padded_number,$len,5)
@@ -134,19 +148,21 @@ declare function loop:getlist (
     let $sortby := request:get-parameter("sortby",$loop:sortby)
     let $sort0  := substring-before($sortby,",")
     let $sort1  := substring-after($sortby,",")
-	    
+
     let $list   := 
-      if($query) then
-        for $doc in collection($database)/m:mei[ft:query(.,$query)]
-        where loop:genre-filter($genre,$doc) and loop:date-filters($doc) and loop:valid-work-number($doc)
-	    order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
-	    return $doc
-     else
-        for $doc in collection($database)/m:mei
-        where loop:genre-filter($genre,$doc) and loop:date-filters($doc) and loop:valid-work-number($doc)
-	    order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
-	    return $doc	    
+    for $doc in 
+      collection($database)/m:mei[
+         (not($query)      or ft:query(.,$query))
+	 and
+	 (not($loop:title) or ft:query(.//m:title,$loop:title))
+	 and
+	 (not($loop:name)  or ft:query(.//m:persName,$loop:name))]
+    where loop:genre-filter($genre,$doc) and 
+      loop:date-filters($doc) and 
+      loop:valid-work-number($doc)
+    order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
+    return $doc	    
 	      
     return $list
 
-  };
+};
