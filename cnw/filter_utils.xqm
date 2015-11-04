@@ -5,13 +5,17 @@ module  namespace filter="http://kb.dk/this/app/filter";
 import module namespace  forms="http://kb.dk/this/formutils" at "./form_utils.xqm";
 
 declare namespace m="http://www.music-encoding.org/ns/mei";
+declare namespace h="http://www.w3.org/1999/xhtml";
+
 declare variable $filter:anthologies := request:get-parameter("anthologies","") cast as xs:string;
-declare variable $filter:sortby := request:get-parameter("sortby", "null,work_number") cast as xs:string;
-declare variable $filter:page   := request:get-parameter("page",   "1") cast as xs:integer;
-declare variable $filter:number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
-declare variable $filter:genre := request:get-parameter("genre", "") cast as xs:string;
-declare variable $filter:uri    := "";
-declare variable $filter:vocabulary := doc("./keywords.xml");
+declare variable $filter:sortby      := request:get-parameter("sortby", "null,work_number") cast as xs:string;
+declare variable $filter:page        := request:get-parameter("page",   "1") cast as xs:integer;
+declare variable $filter:number      := request:get-parameter("itemsPerPage","20") cast as xs:integer;
+declare variable $filter:genre       := request:get-parameter("genre", "") cast as xs:string;
+declare variable $filter:scheme      := request:get-parameter("scheme", "CNW") cast as xs:string;
+declare variable $filter:uri         := "";
+declare variable $filter:vocabulary  := doc("./keywords.xml");
+declare variable $filter:numnam      := doc("./select.xml");
 
 
 declare function filter:print-filters(
@@ -31,12 +35,16 @@ declare function filter:print-filters(
     <div class="filter_block">
 
       <span class="label input_label">Keywords</span>
+      <br/>
       <input name="query" 
              class="query_input" 
 	     value='{request:get-parameter("query","")}' 
 	     id="query_input"/>
+    </div>
 
+    <div class="filter_block">
       <span class="label input_label">Title</span>
+      <br/>
       <input name="title" 
              class="query_input" 
 	     value='{request:get-parameter("title","")}' 
@@ -74,13 +82,40 @@ declare function filter:print-filters(
       </a>
     </div>
 
-
+    <div class="filter_block">
     <span class="label input_label">Name</span>
-    <input name="name" 
-           class="query_input" 
-	   value='{request:get-parameter("name","")}' 
-	   id="title_input"/>
-     
+    <br/>
+    <select id="name_field" name="name">
+    {
+      for $nam in $filter:numnam//h:select[@id="name_field"]/h:option
+	return 
+	  if($nam/@value eq request:get-parameter("name", "")) then
+	    <option value="{$nam/@value}" selected="selected">{$nam/text()}</option>
+	  else
+	    <option value="{$nam/@value}">{$nam/text()}</option>
+    }
+    </select>
+    </div>
+
+    <div class="filter_block">
+      <span class="label input_label">Numbers</span>
+      <br/>
+      <select id="name_field" name="name">
+	{
+	  for $numschema in $filter:numnam/h:div[@id="numbers"]/h:select
+	  return 
+	    if($numschema/@id eq request:get-parameter("scheme", "CNW")) then
+	      <option value="{$numschema/@id}" selected="selected">{$numschema/@id}</option>
+	    else
+	      <option value="{$numschema/@id}">{$numschema/@id}</option>
+	}
+      </select>
+      <input name="workno" 
+             class="query_input" 
+	     value='{request:get-parameter("workno","")}' 
+	     id="workno_input"/>
+    </div>
+
     <div class="filter_block">
 	<span class="label">Year of composition</span>    
 	<table cellpadding="0" cellspacing="0" border="0">

@@ -1,7 +1,6 @@
 xquery version "1.0" encoding "UTF-8";
 
 module namespace loop="http://kb.dk/this/getlist";
-
 declare namespace fn="http://www.w3.org/2005/xpath-functions";
 declare namespace m="http://www.music-encoding.org/ns/mei";
 declare namespace ft="http://exist-db.org/xquery/lucene";
@@ -11,8 +10,6 @@ declare variable $loop:sortby     := "null,work_number";
 declare variable $loop:vocabulary := doc("./keywords.xml");
 
 declare variable $loop:collection := "CNW";
-
-(: :=$doc//m:seriesStmt/m:identifier[@type="file_collection"]/string()[1]  :)
 
 declare variable $loop:notbefore    := request:get-parameter("notbefore","") cast as xs:string;
 declare variable $loop:notafter     := request:get-parameter("notafter","") cast as xs:string;
@@ -156,7 +153,7 @@ declare function loop:getlist (
           and
 	  (not($loop:title) or ft:query(.//m:titleStmt/m:title,$loop:title))
 	  and
-	  (not($loop:name)  or ft:query(.//m:recipient|.//m:author|.//m:persName,$loop:name))
+	  (not($loop:name)  or ft:query(.//m:recipient|.//m:author|.//m:persName,concat('&quot;',$loop:name,'&quot;')))
 	  and
 	  (not($loop:workno)
 	       or .//m:identifier[ft:query(@label,$loop:scheme) and ft:query(.,$loop:workno)] )]
