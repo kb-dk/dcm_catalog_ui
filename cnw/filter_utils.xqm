@@ -182,6 +182,9 @@ declare function filter:filter-elements()
   let $notbefore := request:get-parameter("notbefore","")
   let $query := request:get-parameter("query","")
   let $title := request:get-parameter("title","")
+  let $name := request:get-parameter("name","")
+  let $workno := request:get-parameter("workno","")
+  let $scheme := request:get-parameter("scheme","")
   let $genre := request:get-parameter("genre","")
   let $anthologies := request:get-parameter("anthologies","")
   let $this_uri := fn:replace(fn:concat($filter:uri,"?",request:get-query-string()),'page=[^&amp;]+','')
@@ -194,6 +197,7 @@ declare function filter:filter-elements()
        </a>
     else
        ""
+
   let $title_block :=
       if($title) then
        <a class="filter_element"
@@ -202,6 +206,16 @@ declare function filter:filter-elements()
        </a>
     else
        ""
+
+  let $name_block :=
+      if($name) then
+       <a class="filter_element"
+           href="{fn:replace(fn:replace($this_uri,'name=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
+           Name: {$name} 
+       </a>
+    else
+       ""
+
   let $query_block :=
       if($query) then
        <a class="filter_element"
@@ -210,33 +224,45 @@ declare function filter:filter-elements()
        </a>
     else
        ""
+
+    let $workno_block :=
+      if($workno) then
+       <a class="filter_element"
+           href="{fn:replace(fn:replace($this_uri,'workno=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
+           {$scheme} Number: {$workno} 
+       </a>
+    else
+       ""
+
   let $genre_block :=
       if($genre) then
        <a class="filter_element" 
            href="{fn:replace(fn:replace($this_uri,'genre=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
            Genre: {$genre} 
        </a>
-    else
+       else
        ""
+
   let $anthology_block :=
       if($anthologies="yes") then
        <a class="filter_element" 
            href="{fn:replace(fn:replace($this_uri,'anthologies=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
            Exclude song collections 
        </a>
-    else
+       else
        ""
   let $reset_block :=
-      if($genre_block or $year_block or $query_block or $anthology_block or $title_block) then
+      if($genre_block or $year_block or $query_block or $anthology_block or $title_block or $name_block or $workno_block ) then
        <a class="filter_element reset" 
            href="{fn:concat($filter:uri,'?itemsPerPage=',request:get-parameter("itemsPerPage",""),'&amp;sortby=',request:get-parameter("sortby",$filter:sortby))}">
            Reset all
        </a> 
     else
        ""
+
   let $clear :=
       <br style="clear:both"/>
-  return ($title_block, $query_block, $year_block, $genre_block, $anthology_block, $reset_block, $clear)
+  return ($title_block, $query_block, $name_block, $workno_block, $year_block, $genre_block, $anthology_block, $reset_block, $clear)
 };
 
 
@@ -260,6 +286,10 @@ declare function filter:print-filtered-link(
 	  "&amp;anthologies=",$filter:anthologies,
 	  "&amp;notbefore=",request:get-parameter("notbefore",""),
 	  "&amp;notafter=",request:get-parameter("notafter",""),
+	  "&amp;title=",request:get-parameter("title",""),
+	  "&amp;name=",request:get-parameter("name",""),
+	  "&amp;scheme=",request:get-parameter("schee",""),
+	  "&amp;workno=",request:get-parameter("schee",""),
 	  "&amp;genre=",fn:escape-uri($term,true()))},
 	  $term
     }
@@ -281,6 +311,10 @@ declare function filter:get-filtered-link(
 	  "&amp;anthologies=",$filter:anthologies,
 	  "&amp;notbefore=",request:get-parameter("notbefore",""),
 	  "&amp;notafter=",request:get-parameter("notafter",""),
+	  "&amp;title=",request:get-parameter("title",""),
+	  "&amp;name=",request:get-parameter("name",""),
+	  "&amp;scheme=",request:get-parameter("schee",""),
+	  "&amp;workno=",request:get-parameter("schee",""),
 	  "&amp;genre=",fn:escape-uri($term,true()))
     return $link
 };
