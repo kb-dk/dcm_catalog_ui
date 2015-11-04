@@ -1631,7 +1631,7 @@
 </select>
     -->
     CNU: 
-    <select name="cnu">
+    <select name="CNU">
       <option value=""/>
       <option value="I/1–3">I/1–3</option>
       <option value="I/4–5">I/4–5</option>

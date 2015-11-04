@@ -30,7 +30,7 @@ declare function filter:print-filters(
   let $filter:=
   <form action="navigation.xq" method="get" class="search" id="query_form" name="query_form">
 
-    {forms:pass-as-hidden-except("notafter notbefore name title genre query")}
+    {forms:pass-as-hidden-except("notafter notbefore name title genre query scheme workno")}
 
     <div class="filter_block">
 
@@ -100,14 +100,14 @@ declare function filter:print-filters(
     <div class="filter_block">
       <span class="label input_label">Numbers</span>
       <br/>
-      <select id="name_field" name="name">
+      <select id="scheme_field" name="scheme">
 	{
-	  for $numschema in $filter:numnam/h:div[@id="numbers"]/h:select
+	  for $numschema in $filter:numnam//h:div[@id="numbers"]/h:select/@id
 	  return 
-	    if($numschema/@id eq request:get-parameter("scheme", "CNW")) then
-	      <option value="{$numschema/@id}" selected="selected">{$numschema/@id}</option>
+	    if(  $numschema eq request:get-parameter("scheme", "CNW")) then
+	      <option value="{$numschema}" selected="selected">{$numschema/string()}</option>
 	    else
-	      <option value="{$numschema/@id}">{$numschema/@id}</option>
+	      <option value="{$numschema}">{$numschema/string()}</option>
 	}
       </select>
       <input name="workno" 
