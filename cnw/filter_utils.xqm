@@ -31,11 +31,16 @@ declare function filter:print-filters(
     <div class="filter_block">
 
       <span class="label input_label">Keywords</span>
-      <input name="query" class="query_input" value='{request:get-parameter("query","")}' id="query_input"/>
+      <input name="query" 
+             class="query_input" 
+	     value='{request:get-parameter("query","")}' 
+	     id="query_input"/>
+
       <span class="label input_label">Title</span>
-      <input name="title" class="query_input" value='{request:get-parameter("title","")}' id="title_input"/>
-      <span class="label input_label">Name</span>
-      <input name="name" class="query_input" value='{request:get-parameter("name","")}' id="title_input"/>
+      <input name="title" 
+             class="query_input" 
+	     value='{request:get-parameter("title","")}' 
+	     id="title_input"/>
 
       <a class="help">?<span class="comment"> 
       Search terms may be combined using boolean operators. Wildcards allowed. 
@@ -68,7 +73,13 @@ declare function filter:print-filters(
     </span>
       </a>
     </div>
-      
+
+
+    <span class="label input_label">Name</span>
+    <input name="name" 
+           class="query_input" 
+	   value='{request:get-parameter("name","")}' 
+	   id="title_input"/>
      
     <div class="filter_block">
 	<span class="label">Year of composition</span>    
