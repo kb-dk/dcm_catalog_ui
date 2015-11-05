@@ -35,6 +35,10 @@ declare function layout:head($title as xs:string,
       //
     </script>
       
+    <script type="text/javascript" src="js/swap_num_type.js">
+      //
+    </script>
+
     <script type="text/javascript" src="js/checkbox.js">
       //
     </script>

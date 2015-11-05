@@ -97,10 +97,13 @@ declare function filter:print-filters(
     </select>
     </div>
 
-    <div class="filter_block">
-      <span class="label input_label">Numbers</span>
-      <br/>
-      <select id="scheme_field" name="scheme">
+    <div blaha="blahahah" class="filter_block">
+    {
+
+      let $schemeselectors :=
+      (<span class="label input_label">Numbers</span>,
+      <br/>,
+      <select id="scheme_selector" name="scheme">
 	{
 	  for $numschema in $filter:numnam//h:div[@id="numbers"]/h:select/@id
 	  return 
@@ -109,36 +112,64 @@ declare function filter:print-filters(
 	    else
 	      <option value="{$numschema}">{$numschema/string()}</option>
 	}
-      </select>
-      <input name="workno" 
-             class="query_input" 
-	     value='{request:get-parameter("workno","")}' 
-	     id="workno_input"/>
+      </select>)
+
+      let $numselectors :=
+      for $nums in $filter:numnam//h:div[@id="numbers"]/h:select
+	let $nam :=
+	  if($nums/@id/string() eq request:get-parameter("scheme", "CNW")) then 
+	    "workno"
+	  else
+	    "noname"
+
+	let $sty :=
+	  if($nums/@id/string() eq request:get-parameter("scheme", "CNW")) then 
+	    "display:inline;"
+	  else
+	    "display:none;"
+
+        return 
+	<select id="{$nums/@id/string()}" 
+	        name="{$nam}" 
+		style="{$sty}"
+		onchange="swap_num_type();return true;">
+	  { 
+          for $opt in $nums/h:option
+	  return
+	    if(  $opt/@value eq request:get-parameter("workno", "")) then
+	    <option value="{$opt/@value}" selected="selected">{$opt/string()}</option>
+	    else
+	    <option value="{$opt/@value}">{$opt/string()}</option>
+	  }
+	</select>
+
+	return ($schemeselectors, $numselectors)
+      }
     </div>
 
     <div class="filter_block">
-	<span class="label">Year of composition</span>    
-	<table cellpadding="0" cellspacing="0" border="0">
-          <tr>
-            <td style="padding-left: 0;">
+      <span class="label">Year of composition</span>    
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="padding-left: 0;">
             <input id="notbefore" name="notbefore" value="{$notbefore}" onblur="setYearSlider()"/>
-            </td>
-            <td>
-	      <div class="slider" id="year_slider">
-		{" "}
-	      </div>
-            </td>
-            <td>
-	      <input id="notafter" 
-	      name="notafter" 
-	      value="{$notafter}" 
-	      onblur="setYearSlider()"/>
-            </td>
-          </tr>
-	</table>
-	</div>
+          </td>
+          <td>
+	    <div class="slider" id="year_slider">
+	      {" "}
+	    </div>
+          </td>
+          <td>
+	    <input id="notafter" 
+	    name="notafter" 
+	    value="{$notafter}" 
+	    onblur="setYearSlider()"/>
+          </td>
+        </tr>
+      </table>
+    </div>
 
-      <div class="genre_filter filter_block">
+    <div class="genre_filter filter_block">
 	{
 	  for $genre in $filter:vocabulary/m:classification/m:termList[@label="level1" or @label="level2"]/m:term/string()
 	    let $selected :=
