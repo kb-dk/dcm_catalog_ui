@@ -307,7 +307,7 @@ declare function filter:filter-elements()
       if($workno) then
        <a class="filter_element"
            href="{fn:replace(fn:replace($this_uri,'workno=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
-           {$scheme} Number: {$workno} 
+           {$scheme} number: {$workno} 
        </a>
     else
        ""
