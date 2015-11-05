@@ -85,7 +85,7 @@ declare function filter:print-filters(
     <div class="filter_block">
     <span class="label input_label">Name</span>
     <br/>
-    <select id="name_field" name="name">
+    <select id="name_field" name="name" onchange="swap_num_type();return true;">
     {
       for $nam in $filter:numnam//h:select[@id="name_field"]/h:option
 	return 
@@ -103,7 +103,9 @@ declare function filter:print-filters(
       let $schemeselectors :=
       (<span class="label input_label">Numbers</span>,
       <br/>,
-      <select id="scheme_selector" name="scheme">
+      <select id="scheme_selector" 
+              name="scheme" 
+              onchange="swap_num_type();return true;">
 	{
 	  for $numschema in $filter:numnam//h:div[@id="numbers"]/h:select/@id
 	  return 
@@ -131,8 +133,7 @@ declare function filter:print-filters(
         return 
 	<select id="{$nums/@id/string()}" 
 	        name="{$nam}" 
-		style="{$sty}"
-		onchange="swap_num_type();return true;">
+		style="{$sty}">
 	  { 
           for $opt in $nums/h:option
 	  return
