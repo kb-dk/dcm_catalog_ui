@@ -51,7 +51,7 @@
     <xsl:variable name="ext_id" select="substring-after(@target,'#')"/>
     <!-- Ouch! directory name "public" hard-coded here - can we find some more generic solution? -->
     <xsl:variable name="doc_name"
-      select="concat('http://',$hostname,'/',$settings/dcm:parameters/dcm:exist_dir,'public/',substring-before(@target,'#'))"/>
+      select="concat('http://',$hostname,'/dcm/cnw/data/',substring-before(@target,'#'))"/>
     <xsl:variable name="doc" select="document($doc_name)"/>
     <source>
       <xsl:apply-templates select="@*[name()!='target' and name()!='xml:id' and name()!='label']"/>

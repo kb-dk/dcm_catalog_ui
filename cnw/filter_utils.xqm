@@ -30,7 +30,7 @@ declare function filter:print-filters(
   let $filter:=
   <form action="navigation.xq" method="get" class="search" id="query_form" name="query_form">
 
-    {forms:pass-as-hidden-except("notafter notbefore name title genre query scheme workno")}
+    {forms:pass-as-hidden-except("notafter notbefore name title genre query scheme workno anthologies")}
 
     <div class="filter_block">
 

@@ -25,7 +25,6 @@ declare variable $loop:workno       := request:get-parameter("workno", "") cast 
 
 declare function loop:valid-work-number($doc as node()) as xs:boolean
 {
-
   let $exclude := request:get-parameter("anthologies", "")
   let $result  := 
     if($loop:collection eq "CNW") then
@@ -38,7 +37,6 @@ declare function loop:valid-work-number($doc as node()) as xs:boolean
       true()
   return $result
 };
-  
 
 declare function loop:date-filters(
   $doc as node()) as xs:boolean
@@ -156,14 +154,12 @@ declare function loop:getlist (
 	  (not($loop:name)  or ft:query(.//m:recipient|.//m:author|.//m:persName,concat('&quot;',$loop:name,'&quot;')))
 	  and
 	  (not($loop:workno)
-	       or .//m:identifier[ft:query(@label,$loop:scheme) and ft:query(.,$loop:workno)] )]
+	       or .//m:identifier[ft:query(@label,$loop:scheme) and ft:query(.,concat('&quot;',$loop:workno,'&quot;'))] )]
       where 
 	loop:genre-filter($genre,$doc) and 
 	loop:date-filters($doc) and 
 	loop:valid-work-number($doc) 
       order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
       return $doc	    
-	      
     return $list
-
 };

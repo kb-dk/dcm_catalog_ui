@@ -2,23 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>Various controlled lists for CNW</title>
-    <script type="application/javascript">
-      var current_num_type = "CNW";
-
-      function swap_num_type() {
-	  var type_id     = document.getElementById("scheme_selector").value;
-	  var old_select  = document.getElementById(current_num_type);
-	  var new_select  = document.getElementById(type_id);
-
-	  old_select.name = "noname";
-	  new_select.name = "workno";
-
-	  old_select.style.display = "none";
-	  new_select.style.display = "inline";
-
-	  current_num_type = type_id;
-      }
-
+    <script src="js/swap_num_type.js" type="application/javascript">
+      //
     </script>
   </head>
   <body>
@@ -905,6 +890,32 @@
 
       <select id="CNW" name="workno" style="display:inline;">
 	<option value="">&#160;</option>
+	<option value="Coll. 1">Coll. 1</option>
+	<option value="Coll. 2">Coll. 2</option>
+	<option value="Coll. 3">Coll. 3</option>
+	<option value="Coll. 4">Coll. 4</option>
+	<option value="Coll. 5">Coll. 5</option>
+	<option value="Coll. 6">Coll. 6</option>
+	<option value="Coll. 7">Coll. 7</option>
+	<option value="Coll. 8">Coll. 8</option>
+	<option value="Coll. 9">Coll. 9</option>
+	<option value="Coll. 10">Coll. 10</option>
+	<option value="Coll. 11">Coll. 11</option>
+	<option value="Coll. 12">Coll. 12</option>
+	<option value="Coll. 13">Coll. 13</option>
+	<option value="Coll. 14">Coll. 14</option>
+	<option value="Coll. 15">Coll. 15</option>
+	<option value="Coll. 16">Coll. 16</option>
+	<option value="Coll. 17">Coll. 17</option>
+	<option value="Coll. 18">Coll. 18</option>
+	<option value="Coll. 19">Coll. 19</option>
+	<option value="Coll. 20">Coll. 20</option>
+	<option value="Coll. 21">Coll. 21</option>
+	<option value="Coll. 22">Coll. 22</option>
+	<option value="Coll. 23">Coll. 23</option>
+	<option value="Coll. 24">Coll. 24</option>
+	<option value="Coll. 25">Coll. 25</option>
+	<option value="Coll. 26">Coll. 26</option>
 	<option value="1">1</option>
 	<option value="2">2</option>
 	<option value="3">3</option>
