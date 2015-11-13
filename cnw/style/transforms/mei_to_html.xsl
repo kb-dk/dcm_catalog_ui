@@ -34,21 +34,24 @@ The Royal Library, Copenhagen
 
   <!-- preferred language in titles and other multilingual fields -->
   <xsl:variable name="preferred_language">none</xsl:variable>
-  <!-- general MerMEId settings -->
-  <xsl:variable name="settings"
-		select="document(concat('http://',$hostname,'/editor/forms/mei/mermeid_configuration.xml'))"/>
+
+  <xsl:variable name="base_uri"
+		select="concat('http://',$hostname,'/dcm/cnw')"/>
   <!-- file context - i.e. collection identifier like 'CNW' -->
+
   <xsl:variable name="file_context">
     <xsl:value-of
 	select="/m:mei/m:meiHead/m:fileDesc/m:seriesStmt/m:identifier[@type='file_collection']"
 	/>
   </xsl:variable>
+
   <!-- files containing look-up information -->
   <xsl:variable name="bibl_file_name"
-		select="string(concat($settings/dcm:parameters/dcm:server_name,$settings/dcm:parameters/dcm:exist_dir,'library/standard_bibliography.xml'))"/>
+		select="concat($base_uri,'/library/standard_bibliography.xml')"/>
   <xsl:variable name="bibl_file" select="document($bibl_file_name)"/>
   <xsl:variable name="abbreviations_file_name"
-		select="string(concat($settings/dcm:parameters/dcm:server_name,$settings/dcm:parameters/dcm:exist_dir,'library/abbreviations.xml'))"/>
+		select="concat($base_uri,'/library/abbreviations.xml'))"/>
+
   <xsl:variable name="abbreviations_file" select="document($abbreviations_file_name)"/>
 
 
@@ -528,7 +531,7 @@ The Royal Library, Copenhagen
     <xsl:variable name="href">
       <xsl:choose>
 	<xsl:when test="$mermeid_crossref='true'">
-	  <xsl:value-of select="concat($settings/dcm:parameters/dcm:server_name,$settings/dcm:parameters/dcm:exist_dir,'present.xq?doc=',@target)"/>
+	  <xsl:value-of select="concat($base_uri,'/present.xq?doc=',@target)"/>
 	</xsl:when>
 	<xsl:otherwise>
 	  <xsl:value-of select="@target"/>
@@ -547,9 +550,9 @@ The Royal Library, Copenhagen
     <a href="{$href}" title="{$label}"><xsl:value-of select="$label"/></a>&#160;
     <xsl:if test="$mermeid_crossref='true'">
       <!-- get collection name and number from linked files -->
-      <!-- was: <xsl:variable name="fileName"	select="concat('http://',$hostname,'/storage/dcm/',@target)"/> -->
+
       <xsl:variable name="fileName"
-		    select="concat($settings/dcm:parameters/dcm:server_name,$settings/dcm:parameters/dcm:document_root,@target)"/>
+		    select="concat($base_uri,'/data/',@target)"/>
       <xsl:variable name="linkedDoc" select="document($fileName)"/>
       <xsl:variable name="file_context"
 		    select="$linkedDoc/m:mei/m:meiHead/m:fileDesc/m:seriesStmt/m:identifier[@type='file_collection']"/>
@@ -741,10 +744,9 @@ The Royal Library, Copenhagen
 		    <xsl:variable name="ext_id"
 				  select="substring-after(@target,'#')"/>
 		    
-		    <!-- was: <xsl:variable name="doc_name"
-			 select="concat('http://',$hostname,'/',$settings/dcm:parameters/dcm:document_root,substring-before(@target,'#'))"/>-->
+
 		    <xsl:variable name="doc_name"
-				  select="concat($settings/dcm:parameters/dcm:server_name,$settings/dcm:parameters/dcm:document_root,substring-before(@target,'#'))"/>
+				  select="concat($base_uri,'/data/',substring-before(@target,'#'))"/>
 		    <xsl:variable name="doc" select="document($doc_name)"/>
 		    <xsl:copy-of
 			select="$doc/m:mei/m:meiHead/m:fileDesc/m:sourceDesc/m:source[@xml:id=$ext_id]"/>
@@ -1397,7 +1399,7 @@ The Royal Library, Copenhagen
 		<xsl:variable name="ext_id"
 			      select="substring-after(@target,'#')"/>
 		<xsl:variable name="doc_name"
-			      select="concat($settings/dcm:parameters/dcm:server_name,$settings/dcm:parameters/dcm:document_root,substring-before(@target,'#'))"/>
+			      select="concat($base_uri,'/data/',substring-before(@target,'#'))"/>
 		<xsl:variable name="doc" select="document($doc_name)"/>
 		<xsl:copy-of
 		    select="$doc/m:mei/m:meiHead/m:fileDesc/m:sourceDesc/m:source[@xml:id=$ext_id]"/>
@@ -3154,8 +3156,8 @@ The Royal Library, Copenhagen
 
   <xsl:template match="m:identifier[@authority='RISM']">
     <xsl:variable name="RISM_file_name"
-		  select="string(concat($settings/dcm:parameters/dcm:server_name,$settings/dcm:parameters/dcm:exist_dir,'rism_sigla/',
-			  substring-before(normalize-space(.),'-'),'.xml'))"/>
+		  select="concat($base_uri,'/rism_sigla/',
+			  substring-before(normalize-space(.),'-'),'.xml')"/>
     <xsl:choose>
       <xsl:when test="boolean(document($RISM_file_name))">
 	<xsl:variable name="RISM_file" select="document($RISM_file_name)"/>
