@@ -24,18 +24,23 @@
 		extension-element-prefixes="exsl java" 
 		exclude-result-prefixes="m xsl exsl foo java">
 
+  <xsl:import href="mei_to_html.xsl"/>
+
   <xsl:output method="xml" encoding="UTF-8" 
 	      cdata-section-elements="" 
 	      omit-xml-declaration="yes"/>
   
   
   <xsl:strip-space elements="*"/>
+  <xsl:param name="cat"
+		select="'cnw'"/>
 
-  <xsl:variable name="base_uri"
-		select="concat('http://',$hostname,'/dcm/cnw')"/>
+  <xsl:param name="file_context" select="'CNW'"/>
+  <xsl:param name="hostname" select="''"/>
+  <xsl:param name="doc" select="''"/>
 
-
-  <xsl:include href="mei_to_html.xsl"/>
+  <xsl:param name="base_uri"
+		select="concat('http://',$hostname,'/dcm/',$cat)"/>
 
   <!-- MAIN TEMPLATE -->
   <xsl:template match="m:mei" xml:space="default">
@@ -46,11 +51,6 @@
 	</div>
 
 	<!-- main identification -->
-	<xsl:variable name="file_context">
-	  <xsl:value-of
-	      select="m:meiHead/m:fileDesc/m:seriesStmt/m:identifier[@type='file_collection']"
-	      />
-	</xsl:variable>
 
 	<xsl:variable name="catalogue_no">
 	  <xsl:value-of
@@ -83,7 +83,7 @@
 	  <span class="tools noprint">
 	    <a href="./download_xml.xq?doc={$doc}" title="Get this record as XML (MEI)"
 	       target="_blank">
-	      <img src="/editor/images/xml.gif" alt="XML" border="0"/>
+	      <img src="/dcm/cnw/style/images/xml.gif" alt="XML" border="0"/>
 	    </a>
 	  </span>
 	</div>
@@ -94,6 +94,9 @@
   </xsl:template>
 
   <!-- SUB-TEMPLATES -->
+
+  <!-- xsl:template name="body_main_content"/>
+  <xsl:template name="lowercase"/ -->
 
   <!-- need to override this template in order to call the right xquery (document.xq instead of present.xq) -->
   <xsl:template match="m:relation" mode="relation_link">

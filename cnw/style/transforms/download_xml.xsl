@@ -25,8 +25,6 @@
   <xsl:param name="hostname"/>
   
   <!-- GLOBAL VARIABLES -->
-  <xsl:variable name="settings"
-    select="document(concat('http://',$hostname,'/editor/forms/mei/mermeid_configuration.xml'))"/>
   
   <xsl:template match="/">
     <xsl:apply-templates/>

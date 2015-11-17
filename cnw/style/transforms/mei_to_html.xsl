@@ -32,12 +32,14 @@ The Royal Library, Copenhagen
 
   <!-- GLOBAL VARIABLES -->
 
+  <xsl:param name="cat"
+		select="'cnw'"/>
+
+  <xsl:param name="base_uri"
+		select="concat('http://',$hostname,'/dcm/',$cat)"/>
+
   <!-- preferred language in titles and other multilingual fields -->
   <xsl:variable name="preferred_language">none</xsl:variable>
-
-  <xsl:variable name="base_uri"
-		select="concat('http://',$hostname,'/dcm/cnw')"/>
-  <!-- file context - i.e. collection identifier like 'CNW' -->
 
   <xsl:variable name="file_context">
     <xsl:value-of
@@ -80,9 +82,9 @@ The Royal Library, Copenhagen
 
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
 
-    <link rel="stylesheet" type="text/css" href="/editor/style/mei_to_html.css"/>
+    <link rel="stylesheet" type="text/css" href="/dcm/cnw/style/mei_to_html.css"/>
 
-    <script type="text/javascript" src="/editor/js/toggle_openness.js">
+    <script type="text/javascript" src="/dcm/cnw/js/toggle_openness.js">
       <xsl:text>
       </xsl:text>
     </script>
@@ -158,8 +160,7 @@ The Royal Library, Copenhagen
 	  <xsl:variable name="lang" select="@xml:lang"/>
 	  <xsl:variable name="language_class">
 	    <xsl:choose>
-	      <xsl:when test="position()&gt;1 and @xml:lang!=parent::node()/m:title[1]/@xml:lang"
-			>alternative_language</xsl:when>
+	      <xsl:when test="position()&gt;1 and @xml:lang!=parent::node()/m:title[1]/@xml:lang">alternative_language</xsl:when>
 	      <xsl:otherwise>preferred_language</xsl:otherwise>
 	    </xsl:choose>
 	  </xsl:variable>
@@ -375,10 +376,10 @@ The Royal Library, Copenhagen
   <xsl:template match="*" mode="settings_menu">
     <div class="settings colophon noprint">
       <a
-	  href="javascript:loadcssfile('/editor/style/html_hide_languages.css'); hide('load_alt_lang_css'); show('remove_alt_lang_css')"
+	  href="javascript:loadcssfile('/dcm/cnw/style/html_hide_languages.css'); hide('load_alt_lang_css'); show('remove_alt_lang_css')"
 	  id="load_alt_lang_css" class="noprint">Hide alternative languages</a>
       <a style="display:none"
-	 href="javascript:removecssfile('/editor/style/html_hide_languages.css'); hide('remove_alt_lang_css'); show('load_alt_lang_css')"
+	 href="javascript:removecssfile('/dcm/cnw/style/html_hide_languages.css'); hide('remove_alt_lang_css'); show('load_alt_lang_css')"
 	 id="remove_alt_lang_css" class="noprint">Show alternative languages</a>
     </div>
   </xsl:template>
@@ -427,7 +428,7 @@ The Royal Library, Copenhagen
     <xsl:if test="m:relation[@target!='']">
       <p>
 	<xsl:for-each select="m:relation[@target!='']">
-	  <img src="/editor/images/html_link.png" title="Link to external resource"/>
+	  <img src="/dcm/cnw/style/images/html_link.png" title="Link to external resource"/>
 	  <xsl:element name="a">
 	    <xsl:attribute name="href">
 	      <xsl:apply-templates select="@target"/>
@@ -2605,7 +2606,7 @@ The Royal Library, Copenhagen
 
   <!-- display external link -->
   <xsl:template match="m:ptr[normalize-space(@target) or normalize-space(@xl:href)]">
-    <img src="/editor/images/html_link.png" title="Link to external resource"/>
+    <img src="/dcm/cnw/style/images/html_link.png" title="Link to external resource"/>
     <a target="_blank">
       <xsl:attribute name="href">
 	<xsl:choose>
@@ -2918,7 +2919,7 @@ The Royal Library, Copenhagen
     <div class="fold">
       <h3 class="section_heading" id="p{$id}">
 	<span onclick="toggle('{$id}')" title="Click to show or hide">
-	  <img class="noprint" id="img{$id}" border="0" src="/editor/images/plus.png"
+	  <img class="noprint" id="img{$id}" border="0" src="/dcm/cnw/style/images/plus.png"
 	       alt="-"/>
 	  <xsl:value-of select="concat(' ',$heading)"/>
 	</span>
