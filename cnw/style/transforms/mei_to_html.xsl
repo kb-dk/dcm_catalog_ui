@@ -280,17 +280,13 @@ The Royal Library, Copenhagen
       </div>
     </xsl:for-each>
 
-    <xsl:for-each select="m:meiHead/
-			  m:workDesc/
-			  m:work/
-			  m:notesStmt">
-      <xsl:if test="m:annot[@type='general_description'][text()]">
-	<p>
-	  <xsl:apply-templates select="m:annot[@type='general_description']"/>
-	</p>
-      </xsl:if>
-      <xsl:apply-templates select="m:annot[@type='links'][m:ptr[normalize-space(@target)]]" mode="link_list_p"/>
-    </xsl:for-each>
+		<xsl:for-each select="m:meiHead/m:workDesc/m:work/m:notesStmt/m:annot[@type='general_description'][//text()]">
+			<xsl:if test="normalize-space(@label)">
+				<span class="p_heading"><xsl:value-of select="@label"/></span>
+			</xsl:if>
+			<xsl:apply-templates select="."/>
+		</xsl:for-each>
+		<xsl:apply-templates select="m:meiHead/m:workDesc/m:work/m:notesStmt/m:annot[@type='links'][m:ptr[normalize-space(@target)]]" mode="link_list_p"/>
 
     <!-- related files -->
     <xsl:apply-templates select="m:meiHead/m:workDesc/m:work/m:relationList"/>
@@ -695,11 +691,6 @@ The Royal Library, Copenhagen
 	</xsl:with-param>
       </xsl:apply-templates>
     </xsl:for-each>
-    <!-- version performances -->
-    <xsl:if test="count(../m:expression)&gt;1">
-      <xsl:apply-templates select="m:history[m:eventList[@type='performances']//text()]"
-			   mode="performances"/>
-    </xsl:if>
     <!-- version-specific sources -->
     <xsl:if test="count(../m:expression)&gt;1">
       <xsl:variable name="expression_id" select="@xml:id"/>
@@ -783,6 +774,11 @@ The Royal Library, Copenhagen
 	</xsl:apply-templates>
       </xsl:for-each>
     </xsl:if>
+    <!-- version performances -->
+    <xsl:if test="count(../m:expression)&gt;1">
+      <xsl:apply-templates select="m:history[m:eventList[@type='performances']//text()]"
+			   mode="performances"/>
+    </xsl:if>
   </xsl:template>
   <!-- end top-level expressions (versions) -->
 
@@ -826,7 +822,7 @@ The Royal Library, Copenhagen
     <xsl:apply-templates select="m:extent"/>
     <xsl:apply-templates select="m:incip"/>
     <xsl:apply-templates select="m:relationList[m:relation[@target!='']]"/>
-    <xsl:for-each select="m:notesStmt/m:annot[not(@type='links') and text()]">
+    <xsl:for-each select="m:notesStmt/m:annot[not(@type='links') and //text()]">
       <p>
 	<xsl:apply-templates/>
       </p>
@@ -1327,11 +1323,8 @@ The Royal Library, Copenhagen
       </xsl:if>
     </xsl:if>
 
-    <xsl:for-each select="m:p[text()]">
-      <p>
-	<xsl:apply-templates/>
-      </p>
-    </xsl:for-each>
+		<xsl:apply-templates select="m:p[//text()]"/>
+
     <!-- history time line -->
     <xsl:for-each select="m:eventList[@type='history' and m:event[//text()]]">
       <table>
@@ -1524,7 +1517,7 @@ The Royal Library, Copenhagen
 	    <xsl:for-each select="m:bibl[m:title/text()]">
 	      <xsl:apply-templates select=".">
 		<xsl:with-param name="compact" select="'true'"/>
-	      </xsl:apply-templates>
+	      </xsl:apply-templates><xsl:text> </xsl:text>
 	    </xsl:for-each>
 	  </xsl:if>
 	</xsl:for-each>
@@ -1676,7 +1669,7 @@ The Royal Library, Copenhagen
 
   <!-- source-related templates -->
 
-  <xsl:template match="m:source[*[name()!='classification']//text()]|m:item[*//text()]">
+  <xsl:template match="m:source[*[name()!='classification']//text()] | m:item[*[name()!='classification']//text()]">
     <xsl:param name="mode" select="''"/>
     <xsl:param name="reprints"/>
     <xsl:variable name="source_id" select="@xml:id"/>
@@ -1707,11 +1700,24 @@ The Royal Library, Copenhagen
       </xsl:variable>
       <xsl:variable name="heading_element" select="concat('h',$level)"/>
       <!-- source title -->
-      <xsl:for-each select="m:titleStmt[m:title/text()]">
-	<xsl:element name="{$heading_element}">
-	  <xsl:apply-templates select="m:title"/>
-	</xsl:element>
-      </xsl:for-each>
+			<xsl:variable name="label">
+				<xsl:choose>
+					<xsl:when test="name(..)='componentGrp'"/>
+					<xsl:otherwise><xsl:value-of select="@label"/>
+						<xsl:if test="@label!='' and m:titleStmt/m:title/text()">
+							<xsl:text>: </xsl:text>
+						</xsl:if>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:variable>
+			<xsl:if test="m:titleStmt/m:title/text() or @label!=''">
+				<xsl:element name="{$heading_element}">
+					<xsl:if test="normalize-space($label)">
+						<xsl:value-of select="$label"/>
+					</xsl:if>
+					<xsl:apply-templates select="m:titleStmt/m:title"/>
+				</xsl:element>
+			</xsl:if>
       <!-- item label -->
       <xsl:if
 	  test="local-name()='item' and normalize-space(@label) and name(..)!='componentGrp'">
@@ -1762,9 +1768,7 @@ The Royal Library, Copenhagen
 
       <xsl:for-each select="m:notesStmt">
 	<xsl:for-each select="m:annot[text() or *//text()]">
-	  <p>
 	    <xsl:apply-templates select="."/>
-	  </p>
 	</xsl:for-each>
 	<xsl:apply-templates select="m:annot[@type='links'][m:ptr[normalize-space(@target)]]" mode="link_list_p"/>
       </xsl:for-each>
@@ -1915,7 +1919,7 @@ The Royal Library, Copenhagen
 		  <xsl:if test="@label!=''">
 		    <p>
 		      <xsl:value-of select="@label"/>
-		      <xsl:text>: </xsl:text>
+		      <xsl:text> </xsl:text>
 		    </p>
 		  </xsl:if>
 		</td>
@@ -1945,7 +1949,7 @@ The Royal Library, Copenhagen
 	  </xsl:call-template>
 	  <xsl:choose>
 	    <xsl:when test="position()&lt;last()">
-	      <xsl:text>,
+	      <xsl:text>;
 	      </xsl:text>
 	    </xsl:when>
 	    <xsl:otherwise>
@@ -2151,7 +2155,7 @@ The Royal Library, Copenhagen
 	  <!-- show entry only if a title is stated -->
 	  <xsl:choose>
 	    <xsl:when test="m:author/text()">
-	      <xsl:call-template name="list_authors"/>
+	      <xsl:call-template name="list_authors"/>:
 	    </xsl:when>
 	    <xsl:otherwise>
 	      <xsl:call-template name="list_editors"/>
@@ -2186,7 +2190,7 @@ The Royal Library, Copenhagen
 	<!-- show entry only if a title is stated -->
 	<xsl:if test="m:title[@level='a']/text()">
 	  <xsl:if test="m:author/text()">
-	    <xsl:call-template name="list_authors"/>
+	    <xsl:call-template name="list_authors"/>:
 	  </xsl:if>
 	  <xsl:apply-templates select="m:title[@level='a']" mode="bibl_title">
 	    <xsl:with-param name="quotes" select="'true'"/>
@@ -2251,7 +2255,7 @@ The Royal Library, Copenhagen
 	<xsl:if test="m:title/text()">
 	  <xsl:if test="normalize-space(m:title[@level='a'])!=''">
 	    <xsl:if test="m:author/text()">
-	      <xsl:call-template name="list_authors"/>
+	      <xsl:call-template name="list_authors"/>:
 	      </xsl:if><xsl:apply-templates select="m:title[@level='a']" mode="bibl_title">
 	      <xsl:with-param name="quotes" select="'true'"/>
 	      <xsl:with-param name="italic" select="'false'"/>
@@ -2312,7 +2316,7 @@ The Royal Library, Copenhagen
 		<xsl:when test="m:creation/m:date/text()"> from </xsl:when>
 		<xsl:otherwise>From </xsl:otherwise>
 	      </xsl:choose>
-	      <xsl:value-of select="m:author"/>
+		<xsl:call-template name="list_authors"/>
 	    </xsl:if>
 	    <xsl:if test="m:recipient/text()">
 	      <xsl:choose>
@@ -2379,21 +2383,21 @@ The Royal Library, Copenhagen
       <xsl:when test="contains(m:genre,'concert') and contains(m:genre,'program')">
 	<xsl:if test="m:title//text()">
 	<em><xsl:apply-templates select="m:title"/></em><xsl:if test="not(contains('.!?',substring(m:title,string-length(m:title),1)))">.</xsl:if></xsl:if>
-	<xsl:for-each select="m:imprint[*//text()]">
-	  <xsl:if test="m:publisher/text()">
-	  <xsl:apply-templates select="m:publisher"/><xsl:if test="m:pubPlace//text() or m:date//text()">, </xsl:if></xsl:if>
-	  <xsl:value-of select="m:pubPlace"/>
-	  <xsl:if test="m:date/text()">
-	    <xsl:text> </xsl:text>
-	    <xsl:apply-templates select="m:date[text()]"/>
-	    </xsl:if>.
-	</xsl:for-each>
-	<xsl:apply-templates select="m:physLoc[*//text()]"/>
-	<xsl:call-template name="hosts"/>
-	<xsl:apply-templates select="m:ptr"/>
-	<xsl:apply-templates select="m:annot">
-	  <xsl:with-param name="compact" select="'true'"/>
-	</xsl:apply-templates>
+				<xsl:apply-templates select="m:annot">
+					<xsl:with-param name="compact" select="'true'"/>
+				</xsl:apply-templates>
+				<xsl:if test="m:imprint//text()">. </xsl:if>
+				<xsl:for-each select="m:imprint[*//text()]">
+					<xsl:if test="m:publisher/text()">
+						<xsl:apply-templates select="m:publisher"/><xsl:if
+							test="m:pubPlace//text() or m:date//text()">, </xsl:if></xsl:if>
+					<xsl:value-of select="m:pubPlace"/>
+					<xsl:if test="m:date/text()">
+						<xsl:text> </xsl:text>
+						<xsl:apply-templates select="m:date[text()]"/>
+					</xsl:if>. </xsl:for-each>
+				<xsl:call-template name="hosts"/>
+				<xsl:apply-templates select="m:ptr"/>
       </xsl:when>
 
       <xsl:otherwise>
@@ -2457,10 +2461,11 @@ The Royal Library, Copenhagen
     <xsl:param name="compact" select="'false'"/>
     <xsl:choose>
       <xsl:when test="$compact='true'">
-	<xsl:text> </xsl:text>
-	<xsl:apply-templates/>
-      </xsl:when>
-      <xsl:otherwise>
+    	<xsl:text> </xsl:text>
+    	<xsl:apply-templates select="text()"/>
+    	<xsl:apply-templates select="m:p" mode="paragraph_to_line_break"/>
+    </xsl:when>
+    <xsl:otherwise>
 	<div>
 	  <xsl:apply-templates/>
 	</div>
@@ -2511,7 +2516,6 @@ The Royal Library, Copenhagen
     <xsl:for-each select="m:author">
       <xsl:call-template name="list_seperator"/>
       <xsl:apply-templates select="."/>
-      <xsl:if test="position() = last()">: </xsl:if>
     </xsl:for-each>
   </xsl:template>
 
@@ -2903,12 +2907,6 @@ The Royal Library, Copenhagen
     </xsl:choose>
   </xsl:template>
 
-  <xsl:template name="maybe_print_br">
-    <xsl:if test="position()&lt;last()">
-      <xsl:element name="br"/>
-    </xsl:if>
-  </xsl:template>
-
   <xsl:template match="*" mode="fold_section">
     <xsl:param name="heading"/>
     <xsl:param name="id"/>
@@ -2933,7 +2931,18 @@ The Royal Library, Copenhagen
 
   <!-- HANDLE TEXT AND SPECIAL CHARACTERS -->
   
-  
+    <xsl:template name="maybe_print_br">
+    <xsl:if test="position()&lt;last()">
+      <xsl:element name="br"/>
+    </xsl:if>
+  </xsl:template>
+
+	<xsl:template match="m:p" mode="paragraph_to_line_break">
+		<!-- changes paragraphs to running text with line breaks instead of new paragraphs  -->
+		<xsl:apply-templates/>
+		<xsl:call-template name="maybe_print_br"/>
+	</xsl:template>
+
   <!-- Automatic cross references? 
        
        ... need to somehow get the name of the file to link to before this works ...
@@ -2980,7 +2989,15 @@ The Royal Library, Copenhagen
     </span>
   </xsl:template>
 
-  <!-- unicode replacements -->
+	<!-- entity replacements -->
+	<xsl:template match="text()[contains(.,'&amp;lt;')]">
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&amp;lt;'))"/>&#60;<xsl:apply-templates select="exsl:node-set(substring-after(.,'&amp;lt;'))"/>
+	</xsl:template>
+	<xsl:template match="text()[contains(.,'&amp;gt;')]">
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&amp;gt;'))"/>&#62;<xsl:apply-templates select="exsl:node-set(substring-after(.,'&amp;gt;'))"/>
+	</xsl:template>
+
+  <!-- ad hoc code and character replacements -->
   <xsl:template match="text()[contains(.,'♭')]">
     <!-- flat -->
     <xsl:apply-templates select="exsl:node-set(substring-before(.,'♭'))"/>
@@ -2999,123 +3016,7 @@ The Royal Library, Copenhagen
     <span class="music_symbols">♯</span>
     <xsl:apply-templates select="exsl:node-set(substring-after(.,'♯'))"/>
   </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d10b;')]">
-    <!-- segno -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d10b;'))"/>
-    <span class="music_symbols">&#x1d10b;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d10b;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d10c;')]">
-    <!-- coda -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d10c;'))"/>
-    <span class="music_symbols">&#x1d10c;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d10c;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d11e;')]">
-    <!-- g clef -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d11e;'))"/>
-    <span class="music_symbols">&#x1d11e;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d11e;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d122;')]">
-    <!-- f clef -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d122;'))"/>
-    <span class="music_symbols">&#x1d122;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d122;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d12a;')]">
-    <!-- dbl sharp -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d12a;'))"/>
-    <span class="music_symbols">&#x1d12a;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d12a;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d12b;')]">
-    <!-- dbl flat -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d12b;'))"/>
-    <span class="music_symbols">&#x1d12b;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d12b;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d134;')]">
-    <!-- common time -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d134;'))"/>
-    <span class="music_symbols time_signature">&#x1d134;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d134;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d135;')]">
-    <!-- cut time -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d135;'))"/>
-    <span class="music_symbols time_signature">&#x1d135;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d135;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d13b;')]">
-    <!-- whole rest -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d13b;'))"/>
-    <span class="music_symbols">&#x1d13b;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d13b;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d13b;')]">
-    <!-- whole rest -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d13b;'))"/>
-    <span class="music_symbols">&#x1d13b;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d13b;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d13c;')]">
-    <!-- half rest -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d13c;'))"/>
-    <span class="music_symbols">&#x1d13c;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d13c;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d13d;')]">
-    <!-- quarter rest -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d13d;'))"/>
-    <span class="music_symbols">&#x1d13d;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d13d;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d13e;')]">
-    <!-- eigth rest -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d13e;'))"/>
-    <span class="music_symbols">&#x1d13e;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d13e;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d13f;')]">
-    <!-- 16th rest -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d13f;'))"/>
-    <span class="music_symbols">&#x1d13f;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d13f;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d15d;')]">
-    <!-- whole note -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d15d;'))"/>
-    <span class="music_symbols">&#x1d15d;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d15d;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d15e;')]">
-    <!-- half note -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d15e;'))"/>
-    <span class="music_symbols">&#x1d15e;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d15e;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d15f;')]">
-    <!-- quarter note -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d15f;'))"/>
-    <span class="music_symbols">&#x1d15f;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d15f;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d160;')]">
-    <!-- eigth note -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d160;'))"/>
-    <span class="music_symbols">&#x1d160;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d160;]'))"/>
-  </xsl:template>
-  <xsl:template match="text()[contains(.,'&#x1d161;')]">
-    <!-- 16th note -->
-    <xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d161;'))"/>
-    <span class="music_symbols">&#x1d161;</span>
-    <xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d161;]'))"/>
-  </xsl:template>
-  <!-- end unicode replacements -->
 
-  <!-- ad hoc code replacements -->
   <xsl:template match="text()[contains(.,'[flat]')]">
     <xsl:apply-templates select="exsl:node-set(substring-before(.,'[flat]'))"/>
     <span class="music_symbols">&#x266d;</span>
@@ -3241,15 +3142,20 @@ The Royal Library, Copenhagen
   <xsl:template match="m:lb">
     <br/>
   </xsl:template>
-  <xsl:template match="m:p[child::text()]">
+	<xsl:template match="m:p[//text()]">
     <p><xsl:apply-templates/></p>
   </xsl:template>
-  <xsl:template match="m:p[not(child::text())]">
+	<xsl:template match="m:p[not(child::text()) and not(child::node())]">
     <!-- ignore -->
   </xsl:template>
   <xsl:template match="m:rend[@fontweight = 'bold'][text()]"><b><xsl:apply-templates/></b></xsl:template>
   <xsl:template match="m:rend[@fontstyle = 'italic'][text()]"><i><xsl:apply-templates/></i></xsl:template>
   <xsl:template match="m:rend[@rend = 'underline'][text()]"><u><xsl:apply-templates/></u></xsl:template>
+  <xsl:template match="m:rend[@rend = 'strikethrough'][text()]">
+		<span style="text-decoration: line-through;">
+			<xsl:apply-templates/>
+		</span>
+  </xsl:template>
   <xsl:template match="m:rend[@rend = 'sub'][text()]"><sub><xsl:apply-templates/></sub></xsl:template>
   <xsl:template match="m:rend[@rend = 'sup'][text()]"><sup><xsl:apply-templates/></sup></xsl:template>
   <xsl:template match="m:rend[@fontfam or @fontsize or @color][text()]">
@@ -3273,7 +3179,7 @@ The Royal Library, Copenhagen
   </xsl:template>
   <xsl:template match="m:ref[@target][text()]">
     <xsl:element name="a">
-      <xsl:attribute name="src">
+      <xsl:attribute name="href">
 	<xsl:value-of select="@target"/>
       </xsl:attribute>
       <xsl:attribute name="target">
