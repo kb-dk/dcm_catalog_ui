@@ -149,6 +149,13 @@ declare function local:format-reference(
              for $doc at $count in $list[position() = ($from to $to)]
              return local:format-reference($doc,$count)
            }
+           {if(fn:count($list/m:meiHead) > $app:number) then (
+               <div class="nav_bar noprint">
+                 {app:navigation($sort-options,$list)}
+               </div>)
+            else
+               ("")
+            }
     	</div>
       </div>)
     }
