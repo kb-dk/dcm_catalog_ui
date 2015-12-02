@@ -14,11 +14,12 @@ my $source_host_port = "dcm-backend-01.kb.dk:8080";
 # my $source_host_port = "dcm-udv-01.kb.dk:8080";
 
 # my $target_host_port = "disdev-01.kb.dk:8081";
-my $target_host_port = "dcm-frontend-01.kb.dk:8080";
+# my $target_host_port = "dcm-frontend-01.kb.dk:8080";
+my $target_host_port = "dcm-udv-01.kb.dk:8080";
 
 my $user      = "admin";
-#my $password  = "flormelis";
-my $password  = "morots3kaka";
+my $password  = "flormelis";
+# my $password  = "morots3kaka";
 
 my $suri      = $scheme . $source_host_port . "/exist/rest/db";
 my $turi      = $scheme . $target_host_port . "/exist/rest/db";
