@@ -11,18 +11,35 @@ my $scheme    = "http://";
 # "disdev-01.kb.dk:8081";
 
 my $source_host_port = "dcm-udv-01.kb.dk:8080";
-my $target_host_port = "disdev-01.kb.dk:8081";
+
+# my $target_host_port = "disdev-01.kb.dk:8081";
+my $target_host_port = "dcm-frontend-01.kb.dk:8080";
 
 my $user      = "admin";
-my $password  = "flormelis";
-#my $password  = "morots3kaka";
+#my $password  = "flormelis";
+my $password  = "morots3kaka";
+
 my $suri      = $scheme . $source_host_port . "/exist/rest/db";
 my $turi      = $scheme . $target_host_port . "/exist/rest/db";
+
+my %editions  = (
+    "gw"    => "/gw/data",
+    "cnw"   => "/cnw/data",
+    "schm"  => "/schm/data",
+    "scht"  => "/scht/data",
+    "hartw" => "/hartw/data"
+    );
+
 my $source    = "/public";
 my $target    = "/cnw/data";
 my $edition   = "cnw";
-my $since     = "2000-01-01T00:00:01";
-my $before    = "2099-12-31T24:00:00";
+
+while( ($edition,$target) = each(%editions) ) {
+
+
+
+    my $since     = "2000-01-01T00:00:01";
+    my $before    = "2099-12-31T24:00:00";
 
 #####
 #
@@ -32,54 +49,56 @@ my $before    = "2099-12-31T24:00:00";
 # has its limitations.
 #
 
-my $source_files     = $suri . "/document-info.xq?" .
-    join ("&",
-	  (
-	   "c=$edition",
-	   "db=$source",
-	   "since=$since",
-	   "before=$before"
-	  )
-    );
+    my $source_files     = $suri . "/document-info.xq?" .
+	join ("&",
+	      (
+	       "c=$edition",
+	       "db=$source",
+	       "since=$since",
+	       "before=$before"
+	      )
+	);
 
-my $target_files     = $turi . "/document-info.xq?" .
-    join ("&",
-	  (
-	   "c=$edition",
-	   "db=$target"
-	  )
-    );
+    my $target_files     = $turi . "/document-info.xq?" .
+	join ("&",
+	      (
+	       "c=$edition",
+	       "db=$target"
+	      )
+	);
 
-my %sources = &get_data($source_files); 
-my %targets = &get_data($target_files); 
-my @filelist = keys(%sources);
+    my %sources = &get_data($source_files); 
+    my %targets = &get_data($target_files); 
+    my @filelist = keys(%sources);
 
-print "about to process $#filelist files\n";
+    print "about to process $#filelist files\n";
 
-foreach my $file (@filelist) {
+    foreach my $file (@filelist) {
 
-    print STDERR "doing $file \n";
-    
-    my $req = new HTTP::Request();
-    my $target_url = $turi . $target .'/' .  $file;
-    my $source_url = $suri . $source .'/' .  $file;
-
-    &copy_file($source_url,$target_url);
-
-}
-
-@filelist = keys(%targets);
-foreach my $file (@filelist) {
-    if($sources{$file}) {
-#	print STDERR "The file $file is in the source database\n";
-    } else {
+	print STDERR "doing $file \n";
+	
+	my $req = new HTTP::Request();
 	my $target_url = $turi . $target .'/' .  $file;
-	print STDERR "The file $file is in the target database only should be removed\n";
-	&delete_file($target_url);
+	my $source_url = $suri . $source .'/' .  $file;
+
+	&copy_file($source_url,$target_url);
+
     }
-    
-}
-    
+
+    @filelist = keys(%targets);
+    foreach my $file (@filelist) {
+	if($sources{$file}) {
+#	print STDERR "The file $file is in the source database\n";
+	} else {
+	    my $target_url = $turi . $target .'/' .  $file;
+	    print STDERR "The file $file is in the target database only should be removed\n";
+	    &delete_file($target_url);
+	}
+	
+    }
+
+
+}    
 sub get_data {
     my $files = shift ;
 
