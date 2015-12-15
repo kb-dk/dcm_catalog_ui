@@ -1,12 +1,7 @@
 xquery version "1.0" encoding "UTF-8";
 
-import module namespace loop="http://kb.dk/this/getlist" at "./main_loop.xqm";
-import module namespace app="http://kb.dk/this/listapp" at "./list_utils.xqm";
-import module namespace filter="http://kb.dk/this/app/filter" at "./filter_utils.xqm";
-import module namespace layout="http://kb.dk/this/app/layout" at "./cnw-layout.xqm";
-
 declare namespace xl="http://www.w3.org/1999/xlink";
-declare namespace request="http://exist-db.org/xquery/request";
+
 declare namespace response="http://exist-db.org/xquery/response";
 declare namespace fn="http://www.w3.org/2005/xpath-functions";
 declare namespace file="http://exist-db.org/xquery/file";
@@ -17,8 +12,21 @@ declare namespace m="http://www.music-encoding.org/ns/mei";
 
 declare namespace local="http://kb.dk/this/app";
 
+declare namespace request="http://exist-db.org/xquery/request";
+
+declare variable $uri := request:get-url();
+declare variable $via := request:get-header('via');
+
+import module namespace loop="http://kb.dk/this/getlist" at "./main_loop.xqm";
+import module namespace app="http://kb.dk/this/listapp" at "./list_utils.xqm";
+import module namespace filter="http://kb.dk/this/app/filter" at "./filter_utils.xqm";
+import module namespace layout="http://kb.dk/this/app/layout" at "./cnw-layout.xqm";
+
+
+
 declare option exist:serialize "method=xml media-type=text/html"; 
 
+declare variable $coll   := request:get-parameter("c","") cast as xs:string;
 declare variable $genre  := request:get-parameter("genre","") cast as xs:string;
 declare variable $query  := request:get-parameter("query","");
 declare variable $page   := request:get-parameter("page", "1") cast as xs:integer;
@@ -27,7 +35,7 @@ declare variable $mode   := request:get-parameter("mode","") cast as xs:string;
 
 declare variable $vocabulary := doc("./keywords.xml");
 
-declare variable $database := "/db/cnw/data";
+declare variable $database := concat("/db/cat-site/",$coll,"/data");
 
 declare variable $from     := ($page - 1) * $number + 1;
 declare variable $to       :=  $from      + $number - 1;
@@ -135,6 +143,8 @@ declare function local:format-reference(
       (
       <div class="files_list">
     	<div class="filter">
+	{$uri}
+	{$via}
     	{filter:print-filters($database,string($number),$genre,$query)}
     	</div>
     	<div class="spacer"><div>&#160;</div></div>

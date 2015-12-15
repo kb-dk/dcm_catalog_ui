@@ -5,7 +5,8 @@ import module namespace layout="http://kb.dk/this/app/layout" at "./cnw-layout.x
 declare option exist:serialize "method=xml media-type=text/html;charset=UTF-8";
 declare variable $mode   := request:get-parameter("mode","introduction") cast as xs:string;
 
-let $html := doc("introduction.html")
+declare variable $coll     := request:get-parameter("c","") cast as xs:string;
+let $html := doc(concat("/db/cat-site/",$coll,"/introduction.html"))
 
 let $contents :=
 <html xmlns="http://www.w3.org/1999/xhtml">

@@ -14,13 +14,16 @@ declare namespace m="http://www.music-encoding.org/ns/mei";
 
 declare option exist:serialize "method=xml media-type=text/html"; 
 
+declare variable $coll     := request:get-parameter("c","") cast as xs:string;
 declare variable $document := request:get-parameter("doc", "");
 declare variable $mode     := request:get-parameter("mode","") cast as xs:string;
 declare variable $host     := request:get-header('HOST');
 declare variable $sheet    := xs:anyURI(concat('http://',$host,"/dcm/cnw/style/transforms/mei_to_html_public.xsl"));
 
+declare variable $database := concat("/db/cat-site/",$coll,"/data");
+
 let $list := 
-for $doc in collection("/db/cnw/data")
+for $doc in collection($database)
 where util:document-name($doc)=$document
 return $doc
 
