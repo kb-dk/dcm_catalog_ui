@@ -13,9 +13,11 @@ declare variable $filter:page        := request:get-parameter("page",   "1") cas
 declare variable $filter:number      := request:get-parameter("itemsPerPage","20") cast as xs:integer;
 declare variable $filter:genre       := request:get-parameter("genre", "") cast as xs:string;
 declare variable $filter:scheme      := request:get-parameter("scheme", "CNW") cast as xs:string;
+
 declare variable $filter:uri         := "";
-declare variable $filter:vocabulary  := doc(concat("/db/cat-site/",$coll,"/keywords.xml"));
-declare variable $filter:numnam      := doc(concat("/db/cat-site/",$coll,"/select.xml"));
+declare variable $filter:coll               := request:get-parameter("c","") cast as xs:string;
+declare variable $filter:vocabulary  := doc(concat("/db/cat-site/",$filter:coll,"/keywords.xml"));
+declare variable $filter:numnam      := doc(concat("/db/cat-site/",$filter:coll,"/select.xml"));
 
 
 declare function filter:print-filters(

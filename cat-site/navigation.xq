@@ -14,15 +14,10 @@ declare namespace local="http://kb.dk/this/app";
 
 declare namespace request="http://exist-db.org/xquery/request";
 
-declare variable $uri := request:get-url();
-declare variable $via := request:get-header('via');
-
 import module namespace loop="http://kb.dk/this/getlist" at "./main_loop.xqm";
 import module namespace app="http://kb.dk/this/listapp" at "./list_utils.xqm";
 import module namespace filter="http://kb.dk/this/app/filter" at "./filter_utils.xqm";
 import module namespace layout="http://kb.dk/this/app/layout" at "./cnw-layout.xqm";
-
-
 
 declare option exist:serialize "method=xml media-type=text/html"; 
 
@@ -33,8 +28,7 @@ declare variable $page   := request:get-parameter("page", "1") cast as xs:intege
 declare variable $number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
 declare variable $mode   := request:get-parameter("mode","") cast as xs:string;
 
-declare variable $vocabulary := doc("./keywords.xml");
-
+declare variable $vocabulary := doc(concat("/db/cat-site/",$coll,"/keywords.xml"));
 declare variable $database := concat("/db/cat-site/",$coll,"/data");
 
 declare variable $from     := ($page - 1) * $number + 1;
@@ -143,8 +137,6 @@ declare function local:format-reference(
       (
       <div class="files_list">
     	<div class="filter">
-	{$uri}
-	{$via}
     	{filter:print-filters($database,string($number),$genre,$query)}
     	</div>
     	<div class="spacer"><div>&#160;</div></div>

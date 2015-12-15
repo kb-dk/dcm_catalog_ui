@@ -1,15 +1,17 @@
 xquery version "1.0" encoding "UTF-8";
 
-module namespace loop="http://kb.dk/this/getlist";
+module  namespace loop="http://kb.dk/this/getlist";
 declare namespace fn="http://www.w3.org/2005/xpath-functions";
 declare namespace m="http://www.music-encoding.org/ns/mei";
 declare namespace ft="http://exist-db.org/xquery/lucene";
 declare namespace util="http://exist-db.org/xquery/util";
 
-declare variable $loop:sortby     := "null,work_number";
-declare variable $loop:vocabulary := doc("./keywords.xml");
+declare variable $loop:sortby       := "null,work_number";
 
-declare variable $loop:collection := "CNW";
+declare variable $loop:coll         := request:get-parameter("c","") cast as xs:string;
+declare variable $loop:vocabulary   := doc(concat("/db/cat-site/",$loop:coll,"/keywords.xml"));
+
+declare variable $loop:collection   := "CNW";
 
 declare variable $loop:notbefore    := request:get-parameter("notbefore","") cast as xs:string;
 declare variable $loop:notafter     := request:get-parameter("notafter","") cast as xs:string;
