@@ -14,8 +14,8 @@ declare variable $filter:number      := request:get-parameter("itemsPerPage","20
 declare variable $filter:genre       := request:get-parameter("genre", "") cast as xs:string;
 declare variable $filter:scheme      := request:get-parameter("scheme", "CNW") cast as xs:string;
 declare variable $filter:uri         := "";
-declare variable $filter:vocabulary  := doc("./keywords.xml");
-declare variable $filter:numnam      := doc("./select.xml");
+declare variable $filter:vocabulary  := doc(concat("/db/cat-site/",$coll,"/keywords.xml"));
+declare variable $filter:numnam      := doc(concat("/db/cat-site/",$coll,"/select.xml"));
 
 
 declare function filter:print-filters(
