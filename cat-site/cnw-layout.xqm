@@ -2,6 +2,9 @@ xquery version "1.0" encoding "UTF-8";
 
 module  namespace  layout="http://kb.dk/this/app/layout";
 
+declare variable $layout:coll     := request:get-parameter("c","") cast as xs:string;
+
+
 
 declare function layout:head($title as xs:string,
                              $additions as node()*
@@ -18,8 +21,6 @@ declare function layout:head($title as xs:string,
       
     <link type="text/css" href="style/dcm.css" rel="stylesheet" />
     <link type="text/css" href="style/cnw/cnw.css" rel="stylesheet" />
-
-
 
    {$additions}
 
@@ -93,8 +94,11 @@ declare function layout:page-head(
 	 title="Det Kongelige Bibliotek" 
 	 alt="KB Logo" src="style/images/kb.png"/></a>
     </div>
-    <h1><a style="text-decoration:none;" href="http://www.kb.dk/dcm/cnw.html" title="CNW – Catalogue of Carl Nielsen's Works – Front page">{$title}</a></h1>
-    <h2><a style="text-decoration:none;" href="http://www.kb.dk/dcm/cnw.html" title="CNW – Catalogue of Carl Nielsen's Works – Front page">{$subtitle}</a></h2>
+    <h1>
+    <a style="text-decoration:none;" 
+       href="http://www.kb.dk/dcm/cnw.html" 
+       title="{$title} – {$subtitle}">{$title}</a></h1>
+    <h2><a style="text-decoration:none;" href="http://www.kb.dk/dcm/cnw.html" title="{$title} – {$subtitle}">{$subtitle}</a></h2>
   </div>
 
   return $header
@@ -103,31 +107,17 @@ declare function layout:page-head(
 
 declare function layout:page-menu($mode as xs:string) as node()
 {
-  let $menu := 
-  <div id="menu" class="noprint">
-    { 
-    let $preface:= if ($mode="preface") then "selected" else ""
-    return (<a href="preface.xq" class="{$preface}">Preface</a>)
-    } 
-    { 
-    let $introduction:= if ($mode="introduction") then "selected" else ""
-    return (<a href="introduction.xq" class="{$introduction}">Introduction</a>)
-    } 
-    { 
-    let $browse:= if ($mode="") then "selected" else ""
-    return (<a href="navigation.xq" class="{$browse}">Catalogue</a>)
-    }
-    { 
-    let $appendix:= if ($mode="appendix") then "selected" else ""
-    return (<a href="appendix.xq" class="{$appendix}">Appendix</a>)
-    }
-    { 
-    let $about:= if ($mode="about") then "selected" else ""
-    return (<a href="about.xq" class="{$about}">About CNW</a>)
-    } 
-  </div> 
 
-  return $menu
+  let $menudoc  :=
+  <div id="menu" class="noprint"> {
+  for $anchor in doc(concat("/db/cat-site/",$layout:coll,"/menu.html"))/div/a
+    return 
+      if(contains($anchor/@href,$mode)) then
+	<a href="{$anchor/@href}" class="selected">{$anchor/text()}</a>
+      else
+	<a href="{$anchor/@href}" class="">{$anchor/text()}</a>
+  } </div>
+  return $menudoc
 
 };
 

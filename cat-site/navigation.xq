@@ -26,7 +26,7 @@ declare variable $genre  := request:get-parameter("genre","") cast as xs:string;
 declare variable $query  := request:get-parameter("query","");
 declare variable $page   := request:get-parameter("page", "1") cast as xs:integer;
 declare variable $number := request:get-parameter("itemsPerPage","20") cast as xs:integer;
-declare variable $mode   := request:get-parameter("mode","") cast as xs:string;
+declare variable $mode   := request:get-parameter("mode","navigation") cast as xs:string;
 
 declare variable $vocabulary := doc(concat("/db/cat-site/",$coll,"/keywords.xml"));
 declare variable $database := concat("/db/cat-site/",$coll,"/data");
