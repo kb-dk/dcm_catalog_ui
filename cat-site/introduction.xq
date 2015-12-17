@@ -10,10 +10,10 @@ let $html := doc(concat("/db/cat-site/",$coll,"/introduction.html"))
 
 let $contents :=
 <html xmlns="http://www.w3.org/1999/xhtml">
-  {layout:head("Introduction: Catalogue of Carl Nielsen&apos;s Works (CNW)",(<link rel="stylesheet" type="text/css" href="style/mei_to_html_public.css"/>))}
+  {layout:head(concat("Introduction: ",$html//h:title/text()),(<link rel="stylesheet" type="text/css" href="style/mei_to_html_public.css"/>))}
   <body class="text">
     <div id="all">
-      {layout:page-head("CNW","Catalogue of Carl Nielsen&apos;s Works")}
+      {layout:page-head-doc($html)}
       {layout:page-menu($mode)}
       {
          for $main in $html//h:div[@id="main"]

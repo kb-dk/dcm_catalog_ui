@@ -9,7 +9,7 @@ declare namespace util="http://exist-db.org/xquery/util";
 declare namespace ft="http://exist-db.org/xquery/lucene";
 declare namespace ht="http://exist-db.org/xquery/httpclient";
 declare namespace m="http://www.music-encoding.org/ns/mei";
-
+declare namespace h="http://www.w3.org/1999/xhtml";
 declare namespace local="http://kb.dk/this/app";
 
 declare namespace request="http://exist-db.org/xquery/request";
@@ -30,7 +30,7 @@ declare variable $mode   := request:get-parameter("mode","navigation") cast as x
 
 declare variable $vocabulary := doc(concat("/db/cat-site/",$coll,"/keywords.xml"));
 declare variable $database := concat("/db/cat-site/",$coll,"/data");
-
+declare variable $html     := doc(concat("/db/cat-site/",$coll,"/navigation.html"));
 declare variable $from     := ($page - 1) * $number + 1;
 declare variable $to       :=  $from      + $number - 1;
 
@@ -122,11 +122,11 @@ declare function local:format-reference(
 };
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-   {layout:head("Catalogue of Carl Nielsen&apos;s Works (CNW)",(<link rel="stylesheet" type="text/css" href="style/public_list_style.css"/>))}
+   {layout:head($html//h:title/text(),(<link rel="stylesheet" type="text/css" href="style/public_list_style.css"/>))}
     <body class="list_files">
     
       <div id="all">
-      {layout:page-head("CNW","Catalogue of Carl Nielsen&apos;s Works")}
+      {layout:page-head-doc($html)}
       {layout:page-menu($mode)}
 
       <div id="main">

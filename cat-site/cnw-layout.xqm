@@ -1,7 +1,7 @@
 xquery version "1.0" encoding "UTF-8";
 
 module  namespace  layout="http://kb.dk/this/app/layout";
-
+declare namespace  h="http://www.w3.org/1999/xhtml";
 declare variable $layout:coll     := request:get-parameter("c","") cast as xs:string;
 
 
@@ -56,27 +56,35 @@ declare function layout:head($title as xs:string,
       //
     </script>
     <script type="text/javascript" src="jquery/jquery-ui-1.10.3/slider.js">
-      //
+    //
     </script>
 
-     <script type="text/javascript">
-     // <!--
-     var _gaq = _gaq || [];
-     _gaq.push(['_setAccount', 'UA-1269676-1']);
-     _gaq.push(['_trackPageview']);
-     _gaq.push(['_setDomainName', 'www.kb.dk']);
-	    
-     (function() {
-       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-      // -->
-     </script>
+    <script type="text/javascript" src="js/google_analytics.js">
+    //
+    </script>
   </head>
 
   return $head
 
+};
+
+declare function layout:page-head-doc($html as node()) as node()
+{
+   let $div :=
+     for $t in $html//h:title
+       let $tit := 
+	 if($t/@id) then
+	   $t/@id
+	 else
+	   ""
+       let $sub :=
+	 if($t/text()) then
+	   $t/text()
+	 else
+	   ""
+       return 
+         layout:page-head($tit,$sub)
+   return $div
 };
 
 declare function layout:page-head(
