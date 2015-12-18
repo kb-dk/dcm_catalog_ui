@@ -18,11 +18,12 @@ declare variable $coll     := request:get-parameter("c","") cast as xs:string;
 declare variable $document := request:get-parameter("doc", "");
 declare variable $mode     := request:get-parameter("mode","") cast as xs:string;
 declare variable $host     := request:get-header('HOST');
-declare variable $sheet    := xs:anyURI(concat('http://',$host,"/dcm/cnw/style/transforms/mei_to_html_public.xsl"));
+
 
 
 declare variable $coll     := request:get-parameter("c","") cast as xs:string;
 declare variable $database := concat("/db/cat-site/",$coll,"/data");
+declare variable $sheet    := xs:anyURI(concat('http://',$host,"/dcm/",$coll,"/style/transforms/mei_to_html_public.xsl"));
 
 let $list := 
 for $doc in collection($database)
@@ -46,7 +47,7 @@ let $result :=
 	  ))}
   <body class="list_files">
     <div id="all">
-      {layout:page-head("CNW","Catalogue of Carl Nielsen's Works")}
+      {layout:page-head-doc($html)}
       {layout:page-menu($mode)}
       <div id="main">
       {

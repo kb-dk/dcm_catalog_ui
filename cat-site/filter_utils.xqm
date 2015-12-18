@@ -15,7 +15,7 @@ declare variable $filter:genre       := request:get-parameter("genre", "") cast 
 declare variable $filter:scheme      := request:get-parameter("scheme", "CNW") cast as xs:string;
 
 declare variable $filter:uri         := "";
-declare variable $filter:coll               := request:get-parameter("c","") cast as xs:string;
+declare variable $filter:coll        := request:get-parameter("c","") cast as xs:string;
 declare variable $filter:vocabulary  := doc(concat("/db/cat-site/",$filter:coll,"/keywords.xml"));
 declare variable $filter:numnam      := doc(concat("/db/cat-site/",$filter:coll,"/select.xml"));
 
