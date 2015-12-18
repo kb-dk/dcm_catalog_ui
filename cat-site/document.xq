@@ -20,6 +20,8 @@ declare variable $mode     := request:get-parameter("mode","") cast as xs:string
 declare variable $host     := request:get-header('HOST');
 declare variable $sheet    := xs:anyURI(concat('http://',$host,"/dcm/cnw/style/transforms/mei_to_html_public.xsl"));
 
+
+declare variable $coll     := request:get-parameter("c","") cast as xs:string;
 declare variable $database := concat("/db/cat-site/",$coll,"/data");
 
 let $list := 
@@ -32,6 +34,8 @@ let $work_number := $list//m:meiHead/m:workDesc/m:work[1]/m:identifier[@label=$c
 let $title := $list//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][not(@type/string())][1]/string()
 let $head_title := 
    fn:concat($title," – ",$c," ",$work_number," – Catalogue of Carl Nielsen&apos;s Works")
+
+let $html := doc(concat("/db/cat-site/",$coll,"/document.html"))
 
 let $result :=
 <html xmlns="http://www.w3.org/1999/xhtml">

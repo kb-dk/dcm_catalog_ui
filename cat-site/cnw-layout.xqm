@@ -19,8 +19,13 @@ declare function layout:head($title as xs:string,
     
     <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
       
-    <link type="text/css" href="style/dcm.css" rel="stylesheet" />
-    <link type="text/css" href="style/cnw/cnw.css" rel="stylesheet" />
+    <link type="text/css" 
+          href="style/dcm.css" 
+	  rel="stylesheet" />
+
+    <link type="text/css" 
+          href="style/{$layout:coll}/collection.css" 
+	  rel="stylesheet" />
 
    {$additions}
 
