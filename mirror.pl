@@ -25,16 +25,17 @@ my $suri      = $scheme . $source_host_port . "/exist/rest/db";
 my $turi      = $scheme . $target_host_port . "/exist/rest/db";
 
 my %editions  = (
-    "gw"    => "/gw/data",
-    "cnw"   => "/cnw/data",
-    "schm"  => "/schm/data",
-    "scht"  => "/scht/data",
-    "hartw" => "/hartw/data"
+#    "gw"    => "/cat-site/gw/data",
+#    "cnw"   => "/cat-site/cnw/data",
+#    "schm"  => "/cat-site/schm/data",
+#    "scht"  => "/cat-site/scht/data",
+    "hartw" => "/cat-site/hartw/data"
     );
 
 my $source    = "/public";
-my $target    = "/cnw/data";
-my $edition   = "cnw";
+# my $source    = "/dcm";
+my $target    = "/cat-site/cnw/data";
+my $edition   = "hartw";
 
 while( ($edition,$target) = each(%editions) ) {
 

@@ -2,6 +2,7 @@ xquery version "1.0" encoding "UTF-8";
 
 import module namespace layout="http://kb.dk/this/app/layout" at "./cnw-layout.xqm";
 
+declare namespace h="http://www.w3.org/1999/xhtml";
 declare namespace transform="http://exist-db.org/xquery/transform";
 declare namespace request="http://exist-db.org/xquery/request";
 declare namespace response="http://exist-db.org/xquery/response";
@@ -14,12 +15,9 @@ declare namespace m="http://www.music-encoding.org/ns/mei";
 
 declare option exist:serialize "method=xml media-type=text/html"; 
 
-declare variable $coll     := request:get-parameter("c","") cast as xs:string;
 declare variable $document := request:get-parameter("doc", "");
 declare variable $mode     := request:get-parameter("mode","") cast as xs:string;
 declare variable $host     := request:get-header('HOST');
-
-
 
 declare variable $coll     := request:get-parameter("c","") cast as xs:string;
 declare variable $database := concat("/db/cat-site/",$coll,"/data");
@@ -33,10 +31,11 @@ return $doc
 let $c := $list//m:fileDesc/m:seriesStmt/m:identifier[@type="file_collection"][1]/string()
 let $work_number := $list//m:meiHead/m:workDesc/m:work[1]/m:identifier[@label=$c]/string()
 let $title := $list//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][not(@type/string())][1]/string()
-let $head_title := 
-   fn:concat($title," – ",$c," ",$work_number," – Catalogue of Carl Nielsen&apos;s Works")
-
 let $html := doc(concat("/db/cat-site/",$coll,"/document.html"))
+let $head_title := 
+   fn:concat($title," – ",$c," ",$work_number," – ",$html//h:title/text())
+
+
 
 let $result :=
 <html xmlns="http://www.w3.org/1999/xhtml">

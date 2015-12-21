@@ -3,7 +3,7 @@ xquery version "1.0" encoding "UTF-8";
 module  namespace filter="http://kb.dk/this/app/filter";
 
 import module namespace  forms="http://kb.dk/this/formutils" at "./form_utils.xqm";
-
+import module namespace  list="http://kb.dk/this/listapp" at "./list_utils.xqm";
 declare namespace m="http://www.music-encoding.org/ns/mei";
 declare namespace h="http://www.w3.org/1999/xhtml";
 
@@ -12,13 +12,11 @@ declare variable $filter:sortby      := request:get-parameter("sortby", "null,wo
 declare variable $filter:page        := request:get-parameter("page",   "1") cast as xs:integer;
 declare variable $filter:number      := request:get-parameter("itemsPerPage","20") cast as xs:integer;
 declare variable $filter:genre       := request:get-parameter("genre", "") cast as xs:string;
-declare variable $filter:scheme      := request:get-parameter("scheme", "CNW") cast as xs:string;
-
 declare variable $filter:uri         := "";
 declare variable $filter:coll        := request:get-parameter("c","") cast as xs:string;
 declare variable $filter:vocabulary  := doc(concat("/db/cat-site/",$filter:coll,"/keywords.xml"));
 declare variable $filter:numnam      := doc(concat("/db/cat-site/",$filter:coll,"/select.xml"));
-
+declare variable $filter:scheme      := request:get-parameter("scheme", upper-case($filter:coll)) cast as xs:string;
 
 declare function filter:print-filters(
   $database        as xs:string,
@@ -258,16 +256,21 @@ declare function filter:count-hits(
 
 declare function filter:filter-elements() 
 {
-  let $notafter  := request:get-parameter("notafter","")
-  let $notbefore := request:get-parameter("notbefore","")
-  let $query := request:get-parameter("query","")
-  let $title := request:get-parameter("title","")
-  let $name := request:get-parameter("name","")
-  let $workno := request:get-parameter("workno","")
-  let $scheme := request:get-parameter("scheme","")
-  let $genre := request:get-parameter("genre","")
+  let $notafter    := request:get-parameter("notafter","")
+  let $notbefore   := request:get-parameter("notbefore","")
+  let $query       := request:get-parameter("query","")
+  let $title       := request:get-parameter("title","")
+  let $name        := request:get-parameter("name","")
+  let $workno      := request:get-parameter("workno","")
+  let $scheme      := request:get-parameter("scheme","")
+  let $genre       := request:get-parameter("genre","")
   let $anthologies := request:get-parameter("anthologies","")
-  let $this_uri := fn:replace(fn:concat($filter:uri,"?",request:get-query-string()),'page=[^&amp;]+','')
+
+  let $this_uri :=  fn:concat($filter:uri,"?",list:generate-href("page","1"))
+(:  let $this_uri    := fn:replace(fn:concat($filter:uri,"?",$myuri,'page=[^&amp;]+',''))
+
+  let $this_uri    := fn:replace(fn:concat($myuri,"?",request:get-query-string()),'page=[^&amp;]+','')
+:)
  
   let $year_block :=
       if(($notbefore and $notbefore!="1880") or ($notafter and $notafter!="1931")) then

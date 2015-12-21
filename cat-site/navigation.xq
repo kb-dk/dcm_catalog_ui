@@ -29,7 +29,8 @@ declare variable $number := request:get-parameter("itemsPerPage","20") cast as x
 declare variable $mode   := request:get-parameter("mode","navigation") cast as xs:string;
 
 declare variable $vocabulary := doc(concat("/db/cat-site/",$coll,"/keywords.xml"));
-declare variable $database := concat("/db/cat-site/",$coll,"/data");
+(: declare variable $database := concat("/db/cat-site/",$coll,"/data"); :)
+declare variable $database := concat("/db/data-",$coll);
 declare variable $html     := doc(concat("/db/cat-site/",$coll,"/navigation.html"));
 declare variable $from     := ($page - 1) * $number + 1;
 declare variable $to       :=  $from      + $number - 1;

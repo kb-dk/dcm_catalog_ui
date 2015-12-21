@@ -11,7 +11,7 @@ declare variable $loop:sortby       := "null,work_number";
 declare variable $loop:coll         := request:get-parameter("c","") cast as xs:string;
 declare variable $loop:vocabulary   := doc(concat("/db/cat-site/",$loop:coll,"/keywords.xml"));
 
-declare variable $loop:collection   := "CNW";
+declare variable $loop:collection   := upper-case($loop:coll);
 
 declare variable $loop:notbefore    := request:get-parameter("notbefore","") cast as xs:string;
 declare variable $loop:notafter     := request:get-parameter("notafter","") cast as xs:string;
@@ -22,7 +22,7 @@ declare variable $loop:genre        := request:get-parameter("genre","") cast as
 
 declare variable $loop:title        := request:get-parameter("title", "") cast as xs:string;
 declare variable $loop:name         := request:get-parameter("name", "") cast as xs:string;
-declare variable $loop:scheme       := request:get-parameter("scheme","CNW") cast as xs:string;
+declare variable $loop:scheme       := request:get-parameter("scheme",$loop:collection) cast as xs:string;
 declare variable $loop:workno       := request:get-parameter("workno", "") cast as xs:string;
 
 declare function loop:valid-work-number($doc as node()) as xs:boolean
@@ -31,7 +31,7 @@ declare function loop:valid-work-number($doc as node()) as xs:boolean
   let $result  := 
     if($loop:collection eq "CNW") then
       if($exclude eq "yes") then
-	   let $num:=fn:number($doc//m:workDesc/m:work/m:identifier[@label="CNW"][1]/string())
+	   let $num:=fn:number($doc//m:workDesc/m:work/m:identifier[@label=$loop:collection ][1]/string())
 	   return $num >= 1 and 9999 >= $num
       else
        true()
