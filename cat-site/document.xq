@@ -16,11 +16,11 @@ declare namespace m="http://www.music-encoding.org/ns/mei";
 declare option exist:serialize "method=xml media-type=text/html"; 
 
 declare variable $document := request:get-parameter("doc", "");
-declare variable $mode     := request:get-parameter("mode","") cast as xs:string;
+declare variable $mode     := request:get-parameter("mode","nomode") cast as xs:string;
 declare variable $host     := request:get-header('HOST');
 
 declare variable $coll     := request:get-parameter("c","") cast as xs:string;
-declare variable $database := concat("/db/cat-site/",$coll,"/data");
+declare variable $database := concat("/db/data-",$coll,"/");
 declare variable $sheet    := xs:anyURI(concat('http://',$host,"/dcm/",$coll,"/style/transforms/mei_to_html_public.xsl"));
 
 let $list := 
@@ -56,6 +56,7 @@ let $result :=
 	  <param name="hostname"    value="{$host}"/>
 	  <param name="script_path" value="./document.xq"/>
 	  <param name="doc" value="{util:document-name($doc)}"/>
+	  <param name="cat" value="{$coll}"/>
 	</parameters>
 	return transform:transform($doc,$sheet,$params)
       }

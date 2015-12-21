@@ -6,19 +6,19 @@ function toggle(id) {
     if(id in openness && openness[id]) {
 	para.title = "Click to open";
 	img.alt = "+";
-	img.src = "/dcm/cnw/images/plus.png";
+	img.src = "/dcm/cnw/style/images/plus.png";
 	hide(id);
 	openness[id] = false;
     } else if(id in openness && !openness[id]) {
 	para.title = "Click to close";
 	img.alt = "-";
-	img.src = "/dcm/cnw/images/minus.png";
+	img.src = "/dcm/cnw/style/images/minus.png";
 	show(id);
 	openness[id] = true;
     } else {
 	para.title = "Click to open";
 	img.alt = "+";
-	img.src = "/dcm/cnw/images/plus.png";
+	img.src = "/dcm/cnw/style/images/plus.png";
 	show(id);
 	openness[id] = true;
     }

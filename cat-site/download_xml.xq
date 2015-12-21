@@ -11,10 +11,11 @@ declare namespace ft="http://exist-db.org/xquery/lucene";
 
 declare option exist:serialize "method=xml media-type=text/xml"; 
 declare variable $document := request:get-parameter("doc", "");
-
+declare variable $coll     := request:get-parameter("c","") cast as xs:string;
+declare variable $database := concat("/db/data-",$coll,"/");
 
 let $list := 
-for $doc in collection("/db/cnw/data") 
+for $doc in collection($database) 
 where util:document-name($doc)=$document
 return $doc
 
@@ -24,6 +25,6 @@ let $params :=
 </parameters>
 
 for $doc in $list
-return transform:transform($doc,doc("/db/cnw/style/transforms/download_xml.xsl"),$params)
+return transform:transform($doc,doc("/db/cat-site/style/transforms/download_xml.xsl"),$params)
 
  
