@@ -38,6 +38,10 @@ The Royal Library, Copenhagen
   <xsl:param name="base_uri"
 		select="concat('http://',$hostname,'/dcm/',$cat)"/>
 
+  <xsl:param name="base_file_uri"
+		select="concat('http://',$hostname,'/dcm/data-',$cat)"/>
+
+
   <!-- preferred language in titles and other multilingual fields -->
   <xsl:variable name="preferred_language">none</xsl:variable>
 
@@ -549,7 +553,7 @@ The Royal Library, Copenhagen
       <!-- get collection name and number from linked files -->
 
       <xsl:variable name="fileName"
-		    select="concat($base_uri,'/data/',@target)"/>
+		    select="concat($base_file_uri,'/',@target)"/>
       <xsl:variable name="linkedDoc" select="document($fileName)"/>
       <xsl:variable name="file_context"
 		    select="$linkedDoc/m:mei/m:meiHead/m:fileDesc/m:seriesStmt/m:identifier[@type='file_collection']"/>
@@ -738,7 +742,7 @@ The Royal Library, Copenhagen
 		    
 
 		    <xsl:variable name="doc_name"
-				  select="concat($base_uri,'/data/',substring-before(@target,'#'))"/>
+				  select="concat($base_file_uri,'/',substring-before(@target,'#'))"/>
 		    <xsl:variable name="doc" select="document($doc_name)"/>
 		    <xsl:copy-of
 			select="$doc/m:mei/m:meiHead/m:fileDesc/m:sourceDesc/m:source[@xml:id=$ext_id]"/>
@@ -1393,7 +1397,7 @@ The Royal Library, Copenhagen
 		<xsl:variable name="ext_id"
 			      select="substring-after(@target,'#')"/>
 		<xsl:variable name="doc_name"
-			      select="concat($base_uri,'/data/',substring-before(@target,'#'))"/>
+			      select="concat($base_file_uri,'/',substring-before(@target,'#'))"/>
 		<xsl:variable name="doc" select="document($doc_name)"/>
 		<xsl:copy-of
 		    select="$doc/m:mei/m:meiHead/m:fileDesc/m:sourceDesc/m:source[@xml:id=$ext_id]"/>

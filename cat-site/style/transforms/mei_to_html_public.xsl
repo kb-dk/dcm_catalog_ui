@@ -33,7 +33,7 @@
   
   <xsl:strip-space elements="*"/>
   <xsl:param name="cat"
-		select="'cnw'"/>
+	     select="'cnw'"/>
 
   <xsl:param name="file_context" select="'CNW'"/>
   <xsl:param name="hostname" select="''"/>
@@ -41,6 +41,10 @@
 
   <xsl:param name="base_uri"
 		select="concat('http://',$hostname,'/dcm/',$cat)"/>
+
+  <xsl:param name="base_file_uri"
+	     select="concat('http://',$hostname,'/dcm/data-',$cat)"/>
+
 
   <!-- MAIN TEMPLATE -->
   <xsl:template match="m:mei" xml:space="default">
@@ -137,7 +141,7 @@
     <xsl:if test="$mermeid_crossref='true'">
 
       <xsl:variable name="fileName"
-		    select="concat($base_uri,'/data/',@target)"/>
+		    select="concat($base_file_uri,'/',@target)"/>
 
       <xsl:variable name="linkedDoc" select="document($fileName)"/>
       <xsl:variable name="file_context"
