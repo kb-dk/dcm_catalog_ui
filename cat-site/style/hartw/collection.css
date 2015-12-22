@@ -1,11 +1,11 @@
 body {
-    background-color: #445566;
+    background-color: #88292f;
 }
 
 /* Header and footer */
 
 #all {
-    background-color: #445566;
+    background-color: #88292f;
 }
 
 #header p {
@@ -33,7 +33,7 @@ body {
 
 #menu a:hover, #menu .selected {
     color: #fff;
-    background-color: #778899;
+    background-color: #a84648;
 }
 
 
