@@ -40,6 +40,37 @@ declare function filter:print-filters(
              class="query_input" 
 	     value='{request:get-parameter("query","")}' 
 	     id="query_input"/>
+	     
+	     <a class="help">?<span class="comment"> 
+      Search terms may be combined using boolean operators. Wildcards allowed. 
+      Search is case insensitive (except for boolean operators, which must be uppercase).
+      Some examples:<br/>
+      <span class="help_table">
+        <span class="help_example">
+          <span class="help_label">carl OR nielsen</span>
+          <span class="help_value">Boolean OR (default)</span>
+        </span>                        
+        <span class="help_example">
+          <span class="help_label">carl AND nielsen</span>
+          <span class="help_value">Boolean AND</span>
+        </span>
+        <span class="help_example">
+          <span class="help_label">"carl nielsen"</span>
+          <span class="help_value">Exact phrase</span>
+        </span>
+        <span class="help_example">
+          <span class="help_label">niels*</span>
+          <span class="help_value">Match any number of characters. Finds Niels, Nielsen and Nielsson<br/>
+          (use only at end of word)
+          </span>
+        </span>
+        <span class="help_example">
+          <span class="help_label">niels?n</span>
+          <span class="help_value">Match 1 character. Finds Nielsen and Nielson, but not Nielsson</span>
+        </span>
+      </span>
+    </span>
+      </a>
     </div>
 
     <div class="filter_block">

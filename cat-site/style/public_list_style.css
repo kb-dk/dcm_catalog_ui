@@ -127,7 +127,7 @@ input[type=checkbox]:not(old) + label {
 
 input[type=checkbox]:not(old) + label:hover,
 input[type=radio   ]:not(old) + label:hover{
-    background-color: #f8f8f8;
+    background-color: #fff;
 }
 
 input[type=checkbox]:not(old):checked + label{
@@ -135,7 +135,7 @@ input[type=checkbox]:not(old):checked + label{
 }
 
 input[type=radio]:not(old):checked + label{
-  background-color: #f8f8f8;
+  background-color: #fff;
 }
 
 div.genre_filter span.genre_indicator {
