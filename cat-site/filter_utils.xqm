@@ -128,7 +128,7 @@ declare function filter:print-filters(
     </select>
     </div>
 
-    <div blaha="blahahah" class="filter_block">
+    <div class="filter_block">
     {
 
       let $schemeselectors :=
@@ -267,7 +267,7 @@ declare function filter:print-filters(
          </div>
 
 	      <div class="filter_block search_button">
-            <input type="submit" value="" class="search_submit" id="search_submit"/>
+            <input type="submit" value="" class="search_submit" id="search_submit" onclick="this.form.elements['page'].value = '1'; return true();"/>
           </div>
         </form>
 

@@ -207,7 +207,7 @@ declare function app:navigation(
 		},
 		if($sort-options) then
 		  (<form action="" id="sortForm" style="display:inline;float:right;">
-		  <select name="sortby" onchange="this.form.submit();return true;"> 
+		  <select name="sortby" onchange="this.form.elements['page'].value = '1';this.form.submit();return true;"> 
 		    {
 		      for $opt in $sort-options
 		      let $option:=
@@ -227,7 +227,7 @@ declare function app:navigation(
 		else
 		  (),
 		  (<form action="" id="itemsPerPageForm" style="display:inline;float:right;">
-		  <select name="itemsPerPage" onchange="this.form.submit();return true;"> 
+		  <select name="itemsPerPage" onchange="this.form.elements['page'].value = '1';this.form.submit();return true;"> 
 		    {(
 		      element option {attribute value {"10"},
 		      if($app:number=10) then 
