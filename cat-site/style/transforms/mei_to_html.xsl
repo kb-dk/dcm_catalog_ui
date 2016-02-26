@@ -239,33 +239,16 @@ The Royal Library, Copenhagen
 			mode="work_identifiers"/>
 
 		<!-- persons -->
-		<xsl:for-each
+		<xsl:apply-templates
 			select="m:meiHead/
-		m:workDesc/
-		m:work/
-		m:titleStmt/
-		m:respStmt[m:persName[text()][@role!='composer']]">
-			<p>
-				<xsl:for-each select="m:persName[text()][@role!='composer']">
-					<xsl:if test="@role and @role!=''">
-						<span class="p_heading">
-							<xsl:choose>
-								<xsl:when test="@role='author'">Text author</xsl:when>
-								<xsl:otherwise>
-									<xsl:call-template name="capitalize">
-										<xsl:with-param name="str" select="@role"/>
-									</xsl:call-template>
-								</xsl:otherwise>
-							</xsl:choose>
-							<xsl:text>: </xsl:text>
-						</span>
-					</xsl:if>
-					<xsl:apply-templates select="."/>
-					<br/>
-				</xsl:for-each>
-			</p>
-		</xsl:for-each>
-
+			m:workDesc/
+			m:work/
+			m:titleStmt/
+			m:respStmt[m:persName[text()]]">
+			<xsl:with-param name="exclude">composer</xsl:with-param>
+		</xsl:apply-templates>
+		
+		<!-- text source -->
 		<xsl:for-each
 			select="m:meiHead/m:workDesc/m:work/m:titleStmt/m:title[@type='text_source'][text()]">
 			<div>
@@ -279,6 +262,7 @@ The Royal Library, Copenhagen
 			</div>
 		</xsl:for-each>
 
+		<!-- general description -->
 		<xsl:for-each
 			select="m:meiHead/m:workDesc/m:work/m:notesStmt/m:annot[@type='general_description'][//text()]">
 			<xsl:if test="normalize-space(@label)">
@@ -385,28 +369,46 @@ The Royal Library, Copenhagen
 	</xsl:template>
 
 
+
 	<xsl:template match="m:titleStmt/m:respStmt[m:persName[text()]]">
+		<!-- certain roles may be excluded from the list -->
+		<xsl:param name="exclude"/>		
+		<!-- list persons grouped by role -->
 		<p>
-			<xsl:for-each select="m:persName[text()]">
-				<xsl:if test="@role and @role!=''">
-					<span class="p_heading">
-						<xsl:choose>
-							<xsl:when test="@role='author'">Text author</xsl:when>
-							<xsl:otherwise>
-								<xsl:call-template name="capitalize">
-									<xsl:with-param name="str" select="@role"/>
-								</xsl:call-template>
-							</xsl:otherwise>
-						</xsl:choose>
-						<xsl:text>: </xsl:text>
-					</span>
+			<xsl:for-each select="m:persName[text() and not(contains($exclude,@role))]">
+				<xsl:variable name="role" select="@role"/>
+				<xsl:variable name="displayed_role">
+					<xsl:choose>
+						<xsl:when test="@role='author'">Text author</xsl:when>
+						<xsl:otherwise>
+							<xsl:call-template name="capitalize">
+								<xsl:with-param name="str" select="@role"/>
+							</xsl:call-template>
+						</xsl:otherwise>
+					</xsl:choose>
+					<xsl:if test="count(../m:persName[text() and @role=$role]) > 1">
+						<xsl:text>s</xsl:text>
+					</xsl:if>
+				</xsl:variable>
+				<xsl:if test="count(preceding-sibling::*[@role=$role])=0">
+					<!-- one <div> per relation type -->
+					<div class="list_block">
+						<span class="p_heading">
+							<xsl:value-of select="$displayed_role"/>
+							<xsl:text>: </xsl:text>
+						</span>
+						<xsl:for-each select="../m:persName[text() and @role=$role]">
+							<xsl:apply-templates select="."/>
+							<xsl:if test="count(following-sibling::*[@role=$role])>0">
+								<xsl:text>, </xsl:text>
+							</xsl:if>
+						</xsl:for-each>
+					</div>
 				</xsl:if>
-				<xsl:apply-templates select="."/>
-				<br/>
 			</xsl:for-each>
 		</p>
 	</xsl:template>
-
+	
 	<!-- work identifiers -->
 	<xsl:template match="m:meiHead/m:workDesc/m:work" mode="work_identifiers">
 		<p>
