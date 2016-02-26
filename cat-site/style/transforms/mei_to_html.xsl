@@ -2283,18 +2283,17 @@ The Royal Library, Copenhagen
 			</xsl:when>
 
 			<xsl:when test="m:genre='web site'">
-				<!-- show entry only if a title is stated -->
-				<xsl:if test="normalize-space(m:title)">
+				<!-- show entry only if a title or URI is stated -->
+				<xsl:if test="normalize-space(concat(m:title,m:ptr))">
 					<xsl:if test="normalize-space(m:author)!=''"><xsl:apply-templates
-							select="m:author"/>: </xsl:if>
-					<xsl:apply-templates select="m:title" mode="bibl_title">
+						select="m:author"/>: </xsl:if>
+					<xsl:apply-templates select="m:title[text()]" mode="bibl_title">
 						<xsl:with-param name="quotes" select="'false'"/>
 						<xsl:with-param name="italic" select="'true'"/>
 					</xsl:apply-templates>
-					<xsl:if
-						test="normalize-space(concat(m:biblScope[normalize-space()], m:imprint/m:publisher, m:imprint/m:pubPlace))"
-						>. </xsl:if>
-					<xsl:apply-templates select="." mode="volumes_pages"/>
+					<xsl:if test="normalize-space(m:imprint/m:date) and normalize-space(m:title)">. </xsl:if>
+					<xsl:apply-templates select="m:imprint/m:date"/>
+					<xsl:text> </xsl:text>
 				</xsl:if>
 			</xsl:when>
 
@@ -2478,10 +2477,12 @@ The Royal Library, Copenhagen
 				<xsl:text> </xsl:text>
 				<xsl:apply-templates select="text()"/>
 				<xsl:apply-templates select="m:p" mode="paragraph_to_line_break"/>
+				<xsl:text> </xsl:text>
 			</xsl:when>
 			<xsl:otherwise>
 				<div>
-					<xsl:apply-templates/>
+					<xsl:apply-templates select="text()"/>
+					<xsl:apply-templates select="m:p" mode="paragraph_to_line_break"/>
 				</div>
 			</xsl:otherwise>
 		</xsl:choose>
