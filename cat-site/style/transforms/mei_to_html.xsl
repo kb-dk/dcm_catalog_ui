@@ -2121,7 +2121,7 @@ The Royal Library, Copenhagen
 			test="count(m:bibl[m:genre='manuscript' and *[local-name()!='genre']//text()]) &gt; 0">
 			<p class="p_subheading">Manuscripts:</p>
 			<xsl:for-each select="m:bibl[m:genre='manuscript' and *[local-name()!='genre']//text()]">
-				<p>
+				<p class="bibl_record">
 					<xsl:apply-templates select="."/>
 				</p>
 			</xsl:for-each>
