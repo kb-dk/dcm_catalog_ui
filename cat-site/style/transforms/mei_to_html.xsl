@@ -726,28 +726,17 @@ The Royal Library, Copenhagen
 						select="concat('version_source',generate-id(.),$expression_id)"/>
 					<xsl:with-param name="heading">Sources</xsl:with-param>
 					<xsl:with-param name="content">
-						<!-- sort order lists must begin and end with a semicolon -->
-						<xsl:variable name="state_order"
-							select="';sketch;draft;fair copy;printers copy;first edition;later edition;'"/>
-						<xsl:variable name="scoring_order"
-							select="';score;score and parts;vocal score;piano score;choral score;short score;parts;'"/>
-						<xsl:variable name="authority_order"
-							select="';autograph;partly autograph;doubtful autograph;copy;'"/>
-
 						<!-- collect all external source data first to create a complete list of sources -->
 						<xsl:variable name="sources">
 							<!-- skip reproductions (=reprints) - they are treated elsewhere -->
-							<xsl:for-each
-								select="m:source[m:relationList/m:relation[@rel='isEmbodimentOf' 
-			  and substring-after(@target,'#')=$expression_id] and 
-			  not(m:relationList/m:relation[@rel='isReproductionOf'])]">
+							<xsl:for-each select="m:source[m:relationList/m:relation[@rel='isEmbodimentOf' 
+							  and substring-after(@target,'#')=$expression_id] and 
+							  not(m:relationList/m:relation[@rel='isReproductionOf'])]">
 								<xsl:choose>
 									<xsl:when test="@target!=''">
 										<!-- get external source description -->
 										<xsl:variable name="ext_id"
 											select="substring-after(@target,'#')"/>
-
-
 										<xsl:variable name="doc_name"
 											select="concat($base_file_uri,'/',substring-before(@target,'#'))"/>
 										<xsl:variable name="doc" select="document($doc_name)"/>
@@ -764,20 +753,6 @@ The Royal Library, Copenhagen
 						<!-- make the source list a nodeset -->
 						<xsl:variable name="source_nodeset" select="exsl:node-set($sources)"/>
 						<xsl:for-each select="$source_nodeset/m:source">
-							<!-- process all sources, sorted according to classification -->
-							<xsl:sort
-								select="m:classification/m:termList/m:term[@classcode='DcmContentClass']"/>
-							<xsl:sort
-								select="m:classification/m:termList/m:term[@classcode='DcmPresentationClass']"/>
-							<!-- adding 100 ensures that combinations of 1- and 2-digit numbers are sorted correctly -->
-							<xsl:sort
-								select="number(100 + string-length(substring-before($authority_order,concat(';',m:classification/m:termList/m:term[@classcode='DcmAuthorityClass'],';'))))"/>
-							<xsl:sort
-								select="number(100 + string-length(substring-before($state_order,concat(&quot;;&quot;,translate(m:classification/m:termList/m:term[@classcode=&quot;DcmStateClass&quot;],&quot;&apos;&quot;,&quot;&quot;),&quot;;&quot;))))"/>
-							<xsl:sort
-								select="number(100 + string-length(substring-before($scoring_order,concat(';',m:classification/m:termList/m:term[@classcode='DcmScoringClass'],';'))))"/>
-							<xsl:sort
-								select="m:classification/m:termList/m:term[@classcode='DcmCompletenessClass']"/>
 							<xsl:apply-templates select=".">
 								<xsl:with-param name="reprints" select="$reprints"/>
 							</xsl:apply-templates>
@@ -1390,13 +1365,6 @@ The Royal Library, Copenhagen
 			<xsl:with-param name="id" select="concat('source',generate-id(.),position())"/>
 			<xsl:with-param name="heading">Sources</xsl:with-param>
 			<xsl:with-param name="content">
-				<!-- sort order lists must begin and end with a semicolon -->
-				<xsl:variable name="state_order"
-					select="';sketch;draft;fair copy;printers copy;first edition;later edition;'"/>
-				<xsl:variable name="scoring_order"
-					select="';score;score and parts;vocal score;piano score;choral score;short score;parts;'"/>
-				<xsl:variable name="authority_order"
-					select="';autograph;partly autograph;doubtful autograph;copy;'"/>
 				<!-- collect all external source data first to create a complete list of sources -->
 				<xsl:variable name="sources">
 					<!-- If listing global sources, list only those not referring to a specific version (if more than one) -->
@@ -1425,24 +1393,8 @@ The Royal Library, Copenhagen
 				<xsl:variable name="source_nodeset" select="exsl:node-set($sources)"/>
 
 				<xsl:variable name="sorted_sources">
-					<!-- loop through the selected sources; sort them; and skip reproductions at this point -->
-					<xsl:for-each
-						select="$source_nodeset/m:source
-		      [not(m:relationList/m:relation[@rel='isReproductionOf']/@target)]">
-						<!-- process all sources, sorted according to classification -->
-						<xsl:sort
-							select="m:classification/m:termList/m:term[@classcode='DcmContentClass']"/>
-						<xsl:sort
-							select="m:classification/m:termList/m:term[@classcode='DcmPresentationClass']"/>
-						<!-- adding 100 ensures that combinations of 1- and 2-digit numbers are sorted correctly -->
-						<xsl:sort
-							select="number(100 + string-length(substring-before($state_order,concat(&quot;;&quot;,translate(m:classification/m:termList/m:term[@classcode=&quot;DcmStateClass&quot;],&quot;&apos;&quot;,&quot;&quot;),&quot;;&quot;))))"/>
-						<xsl:sort
-							select="number(100 + string-length(substring-before($authority_order,concat(';',m:classification/m:termList/m:term[@classcode='DcmAuthorityClass'],';'))))"/>
-						<xsl:sort
-							select="number(100 + string-length(substring-before($scoring_order,concat(';',m:classification/m:termList/m:term[@classcode='DcmScoringClass'],';'))))"/>
-						<xsl:sort
-							select="m:classification/m:termList/m:term[@classcode='DcmCompletenessClass']"/>
+					<!-- loop through the selected sources; skip reproductions at this point -->
+					<xsl:for-each select="$source_nodeset/m:source[not(m:relationList/m:relation[@rel='isReproductionOf']/@target)]">
 						<xsl:copy-of select="."/>
 					</xsl:for-each>
 				</xsl:variable>
@@ -2042,37 +1994,34 @@ The Royal Library, Copenhagen
 	</xsl:template>
 
 	<xsl:template match="m:physLoc">
-		<!-- locations - both for <source>, <item> and <bibl> -->
+		<!-- locations and shelf marks - both for <source>, <item> and <bibl> -->
 		<xsl:for-each select="m:repository[*//text()]">
-			<xsl:if test="m:corpName[text()]or m:identifier[text()]">
-				<xsl:choose>
-					<xsl:when test="m:corpName[text()]">
-						<xsl:choose>
-							<!-- if both repository name and identifier (RISM siglum) are given, 
-		   emphasize only the identifier in () -->
-							<xsl:when test="m:identifier[text()]">
-								<xsl:apply-templates select="m:corpName[text()]"/> (<span
-									class="rism"><xsl:apply-templates select="m:identifier[text()]"
-									/></span>) </xsl:when>
-							<!-- if only the repository name is given,
-		   emphasize it as if it were an identifier... -->
-							<xsl:otherwise>
-								<span class="rism">
-									<xsl:apply-templates select="m:corpName[text()]"/>
-								</span>
-							</xsl:otherwise>
-						</xsl:choose>
-					</xsl:when>
-					<xsl:otherwise>
-						<!-- (RISM) identifier only -->
-						<xsl:for-each select="m:identifier[text()]">
-							<span class="rism">
-								<xsl:apply-templates select="."/>
-							</span>
-						</xsl:for-each>
-					</xsl:otherwise>
-				</xsl:choose>
-			</xsl:if>
+			<!-- (RISM) identifier -->
+			<xsl:for-each select="m:identifier[text()]">
+				<span class="rism">
+					<xsl:apply-templates select="."/>
+				</span>
+			</xsl:for-each>
+			<xsl:variable name="location">
+				<!-- Repository name, Place -->
+				<xsl:apply-templates select="m:corpName[text()]"/>
+				<xsl:if test="m:corpName[text()] and m:geogName[text()]">
+					<xsl:text>, </xsl:text>
+				</xsl:if>
+				<xsl:apply-templates select="m:geogName[text()]"/>
+			</xsl:variable>
+			<xsl:choose>
+				<xsl:when test="m:identifier[text()] and normalize-space($location)">
+					<!-- Format: RISM siglum (Repository name, Place) -->
+					<xsl:text> (</xsl:text>
+					<xsl:copy-of select="$location"/>
+					<xsl:text>)</xsl:text>
+				</xsl:when>
+				<xsl:otherwise>
+					<!-- Format: Repository name, Place -->
+					<xsl:copy-of select="$location"/>
+				</xsl:otherwise>
+			</xsl:choose>
 			<xsl:if test="../m:identifier[text()]">
 				<xsl:text> </xsl:text>
 			</xsl:if>
@@ -2088,7 +2037,7 @@ The Royal Library, Copenhagen
 			</xsl:if>
 		</xsl:for-each>
 	</xsl:template>
-
+	
 	<!-- format scribe's name and medium -->
 	<xsl:template match="m:hand" mode="scribe">
 		<xsl:call-template name="lowercase">
