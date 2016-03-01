@@ -123,7 +123,18 @@ declare function loop:sort-key (
     else if($key eq "title") then
       replace(lower-case($doc//m:workDesc/m:work[@analog="frbr:work"]/m:titleStmt[1]/m:title[1]/string()),"\\\\ ","")
     else if($key eq "date") then
-      substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/(@enddate|@notafter|@isodate|@startdate|@notbefore)[1],1,4)
+      let $dates := 
+          for $date in $doc//m:workDesc
+	    /m:work
+            /m:history
+	    /m:creation
+	    /m:date/(@notafter|@isodate|@notbefore|@startdate|@enddate)
+	    return substring($date,1,4)
+      return 
+	if(count($dates)>=1) then
+	  max($dates)
+	else
+	  "0000"
     else if($key eq "work_number") then
       (: make the number a 5 character long string padded with zeros :)
       let $num:=$doc//m:workDesc/m:work/m:identifier[@label=$loop:collection]/string()
