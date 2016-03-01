@@ -6,7 +6,7 @@
 	Authors: 
 	Axel Teich Geertinger & Sigfrid Lundberg
 	Danish Centre for Music Publication
-	The Royal Library, Copenhagen 2014
+	The Royal Library, Copenhagen 2014–2016
 -->
 
 
@@ -29,7 +29,6 @@
   <xsl:output method="xml" encoding="UTF-8" 
 	      cdata-section-elements="" 
 	      omit-xml-declaration="yes"/>
-  
   
   <xsl:strip-space elements="*"/>
   <xsl:param name="cat"
@@ -99,8 +98,6 @@
 
   <!-- SUB-TEMPLATES -->
 
-  <!-- xsl:template name="body_main_content"/>
-  <xsl:template name="lowercase"/ -->
 
   <!-- need to override this template in order to call the right xquery (document.xq instead of present.xq) -->
   <xsl:template match="m:relation" mode="relation_link">

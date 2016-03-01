@@ -34,8 +34,7 @@ let $title := $list//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][not(@
 let $html := doc(concat("/db/cat-site/",$coll,"/document.html"))
 let $head_title := 
    fn:concat($title," – ",$c," ",$work_number," – ",$html//h:title/text())
-
-
+let $verovio := if($list//m:incip/m:score/* or //m:incipCode[@form='pae' or @form='PAE' or @form='plaineAndEasie']/text()) then true() else false()
 
 let $result :=
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,7 +42,8 @@ let $result :=
 	  (<link rel="stylesheet" type="text/css" href="style/mei_to_html_public.css"/>,
 	  <script type="text/javascript" src="js/toggle_openness.js">{"
 	  "}</script>
-	  ))}
+	  ),
+	  $verovio)}
   <body class="list_files">
     <div id="all">
       {layout:page-head-doc($html)}

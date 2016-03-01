@@ -7,7 +7,8 @@ declare variable $layout:coll     := request:get-parameter("c","") cast as xs:st
 
 
 declare function layout:head($title as xs:string,
-                             $additions as node()*
+                             $additions as node()*,
+                             $verovio as xs:boolean
 			) as node() 
 {
   let $head :=
@@ -67,6 +68,21 @@ declare function layout:head($title as xs:string,
     <script type="text/javascript" src="js/google_analytics.js">
     //
     </script>
+    
+    { if($verovio) then   
+			<script src="http://www.verovio.org/javascript/latest/verovio-toolkit-light.js" type="text/javascript">
+			//
+			</script>
+    else () }
+    
+    { if($verovio) then   
+			<script type="text/javascript">
+				/* Create the Verovio toolkit instance */
+				var vrvToolkit = new verovio.toolkit();
+			</script>
+    else () }
+    
+    
   </head>
 
   return $head

@@ -8,6 +8,7 @@ Danish Centre for Music Editing
 The Royal Library, Copenhagen
 2010-2016	
 -->
+
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:m="http://www.music-encoding.org/ns/mei"
 	xmlns:dcm="http://www.kb.dk/dcm" xmlns:xl="http://www.w3.org/1999/xlink"
@@ -77,9 +78,23 @@ The Royal Library, Copenhagen
 		<link rel="stylesheet" type="text/css" href="/dcm/cnw/style/mei_to_html.css"/>
 
 		<script type="text/javascript" src="/dcm/cnw/js/toggle_openness.js">
-      <xsl:text>
-      </xsl:text>
-    </script>
+	      <xsl:text>
+	      </xsl:text>
+		</script>
+		
+		<!-- Include the Verovio toolkit for displaying incipits if needed -->
+		<!--<script src="http://www.verovio.org/javascript/latest/verovio-toolkit.js">-->
+		<xsl:if test="//m:incip/m:score/* or //m:incipCode[@form='pae' or @form='PAE' or @form='plaineAndEasie']/text()">
+			<script src="http://www.verovio.org/javascript/latest/verovio-toolkit-light.js" type="text/javascript">
+		    	<xsl:text>
+	    		</xsl:text>
+			</script>
+			<script type="text/javascript">
+				/* Create the Verovio toolkit instance */
+				var vrvToolkit = new verovio.toolkit();
+			</script>
+		</xsl:if>
+		
 	</xsl:template>
 
 	<xsl:template name="make_html_body" xml:space="default">
@@ -266,9 +281,7 @@ The Royal Library, Copenhagen
 		<xsl:for-each
 			select="m:meiHead/m:workDesc/m:work/m:notesStmt/m:annot[@type='general_description'][//text()]">
 			<xsl:if test="normalize-space(@label)">
-				<span class="p_heading">
-					<xsl:value-of select="@label"/>
-				</span>
+				<p class="p_heading"><xsl:value-of select="@label"/></p>
 			</xsl:if>
 			<xsl:apply-templates select="."/>
 		</xsl:for-each>
@@ -899,11 +912,42 @@ The Royal Library, Copenhagen
 			<p>
 				<span class="label">
 					<xsl:choose>
-						<xsl:when test="normalize-space(@analog)"><xsl:value-of select="@analog"/>: </xsl:when>
-						<xsl:otherwise>Music incipit: </xsl:otherwise>
+						
+						<xsl:when test="@form='plaineAndEasie' or @form='PAE' or @form='pae'">
+							<xsl:variable name="id" select="concat('incip_pae_',generate-id())"/>
+							<xsl:element name="div">
+								<xsl:attribute name="id"><xsl:value-of select="$id"/></xsl:attribute>
+								<xsl:text> </xsl:text>
+							</xsl:element>
+							<!-- use Verovio for rendering PAE incipits -->
+							<script type="text/javascript">
+							  /* The Plain and Easy code to be rendered */
+							  var data = "@data:<xsl:value-of select="."/>";
+
+							  /* Render the data and insert it as content of the target div */
+							  document.getElementById("<xsl:value-of select="$id"/>").innerHTML = vrvToolkit.renderData( 
+							      data, 
+							      JSON.stringify({ 
+							      	inputFormat: 'pae',
+							      	pageWidth: 3000,
+							      	pageHeight: 400,
+    								border: 0,
+    								scale: 30,
+    								adjustPageHeight: 1,
+    								ignoreLayout: 1
+							      	}) 
+							  );
+							</script>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:choose>
+								<xsl:when test="normalize-space(@form)"><xsl:value-of select="@form"/>: </xsl:when>
+								<xsl:otherwise>Music incipit: </xsl:otherwise>
+							</xsl:choose>
+							<xsl:apply-templates select="."/>
+						</xsl:otherwise>
 					</xsl:choose>
 				</span>
-				<xsl:apply-templates select="."/>
 			</p>
 		</xsl:for-each>
 		<xsl:apply-templates select="m:incipText[//text()]"/>
@@ -911,8 +955,48 @@ The Royal Library, Copenhagen
 		<xsl:apply-templates select="m:score"/>
 	</xsl:template>
 
-	<xsl:template match="m:incip/m:score"/>
-
+	<xsl:template match="m:incip/m:score[*]">
+		<xsl:variable name="id" select="concat('incip_score_',generate-id())"/>
+		<xsl:variable name="xml_id" select="concat($id,'_xml')"/>
+		<xsl:element name="div">
+			<xsl:attribute name="id"><xsl:value-of select="$id"/></xsl:attribute>
+			<xsl:text> </xsl:text>
+		</xsl:element>
+		
+		<!-- put the MEI incipit XML into the document here -->
+		<xsl:element name="script">
+			<xsl:attribute name="id"><xsl:value-of select="$xml_id"/></xsl:attribute>
+			<xsl:attribute name="type">text/xmldata</xsl:attribute>
+			<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="2013">
+				<music>
+					<body>
+						<mdiv>
+							<xsl:copy-of select="."/>
+						</mdiv>
+					</body>
+				</music>
+			</mei>
+		</xsl:element>
+		<!-- use Verovio for rendering MEI incipits -->
+		<script type="text/javascript">
+		  /* The MEI encoding to be rendered */
+		  var data = document.getElementById('<xsl:value-of select="$xml_id"/>').innerHTML;
+		  /* Render the data and insert it as content of the target div */
+		  document.getElementById("<xsl:value-of select="$id"/>").innerHTML = vrvToolkit.renderData( 
+		      data, 
+		      JSON.stringify({ 
+		      	inputFormat: 'mei',
+		      	pageWidth: 3000,
+    			border: 0,
+    			scale: 30,
+    			adjustPageHeight: 1,
+    			ignoreLayout: 1
+		      	}) 
+		  );
+		</script>
+	</xsl:template>
+	
+	
 	<xsl:template match="m:incipText">
 		<xsl:if test="m:p/text()">
 			<div class="list_block">

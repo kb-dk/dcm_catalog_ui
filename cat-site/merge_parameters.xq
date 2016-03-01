@@ -20,7 +20,7 @@ let $stURI    := xs:anyURI(request:get-parameter("style",$style))
 
 let $formpage :=
 <html xmlns="http://www.w3.org/1999/xhtml">
-  {layout:head("Set parameters",())}
+  {layout:head("Set parameters",(),false())}
   <body class="list_files">
     <div id="all">
       {layout:page-head("&#160;","Generate a merged catalog for offline study or printing")}

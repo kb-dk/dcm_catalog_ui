@@ -11,7 +11,7 @@ let $html := doc(concat("/db/cat-site/",$coll,"/preface.html"))
 
 let $contents :=
 <html xmlns="http://www.w3.org/1999/xhtml">
-  {layout:head(concat("Preface: ",$html//h:title/text()),(<link rel="stylesheet" type="text/css" href="style/mei_to_html_public.css"/>))}
+  {layout:head(concat("Preface: ",$html//h:title/text()),(<link rel="stylesheet" type="text/css" href="style/mei_to_html_public.css"/>), false())}
   <body class="text">
     <div id="all">
       {layout:page-head-doc($html)}

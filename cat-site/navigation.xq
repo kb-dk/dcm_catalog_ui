@@ -123,7 +123,7 @@ declare function local:format-reference(
 };
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-   {layout:head($html//h:title/text(),(<link rel="stylesheet" type="text/css" href="style/public_list_style.css"/>))}
+   {layout:head($html//h:title/text(),(<link rel="stylesheet" type="text/css" href="style/public_list_style.css"/>),false())}
     <body class="list_files">
     
       <div id="all">
