@@ -3052,24 +3052,40 @@
 	<!-- Look up abbreviations -->
 
 	<xsl:template match="m:identifier[@authority='RISM']">
-		<xsl:variable name="RISM_file_name"
-			select="concat($base_uri,'/rism_sigla/',
-			  substring-before(normalize-space(.),'-'),'.xml')"/>
+		<xsl:variable name="vUpper" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
+		<xsl:variable name="vLower" select="'abcdefghijklmnopqrstuvwxyz'"/>
+		<xsl:variable name="vAlpha" select="concat($vUpper, $vLower)"/>
+		<xsl:variable name="country" select="substring-before(.,'-')"/>
+		<xsl:variable name="archive" select="substring-after(.,'-')"/>
 		<xsl:choose>
-			<xsl:when test="boolean(document($RISM_file_name))">
-				<xsl:variable name="RISM_file" select="document($RISM_file_name)"/>
-				<xsl:variable name="siglum" select="normalize-space(.)"/>
+			<!-- RISM sigla should match [A-Z]+-[A-Z]+[a-z]* -->
+			<xsl:when test="string-length($country)>0 and
+				string-length($archive)>0 and
+				string-length(translate($country,$vUpper,''))=0 and 
+				string-length(translate($archive,$vAlpha,''))=0">
+				<xsl:variable name="RISM_file_name"
+					select="concat($base_uri,'/rism_sigla/',
+					substring-before(normalize-space(.),'-'),'.xml')"/>
 				<xsl:choose>
-					<xsl:when test="$RISM_file//marc:datafield[marc:subfield[@code='g']=$siglum]">
-						<xsl:variable name="record"
-							select="$RISM_file//marc:datafield[marc:subfield[@code='g']=$siglum]"/>
-						<a href="javascript:void(0);" class="abbr">
-							<xsl:value-of select="."/>
-							<span class="expan">
-								<xsl:value-of select="$record/marc:subfield[@code='a']"/>,
-									<xsl:value-of select="$record/marc:subfield[@code='c']"/>
-							</span>
-						</a>
+					<xsl:when test="boolean(document($RISM_file_name))">
+						<xsl:variable name="RISM_file" select="document($RISM_file_name)"/>
+						<xsl:variable name="siglum" select="normalize-space(.)"/>
+						<xsl:choose>
+							<xsl:when test="$RISM_file//marc:datafield[marc:subfield[@code='g']=$siglum]">
+								<xsl:variable name="record"
+									select="$RISM_file//marc:datafield[marc:subfield[@code='g']=$siglum]"/>
+								<a href="javascript:void(0);" class="abbr">
+									<xsl:value-of select="."/>
+									<span class="expan">
+										<xsl:value-of select="$record/marc:subfield[@code='a']"/>,
+										<xsl:value-of select="$record/marc:subfield[@code='c']"/>
+									</span>
+								</a>
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:value-of select="."/>
+							</xsl:otherwise>
+						</xsl:choose>
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:value-of select="."/>
