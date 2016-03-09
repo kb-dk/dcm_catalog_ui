@@ -1194,10 +1194,10 @@
 					</div>
 				</xsl:for-each>
 			</div>
-			<xsl:apply-templates select="m:castList[*//text()]">
-				<xsl:with-param name="full" select="$full"/>
-			</xsl:apply-templates>
 		</xsl:if>
+		<xsl:apply-templates select="m:castList[*//text()]">
+			<xsl:with-param name="full" select="$full"/>
+		</xsl:apply-templates>
 	</xsl:template>
 
 	<xsl:template match="m:instrVoiceGrp">
