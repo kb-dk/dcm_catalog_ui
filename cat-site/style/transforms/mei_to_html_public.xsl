@@ -3125,35 +3125,33 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<!-- General abbreviations in text blocks. -->
-	<xsl:template
-		match="text()[name(..)!='p' and name(..)!='persName' and name(..)!='ptr' and name(..)!='ref'] 
-		       | m:identifier/@label">
+	<!-- General abbreviations in text blocks and identifier labels. -->
+	<xsl:template match="text()[name(..)!='p' and name(..)!='persName' and name(..)!='ptr' and name(..)!='ref'] 
+		| m:identifier/@label">
 		<xsl:variable name="string" select="concat(' ',.,' ')"/>
 		<xsl:variable name="abbr"
 			select="$abbreviations_file/m:p/m:choice/m:abbr[contains(translate($string,';:[]()/','       '),concat(' ',.,' '))]"/>
-		<!--was: <xsl:variable name="abbr" select="$abbreviations_file/m:p/m:choice/m:abbr[contains($string,.)]"/>-->
 		<xsl:choose>
 			<xsl:when test="$abbr">
 				<xsl:variable name="expan"
 					select="$abbreviations_file/m:p/m:choice/m:expan[../m:abbr=$abbr]"/>
-				<xsl:apply-templates select="exsl:node-set(substring-before($string,$abbr))"/>
-				<a href="javascript:void(0);" class="abbr">
-					<xsl:value-of select="$abbr"/>
-					<span class="expan">
-						<xsl:choose>
-							<!-- if the expansion is a nodeset, a <bibl> element for example, process it -->
-							<xsl:when test="$expan/*">
-								<xsl:apply-templates select="$expan"/>
-							</xsl:when>
-							<!-- otherwise just plain text; no further processing -->
-							<xsl:otherwise>
-								<xsl:value-of select="$expan"/>
-							</xsl:otherwise>
-						</xsl:choose>
-					</span>
-				</a>
-				<xsl:apply-templates select="exsl:node-set(substring-after($string,$abbr))"/>
+				<xsl:variable name="pos1" select="string-length(substring-before($string,$abbr))"/>
+				<xsl:apply-templates select="exsl:node-set(substring(.,1,number($pos1)-1))"/>
+				<a href="javascript:void(0);" class="abbr"><xsl:value-of select="$abbr"/><span class="expan">
+					<xsl:choose>
+						<!-- if the expansion is a nodeset, a <bibl> element for example, process it -->
+						<xsl:when test="$expan/*">
+							<xsl:apply-templates select="$expan"/>
+						</xsl:when>
+						<!-- otherwise just plain text; no further processing -->
+						<xsl:otherwise>
+							<xsl:value-of select="$expan"/>
+						</xsl:otherwise>
+					</xsl:choose>
+				</span></a>
+				<!--<xsl:apply-templates select="exsl:node-set(substring-after($string,$abbr))"/>-->
+				<xsl:variable name="pos2" select="number($pos1)+string-length($abbr)"/>
+				<xsl:apply-templates select="exsl:node-set(substring(.,$pos2))"/>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:value-of select="."/>
@@ -3161,7 +3159,8 @@
 		</xsl:choose>
 	</xsl:template>
 	<!-- End look up abbreviations -->
-
+	
+	
 	<!-- formatted text -->
 	<xsl:template match="m:lb">
 		<br/>
