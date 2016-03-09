@@ -10,12 +10,16 @@ table td {
 
 h1, h2, h3, h4, h5 {
     line-height: 1.4em;
+    font-weight: normal;
 }
 
 h3, h4, h5 {
     padding: 10px 0 0 0;
     margin: 0;
-    font-weight: normal;
+}
+
+h4, h5 {
+    font-weight: bold;
 }
 
 h2 {
@@ -204,10 +208,6 @@ a:hover.abbr .expan {
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333'); 
 }
 
-div.perfmedium { 
-    margin-top: 0.5em;
-}
-
 div.perfmedium p { 
     margin-top: 0;
 }
@@ -368,7 +368,7 @@ table.source_component_list td.label_cell {
 
 .meter {
     font-family: 'times new roman', times, serif; 
-    font-size: 1.3em;
+    font-size: .9em;
     line-height: 1em;
     font-weight: bold;
 }

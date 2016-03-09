@@ -833,10 +833,6 @@
 			</xsl:if>
 		</xsl:if>
 
-		<xsl:apply-templates select="m:titleStmt/m:respStmt[m:persName]"/>
-		<xsl:apply-templates
-			select="m:perfMedium[m:instrumentation[m:instrVoice or m:instrVoiceGrp] or m:castList/m:castItem]"
-			mode="subLevel"/>
 		<xsl:apply-templates select="m:tempo[text()]"/>
 		<xsl:if test="m:meter[normalize-space(concat(@count,@unit,@sym))]">
 			<xsl:apply-templates select="m:meter"/>
@@ -844,6 +840,10 @@
 		<xsl:apply-templates select="m:key[normalize-space(concat(@pname,@accid,@mode))]"/>
 		<xsl:apply-templates select="m:extent"/>
 		<xsl:apply-templates select="m:incip"/>
+		<xsl:apply-templates select="m:titleStmt/m:respStmt[m:persName]"/>
+		<xsl:apply-templates
+			select="m:perfMedium[m:instrumentation[m:instrVoice or m:instrVoiceGrp] or m:castList/m:castItem]"
+			mode="subLevel"/>
 		<xsl:apply-templates select="m:relationList[m:relation[@target!='']]"/>
 		<xsl:for-each select="m:notesStmt/m:annot[not(@type='links') and //text()]">
 			<p>
@@ -1200,22 +1200,24 @@
 		</xsl:apply-templates>
 	</xsl:template>
 
-	<xsl:template match="m:instrVoiceGrp">
-		<xsl:if test="m:head[text()]">
-			<xsl:value-of select="m:head"/>
-			<xsl:if test="m:instrVoice[text()]">
-				<xsl:text>:</xsl:text>
+	<xsl:template match="m:instrVoiceGrp[//text()]">
+		<div>
+			<xsl:if test="m:head[text()]">
+				<xsl:value-of select="m:head"/>
+				<xsl:if test="m:instrVoice[text()]">
+					<xsl:text>:</xsl:text>
+				</xsl:if>
+				<xsl:text> </xsl:text>
 			</xsl:if>
-			<xsl:text> </xsl:text>
-		</xsl:if>
-		<xsl:for-each select="m:instrVoice[text()]">
-			<xsl:apply-templates select="."/>
-			<xsl:if test="position()&lt;last()">
-				<xsl:text>, </xsl:text>
-			</xsl:if>
-		</xsl:for-each>
-		<br/>
+			<xsl:for-each select="m:instrVoice[text()]">
+				<xsl:apply-templates select="."/>
+				<xsl:if test="position()&lt;last()">
+					<xsl:text>, </xsl:text>
+				</xsl:if>
+			</xsl:for-each>
+		</div>
 	</xsl:template>
+	
 
 	<xsl:template match="m:instrVoice">
 		<xsl:if test="@count &gt; 1">
@@ -1232,12 +1234,15 @@
 	<xsl:template match="m:castList">
 		<xsl:param name="full" select="true()"/>
 		<div class="perfmedium list_block">
-
+			
 			<div class="relation_list">
 				<xsl:if test="$full">
 					<span class="p_heading relation_list_label">Roles: </span>
 				</xsl:if>
-				<span class="relations">
+				<xsl:element name="span">
+					<xsl:if test="$full">
+						<xsl:attribute name="class">relations</xsl:attribute>
+					</xsl:if>
 					<xsl:for-each
 						select="m:castItem/m:role/m:name[count(@xml:lang[.=ancestor-or-self::m:castItem/preceding-sibling::*//@xml:lang])=0 or not(@xml:lang)]">
 						<!-- iterate over languages -->
@@ -1253,11 +1258,11 @@
 							<br/>
 						</xsl:if>
 					</xsl:for-each>
-				</span>
+				</xsl:element>
 			</div>
 		</div>
 	</xsl:template>
-
+	
 	<xsl:template match="m:castList" mode="castlist">
 		<xsl:param name="lang" select="'en'"/>
 		<xsl:param name="full" select="true()"/>
