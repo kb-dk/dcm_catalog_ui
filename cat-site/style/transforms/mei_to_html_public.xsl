@@ -2992,6 +2992,9 @@
 		<xsl:apply-templates select="." mode="entities"/>
 	</xsl:template>	
 	
+	<xsl:template match="text()[contains(.,'&amp;nbsp;')]" mode="entities">
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&amp;nbsp;'))" mode="entities"/>&#160;<xsl:apply-templates select="exsl:node-set(substring-after(.,'&amp;nbsp;'))" mode="entities"/>
+	</xsl:template>
 	<xsl:template match="text()[contains(.,'&amp;lt;')]" mode="entities">
 		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&amp;lt;'))" mode="entities"/>&#60;<xsl:apply-templates select="exsl:node-set(substring-after(.,'&amp;lt;'))" mode="entities"/>
 	</xsl:template>
