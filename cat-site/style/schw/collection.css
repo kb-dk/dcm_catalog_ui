@@ -1,15 +1,14 @@
 /* Collection-specific colors */
 body {
-    background-color: #88292f;
+    background-color: #866746;
 }
 
 /* Header and footer */
 #all {
-    background-color: #88292f;
+    background-color: #866746;
 }
 
 /* Top menu */
 #menu a:hover, #menu .selected {
-    background-color: #a84648;
+    background-color: #9c7751;
 }
-
