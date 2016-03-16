@@ -14,6 +14,8 @@ declare variable $filter:number      := request:get-parameter("itemsPerPage","20
 declare variable $filter:genre       := request:get-parameter("genre", "") cast as xs:string;
 declare variable $filter:uri         := "";
 declare variable $filter:coll        := request:get-parameter("c","") cast as xs:string;
+declare variable $filter:identifiers := doc("/db/cat-site/collections.xml");
+declare variable $filter:collection   := $filter:identifiers//*[m:title=$filter:coll]/m:identifier;
 declare variable $filter:vocabulary  := doc(concat("/db/cat-site/",$filter:coll,"/keywords.xml"));
 declare variable $filter:numnam      := doc(concat("/db/cat-site/",$filter:coll,"/select.xml"));
 declare variable $filter:scheme      := request:get-parameter("scheme", upper-case($filter:coll)) cast as xs:string;
@@ -26,6 +28,37 @@ declare function filter:print-filters(
 {
   let $notafter  := request:get-parameter("notafter","1931")
   let $notbefore := request:get-parameter("notbefore","1880")
+  let $search_help := 
+    <a class="help">?<span class="comment"> 
+      Search terms may be combined using boolean operators. Wildcards allowed. 
+      Search is case insensitive (except for boolean operators, which must be uppercase).
+      Some examples:<br/>
+      <span class="help_table">
+        <span class="help_example">
+          <span class="help_label">carl OR nielsen</span>
+          <span class="help_value">Boolean OR (default)</span>
+        </span>                        
+        <span class="help_example">
+          <span class="help_label">carl AND nielsen</span>
+          <span class="help_value">Boolean AND</span>
+        </span>
+        <span class="help_example">
+          <span class="help_label">"carl nielsen"</span>
+          <span class="help_value">Exact phrase</span>
+        </span>
+        <span class="help_example">
+          <span class="help_label">niels*</span>
+          <span class="help_value">Match any number of characters. Finds Niels, Nielsen and Nielsson<br/>
+          (use only at end of word)
+          </span>
+        </span>
+        <span class="help_example">
+          <span class="help_label">niels?n</span>
+          <span class="help_value">Match 1 character. Finds Nielsen and Nielson, but not Nielsson</span>
+        </span>
+      </span>
+    </span>
+  </a>
 
   let $filter:=
   <form action="navigation.xq" method="get" class="search" id="query_form" name="query_form">
@@ -40,37 +73,7 @@ declare function filter:print-filters(
              class="query_input" 
 	     value='{request:get-parameter("query","")}' 
 	     id="query_input"/>
-	     
-	     <a class="help">?<span class="comment"> 
-      Search terms may be combined using boolean operators. Wildcards allowed. 
-      Search is case insensitive (except for boolean operators, which must be uppercase).
-      Some examples:<br/>
-      <span class="help_table">
-        <span class="help_example">
-          <span class="help_label">carl OR nielsen</span>
-          <span class="help_value">Boolean OR (default)</span>
-        </span>                        
-        <span class="help_example">
-          <span class="help_label">carl AND nielsen</span>
-          <span class="help_value">Boolean AND</span>
-        </span>
-        <span class="help_example">
-          <span class="help_label">"carl nielsen"</span>
-          <span class="help_value">Exact phrase</span>
-        </span>
-        <span class="help_example">
-          <span class="help_label">niels*</span>
-          <span class="help_value">Match any number of characters. Finds Niels, Nielsen and Nielsson<br/>
-          (use only at end of word)
-          </span>
-        </span>
-        <span class="help_example">
-          <span class="help_label">niels?n</span>
-          <span class="help_value">Match 1 character. Finds Nielsen and Nielson, but not Nielsson</span>
-        </span>
-      </span>
-    </span>
-      </a>
+        {$search_help}
     </div>
 
     <div class="filter_block">
@@ -80,37 +83,7 @@ declare function filter:print-filters(
              class="query_input" 
 	     value='{request:get-parameter("title","")}' 
 	     id="title_input"/>
-
-      <a class="help">?<span class="comment"> 
-      Search terms may be combined using boolean operators. Wildcards allowed. 
-      Search is case insensitive (except for boolean operators, which must be uppercase).
-      Some examples:<br/>
-      <span class="help_table">
-        <span class="help_example">
-          <span class="help_label">carl OR nielsen</span>
-          <span class="help_value">Boolean OR (default)</span>
-        </span>                        
-        <span class="help_example">
-          <span class="help_label">carl AND nielsen</span>
-          <span class="help_value">Boolean AND</span>
-        </span>
-        <span class="help_example">
-          <span class="help_label">"carl nielsen"</span>
-          <span class="help_value">Exact phrase</span>
-        </span>
-        <span class="help_example">
-          <span class="help_label">niels*</span>
-          <span class="help_value">Match any number of characters. Finds Niels, Nielsen and Nielsson<br/>
-          (use only at end of word)
-          </span>
-        </span>
-        <span class="help_example">
-          <span class="help_label">niels?n</span>
-          <span class="help_value">Match 1 character. Finds Nielsen and Nielson, but not Nielsson</span>
-        </span>
-      </span>
-    </span>
-      </a>
+        {$search_help}
     </div>
 
     <div class="filter_block">
@@ -140,7 +113,7 @@ declare function filter:print-filters(
 	{
 	  for $numschema in $filter:numnam//h:div[@id="numbers"]/h:select/@id
 	  return 
-	    if(  $numschema eq request:get-parameter("scheme", "CNW")) then
+	    if(  $numschema eq request:get-parameter("scheme", $filter:collection)) then
 	      <option value="{$numschema}" selected="selected">{$numschema/string()}</option>
 	    else
 	      <option value="{$numschema}">{$numschema/string()}</option>
@@ -150,13 +123,13 @@ declare function filter:print-filters(
       let $numselectors :=
       for $nums in $filter:numnam//h:div[@id="numbers"]/h:select
 	let $nam :=
-	  if($nums/@id/string() eq request:get-parameter("scheme", "CNW")) then 
+	  if($nums/@id/string() eq request:get-parameter("scheme", $filter:collection)) then 
 	    "workno"
 	  else
 	    "noname"
 
 	let $sty :=
-	  if($nums/@id/string() eq request:get-parameter("scheme", "CNW")) then 
+	  if($nums/@id/string() eq request:get-parameter("scheme", $filter:collection)) then 
 	    "display:inline;"
 	  else
 	    "display:none;"
