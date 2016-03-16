@@ -1,0 +1,23 @@
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="2013">
+    <!-- A list of collections and the identifiers they use -->
+    <seriesStmt>
+        <title>cnw</title>
+        <identifier>CNW</identifier>
+    </seriesStmt>
+    <seriesStmt>
+        <title>hartw</title>
+        <identifier>HartW</identifier>
+    </seriesStmt>
+    <seriesStmt>
+        <title>nwgw</title>
+        <identifier>NWGW</identifier>
+    </seriesStmt>
+    <seriesStmt>
+        <title>schw</title>
+        <identifier>SchW</identifier>
+    </seriesStmt>
+    <seriesStmt>
+        <title>demo</title>
+        <identifier>Demo</identifier>
+    </seriesStmt>
+</mei>

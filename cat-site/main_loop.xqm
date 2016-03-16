@@ -11,7 +11,9 @@ declare variable $loop:sortby       := "null,work_number";
 declare variable $loop:coll         := request:get-parameter("c","") cast as xs:string;
 declare variable $loop:vocabulary   := doc(concat("/db/cat-site/",$loop:coll,"/keywords.xml"));
 
-declare variable $loop:collection   := upper-case($loop:coll);
+declare variable $loop:identifiers := doc("/db/cat-site/collections.xml");
+(:declare variable $loop:collection   := upper-case($loop:coll);:)
+declare variable $loop:collection   := $loop:identifiers//*[m:title=$loop:coll]/m:identifier;
 
 declare variable $loop:notbefore    := request:get-parameter("notbefore","") cast as xs:string;
 declare variable $loop:notafter     := request:get-parameter("notafter","") cast as xs:string;

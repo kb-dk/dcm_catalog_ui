@@ -2,9 +2,9 @@ xquery version "1.0" encoding "UTF-8";
 
 module  namespace  layout="http://kb.dk/this/app/layout";
 declare namespace  h="http://www.w3.org/1999/xhtml";
+declare namespace  m="http://www.music-encoding.org/ns/mei";
+
 declare variable $layout:coll     := request:get-parameter("c","") cast as xs:string;
-
-
 
 declare function layout:head($title as xs:string,
                              $additions as node()*,
@@ -125,7 +125,7 @@ declare function layout:page-head(
     </div>
     <h1>
     <a style="text-decoration:none;" 
-       href="http://www.kb.dk/dcm/cnw.html" 
+       href="http://www.kb.dk/dcm/{$layout:coll}.html" 
        title="{$title} – {$subtitle}">{$title}</a></h1>
     <h2><a style="text-decoration:none;" href="http://www.kb.dk/dcm/cnw.html" title="{$title} – {$subtitle}">{$subtitle}</a></h2>
   </div>
