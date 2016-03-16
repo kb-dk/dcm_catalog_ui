@@ -1700,15 +1700,22 @@
 						</xsl:element>
 					</xsl:when>
 					<xsl:otherwise>
-						<xsl:element name="{$heading_element}">
-							<xsl:if test="normalize-space($label)">
-								<xsl:value-of select="$label"/>
-							</xsl:if>
-							<xsl:apply-templates select="m:titleStmt/m:title"/>
-						</xsl:element>
+						<xsl:choose>
+							<xsl:when test="normalize-space($label)">
+								<xsl:element name="{$heading_element}">
+									<xsl:value-of select="$label"/>
+								</xsl:element>
+							</xsl:when>
+							<xsl:when test="m:titleStmt/m:title/text()">
+								<xsl:element name="{$heading_element}">
+									<xsl:apply-templates select="m:titleStmt/m:title"/>
+								</xsl:element>
+							</xsl:when>
+						</xsl:choose>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:if>
+			
 
 			<xsl:if test="m:respStmt/m:persName[text()] |
 		    m:respStmt/m:corpName[text()]">
