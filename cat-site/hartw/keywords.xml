@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classification xmlns="http://www.music-encoding.org/ns/mei" >
     <termList label="level1">
-        <term>Stag music</term>
+        <term>Stage music</term>
     </termList>
     <termList label="level2">
         <term>Opera</term>
