@@ -1,7 +1,7 @@
 xquery version "1.0" encoding "UTF-8";
 declare namespace h="http://www.w3.org/1999/xhtml";
 
-import module namespace layout="http://kb.dk/this/app/layout" at "./cnw-layout.xqm";
+import module namespace layout="http://kb.dk/this/app/layout" at "./layout.xqm";
 declare option exist:serialize "method=xml media-type=text/html;charset=UTF-8";
 declare variable $mode   := request:get-parameter("mode","about") cast as xs:string;
 

@@ -17,7 +17,7 @@ declare namespace request="http://exist-db.org/xquery/request";
 import module namespace loop="http://kb.dk/this/getlist" at "./main_loop.xqm";
 import module namespace app="http://kb.dk/this/listapp" at "./list_utils.xqm";
 import module namespace filter="http://kb.dk/this/app/filter" at "./filter_utils.xqm";
-import module namespace layout="http://kb.dk/this/app/layout" at "./cnw-layout.xqm";
+import module namespace layout="http://kb.dk/this/app/layout" at "./layout.xqm";
 
 declare option exist:serialize "method=xml media-type=text/html"; 
 

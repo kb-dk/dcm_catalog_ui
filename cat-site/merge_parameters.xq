@@ -1,6 +1,6 @@
 xquery version "1.0" encoding "UTF-8";
 
-import module namespace layout="http://kb.dk/this/app/layout" at "./cnw-layout.xqm";
+import module namespace layout="http://kb.dk/this/app/layout" at "./layout.xqm";
 
 declare option exist:serialize "method=xml media-type=text/html;charset=UTF-8";
 

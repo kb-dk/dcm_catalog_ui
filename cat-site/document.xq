@@ -1,6 +1,6 @@
 xquery version "1.0" encoding "UTF-8";
 
-import module namespace layout="http://kb.dk/this/app/layout" at "./cnw-layout.xqm";
+import module namespace layout="http://kb.dk/this/app/layout" at "./layout.xqm";
 
 declare namespace h="http://www.w3.org/1999/xhtml";
 declare namespace transform="http://exist-db.org/xquery/transform";
