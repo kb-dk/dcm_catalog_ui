@@ -106,14 +106,14 @@ declare function app:public-view-document-reference($doc as node()) as node()* {
     element span {
 	  attribute class {"alternative_language"},
 	  attribute lang {"en"},
-	  concat($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and not(@type/string())]/string()," "),
+	  concat($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and not(@type/string())][1]/string()," "),
   	  element span {
   	  attribute class {"list_subtitle"},
-	  if ($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate']/string())
+	  if ($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate'][1]/string())
 	  then 
 	     element span {
 	        element br {},
-	        $doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate']/string()
+	        $doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate'][1]/string()
 	     }
 	  else ""
 	}
