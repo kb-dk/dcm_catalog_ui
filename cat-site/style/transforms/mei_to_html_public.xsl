@@ -3195,7 +3195,7 @@
 			<xsl:apply-templates/>
 		</u>
 	</xsl:template>
-	<xsl:template match="m:rend[@rend = 'strikethrough'][text()]">
+	<xsl:template match="m:rend[@rend = 'line-through'][text()]">
 		<span style="text-decoration: line-through;">
 			<xsl:apply-templates/>
 		</span>
