@@ -1432,12 +1432,12 @@
 						>. </xsl:if>
 				</xsl:for-each>
 				<xsl:for-each select="m:corpName[text()]|
-			      m:persName[text()]">
+					m:persName[text()]">
 					<xsl:if test="position()=1"> (</xsl:if>
 					<xsl:choose>
-						<xsl:when test="@role!=preceding-sibling::*[1]/@role or position()=1">
+						<xsl:when test="@role!=preceding-sibling::*[name()='persName' or name()='corpName'][1]/@role or position()=1">
 							<xsl:choose>
-								<xsl:when test="@role=following-sibling::*[1]/@role">
+								<xsl:when test="@role=following-sibling::*[name()='persName' or name()='corpName'][1]/@role">
 									<xsl:if test="name()='persName' and normalize-space(@role)">
 										<xsl:value-of select="concat(@role,'s')"
 										/><xsl:text>: </xsl:text>
@@ -1455,9 +1455,9 @@
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:choose>
-								<xsl:when test="@role=following-sibling::*[1]/@role">
+								<xsl:when test="@role=following-sibling::*[name()='persName' or name()='corpName'][1]/@role">
 									<xsl:apply-templates select="."/>; </xsl:when>
-								<xsl:when test="not(following-sibling::*[1]/@role)">
+								<xsl:when test="not(following-sibling::*[name()='persName' or name()='corpName'][1]/@role)">
 									<xsl:apply-templates select="."/>
 								</xsl:when>
 								<xsl:otherwise>
@@ -1469,7 +1469,7 @@
 						<xsl:text>). </xsl:text>
 					</xsl:if>
 				</xsl:for-each>
-
+				
 				<xsl:for-each select="m:p[text()]">
 					<xsl:apply-templates/>
 					<xsl:text> </xsl:text>
