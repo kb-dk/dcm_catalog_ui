@@ -1181,7 +1181,7 @@
 						<xsl:if test="position()=1 and $full">
 							<span class="p_heading relation_list_label">Instrumentation: </span>
 						</xsl:if>
-						<xsl:apply-templates select="m:instrVoiceGrp"/>
+						<xsl:apply-templates select="m:instrVoiceGrp[*//text()]"/>
 						<xsl:apply-templates select="m:instrVoice[not(@solo='true')][text()]"/>
 						<xsl:if test="count(m:instrVoice[@solo='true'])&gt;0">
 							<xsl:if test="count(m:instrVoice[not(@solo='true')])&gt;0">
@@ -1200,7 +1200,7 @@
 		</xsl:apply-templates>
 	</xsl:template>
 
-	<xsl:template match="m:instrVoiceGrp[//text()]">
+	<xsl:template match="m:instrVoiceGrp[*//text()]">
 		<div>
 			<xsl:if test="m:head[text()]">
 				<xsl:value-of select="m:head"/>
