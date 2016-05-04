@@ -16,6 +16,13 @@ div.spacer div {
     width: 15px;
 }
 
+div.error {
+    background-color:#fdd;
+    border: 1px solid #faa;
+    font-size: 8pt; 
+    padding: 4px;
+}
+
 /* CSS for the filter area */
 
 div.filter {
