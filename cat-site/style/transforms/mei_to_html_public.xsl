@@ -2186,6 +2186,7 @@
 							</xsl:if>
 						</xsl:otherwise>
 					</xsl:choose>
+					<xsl:apply-templates select="m:biblScope[not(@unit) or @unit='']" mode="volumes_pages"/>
 					<xsl:if test="normalize-space(m:title[@level='s'])=''"> </xsl:if>
 				</xsl:if>. </xsl:when>
 
@@ -2247,7 +2248,8 @@
 					<xsl:if test="normalize-space(m:biblScope[@unit='page'])!=''">
 						<xsl:text>, </xsl:text>
 						<xsl:apply-templates select="m:biblScope[@unit='page']" mode="pp"/>
-					</xsl:if>. </xsl:if>
+					</xsl:if>
+					<xsl:apply-templates select="m:biblScope[not(@unit) or @unit='']" mode="volumes_pages"/>. </xsl:if>
 			</xsl:when>
 
 			<xsl:when
@@ -2278,6 +2280,7 @@
 					<xsl:if test="normalize-space(m:biblScope[@unit='page'])!=''">,
 							<xsl:apply-templates select="m:biblScope[@unit='page']" mode="pp"
 						/></xsl:if>
+					<xsl:apply-templates select="m:biblScope[not(@unit) or @unit='']" mode="volumes_pages"/>
 					<!-- if the author is given, but no article title, put the author last -->
 					<xsl:if test="not(normalize-space(m:title[@level='a'])!='') and m:author/text()">
 						<xsl:text> (</xsl:text>
@@ -2410,6 +2413,7 @@
 			</xsl:when>
 
 			<xsl:otherwise>
+				<!-- unrecognized reference types are marked with an asterisk -->
 				<xsl:if test="m:author//text()"><xsl:apply-templates select="m:author"/>: </xsl:if>
 				<xsl:if test="m:title//text()">
 					<em><xsl:apply-templates select="m:title"/></em>
@@ -2419,9 +2423,9 @@
 					<xsl:apply-templates select="m:imprint"/>
 				<xsl:if test="m:creation/m:date//text()">
 					<xsl:apply-templates select="m:creation/m:date"/></xsl:if>
-				<!-- unrecognized reference types are marked with an asterisk -->
 				<xsl:if test="m:biblScope[@unit='page']//text()">, <xsl:apply-templates
-						select="m:biblScope[@unit='page']" mode="pp"/></xsl:if>.* </xsl:otherwise>
+						select="m:biblScope[@unit='page']" mode="pp"/></xsl:if>
+				<xsl:apply-templates select="m:biblScope[not(@unit) or @unit='']" mode="volumes_pages"/>.* </xsl:otherwise>
 		</xsl:choose>
 
 		<!-- links to full text (exception: letters and diary entries handled elsewhere) -->
@@ -2627,6 +2631,12 @@
 		</xsl:for-each>
 	</xsl:template>
 
+	<xsl:template match="m:biblScope[not(@unit) or @unit='']" mode="volumes_pages">
+		<xsl:if test="preceding-sibling::*[name()='biblScope']">,</xsl:if>
+		<xsl:text> </xsl:text>
+		<xsl:value-of select="."/>		
+	</xsl:template>
+	
 	<xsl:template match="m:biblScope[@unit='page' and text()]" mode="pp">
 		<xsl:choose>
 			<xsl:when test="translate(.,' 0123456789','')!=''">pp.</xsl:when>

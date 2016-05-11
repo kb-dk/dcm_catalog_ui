@@ -29,7 +29,11 @@ where util:document-name($doc)=$document
 return $doc
 
 let $c := $list//m:fileDesc/m:seriesStmt/m:identifier[@type="file_collection"][1]/string()
-let $work_number := $list//m:meiHead/m:workDesc/m:work[1]/m:identifier[@label=$c]/string()
+(:  should be: 
+    let $work_number := $list//m:meiHead/m:workDesc/m:work[1]/m:identifier[@label=$c]/string()
+    but that sometimes (apparently randomly) returns 2 results instead of one!? 
+    so we need to use the following workaround :)
+let $work_number := $list//m:meiHead/m:workDesc/m:work[1]/m:identifier/@label[.=$c]/../string()    
 let $title := $list//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][not(@type/string())][1]/string()
 let $html := doc(concat("/db/cat-site/",$coll,"/document.html"))
 let $head_title := 
