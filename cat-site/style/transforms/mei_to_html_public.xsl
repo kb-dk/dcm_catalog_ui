@@ -24,7 +24,7 @@
 	extension-element-prefixes="exsl java" 
 	exclude-result-prefixes="m xsl exsl foo java">
 	
-	<xsl:import href="mei_to_html.xsl"/>
+	<!--<xsl:import href="mei_to_html.xsl"/>-->
 	
 	<xsl:output method="xml" encoding="UTF-8" 
 		cdata-section-elements="" 
@@ -3244,7 +3244,11 @@
 				<xsl:value-of select="@target"/>
 			</xsl:attribute>
 			<xsl:attribute name="target">
-				<xsl:value-of select="@xl:show"/>
+				<xsl:choose>
+					<xsl:when test="@xl:show='new'">_blank</xsl:when>
+					<xsl:when test="@xl:show='replace'">_self</xsl:when>
+					<xsl:otherwise><xsl:value-of select="@xl:show"/></xsl:otherwise>
+				</xsl:choose>
 			</xsl:attribute>
 			<xsl:attribute name="title">
 				<xsl:value-of select="@xl:title"/>
