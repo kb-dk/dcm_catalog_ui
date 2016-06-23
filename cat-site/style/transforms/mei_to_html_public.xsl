@@ -434,6 +434,12 @@
 					</div>
 				</xsl:if>
 			</xsl:for-each>
+			<!-- finally, list names without roles -->
+			<xsl:for-each select="m:persName[text() and (not(@role) or @role='')]">
+				<div class="list_block">
+					<xsl:apply-templates select="."/>
+				</div>
+			</xsl:for-each>
 		</p>
 	</xsl:template>
 	
