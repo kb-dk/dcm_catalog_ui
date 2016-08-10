@@ -3187,7 +3187,7 @@
 	<xsl:template match="m:lb">
 		<br/>
 	</xsl:template>
-	<xsl:template match="m:p[//text()]">
+	<xsl:template match="m:p[normalize-space(.)]">
 		<p>
 			<xsl:apply-templates/>
 		</p>
@@ -3195,37 +3195,37 @@
 	<xsl:template match="m:p[not(child::text()) and not(child::node())]">
 		<!-- ignore -->
 	</xsl:template>
-	<xsl:template match="m:rend[@fontweight = 'bold'][//text()]">
+	<xsl:template match="m:rend[@fontweight = 'bold'][normalize-space(.)]">
 		<b>
 			<xsl:apply-templates/>
 		</b>
 	</xsl:template>
-	<xsl:template match="m:rend[@fontstyle = 'italic'][//text()]">
+	<xsl:template match="m:rend[@fontstyle = 'italic'][normalize-space(.)]">
 		<i>
 			<xsl:apply-templates/>
 		</i>
 	</xsl:template>
-	<xsl:template match="m:rend[@rend = 'underline'][//text()]">
+	<xsl:template match="m:rend[@rend = 'underline'][normalize-space(.)]">
 		<u>
 			<xsl:apply-templates/>
 		</u>
 	</xsl:template>
-	<xsl:template match="m:rend[@rend = 'line-through'][//text()]">
+	<xsl:template match="m:rend[@rend = 'line-through'][normalize-space(.)]">
 		<span style="text-decoration: line-through;">
 			<xsl:apply-templates/>
 		</span>
 	</xsl:template>
-	<xsl:template match="m:rend[@rend = 'sub'][//text()]">
+	<xsl:template match="m:rend[@rend = 'sub'][normalize-space(.)]">
 		<sub>
 			<xsl:apply-templates/>
 		</sub>
 	</xsl:template>
-	<xsl:template match="m:rend[@rend = 'sup'][//text()]">
+	<xsl:template match="m:rend[@rend = 'sup'][normalize-space(.)]">
 		<sup>
 			<xsl:apply-templates/>
 		</sup>
 	</xsl:template>
-	<xsl:template match="m:rend[@fontfam or @fontsize or @color][//text()]">
+	<xsl:template match="m:rend[@fontfam or @fontsize or @color][normalize-space(.)]">
 		<xsl:variable name="atts">
 			<xsl:if test="@fontfam">
 				<xsl:value-of select="concat('font-family:',@fontfam,';')"/>
@@ -3244,7 +3244,7 @@
 			<xsl:apply-templates/>
 		</xsl:element>
 	</xsl:template>
-	<xsl:template match="m:ref[@target][//text()]">
+	<xsl:template match="m:ref[@target][normalize-space(.)]">
 		<xsl:element name="a">
 			<xsl:attribute name="href">
 				<xsl:value-of select="@target"/>
@@ -3262,7 +3262,7 @@
 			<xsl:apply-templates/>
 		</xsl:element>
 	</xsl:template>
-	<xsl:template match="m:rend[@halign][//text()]">
+	<xsl:template match="m:rend[@halign][normalize-space(.)]">
 		<xsl:element name="div">
 			<xsl:attribute name="style">text-align:<xsl:value-of select="@halign"/>;</xsl:attribute>
 			<xsl:apply-templates/>
