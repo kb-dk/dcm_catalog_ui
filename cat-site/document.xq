@@ -38,7 +38,7 @@ let $title := $list//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][not(@
 let $html := doc(concat("/db/cat-site/",$coll,"/document.html"))
 let $head_title := 
    fn:concat($title," – ",$c," ",$work_number," – ",$html//h:title/text())
-let $verovio := if($list//m:incip/m:score/* or //m:incipCode[@form='pae' or @form='PAE' or @form='plaineAndEasie']/text()) then true() else false()
+let $verovio := if($list//m:incip/m:score/* or normalize-space(//m:incipCode[@form='pae' or @form='PAE' or @form='plaineAndEasie']/text())) then true() else false()
 
 let $result :=
 <html xmlns="http://www.w3.org/1999/xhtml">

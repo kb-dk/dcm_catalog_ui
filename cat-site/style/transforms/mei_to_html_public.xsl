@@ -1,16 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!-- 
-	Conversion of MEI metadata to HTML using XSLT 1.0
-	
-	Authors: 
-	Axel Teich Geertinger & Sigfrid Lundberg
-	Danish Centre for Music Publication
-	The Royal Library, Copenhagen 2014–2016
--->
-
-
-
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:m="http://www.music-encoding.org/ns/mei" 
@@ -23,13 +11,21 @@
 	xmlns:marc="http://www.loc.gov/MARC21/slim" 
 	extension-element-prefixes="exsl java" 
 	exclude-result-prefixes="m xsl exsl foo java">
+
+
+	<!-- 
+		Conversion of MEI metadata to HTML using XSLT 1.0
+		
+		Authors: 
+		Axel Teich Geertinger & Sigfrid Lundberg
+		Danish Centre for Music Publication
+		The Royal Library, Copenhagen 2014–2016
+	-->
 	
-	<!--<xsl:import href="mei_to_html.xsl"/>-->
-	
-	<xsl:output method="xml" encoding="UTF-8" 
-		cdata-section-elements="" 
-		omit-xml-declaration="yes"/>
-	
+
+	<xsl:output method="xml" encoding="UTF-8" cdata-section-elements="" omit-xml-declaration="yes"
+		indent="no" xml:space="default"/>
+
 	<xsl:strip-space elements="*"/>
 	
 	<xsl:param name="cat" select="'cnw'"/>
@@ -99,7 +95,8 @@
 					<span class="tools noprint">
 						<a href="./download_xml.xq?doc={$doc}" title="Get this record as XML (MEI)"
 							target="_blank">
-							<img src="/dcm/cnw/style/images/xml.gif" alt="XML" border="0"/>
+							<img src="{$base_uri}/style/images/xml.gif" alt="XML" border="0"/>
+							<!--<img src="/dcm/cnw/style/images/xml.gif" alt="XML" border="0"/>-->
 						</a>
 					</span>
 				</div>
@@ -238,17 +235,17 @@
 
 			<xsl:if test="m:title[@type='original'][text()]">
 				<!-- m:title[@type='uniform'] omitted 
-	     (available for searching only, not for display - add it to the list if you want )-->
+	     		(available for searching only, not for display - add it to the list if you want)-->
 				<xsl:element name="h2">
 
 					<!-- uniform titles omitted 
-	       <xsl:for-each select="m:title[@type='uniform'][text()]">
-	       <xsl:element name="span">
-	       <xsl:call-template name="maybe_print_lang"/>
-	       <xsl:apply-templates select="."/>
-	       </xsl:element>
-	       <xsl:call-template name="maybe_print_br"/>
-	       </xsl:for-each>-->
+					<xsl:for-each select="m:title[@type='uniform'][text()]">
+						<xsl:element name="span">
+							<xsl:call-template name="maybe_print_lang"/> Uniform title:
+							<xsl:apply-templates select="."/>
+						</xsl:element>
+						<xsl:call-template name="maybe_print_br"/>
+					</xsl:for-each>-->
 
 					<xsl:for-each select="m:title[@type='original'][text()]">
 						<xsl:element name="span">
@@ -388,10 +385,10 @@
 	<xsl:template match="*" mode="settings_menu">
 		<div class="settings colophon noprint">
 			<a
-				href="javascript:loadcssfile('/dcm/cnw/style/html_hide_languages.css'); hide('load_alt_lang_css'); show('remove_alt_lang_css')"
+				href="javascript:loadcssfile('/dcm/style/html_hide_languages.css'); hide('load_alt_lang_css'); show('remove_alt_lang_css')"
 				id="load_alt_lang_css" class="noprint">Hide alternative languages</a>
 			<a style="display:none"
-				href="javascript:removecssfile('/dcm/cnw/style/html_hide_languages.css'); hide('remove_alt_lang_css'); show('load_alt_lang_css')"
+				href="javascript:removecssfile('/dcm/style/html_hide_languages.css'); hide('remove_alt_lang_css'); show('load_alt_lang_css')"
 				id="remove_alt_lang_css" class="noprint">Show alternative languages</a>
 		</div>
 	</xsl:template>
@@ -419,7 +416,7 @@
 					</xsl:if>
 				</xsl:variable>
 				<xsl:if test="count(preceding-sibling::*[@role=$role])=0">
-					<!-- one <div> per relation type -->
+					<!-- one <div> per role -->
 					<div class="list_block">
 						<span class="p_heading">
 							<xsl:value-of select="$displayed_role"/>
@@ -464,7 +461,7 @@
 		<xsl:if test="m:relation[@target!='']">
 			<p>
 				<xsl:for-each select="m:relation[@target!='']">
-					<img src="/dcm/cnw/style/images/html_link.png" title="Link to external resource"/>
+					<img src="/dcm/style/images/html_link.png" title="Link to external resource"/>
 					<xsl:element name="a">
 						<xsl:attribute name="href">
 							<xsl:apply-templates select="@target"/>
@@ -596,8 +593,16 @@
 				<xsl:value-of select="@target"/>
 			</xsl:if>
 		</xsl:variable>
-		<a href="{$href}" title="{$label}"><xsl:value-of select="$label"/></a>&#160; <xsl:if
-			test="$mermeid_crossref='true'"> <xsl:variable name="fileName"
+		<xsl:apply-templates select="." mode="relation_reference">
+			<xsl:with-param name="href"><xsl:value-of select="$href"/></xsl:with-param>
+			<xsl:with-param name="title"><xsl:value-of select="$label"/></xsl:with-param>
+			<xsl:with-param name="class"/>
+			<xsl:with-param name="text"><xsl:value-of select="$label"/></xsl:with-param>
+		</xsl:apply-templates>
+		<!--<a href="{$href}" title="{$label}"><xsl:value-of select="$label"/></a>-->&#160;<xsl:if
+			test="$mermeid_crossref='true'"> 
+			<!-- get collection name and number from linked files -->
+            <xsl:variable name="fileName"
 				select="concat($base_file_uri,'/',@target)"/> <xsl:variable name="linkedDoc"
 					select="document($fileName)"/>
 			<xsl:variable name="file_context"
@@ -622,10 +627,24 @@
 				</xsl:choose>
 			</xsl:variable>
 			<xsl:if test="normalize-space($catalogue_no)!=''">
-				<a class="work_number_reference" href="{$href}" title="{$label}"><xsl:value-of
-					select="$output"/></a>
+				<xsl:apply-templates select="." mode="relation_reference">
+					<xsl:with-param name="href"><xsl:value-of select="$href"/></xsl:with-param>
+					<xsl:with-param name="title"><xsl:value-of select="$label"/></xsl:with-param>
+					<xsl:with-param name="class">work_number_reference</xsl:with-param>
+					<xsl:with-param name="text"><xsl:value-of select="$output"/></xsl:with-param>
+				</xsl:apply-templates>
+				<!--<a class="work_number_reference" href="{$href}" title="{$label}"><xsl:value-of
+					select="$output"/></a>-->
 			</xsl:if>
 		</xsl:if>
+	</xsl:template>
+
+	<xsl:template match="*" mode="relation_reference">
+		<xsl:param name="href"/>
+		<xsl:param name="title"/>
+		<xsl:param name="class"/>
+		<xsl:param name="text"/>
+		<a href="{$href}" title="{$title}" class="{$class}"><xsl:value-of select="$text"/></a>
 	</xsl:template>
 	
 	<xsl:template name="translate_relation">
@@ -706,7 +725,6 @@
 		<xsl:if test="m:identifier/text()">
 			<p>
 				<xsl:for-each select="m:identifier[text()]">
-					<!-- tjek her (se f.eks. CNW 351) -->
 					<xsl:apply-templates select="@label"/>
 					<xsl:text> </xsl:text>
 					<xsl:value-of select="."/>
@@ -937,7 +955,6 @@
 	<xsl:template match="m:incip">
 		<xsl:for-each select="m:incipCode[text()]">
 			<p>
-				<span class="label">
 					<xsl:choose>
 						
 						<xsl:when test="@form='plaineAndEasie' or @form='PAE' or @form='pae'">
@@ -969,12 +986,11 @@
 						<xsl:otherwise>
 							<xsl:choose>
 								<xsl:when test="normalize-space(@form)"><xsl:value-of select="@form"/>: </xsl:when>
-								<xsl:otherwise>Music incipit: </xsl:otherwise>
+								<xsl:otherwise><span class="label">Music incipit: </span></xsl:otherwise>
 							</xsl:choose>
 							<xsl:apply-templates select="."/>
 						</xsl:otherwise>
 					</xsl:choose>
-				</span>
 			</p>
 		</xsl:for-each>
 		<xsl:apply-templates select="m:incipText[//text()]"/>
@@ -1179,15 +1195,28 @@
 	<!-- perfMedium templates -->
 	<xsl:template match="m:perfMedium">
 		<xsl:param name="full" select="true()"/>
-		<xsl:if test="m:instrumentation[*]">
+		<xsl:if test="m:instrumentation[* and //text()]">
 			<div class="perfmedium list_block">
 				<xsl:for-each select="m:instrumentation[*]">
+					<!-- Overall intrumentation is assumed to be defined at top expression level, not work level -->
+					<xsl:variable name="topLevelInstrumentation" 
+						select="ancestor-or-self::m:expression[local-name(../..)='work']/m:perfMedium/m:instrumentation"/>
+					<xsl:variable name="SortingValues">
+						<xsl:call-template name="makeSortList">
+							<xsl:with-param name="nodeset" select="$topLevelInstrumentation"/>
+						</xsl:call-template>
+					</xsl:variable>				
 					<div class="relation_list">
 						<xsl:if test="position()=1 and $full">
 							<span class="p_heading relation_list_label">Instrumentation: </span>
 						</xsl:if>
-						<xsl:apply-templates select="m:instrVoiceGrp[*//text()]"/>
-						<xsl:apply-templates select="m:instrVoice[not(@solo='true')][text()]"/>
+						<xsl:apply-templates select="m:instrVoiceGrp[*//text()]">
+							<xsl:with-param name="SortList" select="$SortingValues"/>
+						</xsl:apply-templates>
+						<xsl:apply-templates select="m:instrVoice[not(@solo='true')][text()]">
+							<!-- Sort instruments according to top-level list -->
+							<xsl:sort data-type="number" select="string-length(substring-before($SortingValues,concat(',',@n,',')))"/>
+						</xsl:apply-templates>
 						<xsl:if test="count(m:instrVoice[@solo='true'])&gt;0">
 							<xsl:if test="count(m:instrVoice[not(@solo='true')])&gt;0">
 								<br/>
@@ -1206,6 +1235,7 @@
 	</xsl:template>
 
 	<xsl:template match="m:instrVoiceGrp[*//text()]">
+		<xsl:param name="SortList"/>
 		<div>
 			<xsl:if test="m:head[text()]">
 				<xsl:value-of select="m:head"/>
@@ -1215,6 +1245,7 @@
 				<xsl:text> </xsl:text>
 			</xsl:if>
 			<xsl:for-each select="m:instrVoice[text()]">
+				<xsl:sort data-type="number" select="string-length(substring-before($SortList,concat(',',@n,',')))"/>			
 				<xsl:apply-templates select="."/>
 				<xsl:if test="position()&lt;last()">
 					<xsl:text>, </xsl:text>
@@ -1223,7 +1254,6 @@
 		</div>
 	</xsl:template>
 	
-
 	<xsl:template match="m:instrVoice">
 		<xsl:if test="@count &gt; 1">
 			<xsl:apply-templates select="@count"/>
@@ -1239,7 +1269,6 @@
 	<xsl:template match="m:castList">
 		<xsl:param name="full" select="true()"/>
 		<div class="perfmedium list_block">
-			
 			<div class="relation_list">
 				<xsl:if test="$full">
 					<span class="p_heading relation_list_label">Roles: </span>
@@ -1271,7 +1300,17 @@
 	<xsl:template match="m:castList" mode="castlist">
 		<xsl:param name="lang" select="'en'"/>
 		<xsl:param name="full" select="true()"/>
+		<!-- Overall cast list is assumed to be defined at top expression level, not work level -->
+		<xsl:variable name="topLevelCastList" 
+			select="ancestor-or-self::m:expression[local-name(../..)='work']/m:perfMedium/m:castList"/>
+		<xsl:variable name="SortingValues">
+			<xsl:call-template name="makeSortList">
+				<xsl:with-param name="nodeset" select="$topLevelCastList"/>
+			</xsl:call-template>
+		</xsl:variable>				
 		<xsl:for-each select="m:castItem/m:role/m:name[@xml:lang=$lang]">
+			<!-- Sort cast list according to top-level list -->
+			<xsl:sort data-type="number" select="string-length(substring-before($SortingValues,concat(',',../../@n,',')))"/>			
 			<xsl:apply-templates select="."/>
 			<xsl:if test="$full">
 				<xsl:apply-templates select="../../m:roleDesc[@xml:lang=$lang]"/>
@@ -1293,6 +1332,17 @@
 			<xsl:with-param name="full" select="false()"/>
 		</xsl:apply-templates>
 	</xsl:template>
+	
+	<xsl:template name="makeSortList">
+		<xsl:param name="nodeset"/>
+		<!-- make a list of @n values to use as a sort list for sub-level instrumentations and cast lists -->
+		<xsl:text>',</xsl:text>
+		<xsl:for-each select="$nodeset//*">
+			<xsl:value-of select="@xml:id"/><xsl:text>,</xsl:text>
+		</xsl:for-each>
+		<xsl:text>'</xsl:text>
+	</xsl:template>
+	
 	<!-- end perfMedium -->
 
 	<!-- history -->
@@ -2329,6 +2379,7 @@
 								<xsl:when test="m:creation/m:date/text()"> from </xsl:when>
 								<xsl:otherwise>From </xsl:otherwise>
 							</xsl:choose>
+							<!--<xsl:value-of select="m:author"/>-->
 							<xsl:call-template name="list_authors"/>
 						</xsl:if>
 						<xsl:if test="m:recipient/text()">
@@ -2631,10 +2682,7 @@
 			<xsl:text> </xsl:text>
 			<xsl:value-of select="."/>
 		</xsl:for-each>
-		<xsl:for-each select="m:biblScope[not(@unit)]">
-			<xsl:text> </xsl:text>
-			<xsl:value-of select="."/>
-		</xsl:for-each>
+		<xsl:apply-templates select="m:biblScope[not(@unit) or @unit='']" mode="volumes_pages"/>
 	</xsl:template>
 
 	<xsl:template match="m:biblScope[not(@unit) or @unit='']" mode="volumes_pages">
@@ -2654,7 +2702,7 @@
 
 	<!-- display external link -->
 	<xsl:template match="m:ptr[normalize-space(@target) or normalize-space(@xl:href)]">
-		<img src="/dcm/cnw/style/images/html_link.png" title="Link to external resource"/>
+		<img src="/dcm/style/images/html_link.png" title="Link to external resource"/>
 		<a target="_blank">
 			<xsl:attribute name="href">
 				<xsl:choose>
@@ -2964,7 +3012,7 @@
 			<h3 class="section_heading" id="p{$id}">
 				<span onclick="toggle('{$id}')" title="Click to show or hide">
 					<img class="noprint" id="img{$id}" border="0"
-						src="/dcm/cnw/style/images/plus.png" alt="-"/>
+						src="{$base_uri}/style/images/plus.png" alt="-"/>
 					<xsl:value-of select="concat(' ',$heading)"/>
 				</span>
 			</h3>
@@ -3081,7 +3129,7 @@
 
 	<!-- Look up abbreviations -->
 
-	<xsl:template match="m:identifier[@authority='RISM']">
+	<xsl:template match="m:identifier[@authority='RISM'][text()]">
 		<xsl:variable name="vUpper" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
 		<xsl:variable name="vLower" select="'abcdefghijklmnopqrstuvwxyz'"/>
 		<xsl:variable name="vAlpha" select="concat($vUpper, $vLower)"/>
