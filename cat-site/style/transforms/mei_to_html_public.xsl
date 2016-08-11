@@ -2051,9 +2051,7 @@
 	</xsl:template>
 
 	<xsl:template match="m:watermark[text()]">
-		<div>
-			<xsl:apply-templates/>
-		</div>
+		<div>Watermark: <xsl:apply-templates/></div>
 	</xsl:template>
 
 	<xsl:template match="m:condition[text()]">
@@ -3196,8 +3194,9 @@
 	</xsl:template>
 
 	<!-- General abbreviations in text blocks and identifier labels. -->
-	<xsl:template match="text()[name(..)!='p' and name(..)!='persName' and name(..)!='ptr' and name(..)!='ref'] 
+	<xsl:template match="text()[parent::node() and name(..)!='p' and name(..)!='persName' and name(..)!='ptr' and name(..)!='ref'] 
 		| m:identifier/@label">
+		<!-- The parent::node() check above is necessary to avoid infinite looping -->
 		<xsl:variable name="string" select="concat(' ',.,' ')"/>
 		<xsl:variable name="abbr"
 			select="$abbreviations_file/m:p/m:choice/m:abbr[contains(translate($string,';:[]()/','       '),concat(' ',.,' '))]"/>
@@ -3219,12 +3218,12 @@
 						</xsl:otherwise>
 					</xsl:choose>
 				</span></a>
-				<!--<xsl:apply-templates select="exsl:node-set(substring-after($string,$abbr))"/>-->
 				<xsl:variable name="pos2" select="number($pos1)+string-length($abbr)"/>
 				<xsl:apply-templates select="exsl:node-set(substring(.,$pos2))"/>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:value-of select="."/>
+				<!-- <apply-templates/> would cause infinite loop -->
+				<xsl:apply-templates select="exsl:node-set(string(.))"/>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
