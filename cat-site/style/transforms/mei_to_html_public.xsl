@@ -1212,6 +1212,8 @@
 						</xsl:if>
 						<xsl:apply-templates select="m:instrVoiceGrp[*//text()]">
 							<xsl:with-param name="SortList" select="$SortingValues"/>
+							<!-- Sort instrument groups according to top-level list -->
+							<xsl:sort data-type="number" select="string-length(substring-before($SortingValues,concat(',',@n,',')))"/>
 						</xsl:apply-templates>
 						<xsl:apply-templates select="m:instrVoice[not(@solo='true')][text()]">
 							<!-- Sort instruments according to top-level list -->
