@@ -255,7 +255,6 @@ table.source_component_list td.label_cell {
 	src: url('fonts/BravuraText.eot');
 	src: local('Bravura Text'), 
 	       url('fonts/BravuraText.eot?#iefix') format('embedded-opentype'),
-	       url('fonts/BravuraText.ttf') format('truetype'), 
 	       url('fonts/BravuraText.woff') format('woff'), 
 	       url('fonts/BravuraText.svg#BravuraText') format('svg');
 } 
