@@ -2326,6 +2326,12 @@
 							<xsl:with-param name="quotes" select="'false'"/>
 							<xsl:with-param name="italic" select="'true'"/>
 						</xsl:apply-templates>
+						<xsl:if
+							test="m:editor/text()">
+							<xsl:call-template name="list_editors">
+								<xsl:with-param name="mode" select="'parenthesis'"/>
+							</xsl:call-template>
+						</xsl:if>
 					</xsl:if>
 					<xsl:if test="normalize-space(m:biblScope[@unit='vol'])!=''">, <xsl:value-of
 							select="normalize-space(m:biblScope[@unit='vol'])"/></xsl:if>
@@ -2614,20 +2620,38 @@
 
 	<!-- list editors in bibliographic references -->
 	<xsl:template name="list_editors">
-		<xsl:for-each select="m:editor[text()]">
-			<xsl:call-template name="list_seperator"/>
-			<xsl:value-of select="."/>
-			<xsl:if test="position()=last()">
-				<xsl:choose>
-					<xsl:when test="position() &gt;1">
-						<xsl:text> (eds.): </xsl:text>
-					</xsl:when>
-					<xsl:otherwise>
-						<xsl:text> (ed.): </xsl:text>
-					</xsl:otherwise>
-				</xsl:choose>
-			</xsl:if>
-		</xsl:for-each>
+		<xsl:param name="mode" select="''"/>
+		<xsl:choose>
+			<xsl:when test="$mode='parenthesis'">
+				<!-- Format: (ed. Anders And) -->
+				<xsl:text> (</xsl:text>
+				<xsl:if test="position()=1">
+					<xsl:text>ed. </xsl:text>
+				</xsl:if>
+				<xsl:for-each select="m:editor[text()]">
+					<xsl:call-template name="list_seperator"/>
+					<xsl:value-of select="."/>
+				</xsl:for-each>
+				<xsl:text>)</xsl:text>
+			</xsl:when>
+			<xsl:otherwise>
+				<!-- Format: Anders And (ed.) -->
+				<xsl:for-each select="m:editor[text()]">
+					<xsl:call-template name="list_seperator"/>
+					<xsl:value-of select="."/>
+					<xsl:if test="position()=last()">
+						<xsl:choose>
+							<xsl:when test="position() &gt;1">
+								<xsl:text> (eds.): </xsl:text>
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:text> (ed.): </xsl:text>
+							</xsl:otherwise>
+						</xsl:choose>
+					</xsl:if>
+				</xsl:for-each>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 
 
