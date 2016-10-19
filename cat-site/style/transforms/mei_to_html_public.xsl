@@ -1049,27 +1049,30 @@
 
 	<xsl:template match="m:incip" mode="graphic">
 		<!-- make img tag only if a target file is specified and the path does not end with a slash -->
-		<xsl:if
-			test="normalize-space(m:graphic[@targettype='lowres']/@target) and 
-		  substring(m:graphic[@targettype='lowres']/@target,string-length(m:graphic[@targettype='lowres']/@target),1)!='/'">
+		<xsl:for-each select="m:graphic[@targettype='lowres'][normalize-space(@target) and 
+			substring(@target,string-length(@target),1)!='/']">
+			<xsl:variable name="pos" select="position()"/>
 			<p>
 				<xsl:choose>
 					<xsl:when
-						test="m:graphic[@targettype='lowres']/@target and m:graphic[@targettype='hires']/@target">
+						test="@target and 
+						count(../m:graphic[@targettype='lowres']/@target)= count(../m:graphic[@targettype='hires']/@target)">
+						<!-- enable image enlarging only if there are the same number of low and high resolution images
+							(there is currently no way of indicating which lowres image corresponds to which hires image)
+						-->
 						<a target="incipit" title="Click to enlarge image"
 							style="text-decoration: none;">
 							<xsl:attribute name="href">
-								<xsl:value-of select="m:graphic[@targettype='hires']/@target"/>
+								<xsl:value-of select="../m:graphic[@targettype='hires'][$pos]/@target"/>
 							</xsl:attribute>
-							<xsl:attribute name="onclick">window.open('<xsl:value-of
-									select="m:graphic[@targettype='hires']/@target"
-								/>','incipit','height=550,width=1250,toolbar=0,status=0,menubar=0,resizable=1,location=0,scrollbars=1');return false; </xsl:attribute>
+							<xsl:attribute name="onclick"> window.open('<xsl:value-of
+								select="../m:graphic[@targettype='hires'][$pos]/@target"/>','incipit','height=550,width=1250,toolbar=0,status=0,menubar=0,resizable=1,location=0,scrollbars=1');return false; </xsl:attribute>
 							<xsl:element name="img">
 								<xsl:attribute name="border">0</xsl:attribute>
 								<xsl:attribute name="style">text-decoration: none;</xsl:attribute>
 								<xsl:attribute name="alt"/>
 								<xsl:attribute name="src">
-									<xsl:value-of select="m:graphic[@targettype='lowres']/@target"/>
+									<xsl:value-of select="@target"/>
 								</xsl:attribute>
 							</xsl:element>
 						</a>
@@ -1086,7 +1089,7 @@
 					</xsl:otherwise>
 				</xsl:choose>
 			</p>
-		</xsl:if>
+		</xsl:for-each>
 	</xsl:template>
 
 	<!-- omit music details shown in the incipits -->
