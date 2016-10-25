@@ -447,7 +447,7 @@
 		<xsl:if test="m:relation[@target!='']">
 			<p>
 				<xsl:for-each select="m:relation[@target!='']">
-					<img src="/dcm/style/images/html_link.png" title="Link to external resource"/>
+					<img src="{$base_uri}/style/images/html_link.png" title="Link to external resource"/>
 					<xsl:element name="a">
 						<xsl:attribute name="href">
 							<xsl:apply-templates select="@target"/>
@@ -2715,7 +2715,7 @@
 
 	<!-- display external link -->
 	<xsl:template match="m:ptr[normalize-space(@target) or normalize-space(@xl:href)]">
-		<img src="/dcm/style/images/html_link.png" title="Link to external resource"/>
+		<img src="{$base_uri}/style/images/html_link.png" title="Link to external resource"/>
 		<a target="_blank">
 			<xsl:attribute name="href">
 				<xsl:choose>
