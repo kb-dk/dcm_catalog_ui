@@ -1083,7 +1083,7 @@
 							<xsl:attribute name="style">text-decoration: none;</xsl:attribute>
 							<xsl:attribute name="alt"/>
 							<xsl:attribute name="src">
-								<xsl:value-of select="m:graphic[@targettype='lowres']/@target"/>
+								<xsl:value-of select="../m:graphic[@targettype='lowres']/@target"/>
 							</xsl:attribute>
 						</xsl:element>
 					</xsl:otherwise>
