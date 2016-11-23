@@ -2054,9 +2054,9 @@
 		<xsl:for-each select="m:repository[*//text()]">
 			<!-- (RISM) identifier -->
 			<xsl:for-each select="m:identifier[text()]">
-				<span class="rism">
+				<i class="rism">
 					<xsl:apply-templates select="."/>
-				</span>
+				</i>
 			</xsl:for-each>
 			<xsl:variable name="location">
 				<!-- Repository name, Place -->
