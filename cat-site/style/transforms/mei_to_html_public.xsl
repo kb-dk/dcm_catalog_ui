@@ -2695,7 +2695,6 @@
 			<xsl:text> </xsl:text>
 			<xsl:value-of select="."/>
 		</xsl:for-each>
-		<xsl:apply-templates select="m:biblScope[not(@unit) or @unit='']" mode="volumes_pages"/>
 	</xsl:template>
 
 	<xsl:template match="m:biblScope[not(@unit) or @unit='']" mode="volumes_pages">
@@ -2706,13 +2705,14 @@
 	
 	<xsl:template match="m:biblScope[@unit='page' and text()]" mode="pp">
 		<xsl:choose>
-			<xsl:when test="translate(.,' 0123456789','')!=''">pp.</xsl:when>
+			<!-- look for separators between page numbers -->
+			<xsl:when test="contains(translate(.,' ,;-–/','¤'),'¤¤¤¤¤¤')">pp.</xsl:when>
 			<xsl:otherwise>p.</xsl:otherwise>
 		</xsl:choose>
 		<xsl:text> </xsl:text>
 		<xsl:value-of select="."/>
 	</xsl:template>
-
+	
 	<!-- display external link -->
 	<xsl:template match="m:ptr[normalize-space(@target) or normalize-space(@xl:href)]">
 		<img src="{$base_uri}/style/images/html_link.png" title="Link to external resource"/>
