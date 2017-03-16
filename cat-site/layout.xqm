@@ -38,22 +38,14 @@ declare function layout:head($title as xs:string,
        rel="stylesheet"  
        type="text/css"/>
       
-    <script type="text/javascript" src="js/confirm.js">
-      //
-    </script>
-      
     <script type="text/javascript" src="js/swap_num_type.js">
       //
     </script>
 
-    <script type="text/javascript" src="js/checkbox.js">
+    <script type="text/javascript" src="js/filter.js">
       //
     </script>
       
-    <script type="text/javascript" src="js/publishing.js">
-      //
-    </script>
-
     <script type="text/javascript" src="jquery/jquery-ui-1.10.3/js/jquery-1.9.1.js">
       //
     </script>
@@ -61,10 +53,9 @@ declare function layout:head($title as xs:string,
     <script type="text/javascript" src="jquery/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js">
       //
     </script>
-    <script type="text/javascript" src="jquery/jquery-ui-1.10.3/slider.js">
-    //
-    </script>
-
+    
+    <!-- insert slider.js script here to activate the year slider -->
+    
     <script type="text/javascript" src="js/google_analytics.js">
     //
     </script>
@@ -166,7 +157,7 @@ declare function layout:page-footer($mode as xs:string) as node()
     src="style/images/dcm_logo_small.png"
     id="dcm_logo_print"
     /></a>
-    2014–2016 Danish Centre for Music Editing | The Royal Library | P.O. Box 2149 | Copenhagen K, Denmark | <a name="www.kb.dk" id="www.kb.dk" href="http://www.kb.dk/dcm">www.kb.dk/dcm</a><br/> 
+    2014–2017 Danish Centre for Music Editing | The Royal Library | P.O. Box 2149 | Copenhagen K, Denmark | <a name="www.kb.dk" id="www.kb.dk" href="http://www.kb.dk/dcm">www.kb.dk/dcm</a><br/> 
   <span class="creativecommons" style="font-size: .65em;">
   This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>
   </span>

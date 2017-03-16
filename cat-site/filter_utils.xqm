@@ -18,6 +18,7 @@ declare variable $filter:identifiers := doc("/db/cat-site/collections.xml");
 declare variable $filter:collection   := $filter:identifiers//*[m:title=$filter:coll]/m:identifier;
 declare variable $filter:vocabulary  := doc(concat("/db/cat-site/",$filter:coll,"/keywords.xml"));
 declare variable $filter:numnam      := doc(concat("/db/cat-site/",$filter:coll,"/select.xml"));
+declare variable $filter:settings    := doc(concat("/db/cat-site/",$filter:coll,"/filter_settings.xml"));
 declare variable $filter:scheme      := request:get-parameter("scheme", upper-case($filter:coll)) cast as xs:string;
 
 declare function filter:print-filters(
@@ -26,8 +27,8 @@ declare function filter:print-filters(
   $genre           as xs:string,
   $query           as xs:string) 
 {
-  let $notafter  := request:get-parameter("notafter","1931")
-  let $notbefore := request:get-parameter("notbefore","1880")
+  let $notafter  := request:get-parameter("notafter",$filter:settings/m:mei/m:date[@type="yearSelection"]/@notafter)
+  let $notbefore := request:get-parameter("notbefore",$filter:settings/m:mei/m:date[@type="yearSelection"]/@notbefore)
   let $search_help := 
     <a class="help">?<span class="comment"> 
       Search terms may be combined using boolean operators. Wildcards allowed. 
@@ -153,11 +154,23 @@ declare function filter:print-filters(
     </div>
 
     <div class="filter_block">
-      <span class="label">Year of composition</span>    
-      <table cellpadding="0" cellspacing="0" border="0">
+      <span class="label">Year of composition</span>   
+      <input type="hidden" name="maxyear" id="maxyear" value="{string($filter:settings/m:mei/m:date/@notafter)}"/>
+      <input type="hidden" name="minyear" id="minyear" value="{string($filter:settings/m:mei/m:date/@notbefore)}"/>
+      <div>
+        Between 
+        <input id="notbefore" name="notbefore" value="{string($filter:settings/m:mei/m:date/@notbefore)}"
+        onblur="checkYearRange()"/> 
+        and 
+        <input id="notafter" name="notafter" value="{string($filter:settings/m:mei/m:date/@notafter)}"
+        onblur="checkYearRange()"/>
+      </div>
+
+      <!-- slider temporarily disabled -->  
+      <!--<table cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td style="padding-left: 0;">
-            <input id="notbefore" name="notbefore" value="{$notbefore}" onblur="setYearSlider()"/>
+            <input id="notbefore" name="notbefore" value="{string($filter:settings/m:mei/m:date/@notbefore)}" onblur="setYearSlider()"/>
           </td>
           <td>
 	    <div class="slider" id="year_slider">
@@ -167,11 +180,11 @@ declare function filter:print-filters(
           <td>
 	    <input id="notafter" 
 	    name="notafter" 
-	    value="{$notafter}" 
+	    value="{string($filter:settings/m:mei/m:date/@notafter)}" 
 	    onblur="setYearSlider()"/>
           </td>
         </tr>
-      </table>
+      </table>-->
     </div>
 
     <div class="genre_filter filter_block">
@@ -277,7 +290,7 @@ declare function filter:filter-elements()
 :)
  
   let $year_block :=
-      if(($notbefore and $notbefore!="1880") or ($notafter and $notafter!="1931")) then
+      if(($notbefore and $notbefore!=$filter:settings/m:mei/m:date[@type="yearSelection"]/@notbefore) or ($notafter and $notafter!=$filter:settings/m:mei/m:date[@type="yearSelection"]/@notafter)) then
        <a class="filter_element"
            href="{fn:replace(fn:replace(fn:replace($this_uri,'notbefore=[^&amp;]+[&amp;]?',''),'notafter=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
            Year of composition: {$notbefore}–{$notafter} 

@@ -1,7 +1,8 @@
-$(function () {
-/* instantiates the year range selection slider  */ 
-    var min_year = 1880;
-    var max_year = 1931
+$(document).ready(function () {
+/* instantiates the year range selection slider  */
+    /* some problem here: the slider seems to choke ("closestHandle is undefined") if min_year and max_year are not hardcoded */  
+    var min_year = $("#minyear").val();
+    var max_year = $("#maxyear").val();
     $("#year_slider").slider({
         range: true,
         min: min_year,
