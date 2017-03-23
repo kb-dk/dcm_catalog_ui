@@ -479,6 +479,7 @@ a:hover.abbr .expan {
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333'); 
 }
 
+
 /* genre color codes */
 
 /* main categories */
@@ -496,14 +497,17 @@ a:hover.abbr .expan {
                               
 
 /* sub-categories */
-.opera                      { background-color: #f72c8d;
+.opera                      { background-color: #ff459d;
                               color: #fff; }
 
-.incidental_music           { background-color: #c72279;
+.ballet                     { background-color: #ff83c9;;
                               color: #fff; }
 
-.ballet                     { background-color: #9c1dac;
+.incidental_music           { background-color: #9f53dd;
                               color: #fff; }
+                              
+.melodrama                   { background-color: #7169ff;
+                              color: #fff; }              
 
 .symphony                   { background-color: #4c89fe;
                               color: #fff; }

@@ -46,7 +46,7 @@ function removecssfile(filename){
     var allsuspects=document.getElementsByTagName("link");
     for (var i=allsuspects.length; i>=0; i--){ //search backwards within nodelist for matching elements to remove
   	if (allsuspects[i] && allsuspects[i].getAttribute("href")!=null && allsuspects[i].getAttribute("href").indexOf(filename)!=-1)
-	    allsuspects[i].parentNode.removeChild(allsuspects[i]) //remove element by calling parentNode.removeChild()
+ 	    allsuspects[i].parentNode.removeChild(allsuspects[i]) //remove element by calling parentNode.removeChild()
     }
 }
 

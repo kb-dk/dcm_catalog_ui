@@ -360,7 +360,7 @@ a:hover.abbr .expan {
     padding: 8px 4px 4px 4px;
     width: auto;
     max-width: 300px;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-left: -5px;
     border: 1px solid #ddd;
     font-weight:normal;
@@ -374,6 +374,19 @@ a:hover.abbr .expan {
     /* For MSIE 6-8 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333')"; 
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333'); 
+}
+
+a.ftnref {
+    font-size: .8em;
+    vertical-align: super;
+    text-decoration: underline;
+    line-height: 1em;
+    border-bottom: none;
+}
+
+a.ftnref span.expan {
+    font-size: 1.25em;
+    line-height: 1.5em;
 }
 
 div.perfmedium p { 

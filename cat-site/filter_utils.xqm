@@ -235,7 +235,8 @@ declare function filter:print-filters(
            </div>
         }
          </div>
-         
+      <!-- "song collection" filter disabled -->
+      <!--   
       <div class="filter_block anthologies">
         {     
             element input {
@@ -250,7 +251,7 @@ declare function filter:print-filters(
 	           ()
 	        }
         } <label for="idAnthologies"><span><span>&#160;</span></span>Exclude song collections</label>
-         </div>
+         </div>-->
 
 	      <div class="filter_block search_button">
             <input type="submit" value="" class="search_submit" id="search_submit" onclick="this.form.elements['page'].value = '1'; return true();"/>

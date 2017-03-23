@@ -140,16 +140,6 @@
 
 		<xsl:call-template name="body_main_content"/>
 
-		<xsl:for-each
-			select="m:meiHead/m:fileDesc/m:notesStmt/m:annot[@type='private_notes' and text()]">
-			<div class="private">
-				<div class="private_heading">[Private notes]</div>
-				<div class="private_content">
-					<xsl:apply-templates select="."/>
-				</div>
-			</div>
-		</xsl:for-each>
-
 	</xsl:template>
 
 
@@ -296,10 +286,10 @@
 	<xsl:template match="*" mode="settings_menu">
 		<div class="settings colophon noprint">
 			<a
-				href="javascript:loadcssfile('/dcm/style/html_hide_languages.css'); hide('load_alt_lang_css'); show('remove_alt_lang_css')"
+				href="javascript:loadcssfile('style/html_hide_languages.css'); hide('load_alt_lang_css'); show('remove_alt_lang_css')"
 				id="load_alt_lang_css" class="noprint">Hide alternative languages</a>
 			<a style="display:none"
-				href="javascript:removecssfile('/dcm/style/html_hide_languages.css'); hide('remove_alt_lang_css'); show('load_alt_lang_css')"
+				href="javascript:removecssfile('style/html_hide_languages.css'); hide('remove_alt_lang_css'); show('load_alt_lang_css')"
 				id="remove_alt_lang_css" class="noprint">Show alternative languages</a>
 		</div>
 	</xsl:template>
