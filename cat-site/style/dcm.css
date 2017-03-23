@@ -117,13 +117,13 @@ input[type=button] {
 }
 
 .kb_logo {
-    float: left;
-    width:auto;
-    margin: 3px 10px 0 0;
+    float: right;
+    margin: 0;
 }
 
-.kb-logo img {
+.kb_logo img {
     border: none;
+    height: 50px;
 }
 
 

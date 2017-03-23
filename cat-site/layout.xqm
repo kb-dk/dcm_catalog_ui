@@ -106,19 +106,20 @@ declare function layout:page-head(
   let $header :=
   <div id="header">
     <div class="kb_logo">
-      <a href="http://www.kb.dk" title="Det Kongelige Bibliotek"><img
+      <a href="http://www.kb.dk" title="Det Kgl. Bibliotek"><img
          id="KBLogo"
-	 title="Det Kongelige Bibliotek" 
+	 title="Det Kgl. Bibliotek" 
 	 alt="KB Logo" src="style/images/kb_white.png"/><img
 	 id="KBLogo_print"
-	 title="Det Kongelige Bibliotek" 
-	 alt="KB Logo" src="style/images/kb.png"/></a>
+	 title="Det Kgl. Bibliotek" 
+	 alt="KB Logo" src="style/images/kb.png"
+	 /></a>
     </div>
     <h1>
     <a style="text-decoration:none;" 
        href="http://www.kb.dk/dcm/{$layout:coll}.html" 
        title="{$title} – {$subtitle}">{$title}</a></h1>
-    <h2><a style="text-decoration:none;" href="http://www.kb.dk/dcm/cnw.html" title="{$title} – {$subtitle}">{$subtitle}</a></h2>
+    <h2><a style="text-decoration:none;" href="http://www.kb.dk/dcm/{$layout:coll}.html" title="{$title} – {$subtitle}">{$subtitle}</a></h2>
   </div>
 
   return $header
@@ -157,7 +158,7 @@ declare function layout:page-footer($mode as xs:string) as node()
     src="style/images/dcm_logo_small.png"
     id="dcm_logo_print"
     /></a>
-    2014–2017 Danish Centre for Music Editing | The Royal Library | P.O. Box 2149 | Copenhagen K, Denmark | <a name="www.kb.dk" id="www.kb.dk" href="http://www.kb.dk/dcm">www.kb.dk/dcm</a><br/> 
+    2014–2017 Danish Centre for Music Editing | Royal Danish Library | P.O. Box 2149 | Copenhagen K, Denmark | <a name="www.kb.dk" id="www.kb.dk" href="http://www.kb.dk/da/nb/dcm/">www.kb.dk/da/nb/dcm/</a><br/> 
   <span class="creativecommons" style="font-size: .65em;">
   This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>
   </span>
