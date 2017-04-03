@@ -148,6 +148,12 @@ declare function local:format-reference(
            <div class="filter_elements">
               {filter:filter-elements()}
            </div>
+           
+            <!-- temporary error message -->
+           <!--<div style="background-color:#faa;border: 1px solid #f88;font-size: 8pt; padding: 4px;">Please note: We are currently updating this service. Information may be temporarily missing or misplaced.<br/>
+               We apologize and hope to fix any problems within a few days.
+           </div>-->
+           
            {
              for $doc at $count in $list[position() = ($from to $to)]
              return local:format-reference($doc,$count)
