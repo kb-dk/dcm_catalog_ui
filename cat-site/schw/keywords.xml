@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classification xmlns="http://www.music-encoding.org/ns/mei" >
     <termList label="level1">
+        <term>Instrumental music</term>
+    </termList>
+    <termList label="level2">
+        <!--<term>Symphony</term>-->
+        <term>Concerto</term>
+        <term>Other orchestral music</term>
+        <term>Chamber music</term>
+        <term>Music for one instrument</term>
+    </termList>
+    <termList label="level1">
         <term>Stage music</term>
     </termList>
     <termList label="level2">
@@ -8,22 +18,12 @@
         <term>Incidental music</term>
     </termList>
     <termList label="level1">
-        <term>Instrumental music</term>
-    </termList>
-    <termList label="level2">
-        <term>Symphony</term>
-        <term>Concerto</term>
-        <term>Other orchestral music</term>
-        <term>Chamber music</term>
-        <term>Music for one instrument</term>
-    </termList>
-    <termList label="level1">
         <term>Vocal music</term>
     </termList>
     <termList label="level2">
         <term>Music for vocal soloists and instruments with or without choir</term>
         <term>Choral music with instruments</term>
-        <term>A cappella choral music</term>
+        <!--<term>A cappella choral music</term>-->
         <term>Song</term>
     </termList>          
     <termList label="keywords">
