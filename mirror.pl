@@ -26,10 +26,10 @@ my $turi      = $scheme . $target_host_port . "/exist/rest/db";
 
 my %editions  = (
 #    "gw"    => "/cat-site/gw/data",
-    "cnw"   => "/data-cnw/data",
+    "cnw"   => "/data-cnw",
 #    "schm"  => "/cat-site/schm/data",
 #    "scht"  => "/cat-site/scht/data",
-    "hartw" => "/data-hartw/data"
+    "hartw" => "/data-hartw"
     );
 
 my $source    = "/public";
