@@ -42,6 +42,14 @@ declare function loop:valid-work-number($doc as node()) as xs:boolean
   return $result
 };
 
+declare function loop:padded-numbers ($key as xs:string) as xs:string
+{
+  (: pad string values with "0"s up to a certain length to get the right sort order :)
+  let $txt := concat("00000000000000000000",$key)
+  return substring($txt,string-length($key)+1,20)
+};
+
+
 declare function loop:date-filters(
   $doc as node()) as xs:boolean
 {
@@ -142,10 +150,15 @@ declare function loop:sort-key (
       (: let $num:=$doc//m:workDesc/m:work/m:identifier[@label=$loop:collection][1]/string():)
       (: let $num:=$doc//m:workDesc/m:work/m:identifier[@label=$doc//m:fileDesc/m:seriesStmt/m:identifier[@type="file_collection"]][1]/string() :)
       (: workaround to avoid random duplicates :)
-      let $num:=$doc//m:workDesc/m:work/m:identifier/@label[.=$loop:collection]/../string()
+      
+      (: was: let $num:=$doc//m:workDesc/m:work/m:identifier/@label[.=$loop:collection]/../string() 
       let $padded_number:=concat("0000000000000000",normalize-space($num))
-      let $len:=string-length($padded_number)-14
-	return substring($padded_number,$len,15)
+      let $len:=string-length($padded_number)-14  
+	return substring($padded_number,$len,15) :)
+	   
+	   loop:padded-numbers($doc//m:workDesc/m:work/m:identifier/@label[.=$loop:collection]/../string())
+	
+	
     else 
       ""
 

@@ -104,22 +104,28 @@ declare function filter:print-filters(
 
     <div class="filter_block">
     {
+      let $defaultscheme := $filter:numnam//*[@id="scheme_selector"]/h:option[@value!=""][1]/@value/string()
 
       let $schemeselectors :=
-      (<span class="label input_label">Numbers</span>,
-      <br/>,
-      <select id="scheme_selector" 
+      if (count($filter:numnam//*[@id="scheme_selector"]/h:option[@value!=""]) eq 1) then
+        (<span class="label input_label">{$filter:numnam//*[@id="scheme_selector"]/h:option[@value!=""][1]/@value/string()} number</span>,
+        <input type="hidden" id="scheme_selector" name="scheme" value="{$defaultscheme}"/>,
+        <br/>)    
+      else
+        (<span class="label input_label">Numbers</span>,
+        <br/>,
+        <select id="scheme_selector" 
               name="scheme" 
               onchange="swap_num_type();return true;">
-	{
-	  for $numschema in $filter:numnam//h:div[@id="numbers"]/h:select/@id
-	  return 
-	    if(  $numschema eq request:get-parameter("scheme", $filter:collection)) then
-	      <option value="{$numschema}" selected="selected">{$numschema/string()}</option>
-	    else
-	      <option value="{$numschema}">{$numschema/string()}</option>
-	}
-      </select>)
+	    {
+	      for $numschema in $filter:numnam//h:div[@id="numbers"]/h:select/@id
+	      return 
+	        if(  $numschema eq request:get-parameter("scheme", $filter:collection)) then
+	          <option value="{$numschema}" selected="selected">{$numschema/string()}</option>
+	        else
+	          <option value="{$numschema}">{$numschema/string()}</option>
+	    }
+        </select>)
 
       let $numselectors :=
       for $nums in $filter:numnam//h:div[@id="numbers"]/h:select
@@ -389,8 +395,8 @@ declare function filter:print-filtered-link(
 	  "&amp;notafter=",request:get-parameter("notafter",""),
 	  "&amp;title=",request:get-parameter("title",""),
 	  "&amp;name=",request:get-parameter("name",""),
-	  "&amp;scheme=",request:get-parameter("schee",""),
-	  "&amp;workno=",request:get-parameter("schee",""),
+	  "&amp;scheme=",request:get-parameter("scheme",""),
+	  "&amp;workno=",request:get-parameter("workno",""),
 	  "&amp;genre=",fn:escape-uri($term,true()))},
 	  $term
     }
@@ -414,8 +420,8 @@ declare function filter:get-filtered-link(
 	  "&amp;notafter=",request:get-parameter("notafter",""),
 	  "&amp;title=",request:get-parameter("title",""),
 	  "&amp;name=",request:get-parameter("name",""),
-	  "&amp;scheme=",request:get-parameter("schee",""),
-	  "&amp;workno=",request:get-parameter("schee",""),
+	  "&amp;scheme=",request:get-parameter("scheme",""),
+	  "&amp;workno=",request:get-parameter("workno",""),
 	  "&amp;genre=",fn:escape-uri($term,true()))
     return $link
 };
