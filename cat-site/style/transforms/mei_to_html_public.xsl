@@ -96,8 +96,8 @@
 					<span class="tools noprint">
 						<a href="./download_xml.xq?doc={$doc}" title="Get this record as XML (MEI)"
 							target="_blank">
-							<img src="{$base_uri}/style/images/xml.gif" alt="XML" border="0"/>
-							<!--<img src="/dcm/cnw/style/images/xml.gif" alt="XML" border="0"/>-->
+							<img src="/dcm/{$cat}/style/images/xml.gif" alt="XML" border="0"/>
+							<!--<img src="{$base_uri}/style/images/xml.gif" alt="XML" border="0"/>-->
 						</a>
 					</span>
 				</div>
