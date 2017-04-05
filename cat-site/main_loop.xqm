@@ -145,7 +145,7 @@ declare function loop:sort-key (
 	  max($dates)
 	else
 	  "0000"
-    else if($key eq "work_number") then
+    else if($key eq "work_number" and $doc//m:workDesc/m:work/m:identifier/@label[.=$loop:collection]/../string()) then
       (: make the number a 15 character long string padded with zeros :)
       (: let $num:=$doc//m:workDesc/m:work/m:identifier[@label=$loop:collection][1]/string():)
       (: let $num:=$doc//m:workDesc/m:work/m:identifier[@label=$doc//m:fileDesc/m:seriesStmt/m:identifier[@type="file_collection"]][1]/string() :)
@@ -157,7 +157,6 @@ declare function loop:sort-key (
 	return substring($padded_number,$len,15) :)
 	   
 	   loop:padded-numbers($doc//m:workDesc/m:work/m:identifier/@label[.=$loop:collection]/../string())
-	
 	
     else 
       ""
