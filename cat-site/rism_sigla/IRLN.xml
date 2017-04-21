@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <collection xmlns="http://www.loc.gov/MARC21/slim">
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070462</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-Acm</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Armagh County Museum &lt;Armagh&gt;</subfield>
+            <subfield code="c">Armagh</subfield>
+            <subfield code="g">IRLN-Acm</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="u">http://www.armaghcountymuseum.org.uk</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070464</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-Ails</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Southern Education &amp; Library Board, Irish and Local Studies Libraries &lt;Armagh&gt;</subfield>
+            <subfield code="c">Armagh</subfield>
+            <subfield code="g">IRLN-Ails</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="u">http://www.selb.org</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070465</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-Apc</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">St Patrick's Church of Ireland Cathedral, Library</subfield>
+            <subfield code="c">Armagh</subfield>
+            <subfield code="g">IRLN-Apc</subfield>
+         </datafield>
+         <datafield tag="580" ind1=" " ind2=" ">
+            <subfield code="x">IRLN-Ar</subfield>
+            <subfield code="0">30070463</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="u">http://www.stpatricks-cathedral.org</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070463</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-Ar</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Armagh Public Library, Robinson Library</subfield>
+            <subfield code="c">Armagh</subfield>
+            <subfield code="g">IRLN-Ar</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Armagh Public Library, Robinson Library, 43 Abbey Street, Armagh BT61 7DY, Northern Ireland</subfield>
+            <subfield code="u">http://www.armaghrobinsonlibrary.org</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070466</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-Bcl</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Belfast Central Library - Music Library</subfield>
+            <subfield code="c">Belfast</subfield>
+            <subfield code="g">IRLN-Bcl</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Belfast Central Library - Music Library, Royal Avenue, Belfast BT1 1EA, Northern Ireland</subfield>
+            <subfield code="u">http://www.ni-libraries.net/libraries/belfast-central-library-music-library/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070467</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-Blh</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Linen Hall Library &lt;Belfast&gt;</subfield>
+            <subfield code="c">Belfast</subfield>
+            <subfield code="g">IRLN-Blh</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="u">http://www.linenhall.com</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070468</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-Bpro</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Public Record Office of Northern Ireland &lt;Belfast&gt;</subfield>
+            <subfield code="c">Belfast</subfield>
+            <subfield code="g">IRLN-Bpro</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="u">http://www.proni.gov.uk</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070469</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-Bqub</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Queen's University Belfast, The McClay Library</subfield>
+            <subfield code="c">Belfast</subfield>
+            <subfield code="g">IRLN-Bqub</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Queen's University of Belfast, Main Library</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Queen's University Belfast, The McClay, Library, 10 College Park, Belfast BT7 1LP, Northern Ireland</subfield>
+            <subfield code="u">http://www.qub.ac.uk/directorates/InformationServices/TheLibrary/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30061519</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-Bu</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Queen's University Library &lt;Belfast&gt;</subfield>
+            <subfield code="c">Belfast</subfield>
+            <subfield code="g">IRLN-Bu</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="u">http://www.qub.ac.uk</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070470</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-Bum</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Ulster Museum, Botanic Gardens &lt;Belfast&gt;</subfield>
+            <subfield code="c">Belfast</subfield>
+            <subfield code="g">IRLN-Bum</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="u">http://www.ulstermuseum.org.uk</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070471</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-Butc</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Union Theological College of the Presbyterian Church in Ireland, Gamble Library &lt;Belfast&gt;</subfield>
+            <subfield code="c">Belfast</subfield>
+            <subfield code="g">IRLN-Butc</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="u">http://www.union.ac.uk</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070479</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-CNw</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Philip B. Wilson Library, Craigavon Museum Services &lt;Craigavon&gt;</subfield>
+            <subfield code="c">Craigavon</subfield>
+            <subfield code="g">IRLN-CNw</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="u">http://www.craigavonmuseum.com</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070477</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-COuu</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Univerity of Ulster at Coleraine, Library &lt;Coleraine&gt;</subfield>
+            <subfield code="c">Coleraine</subfield>
+            <subfield code="g">IRLN-COuu</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="u">http://www.ulster.ac.uk/library</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070489</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-EKp</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Public Library &lt;Enniskillen&gt;</subfield>
+            <subfield code="c">Enniskillen</subfield>
+            <subfield code="g">IRLN-EKp</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="u">http://www.welbni.org</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070496</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-LDdr</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Derry and Raphoe Diocesan Library, Rare Books Room, Learning Resource Centre, University of Ulster at Magee College</subfield>
+            <subfield code="c">Londonderry</subfield>
+            <subfield code="g">IRLN-LDdr</subfield>
+         </datafield>
+         <datafield tag="580" ind1=" " ind2=" ">
+            <subfield code="x">IRLN-LDuu</subfield>
+            <subfield code="0">30070497</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="u">http://www.derryraphoelibrary.org</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070497</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-LDuu</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">University of Ulster at Magee College, Library</subfield>
+            <subfield code="c">Londonderry</subfield>
+            <subfield code="g">IRLN-LDuu</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">University of Ulster at Magee College,,  Library, Northland Road, Londonderry BT48 7JL, Northern Ireland</subfield>
+            <subfield code="u">http://www.ulst.ac.uk/library/magee</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30070495</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IRLN-LIm</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">IRLN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Irish Linen Centre &amp; Lisburn Museum &lt;Lisburn&gt;</subfield>
+            <subfield code="c">Lisburn</subfield>
+            <subfield code="g">IRLN-LIm</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="u">http://www.lisburn.gov.uk</subfield>
+         </datafield>
+      </record>
+   </collection>
+
