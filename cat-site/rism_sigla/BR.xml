@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collection xmlns="http://www.loc.gov/MARC21/slim">
+    <record>
+        <leader>00000nz  a2200169   4500</leader>
+        <controlfield tag="001">30078980</controlfield>
+        <controlfield tag="003">RISM</controlfield>
+        <controlfield tag="005">20160216</controlfield>
+        <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+        <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">BR-BHemb</subfield>
+        </datafield>
+        <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">BR</subfield>
+        </datafield>
+        <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Escola de Música da Universidade do Estado de Minas Gerais, Biblioteca</subfield>
+            <subfield code="c">Belo Horizonte - MG</subfield>
+            <subfield code="g">BR-BHemb</subfield>
+        </datafield>
+        <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Acervo Francisco Solano Aniceto</subfield>
+        </datafield>
+        <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Escola de Música da Universidade do,  Estado de Minas Gerais, Biblioteca, Rua Riachuelo, 1351, Belo Horizonte 30720-060, Brazil</subfield>
+            <subfield code="u">http://www.uemg.br/biblioteca.php</subfield>
+        </datafield>
+    </record>
+    <record>
+        <leader>00000nz  a2200169   4500</leader>
+        <controlfield tag="001">30080683</controlfield>
+        <controlfield tag="003">RISM</controlfield>
+        <controlfield tag="005">20160216</controlfield>
+        <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+        <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">BR-M</subfield>
+        </datafield>
+        <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XD-BR</subfield>
+        </datafield>
+        <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Museu da Música de Mariana</subfield>
+            <subfield code="c">Mariana</subfield>
+            <subfield code="g">BR-M</subfield>
+        </datafield>
+        <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Museu da Música de Mariana, Rua Cônego Amando 161, Mariana, MG 35420-000, Brazil</subfield>
+            <subfield code="u">http://www.mmmariana.com.br/</subfield>
+        </datafield>
+    </record>
+    <record>
+        <leader>00000nz  a2200169   4500</leader>
+        <controlfield tag="001">30078979</controlfield>
+        <controlfield tag="003">RISM</controlfield>
+        <controlfield tag="005">20160216</controlfield>
+        <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+        <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">BR-OPbec</subfield>
+        </datafield>
+        <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">BR</subfield>
+        </datafield>
+        <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Banda Euterpe Cachoeirense - Acervo de Documentos Musicais</subfield>
+            <subfield code="c">Ouro Preto - MG</subfield>
+            <subfield code="g">BR-OPbec</subfield>
+        </datafield>
+        <datafield tag="580" ind1=" " ind2=" ">
+            <subfield code="x">BR-OPmi</subfield>
+            <subfield code="0">30076525</subfield>
+        </datafield>
+    </record>
+    <record>
+        <leader>00000nz  a2200169   4500</leader>
+        <controlfield tag="001">30076525</controlfield>
+        <controlfield tag="003">RISM</controlfield>
+        <controlfield tag="005">20160216</controlfield>
+        <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+        <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">BR-OPmi</subfield>
+        </datafield>
+        <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XD-BR</subfield>
+        </datafield>
+        <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Museu da Incofidência, Biblioteca e Arquivo Histórico</subfield>
+            <subfield code="c">Ouro Preto - MG</subfield>
+            <subfield code="g">BR-OPmi</subfield>
+        </datafield>
+        <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Coleção Anália Esteves Ribas</subfield>
+        </datafield>
+        <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Coleção Família Gesteira</subfield>
+        </datafield>
+        <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Coleção Joaquim Nunes de Carvalho</subfield>
+        </datafield>
+        <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Coleção Cacilda Coeli Clímaco</subfield>
+        </datafield>
+        <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Coleção José Luiz Pompeu da Silva</subfield>
+        </datafield>
+        <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Coleção Arquivo Público Mineiro</subfield>
+        </datafield>
+        <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Coleção Francisco Curt Lange</subfield>
+        </datafield>
+        <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Museu da Incofidência, Biblioteca e,  Arquivo Histórico, Anexo III (Casa do Pilar), Rua do Pilar, 76, Ouro Preto - MG, Brazil</subfield>
+            <subfield code="u">http://www.museudainconfidencia.gov.br/interno.php?pg=museu</subfield>
+        </datafield>
+    </record>
+    <record>
+        <leader>00000nz  a2200169   4500</leader>
+        <controlfield tag="001">30000462</controlfield>
+        <controlfield tag="003">RISM</controlfield>
+        <controlfield tag="005">20160216</controlfield>
+        <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+        <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">BR-Rem</subfield>
+        </datafield>
+        <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XD-BR</subfield>
+        </datafield>
+        <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Escola Nacional de Música da Universidade do Brasil</subfield>
+            <subfield code="c">Rio de Janeiro</subfield>
+            <subfield code="g">BR-Rem</subfield>
+        </datafield>
+        <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Escola de Música, Universidade Federal do Rio de Janeiro</subfield>
+        </datafield>
+        <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Escola Nacional de Música da, Universidade do Brasil, Rio de Janeiro, Brasilien</subfield>
+        </datafield>
+    </record>
+    <record>
+        <leader>00000nz  a2200169   4500</leader>
+        <controlfield tag="001">30000463</controlfield>
+        <controlfield tag="003">RISM</controlfield>
+        <controlfield tag="005">20160216</controlfield>
+        <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+        <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">BR-Rn</subfield>
+        </datafield>
+        <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XD-BR</subfield>
+        </datafield>
+        <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Biblioteca Nacional</subfield>
+            <subfield code="c">Rio de Janeiro</subfield>
+            <subfield code="g">BR-Rn</subfield>
+        </datafield>
+        <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Biblioteca Nacional, Rio de Janeiro, Brasilien</subfield>
+        </datafield>
+    </record>
+    <record>
+        <leader>00000nz  a2200169   4500</leader>
+        <controlfield tag="001">30002602</controlfield>
+        <controlfield tag="003">RISM</controlfield>
+        <controlfield tag="005">20160216</controlfield>
+        <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+        <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">BR-Rsa</subfield>
+        </datafield>
+        <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XD-BR</subfield>
+        </datafield>
+        <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Santo Antonio</subfield>
+            <subfield code="c">Rio de Janeiro</subfield>
+            <subfield code="g">BR-Rsa</subfield>
+        </datafield>
+        <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Santo Antonio, Rio de Janeiro, Brasilien</subfield>
+        </datafield>
+    </record>
+    <record>
+        <leader>00000nz  a2200169   4500</leader>
+        <controlfield tag="001">30002603</controlfield>
+        <controlfield tag="003">RISM</controlfield>
+        <controlfield tag="005">20160216</controlfield>
+        <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+        <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">BR-Rsb</subfield>
+        </datafield>
+        <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XD-BR</subfield>
+        </datafield>
+        <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Mosteiro de São Bento</subfield>
+            <subfield code="c">Rio de Janeiro</subfield>
+            <subfield code="g">BR-Rsb</subfield>
+        </datafield>
+        <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Mosteiro de São Bento, Rio de Janeiro, Brasilien</subfield>
+        </datafield>
+    </record>
+    <record>
+        <leader>00000nz  a2200169   4500</leader>
+        <controlfield tag="001">30002604</controlfield>
+        <controlfield tag="003">RISM</controlfield>
+        <controlfield tag="005">20160216</controlfield>
+        <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+        <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">BR-SPc</subfield>
+        </datafield>
+        <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XD-BR</subfield>
+        </datafield>
+        <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Conservatório Dramático e Musical &lt;São Paulo&gt;</subfield>
+            <subfield code="c">São Paulo</subfield>
+            <subfield code="g">BR-SPc</subfield>
+        </datafield>
+        <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Conservatório Dramático e Musical, São Paulo, Brasilien</subfield>
+        </datafield>
+    </record>
+    <record>
+        <leader>00000nz  a2200169   4500</leader>
+        <controlfield tag="001">30006177</controlfield>
+        <controlfield tag="003">RISM</controlfield>
+        <controlfield tag="005">20160216</controlfield>
+        <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+        <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">BR-SPeca</subfield>
+        </datafield>
+        <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Laboratório de Musicologio do Departamento de Música da Escola de Comunicação e Artes da Universidade de São Paulo</subfield>
+            <subfield code="c">São Paulo</subfield>
+            <subfield code="g">BR-SPeca</subfield>
+        </datafield>
+    </record>
+    <record>
+        <leader>00000nz  a2200169   4500</leader>
+        <controlfield tag="001">30002605</controlfield>
+        <controlfield tag="003">RISM</controlfield>
+        <controlfield tag="005">20160216</controlfield>
+        <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+        <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">BR-SPm</subfield>
+        </datafield>
+        <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XD-BR</subfield>
+        </datafield>
+        <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Biblioteca Pública Municipal</subfield>
+            <subfield code="c">São Paulo</subfield>
+            <subfield code="g">BR-SPm</subfield>
+        </datafield>
+        <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Biblioteca Pública Municipal, São Paulo, Brasilien</subfield>
+        </datafield>
+    </record>
+</collection>
+
+

@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <collection xmlns="http://www.loc.gov/MARC21/slim">
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003873</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IND-AHgs</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XB-IN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Gujarat Vidya Sabha Collection</subfield>
+            <subfield code="c">Ahmedabad</subfield>
+            <subfield code="g">IND-AHgs</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003874</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IND-ALma</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XB-IN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Maulana Azad Library</subfield>
+            <subfield code="c">Al¯igarh</subfield>
+            <subfield code="g">IND-ALma</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Maulana Azad Library, Al¯igarh</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003875</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IND-BAop</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XB-IN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Khuda Bakhsh, Oriental Public Library</subfield>
+            <subfield code="c">Bankipore</subfield>
+            <subfield code="g">IND-BAop</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Khuda Bakhsh, Oriental Public Library, IND-Bankipore</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003877</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IND-Bci</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XB-IN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">K. R. Cama Oriental Institute and Library (Mulla Firuz)</subfield>
+            <subfield code="c">Bombay</subfield>
+            <subfield code="g">IND-Bci</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005695</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IND-BHma</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XB-IN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Bibliothèque de Mowl¯an¯a ¯Az¯ad ou Hamidiyya</subfield>
+            <subfield code="c">Bhop¯al</subfield>
+            <subfield code="g">IND-BHma</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Bibliothèque de Mowl¯an¯a ¯Az¯ad ou, Hamidiyya, IND-Bhop¯al</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003876</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IND-BIl</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XB-IN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Bihar Library</subfield>
+            <subfield code="c">Bihar</subfield>
+            <subfield code="g">IND-BIl</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Bihar Library, IND-Bihar</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003878</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IND-Bu</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XB-IN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">University if Mumbai, Library &lt;Bombay&gt;</subfield>
+            <subfield code="c">Bombay</subfield>
+            <subfield code="g">IND-Bu</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">University of Bombay</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="u">http://www.mu.ac.in</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003879</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IND-CA</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XB-IN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Bibliothèque de Cachemire</subfield>
+            <subfield code="c">Kashm¯ir</subfield>
+            <subfield code="g">IND-CA</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Bibliothèque de Cachemire et Bhopal</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003880</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IND-Cas</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XB-IN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Asiatic Society Library</subfield>
+            <subfield code="c">Calcutta</subfield>
+            <subfield code="g">IND-Cas</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Asiatic Society Library, IND-Calcutta</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003881</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IND-Co</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XB-IN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Libraries of the King of Oudh</subfield>
+            <subfield code="c">Calcutta</subfield>
+            <subfield code="g">IND-Co</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003883</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IND-Has</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XB-IN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Asafiyah State Library (State Central Library)</subfield>
+            <subfield code="c">Hyderabad</subfield>
+            <subfield code="g">IND-Has</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">State Central Library</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003884</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IND-Hsm</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XB-IN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Salar Jung Museum &amp; Library</subfield>
+            <subfield code="c">Hyderabad</subfield>
+            <subfield code="g">IND-Hsm</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003885</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IND-Ln</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XB-IN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Bibliothèque de Nadwat al-'Ulam¯a</subfield>
+            <subfield code="c">Lucknow</subfield>
+            <subfield code="g">IND-Ln</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Bibliothèque de Nadwat al-'Ulam¯a, IND-Lucknow</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003886</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IND-MAgo</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XB-IN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Government Oriental Mss. Library</subfield>
+            <subfield code="c">Madras</subfield>
+            <subfield code="g">IND-MAgo</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003887</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">IND-MYot</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XB-IN</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Oriental Library of Tippoo Sultan</subfield>
+            <subfield code="c">Mysore</subfield>
+            <subfield code="g">IND-MYot</subfield>
+         </datafield>
+      </record>
+   </collection>
+ 
