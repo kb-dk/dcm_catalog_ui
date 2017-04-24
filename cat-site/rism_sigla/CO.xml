@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collection xmlns="http://www.loc.gov/MARC21/slim">
+    <record>
+        <leader>00000nz  a2200169   4500</leader>
+        <controlfield tag="001">30000560</controlfield>
+        <controlfield tag="003">RISM</controlfield>
+        <controlfield tag="005">20160216</controlfield>
+        <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+        <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">CO-B</subfield>
+        </datafield>
+        <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XD-CO</subfield>
+        </datafield>
+        <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Archivo de la Catedral</subfield>
+            <subfield code="c">Bogotá</subfield>
+            <subfield code="g">CO-B</subfield>
+        </datafield>
+    </record>
+    <record>
+        <leader>00000nz  a2200169   4500</leader>
+        <controlfield tag="001">30080294</controlfield>
+        <controlfield tag="003">RISM</controlfield>
+        <controlfield tag="005">20160216</controlfield>
+        <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+        <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">CO-Bbn</subfield>
+        </datafield>
+        <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">CO</subfield>
+        </datafield>
+        <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Biblioteca Nacional de Colombia - Centro de Documentación Musical</subfield>
+            <subfield code="c">Bogotá</subfield>
+            <subfield code="g">CO-Bbn</subfield>
+        </datafield>
+        <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Biblioteca Nacional de Colombia - Centro,  de Documentación Musical, Calle 24, No. 5 – 60, Bogotá, Colombia</subfield>
+            <subfield code="u">http://www.bibliotecanacional.gov.co/content/centro-de-documentaci%C3%B3n-musical-1</subfield>
+        </datafield>
+    </record>
+</collection>
+

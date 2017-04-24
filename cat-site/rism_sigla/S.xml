@@ -1,0 +1,1869 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <collection xmlns="http://www.loc.gov/MARC21/slim">
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002126</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-A</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Ingesunds musikhögskola</subfield>
+            <subfield code="c">Arvika</subfield>
+            <subfield code="g">S-A</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Folkliga Musikskolan</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Ingesunds musikhögskola, 671 91 Arvika, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000151</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-B</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Skoklosters slott</subfield>
+            <subfield code="c">Bålsta</subfield>
+            <subfield code="g">S-B</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Slotts Biblioteket</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Skoklosters slott, 746 95 Bålsta, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005606</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-BO</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Orkesterföreningens arkiv</subfield>
+            <subfield code="c">Borlänge</subfield>
+            <subfield code="g">S-BO</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Orkesterföreningens arkiv, c/o Borlänge musikskola, 781 81 Borlänge, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006076</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-BOSa</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Borås Stadsarkiv</subfield>
+            <subfield code="c">Borås</subfield>
+            <subfield code="g">S-BOSa</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Borås Stadsarkiv, Sparregatan 20, 50180 Borås, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000152</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-E</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">St. Iliansskolan, Biblioteket</subfield>
+            <subfield code="c">Enköping</subfield>
+            <subfield code="g">S-E</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Samrealskolans Arkiv</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Läroverksbiblioteket</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Högre Allmänna Läroverket</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">St. Iliansskolan, Biblioteket, Fjärdhundragatan 14, 745 34 Enköping, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002127</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-ES</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Stads- och länsbiblioteket</subfield>
+            <subfield code="c">Eskilstuna</subfield>
+            <subfield code="g">S-ES</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stadsbiblioteket</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Stads- och länsbiblioteket, Kriebsensgatan 4, 632 20 Eskilstuna, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002128</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-F</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Dalarnas museum</subfield>
+            <subfield code="c">Falun</subfield>
+            <subfield code="g">S-F</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Dalarnas museum, Stigaregatan 2-4, 791 21 Falun, Sweden</subfield>
+            <subfield code="u">http://www.dalarnasmuseum.se/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004129</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Ga</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Landsarkivet</subfield>
+            <subfield code="c">Göteborg</subfield>
+            <subfield code="g">S-Ga</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Landsarkivet, Box 3009, 400 10  Göteborg, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002133</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-GÄ</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Vasaskolan, Biblioteket</subfield>
+            <subfield code="c">Gävle</subfield>
+            <subfield code="g">S-GÄ</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Högre Allmänna Läroverket</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Vasaskolan, Biblioteket, Norra Kunsgatan 15, 803 20  Gävle, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004128</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Gd</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Dialekt-, ortnamns- och folkminnesarkivet i Göteborg</subfield>
+            <subfield code="c">Göteborg</subfield>
+            <subfield code="g">S-Gd</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Dialekt-, ortnamns- och,  folkminnesarkivet i Göteborg, Vallgatan 22, 411 16  Göteborg, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002129</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Gem</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Etnografiska museet</subfield>
+            <subfield code="c">Göteborg</subfield>
+            <subfield code="g">S-Gem</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Etnografiska museet, Norra Hamngatan 12, 4114 Göteborg, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002130</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Ghl</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Hvitfeldtska Högre allmänna läroverket</subfield>
+            <subfield code="c">Göteborg</subfield>
+            <subfield code="g">S-Ghl</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Hvitfeldtska Läroverkets bibliotek</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Latinläroverk or Högre Elementarläroverket</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Göteborgs Kgl. Gymnasium</subfield>
+         </datafield>
+         <datafield tag="580" ind1=" " ind2=" ">
+            <subfield code="x">S-Gu</subfield>
+            <subfield code="0">30000205</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002132</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Ghm</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Stadsmuseum</subfield>
+            <subfield code="c">Göteborg</subfield>
+            <subfield code="g">S-Ghm</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Historiska museet</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004130</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Gsa</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Göteborgs stadsarkiv med folkrörelsernas arkiv</subfield>
+            <subfield code="c">Göteborg</subfield>
+            <subfield code="g">S-Gsa</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Göteborgs stadsarkiv med folkrörelsernas,  arkiv, Haga kyrkoplan, 411 23 Göteborg, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000205</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Gu</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Universitetsbiblioteket</subfield>
+            <subfield code="c">Göteborg</subfield>
+            <subfield code="g">S-Gu</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stadsbiblioteket</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Universitetsbiblioteket, Box 5096, Renströmsgatan 4, 40222 Göteborg 5, Sweden</subfield>
+            <subfield code="u">http://www.ub.gu.se/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002136</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-HÄ</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Murberget Länsmuseet Västernorrland&#xD;
+</subfield>
+            <subfield code="c">Härnösand</subfield>
+            <subfield code="g">S-HÄ</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Murberget Länsmuseet Västernorrland&#xD;
+, Murbergsvägen 31, 871 21 Härnösand, Sweden</subfield>
+            <subfield code="u">http://www.murberget.se</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004131</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-HÄa</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Landsarkivet</subfield>
+            <subfield code="c">Härnösand</subfield>
+            <subfield code="g">S-HÄa</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Landsarkivet, Box 161, 871 24 Härnösand, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002134</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Hfryklund</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Daniel Fryklunds samling</subfield>
+            <subfield code="c">Helsingborg</subfield>
+            <subfield code="g">S-Hfryklund</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">D. Daniel Fryklund, private collection</subfield>
+         </datafield>
+         <datafield tag="580" ind1=" " ind2=" ">
+            <subfield code="x">S-Skma</subfield>
+            <subfield code="0">30002153</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002137</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-HÖ</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Biblioteket</subfield>
+            <subfield code="c">Höör</subfield>
+            <subfield code="g">S-HÖ</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Enningers samling</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Biblioteket, Friluftsvägen 13, 243 30 Höör, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002135</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Hs</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Stadsbiblioteket</subfield>
+            <subfield code="c">Helsingborg</subfield>
+            <subfield code="g">S-Hs</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Stadsbiblioteket, Bollbrogatan 1, 252 25 Helsingborg, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002138</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-HU</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Kyrkoarkivet</subfield>
+            <subfield code="c">Hudiksvall</subfield>
+            <subfield code="g">S-HU</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Kyrkoarkivet, Box 1022, 824 11 Hudiksvall, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000200</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-J</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Per Brahegymnasiet, Biblioteket</subfield>
+            <subfield code="c">Jönköping</subfield>
+            <subfield code="g">S-J</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Högre Allmänna Läroverket Biblioteket</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Per Brahegymnasiet, Biblioteket, Residensgatan 7, 553 16 Jönköping, Sweden</subfield>
+            <subfield code="u">http://www.pb.edu.jonkoping.se</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000242</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-K</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Gymnasie- och stiftsbiblioteket i Stadtsbiblioteket</subfield>
+            <subfield code="c">Kalmar</subfield>
+            <subfield code="g">S-K</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Läroverksbiblioteket</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stifts- och Läroverksbiblioteket</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stagneliusskolan</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Gymnasie- och stiftsbiblioteket i,  Stadtsbiblioteket, Box 610, 391 26 Kalmar, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002139</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-KA</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Folkrörelsernas arkiv för Värmland</subfield>
+            <subfield code="c">Karlstad</subfield>
+            <subfield code="g">S-KA</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stifts- och Läroverksbiblioteket</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stadsbiblioteket</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Folkrörelsernas arkiv för Värmland, Box 162, 651 05 Karlstad, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002140</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-KAT</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Stadsbiblioteket</subfield>
+            <subfield code="c">Katrineholm</subfield>
+            <subfield code="g">S-KAT</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Stadsbiblioteket, Box 90, 641 21 Katrineholm, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002141</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-KH</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Karlshamns museum, biblioteket</subfield>
+            <subfield code="c">Karlshamn</subfield>
+            <subfield code="g">S-KH</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Karlshamns museum, Vinkelgatan 8, 374 38  Karlshamn, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000199</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-KK</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Blekinge Museum</subfield>
+            <subfield code="c">Karlskrona</subfield>
+            <subfield code="g">S-KK</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Blekinge Museum, Borgmästargatan 21, 371 35  Karlskrona, Sweden</subfield>
+            <subfield code="u">http://www.blekingemuseum.se</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000221</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Klm</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Läns Museum</subfield>
+            <subfield code="c">Kalmar</subfield>
+            <subfield code="g">S-Klm</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Country Museum</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Läns Museum, Skeppsbrogatan, Ångkvarnen, Box 104, 391 21 Kalmar, Sweden</subfield>
+            <subfield code="u">http://www.kalmarlansmuseum.se</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002142</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-KÖ</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Köpings museum</subfield>
+            <subfield code="c">Köping</subfield>
+            <subfield code="g">S-KÖ</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Köpings museum, Östra Långgatan 37, 731 30 Köping, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000153</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-L</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Universitetsbiblioteket</subfield>
+            <subfield code="c">Lund</subfield>
+            <subfield code="g">S-L</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Universitetsbiblioteket, Box 3, Helgonabacken, 221 00 Lund, Sweden</subfield>
+            <subfield code="u">http://www.ub.lu.se/collections/sheet-music</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002145</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-LB</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Privatsammlung De Geer</subfield>
+            <subfield code="c">Leufsta Bruk</subfield>
+            <subfield code="g">S-LB</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">De Geer private collection</subfield>
+         </datafield>
+         <datafield tag="580" ind1=" " ind2=" ">
+            <subfield code="x">S-Uu</subfield>
+            <subfield code="0">30000253</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002143</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Lbarnekow</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Bibliothek der Akademischen Kapelle, Sammlung Barnekow</subfield>
+            <subfield code="c">Lund</subfield>
+            <subfield code="g">S-Lbarnekow</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Barnekow private collection</subfield>
+         </datafield>
+         <datafield tag="580" ind1=" " ind2=" ">
+            <subfield code="x">S-L</subfield>
+            <subfield code="0">30000153</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000206</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-LI</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Stiftsbiblioteket i Stadsbiblioteket</subfield>
+            <subfield code="c">Linköping</subfield>
+            <subfield code="g">S-LI</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stifts- och Landsbiblioteket</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stifts- och Läroverksbiblioteket</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Stiftsbiblioteket i Stadsbiblioteket, Box 1984, 581 19 Linköping, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004132</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-LJU</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Ljusdals Hembygdsmuseum</subfield>
+            <subfield code="c">Ljusdal</subfield>
+            <subfield code="g">S-LJU</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Ljusdals Hembygdsmuseum, Kyrkogatan 26, 827 00 Ljusdal, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000204</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-LUnm</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Norrbottens museum</subfield>
+            <subfield code="c">Luleå</subfield>
+            <subfield code="g">S-LUnm</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Norrbottens Museum (Solanders notbok)</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Norrbottens museum, Box 266, Storgatan 2, 951 08 Luleå, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002147</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-M</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Stadsarkivet</subfield>
+            <subfield code="c">Malmö</subfield>
+            <subfield code="g">S-M</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stadsbiblioteket</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Stadsarkivet, Isbergs gata 13, 211 19 Malmö, Sweden</subfield>
+            <subfield code="u">http://www.malmo.se/stadsarkivet</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000154</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-N</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Stadsbiblioteket</subfield>
+            <subfield code="c">Norrköping</subfield>
+            <subfield code="g">S-N</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Stadsbiblioteket, Box 2113, Södra Promenaden 105, 600 02  Norrköping, Sweden</subfield>
+            <subfield code="u">http://www.nsb.norrkoping.se/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006077</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Na</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Stadsarkiv</subfield>
+            <subfield code="c">Norrköping</subfield>
+            <subfield code="g">S-Na</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Stadsarkiv, 60181 Norrköping, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004133</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-NY</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Församling</subfield>
+            <subfield code="c">Nybro</subfield>
+            <subfield code="g">S-NY</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Församling, Box 124, 382 00  Nybro, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005833</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-NYK</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Kommunala musikskolan</subfield>
+            <subfield code="c">Nyköping</subfield>
+            <subfield code="g">S-NYK</subfield>
+         </datafield>
+         <datafield tag="580" ind1=" " ind2=" ">
+            <subfield code="x">S-Skma</subfield>
+            <subfield code="0">30002153</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002148</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Ö</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Höskolan</subfield>
+            <subfield code="c">Örebro</subfield>
+            <subfield code="g">S-Ö</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Karolinska Läroverkets Bibliotek</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Karolinska skolan, Biblioteket</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Karolinska Läroverket</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Höskolan, Fakultetsgatan, 701 82 Örebro, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002149</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-ÖS</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Jämtlands läns bibliotek</subfield>
+            <subfield code="c">Östersund</subfield>
+            <subfield code="g">S-ÖS</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Jämtlands läns bibliotek, Rådhusgatan 25-27, 831 80  Östersund, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004127</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-ÖSa</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Landsarkivet</subfield>
+            <subfield code="c">Östersund</subfield>
+            <subfield code="g">S-ÖSa</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Landsarkivet, Arkivgatan 1, 831 31 Östersund, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30078562</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Östa</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Stadsarkivet</subfield>
+            <subfield code="c">Örebro</subfield>
+            <subfield code="g">S-Östa</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Stadsarkivet, Kaserngården 4, 70365 Örebro, Sweden</subfield>
+            <subfield code="u">http://www.orebro.se/stadsarkiv/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004134</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Salb</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Arkivet för ljud och bild</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Salb</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Arkivet för ljud och bild, Box 27 890, 115 93 Stockholm, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005848</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Sata</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Antikvarisk-Topografiska arkivet</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Sata</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002150</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Sdt</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Drottningholms teatermuseum</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Sdt</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Drottningholms teatermuseum, Box 27050, 102 51 Stockholm, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000252</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Sfo</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Frimurare orden, Biblioteket</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Sfo</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Frimurare orden, Biblioteket, Blasieholmsgatan 6, 111 48 Stockholm, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002151</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Sic</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Svensk musik</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Sic</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">STIMS Informationscentral för Svensk Musik</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Swedish Music Information Center</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Informations Central för Svensk Musik</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Svensk musik, Box 1539, Tegnérlunden 3, 11185 Stockholm, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002158</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-SK</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Stifts- och landsbiblioteket</subfield>
+            <subfield code="c">Skara</subfield>
+            <subfield code="g">S-SK</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Stifts- och landsbiblioteket, Box 194, Prubbatorget 1, 532 23 Skara, Sweden</subfield>
+            <subfield code="u">http://www.skara.se</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002152</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Sk</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Kungliga biblioteket</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Sk</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Kungliga biblioteket, Box 5039, Humlegården, 10241 Stockholm 5, Sweden</subfield>
+            <subfield code="u">http://www.kb.se/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000292</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Ska</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Krigsarkivet</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Ska</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Krigsarkivet, Banérgatan 64, 115 88  Stockholm, Sweden</subfield>
+            <subfield code="u">http://www.ra.se/kra</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003151</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Skam</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Kammararkivet</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Skam</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Kammararkivet, Baltiska Fogderäkenskaper</subfield>
+         </datafield>
+         <datafield tag="580" ind1=" " ind2=" ">
+            <subfield code="x">S-Sr</subfield>
+            <subfield code="0">30003741</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002108</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-SKl</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Läroverkets Musikbibliotek</subfield>
+            <subfield code="c">Skara</subfield>
+            <subfield code="g">S-SKl</subfield>
+         </datafield>
+         <datafield tag="580" ind1=" " ind2=" ">
+            <subfield code="x">S-SK</subfield>
+            <subfield code="0">30002158</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002153</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Skma</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Musik- och teaterbiblioteket</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Skma</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Statens Musiksamlingar</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Kungliga Musikaliska Akademiens Biblioteket</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Musik- och teaterbiblioteket, Box 16 326, Torsgatan 19, 103 26 Stockholm, Sweden</subfield>
+            <subfield code="u">http://www.muslib.se/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004135</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Skva</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Kungl. Vitterhets-, historie- och antikvitetsakademien</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Skva</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Kungl. Vitterhets-, historie- och,  antikvitetsakademien, Box 5622, 114 86 Stockholm, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002159</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-SKvm</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Skaraborgs länsmuseum</subfield>
+            <subfield code="c">Skara</subfield>
+            <subfield code="g">S-SKvm</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Västergötlands Museum</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000254</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Sm</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Musikmuseet</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Sm</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Musikhistoriska Museet, Biblioteket</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Musikmuseet, Sibyllegatan 2, Box 16326, 103 26 Stockholm, Sweden</subfield>
+            <subfield code="u">http://stockholm.music.museum/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002154</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Smf</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Stiftelsen Musikkulturens främjande</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Smf</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Stiftelsen Musikkulturens främjande, Riddergatan 35-37, 114 57 Stockholm, Sweden</subfield>
+            <subfield code="u">http://www.nydahlcoll.se/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002155</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Sn</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Nordiska museet, Arkivet</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Sn</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Nordiska Museet, Biblioteket</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Skandinavsk-Etnografiska Samlingen</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Nordiska museet, Arkivet, Linnégatan 89 t.v., 115 93 Stockholm, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004112</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-So</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Operan, Biblioteket</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-So</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Operan, Biblioteket, Box 16 094, 103 22 Stockholm, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003741</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Sr</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Riksarkivet</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Sr</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Riksarkivet, Box 12541, 102 29 Stockholm, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004121</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Ssa</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Stadsarkiv</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Ssa</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Stadsarkiv, Box 22063, 104 22 Stockholm, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002156</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Ssr</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Sveriges radio, Musikbiblioteket</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Ssr</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Radiotjänst</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Sveriges radio, Musikbiblioteket, Box 955, Oxenstiernsgatan 20, 10510  Stockholm, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000081</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-St</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Kungliga teaterns bibliotek</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-St</subfield>
+         </datafield>
+         <datafield tag="580" ind1=" " ind2=" ">
+            <subfield code="x">S-Skma</subfield>
+            <subfield code="0">30002153</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002160</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-STd</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Domkyrkobiblioteket</subfield>
+            <subfield code="c">Strängnäs</subfield>
+            <subfield code="g">S-STd</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Domkyrkobiblioteket, Klostergatan 10, 645 30 Strängnäs, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002157</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Stk</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Tyska kyrkan</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Stk</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Deutsche Kirche</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Tyska kyrkan, Svartmangatan 16, 111 29 Stockholm, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000155</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-STr</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Roggebiblioteket</subfield>
+            <subfield code="c">Strängnäs</subfield>
+            <subfield code="g">S-STr</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stifts- och Landsbiblioteket</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stifts- och Läroverksbiblioteket</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Roggebiblioteket, Box 167, Lektorsgatan 4, 645 23 Strängnäs, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002161</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-STt</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Thomasgymnasiet</subfield>
+            <subfield code="c">Strängnäs</subfield>
+            <subfield code="g">S-STt</subfield>
+         </datafield>
+         <datafield tag="580" ind1=" " ind2=" ">
+            <subfield code="x">S-STr</subfield>
+            <subfield code="0">30000155</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004122</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Sva</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Svenskt visarkiv</subfield>
+            <subfield code="c">Stockholm</subfield>
+            <subfield code="g">S-Sva</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Svenskt visarkiv, Hagagatan 23 A, 113 47 Stockholm, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004123</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Ua</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Landsarkivet</subfield>
+            <subfield code="c">Uppsala</subfield>
+            <subfield code="g">S-Ua</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Landsarkivet, Box 135, 751 04 Uppsala, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004124</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Ud</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Dialekt- och folkminnesarkivet</subfield>
+            <subfield code="c">Uppsala</subfield>
+            <subfield code="g">S-Ud</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Dialekt- och folkminnesarkivet, Box 1743, 751 47 Uppsala, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002163</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Uifm</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Institutionen för musikvetenskap</subfield>
+            <subfield code="c">Uppsala</subfield>
+            <subfield code="g">S-Uifm</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Institutionen för musikforskning</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Institutionen för Musikforskning vid Uppsala Universitet</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Institutionen för musikvetenskap, Övre Slottsgatan 6, 753 10  Uppsala, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000253</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Uu</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Universitetsbibliotek, Carolina Rediviva</subfield>
+            <subfield code="c">Uppsala</subfield>
+            <subfield code="g">S-Uu</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Universitetsbibliotek, Carolina Rediviva, Box 510, Dag Hammarskjölds väg 1, 751 20 Uppsala, Sweden</subfield>
+            <subfield code="u">http://www.ub.uu.se/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002164</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-V</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Stadsbibliotek</subfield>
+            <subfield code="c">Västerås</subfield>
+            <subfield code="g">S-V</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stifts- och Läroverksbiblioteket</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stifts- och Landsbiblioteket</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Librarium Cathedralis, Bibliotheca Templi et Consistorii Cathedralis</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Västerås Gamla Gymnasiebiblioteket</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Stadsbibliotek, Biskopsgatan 2, 721 87 Västerås, Sweden</subfield>
+            <subfield code="u">http://www.bibliotek.vasteras.se/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004125</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-VAa</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Landsarkivet</subfield>
+            <subfield code="c">Vadstena</subfield>
+            <subfield code="g">S-VAa</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Landsarkivet, Box 126, 592 22 Vadstena, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002165</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-VIl</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Landsarkivet</subfield>
+            <subfield code="c">Visby</subfield>
+            <subfield code="g">S-VIl</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Landsarkivet, Broväg 27, 621 41 Visby, Sweden</subfield>
+            <subfield code="u">http://www.statensarkiv.se/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002166</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-VIs</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Gotlands länsbibliotek</subfield>
+            <subfield code="c">Visby</subfield>
+            <subfield code="g">S-VIs</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stadsbiblioteket</subfield>
+         </datafield>
+         <datafield tag="580" ind1=" " ind2=" ">
+            <subfield code="x">S-Skma</subfield>
+            <subfield code="0">30002153</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30004126</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-Vsa</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Stadsarkivet med folkrörelsearkivet</subfield>
+            <subfield code="c">Västerås</subfield>
+            <subfield code="g">S-Vsa</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Stadsarkivet med folkrörelsearkivet, 721 87 Västerås, Sweden</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002167</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">S-VX</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-SE</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Stadsbibliotek</subfield>
+            <subfield code="c">Växjö</subfield>
+            <subfield code="g">S-VX</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Landsbiblioteket</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stifts- och Gymnasiebiblioteket</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Stifts- och Landsbiblioteket</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Stadsbibliotek, Västra Esplanaden 7, 351 12 Växjö, Sweden</subfield>
+            <subfield code="u">http://www.vaxjo.se/VaxjoTemplates/Public/Pages/Page.aspx?id=7944</subfield>
+         </datafield>
+      </record>
+   </collection>
+
