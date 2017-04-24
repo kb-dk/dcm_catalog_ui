@@ -83,15 +83,15 @@ declare function local:format-reference(
            </div>
        
    let $date_output :=
-     if($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notbefore!='' or $doc//m:workDesc/m:work/m:history/m:creation/m:date/@notafter!=''
-       or $doc//m:workDesc/m:work/m:history/m:creation/m:date/@startdate!='' or $doc//m:workDesc/m:work/m:history/m:creation/m:date/@enddate!='') then
-       concat(substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notbefore,1,4),
-       substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@startdate,1,4),
+     if($doc//m:workDesc/m:work/m:creation/m:date/@notbefore!='' or $doc//m:workDesc/m:work/m:creation/m:date/@notafter!=''
+       or $doc//m:workDesc/m:work/m:creation/m:date/@startdate!='' or $doc//m:workDesc/m:work/m:creation/m:date/@enddate!='') then
+       concat(substring($doc//m:workDesc/m:work/m:creation/m:date/@notbefore,1,4),
+       substring($doc//m:workDesc/m:work/m:creation/m:date/@startdate,1,4),
        '-',
-       substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@enddate,1,4),
-       substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notafter,1,4))
+       substring($doc//m:workDesc/m:work/m:creation/m:date/@enddate,1,4),
+       substring($doc//m:workDesc/m:work/m:creation/m:date/@notafter,1,4))
      else
-       substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@isodate,1,4)
+       substring($doc//m:workDesc/m:work/m:creation/m:date/@isodate,1,4)
 
 (: Composer currently not used :)
    let $composer :=
@@ -124,7 +124,7 @@ declare function local:format-reference(
 
 <html xmlns="http://www.w3.org/1999/xhtml">
    {layout:head($html//h:title/text(),(<link rel="stylesheet" type="text/css" href="style/public_list_style.css"/>),false())}
-    <body class="list_files">
+    <body class="list_files" onload="initialize();">
     
       <div id="all">
       {layout:page-head-doc($html)}
