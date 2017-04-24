@@ -10,6 +10,8 @@ declare function dat:not_before() as xs:integer {
       return 1880
     else if ($d:coll = "hartw") then
       return 1805
+    else if ($d:coll = "nwgw") then
+      return 1817
     else if (contains($d:coll,"sch")) then
       return 1708
 
@@ -23,6 +25,8 @@ declare function dat:not_after() as xs:integer {
       return 1931
     else if ($d:coll = "hartw") then
       return 1900
+    else if ($d:coll = "nwgw") then
+      return 1890
     else if (contains($d:coll,"sch")) then
       return 1776
 

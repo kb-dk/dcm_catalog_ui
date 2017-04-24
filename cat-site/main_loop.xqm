@@ -55,21 +55,21 @@ declare function loop:date-filters(
 {
   let $get_notbefore:= request:get-parameter("notbefore","")
   let $notbefore := 
-    if(fn:number($get_notbefore) > 1880) then
+    if(fn:number($get_notbefore) > 0) then
         fn:number($get_notbefore)
     else
         0
 
   let $get_notafter := request:get-parameter("notafter","")
   let $notafter := 
-    if(fn:number($get_notafter) < 1931) then
+    if(fn:number($get_notafter) < 2100) then
         fn:number($get_notafter)
     else
         9999
                 
 
   let $date := 
-    for $d in $doc//m:workDesc/m:work/m:history/m:creation/m:date
+    for $d in $doc//m:workDesc/m:work/m:creation/m:date
       return $d
     
   let $earliest := 
@@ -134,11 +134,7 @@ declare function loop:sort-key (
       replace(lower-case($doc//m:workDesc/m:work[@analog="frbr:work"]/m:titleStmt[1]/m:title[1]/string()),"\\\\ ","")
     else if($key eq "date") then
       let $dates := 
-          for $date in $doc//m:workDesc
-	    /m:work
-            /m:history
-	    /m:creation
-	    /m:date/(@notafter|@isodate|@notbefore|@startdate|@enddate)
+          for $date in $doc//m:workDesc/m:work/m:creation/m:date/(@notafter|@isodate|@notbefore|@startdate|@enddate)
 	    return substring($date,1,4)
       return 
 	if(count($dates)>=1) then
