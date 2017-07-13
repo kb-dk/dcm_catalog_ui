@@ -1802,7 +1802,7 @@
 
 			<!-- source location and identifiers -->
 			<xsl:for-each
-				select="m:physLoc[m:repository//text() or m:identifier/text() or m:ptr/@target]">
+				select="m:physLoc[m:repository//text() or m:identifier/text() or m:provenance//text() or m:ptr/@target]">
 				<div>
 					<xsl:apply-templates select="."/>
 				</div>
