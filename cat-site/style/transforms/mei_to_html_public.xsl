@@ -219,7 +219,7 @@
 			</xsl:apply-templates>
 			<!-- work-level performances  -->
 			<xsl:apply-templates
-				select="m:meiHead/m:workDesc/m:work/m:history[m:eventList[@type='performances']//text()]"
+				select="m:meiHead/m:workDesc/m:work/m:history[m:eventList[@type='performances']/m:event/*/text()]"
 				mode="performances"/>
 		</xsl:if>
 
@@ -234,11 +234,11 @@
 				select="m:meiHead/m:fileDesc/m:sourceDesc[normalize-space(*//text()) or m:source/@target!='']"/>
 			<!-- work-level performances -->
 			<xsl:apply-templates
-				select="m:meiHead/m:workDesc/m:work/m:history[m:eventList[@type='performances']//text()]"
+				select="m:meiHead/m:workDesc/m:work/m:history[m:eventList[@type='performances']/m:event/*/text()]"
 				mode="performances"/>
 			<!-- Performances entered at expression level displayed at work level if only one expression -->
 			<xsl:apply-templates
-				select="m:meiHead/m:workDesc/m:work/m:expressionList/m:expression/m:history[m:eventList[@type='performances']//text()]"
+				select="m:meiHead/m:workDesc/m:work/m:expressionList/m:expression/m:history[m:eventList[@type='performances']/m:event/*/text()]"
 				mode="performances"/>
 		</xsl:if>
 
@@ -295,6 +295,7 @@
 	</xsl:template>
 
 	<xsl:template match="m:meiHead/m:workDesc/m:work/m:titleStmt">
+		<!--  Work title -->
 		<xsl:if test="m:title[@type='main' or not(@type)][text()]">
 			<xsl:for-each select="m:title[@type='main' or not(@type)][text()]">
 				<xsl:variable name="lang" select="@xml:lang"/>
@@ -335,15 +336,26 @@
 				</xsl:for-each>
 			</xsl:for-each>
 		</xsl:if>
-		<!-- don't forget alternative titles in other languages than the main title(s) -->
+		<!-- don't forget subtitles/alternative titles in other languages than the main title(s) -->
+		<xsl:for-each select="m:title[@type='subordinate' and text()]">
+			<xsl:variable name="lang" select="@xml:lang"/>
+			<xsl:if
+				test="not(../m:title[(@type='main' or not(@type)) and text() and @xml:lang=$lang])">
+				<h2 class="subtitle">
+					<span class="alternative_language">
+						<xsl:apply-templates select="."/>
+					</span>
+					</h2>
+			</xsl:if>
+		</xsl:for-each>
 		<xsl:for-each select="m:title[@type='alternative' and text()]">
 			<xsl:variable name="lang" select="@xml:lang"/>
 			<xsl:if
 				test="not(../m:title[(@type='main' or not(@type)) and text() and @xml:lang=$lang])">
 				<xsl:element name="h2">
 					<xsl:element name="span">
-						<xsl:call-template name="maybe_print_lang"/>([<xsl:value-of
-							select="$lang"/>]: <xsl:apply-templates select="."/>)</xsl:element>
+						<xsl:call-template name="maybe_print_lang"/>(<!--[--><xsl:value-of
+							select="$lang"/><!--]: --><xsl:apply-templates select="."/>)</xsl:element>
 					<xsl:call-template name="maybe_print_br"/>
 				</xsl:element>
 			</xsl:if>
@@ -716,7 +728,7 @@
 		<xsl:if test="m:meter[normalize-space(concat(@count,@unit,@sym))]">
 			<xsl:apply-templates select="m:meter"/>
 		</xsl:if>
-		<xsl:apply-templates select="m:key[normalize-space(concat(@pname,@accid,@mode))]"/>
+		<xsl:apply-templates select="m:key[normalize-space(concat(@pname,@accid,@mode,string(.)))]"/>
 		<xsl:apply-templates select="m:extent"/>
 		<xsl:apply-templates select="m:incip"/>
 		<!-- external relation links -->
@@ -794,7 +806,7 @@
 		</xsl:if>
 		<!-- version performances -->
 		<xsl:if test="count(../m:expression)&gt;1">
-			<xsl:apply-templates select="m:history[m:eventList[@type='performances']//text()]"
+			<xsl:apply-templates select="m:history[m:eventList[@type='performances']/m:event/*/text()]"
 				mode="performances"/>
 		</xsl:if>
 	</xsl:template>
@@ -832,7 +844,7 @@
 		<xsl:if test="m:meter[normalize-space(concat(@count,@unit,@sym))]">
 			<xsl:apply-templates select="m:meter"/>
 		</xsl:if>
-		<xsl:apply-templates select="m:key[normalize-space(concat(@pname,@accid,@mode))]"/>
+		<xsl:apply-templates select="m:key[normalize-space(concat(@pname,@accid,@mode,string(.)))]"/>
 		<xsl:apply-templates select="m:extent"/>
 		<xsl:apply-templates select="m:incip"/>
 		<xsl:apply-templates select="m:titleStmt/m:respStmt[m:persName]"/>
@@ -1108,7 +1120,7 @@
 		</xsl:if>
 	</xsl:template>-->
 
-	<xsl:template match="m:key[@pname or @accid or @mode]">
+	<xsl:template match="m:key[@pname or @accid or @mode or text()]">
 		<p>
 			<span class="label">Key: </span>
 			<xsl:value-of select="translate(@pname,'abcdefgh','ABCDEFGH')"/>
@@ -1364,7 +1376,7 @@
 
 	<!-- performances -->
 	<xsl:template match="m:history" mode="performances">
-		<xsl:if test="m:eventList[@type='performances']//text()">
+		<xsl:if test="m:eventList[@type='performances']/m:event/*/text()">
 			<xsl:apply-templates select="." mode="fold_section">
 				<xsl:with-param name="id" select="concat('history',generate-id(.),position())"/>
 				<xsl:with-param name="heading">Performances</xsl:with-param>
@@ -2684,7 +2696,7 @@
 	<xsl:template match="m:biblScope[@unit='page' and text()]" mode="pp">
 		<xsl:choose>
 			<!-- look for separators between page numbers -->
-			<xsl:when test="contains(translate(.,' ,;-–/','¤'),'¤¤¤¤¤¤')">pp.</xsl:when>
+			<xsl:when test="contains(translate(normalize-space(.),' ,;-–/','¤¤¤¤¤¤'),'¤')">pp.</xsl:when>
 			<xsl:otherwise>p.</xsl:otherwise>
 		</xsl:choose>
 		<xsl:text> </xsl:text>
@@ -2827,7 +2839,7 @@
 			</xsl:if>
 			<xsl:if test="position()&gt;1 or $preferred_found&gt;0">
 				<br/>
-				<span class="alternative_language">[<xsl:value-of select="@xml:lang"/>:]
+				<span class="alternative_language"><!--[--><xsl:value-of select="@xml:lang"/><!--:]-->
 						<xsl:apply-templates select="."/></span>
 			</xsl:if>
 		</xsl:if>
