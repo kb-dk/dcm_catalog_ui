@@ -32,6 +32,7 @@ declare variable $loop:workno       := request:get-parameter("workno", "") cast 
 
 declare function loop:valid-work-number($doc as node()) as xs:boolean
 {
+  (: this is CNW-specific and can be safely ignored; returns true in all other contexts :)
   let $exclude := request:get-parameter("anthologies", "")
   let $result  := 
     if($loop:collection eq "CNW") then
@@ -47,9 +48,14 @@ declare function loop:valid-work-number($doc as node()) as xs:boolean
 
 declare function loop:padded-numbers ($key as xs:string) as xs:string
 {
-  (: pad string values with "0"s up to a certain length to get the right sort order :)
-  let $txt := concat("00000000000000000000",$key)
-  return substring($txt,string-length($key)+1,20)
+  (: extract any trailing number :)
+  let $number:= replace($key,'^.*?(\d*)$','$1')
+  (: and anything that might be before the number :)
+  let $prefix:= replace($key,'^(.*?)\d*$','$1')
+  (: make the number a 15 character long string padded with zeros :)
+  let $padded_number:=concat("0000000000000000",normalize-space($number))
+  let $len:=string-length($padded_number)-14
+  return concat($prefix,substring($padded_number,$len,15))
 };
 
 
