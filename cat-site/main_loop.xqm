@@ -5,6 +5,7 @@ declare namespace fn="http://www.w3.org/2005/xpath-functions";
 declare namespace m="http://www.music-encoding.org/ns/mei";
 declare namespace ft="http://exist-db.org/xquery/lucene";
 declare namespace util="http://exist-db.org/xquery/util";
+declare namespace filter="http://kb.dk/this/app/filter";
 
 declare variable $loop:sortby       := "null,work_number";
 
@@ -17,6 +18,8 @@ declare variable $loop:collection   := $loop:identifiers//*[m:title=$loop:coll]/
 
 declare variable $loop:notbefore    := request:get-parameter("notbefore","") cast as xs:string;
 declare variable $loop:notafter     := request:get-parameter("notafter","") cast as xs:string;
+declare variable $loop:minyear      := request:get-parameter("minyear",$filter:settings/m:mei/m:date[@type="yearSelection"]/@notbefore) cast as xs:integer;
+declare variable $loop:maxyear      := request:get-parameter("maxyear",$filter:settings/m:mei/m:date[@type="yearSelection"]/@notafter) cast as xs:integer;
 declare variable $loop:query_string := request:get-parameter("query","");
 declare variable $loop:page         := request:get-parameter("page","1") cast as xs:integer;
 declare variable $loop:number       := request:get-parameter("itemsPerPage","20") cast as xs:integer;
@@ -55,21 +58,21 @@ declare function loop:date-filters(
 {
   let $get_notbefore:= request:get-parameter("notbefore","")
   let $notbefore := 
-    if(fn:number($get_notbefore) > 1880) then
+    if(fn:number($get_notbefore) > 0) then
         fn:number($get_notbefore)
     else
         0
 
   let $get_notafter := request:get-parameter("notafter","")
   let $notafter := 
-    if(fn:number($get_notafter) < 1931) then
+    if(fn:number($get_notafter) < 2100) then
         fn:number($get_notafter)
     else
         9999
                 
 
   let $date := 
-    for $d in $doc//m:workDesc/m:work/m:history/m:creation/m:date
+    for $d in $doc//m:workDesc/m:work/m:creation/m:date
       return $d
     
   let $earliest := 
@@ -80,7 +83,7 @@ declare function loop:date-filters(
     else if ($date/@isodate/string()) then
       fn:number(substring($date/@isodate/string(),1,4))
     else
-      1000
+      $loop:minyear
 
   let $latest   := 
     if($date/@notafter/string()) then
@@ -90,7 +93,7 @@ declare function loop:date-filters(
     else if ($date/@isodate/string()) then 
       fn:number(substring($date/@isodate/string(),1,4))
     else
-      2500
+      $loop:maxyear
 
       
   let $inside := (($earliest>=$notbefore and $earliest<=$notafter) or ($latest>=$notbefore and $latest<=$notafter))       
@@ -134,11 +137,7 @@ declare function loop:sort-key (
       replace(lower-case($doc//m:workDesc/m:work[@analog="frbr:work"]/m:titleStmt[1]/m:title[1]/string()),"\\\\ ","")
     else if($key eq "date") then
       let $dates := 
-          for $date in $doc//m:workDesc
-	    /m:work
-            /m:history
-	    /m:creation
-	    /m:date/(@notafter|@isodate|@notbefore|@startdate|@enddate)
+          for $date in $doc//m:workDesc/m:work/m:creation/m:date/(@notafter|@isodate|@notbefore|@startdate|@enddate)
 	    return substring($date,1,4)
       return 
 	if(count($dates)>=1) then
@@ -183,7 +182,7 @@ declare function loop:getlist (
 	  and
 	  (not($loop:name)  or ft:query(.//m:recipient|.//m:author|.//m:persName,concat('&quot;',$loop:name,'&quot;')))
 	  and
-	  (not($loop:workno)
+	  (not($loop:workno) 
 	       or .//m:identifier[ft:query(@label,$loop:scheme) and ft:query(.,concat('&quot;',$loop:workno,'&quot;'))] )]
       where 
 	loop:genre-filter($genre,$doc) and 
