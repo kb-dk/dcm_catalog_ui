@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Various controlled lists for CNW</title>
+    <title>Various controlled lists for SchW</title>
     <script src="js/swap_num_type.js" type="application/javascript">
       //
     </script>
@@ -24,7 +24,6 @@
         <option value="Johann Christoph Friedrich Bach">Bach, Johann Christoph Friedrich</option>
         <option value="Johann Sebastian Bach">Bach, Johann Sebastian</option>
         <option value="Johann Michael Baldauff">Baldauff, Johann Michael</option>
-        <option value="C.F. Becker">Becker, C.F.</option>
         <option value="Carl Ferdinand Becker">Becker, Carl Ferdinand</option>
         <option value="Gottfried Behrndt">Behrndt, Gottfried</option>
         <option value="Peter Benary">Benary, Peter</option>
@@ -57,6 +56,8 @@
         <option value="Robert Michael Cammarota">Cammarota, Robert Michael</option>
         <option value="Cervantes">Cervantes</option>
         <option value="Crown Prince Christian">Christian, Crown Prince</option>
+        <option value="Christian VI">Christian VI, King</option>
+        <option value="Christian VII">Christian VII, King</option>
         <option value="Johann Christian">Christian, Johann</option>
         <option value="Christine Sophie of Brandenburg-Kulmbach">Christine Sophie of Brandenburg-Kulmbach</option>
         <option value="Christine Sophie of Braunschweig-Wolfenbüttel-Bevern">Christine Sophie of Braunschweig-Wolfenbüttel-Bevern</option>
@@ -82,7 +83,8 @@
         <option value="Frederick the Great">Frederick II, King (Frederick the Great)</option>
         <option value="Friedrich II ">Friedrich II</option>
         <option value="Crown Prince Frederik">Frederik, Crown Prince</option>
-        <option value="King Frederik">Frederik, King</option>
+        <option value="Frederik V">Frederik V, King</option>
+        <option value="Frederik VI">Frederik VI, King</option>
         <option value="Friedrich Ernst von Brandenburg-Kulmbach">Friedrich
           Ernst of Brandenburg-Kulmbach</option>
         <option value="Aage Friis">Friis, Aage</option>
@@ -225,7 +227,6 @@
         <option value="Jean Racine">Racine, Jean</option>
         <option value="Karl Wilhelm Ramler">Ramler, Karl Wilhelm</option>
         <option value="Vilhelm Carl Ravn">Ravn, Vilhelm Carl</option>
-        <option value="Lorenz Reerslev">Reerslev, Lorenz</option>
         <option value="Lorenz Christian Reerslev">Reerslev, Lorenz Christian</option>
         <option value="Elias Caspar Reichard">Reichard, Elias Caspar</option>
         <option value="Reichardt">Reichardt</option>
@@ -245,7 +246,6 @@
         <option value="Paolo Scalabrini">Scalabrini, Paolo</option>
         <option value="Christoph Schaffrath">Schaffrath, Christoph</option>
         <option value="Gerhard Schaft">Schaft, Gerhard</option>
-        <option value="Gerhard Schaft?">Schaft?, Gerhard</option>
         <option value="Claus Nielsen Schall">Schall, Claus Nielsen</option>
         <option value="Christian Friedrich">Scheibe, Christian Friedrich</option>
         <option value="Johann Scheibe ">Scheibe, Johann</option>
@@ -277,7 +277,6 @@
         <option value="Johann Friedrich Struensee">Struensee, Johann Friedrich</option>
         <option value="Gottfried Heinrich Stölzel">Stölzel, Gottfried Heinrich</option>
         <option value="Johann Georg Sulzer">Sulzer, Johann Georg</option>
-        <option value="Crown Prince Gustav of Sweden">Sweden, Crown Prince Gustav of</option>
         <option value="Sønnichsen">Sønnichsen</option>
         <option value="Georg Philipp Telemann">Telemann, Georg Philipp</option>
         <option value="Ludvig Fabritius Tengnagel">Tengnagel, Ludvig Fabritius</option>
@@ -293,18 +292,9 @@
         <option value="Trier">Trier</option>
         <option value="Turno">Turno</option>
         <option value="G. Umstatt">Umstatt, G.</option>
-        <option value="Frederik V">V, Frederik</option>
-        <option value="King Frederik V">V, King Frederik</option>
-        <option value="Christian VI">VI, Christian</option>
-        <option value="Frederik VI">VI, Frederik</option>
-        <option value="King Christian VI">VI, King Christian</option>
-        <option value="Christian VII">VII, Christian</option>
-        <option value="King Christian VII">VII, King Christian</option>
         <option value="Prince Vilhelm of Hesse-Cassel">Vilhelm, Prince of Hesse-Cassel</option>
         <option value="Prince Wilhelm of Hesse-Cassel">Wilhelm, Prince of Hesse-Cassel</option>
-        <option value="Princess Vilhelmine Caroline">Vilhelmine Caroline, Princess</option>
-        <option value="Princess Vilhelmine Caroline of Denmark">Vilhelmine
-          Caroline, Princess of Denmark</option>
+        <option value="Princess Vilhelmine Caroline">Vilhelmine Caroline, Princess of Denmark</option>
         <option value="Leopoldo di Villati">Villati, Leopoldo di</option>
         <option value="Antonio Vivaldi's">Vivaldi's, Antonio</option>
         <option value="Antonio Vivaldi">Vivaldi, Antonio</option>
