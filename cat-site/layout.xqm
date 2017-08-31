@@ -24,11 +24,11 @@ declare function layout:head($title as xs:string,
           href="style/dcm.css" 
 	  rel="stylesheet" />
 
+   {$additions}
+
     <link type="text/css" 
           href="style/{$layout:coll}/collection.css" 
 	  rel="stylesheet" />
-
-   {$additions}
 
     <link href="jquery/jquery-ui-1.10.3/css/base/jquery-ui.css" 
        rel="stylesheet" 
