@@ -159,7 +159,6 @@ declare function layout:page-footer($mode as xs:string) as node()
     id="dcm_logo_print"
     /></a>
     2014–2017 Danish Centre for Music Editing | Royal Danish Library | P.O. Box 2149 | Copenhagen K, Denmark | <a name="www.kb.dk" id="www.kb.dk" href="http://www.kb.dk/en/nb/dcm/">www.kb.dk/en/nb/dcm/</a> 
-  </span>
   </div>
 
   return $footer
