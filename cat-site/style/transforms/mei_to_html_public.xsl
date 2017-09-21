@@ -1912,7 +1912,9 @@
 			<p>
 				<xsl:for-each select="m:dimensions[text()] | m:extent[text()]">
 					<xsl:value-of select="."/>
-					<xsl:text> </xsl:text>
+					<xsl:if test="normalize-space(@unit)">
+						<xsl:text> </xsl:text>	
+					</xsl:if>
 					<xsl:call-template name="remove_">
 						<xsl:with-param name="str" select="@unit"/>
 					</xsl:call-template>
