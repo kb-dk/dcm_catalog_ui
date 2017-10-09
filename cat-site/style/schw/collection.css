@@ -1,14 +1,102 @@
 /* Collection-specific colors */
 body {
-    background-color: #785632;
+    background-color: #664426;
 }
 
 /* Header and footer */
 #all {
-    background-color: #785632;
+    background-color: #664426;
 }
 
 /* Top menu */
 #menu a:hover, #menu .selected {
     background-color: #9c7751;
 }
+
+
+/* Genre color codes */
+/* main categories */
+
+.text                      { color: #000; }
+
+/* sub-categories */
+
+
+/* sub-categories */
+
+/* green */
+.opera                      { background-color: #17e691;
+                              color: #fff; }
+
+.ballet                     { background-color: #33cc86;
+                              color: #fff; }
+
+.incidental_music           { background-color: #2eb376;
+                              color: #fff; }
+                              
+.melodrama                   { background-color: #259360;
+                              color: #fff; }              
+                              
+/* blue */
+.symphony                   { background-color: #39c1f9;
+                              color: #fff; }
+
+.concerto                   { background-color: #31ade0;
+                              color: #fff; }
+
+.other_orchestral_music     { background-color: #2b97c4;
+                              color: #fff; }
+
+.chamber_music              { background-color: #2480a6;
+                              color: #fff; }
+
+.piano_music, .organ_music,
+.music_for_one_instrument   { background-color: #1b6989;
+                              color: #fff; }
+
+
+/* red */
+.music_for_vocal_soloists_and_instruments_with_or_without_choir  
+                            { background-color: #f54652;
+                              color: #000; }
+
+.choral_music_with_instruments 
+                            { background-color: #dd3f4a;
+                              color: #fff; }
+
+.a_cappella_choral_music    { background-color: #c33640;
+                              color: #fff; }
+
+.song                       { background-color: #a92f38;
+                              color: #fff; }
+
+
+/* texts */
+/* brown */
+.music_theory_analysis_and_criticism
+                           { background-color: #e9a245;
+                              color: #000; }
+
+.poetry
+                           { background-color: #d29340;
+                              color: #000; }
+
+.satirical_and_political_texts 
+                           { background-color: #bc8339;
+                              color: #000; }
+
+.translations
+                           { background-color: #a77432;
+                              color: #000; }
+
+.biographies_and_letters
+                           { background-color: #91642b;
+                              color: #000; }
+
+.other_texts
+                           { background-color: #7e5724;
+                              color: #000; }
+
+.doubtful_works
+                           { background-color: #6b4a1f;
+                              color: #000; }

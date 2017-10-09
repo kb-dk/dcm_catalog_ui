@@ -484,7 +484,7 @@ a:hover.abbr .expan {
 
 /* main categories */
 
-.stage_music, .instrumental_music, .vocal_music
+.stage_music, .instrumental_music, .vocal_music, .text
                             { background-color: #fff;
                               color: #000; }
 
