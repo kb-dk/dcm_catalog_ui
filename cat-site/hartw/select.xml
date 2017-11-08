@@ -10,7 +10,6 @@
     <div id="persons">
       <select id="name_field" name="name">
         <option value="">&#160;</option>
-        <option value="Emil Aarestrup">Aarestrup, Emil</option>
         <option value="N.C.L. Abrahams">Abrahams, N.C.L.</option>
         <option value="Severin Abrahams">Abrahams, Severin</option>
         <option value="Ida Adams">Adams, Ida</option>
@@ -607,6 +606,7 @@
         <option value="Eleonore Christine Zrza">Zrza, Eleonore Christine</option>
         <option value="Heinrich Zschalig">Zschalig, Heinrich</option>
         <option value="Vilhelmine Østerberg">Østerberg, Vilhelmine</option>
+        <option value="Emil Aarestrup">Aarestrup, Emil</option>
       </select>
     </div>
 
