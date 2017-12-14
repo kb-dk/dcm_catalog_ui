@@ -31,7 +31,7 @@ body {
 .ballet                     { background-color: #33cc86;
                               color: #fff; }
 
-.incidental_music           { background-color: #2eb376;
+.incidental_music           { background-color: #217e53;
                               color: #fff; }
                               
 .melodrama                   { background-color: #259360;
@@ -41,23 +41,23 @@ body {
 .symphony                   { background-color: #39c1f9;
                               color: #fff; }
 
-.concerto                   { background-color: #31ade0;
+.concerto                   { background-color: #81daff;
                               color: #fff; }
 
 .other_orchestral_music     { background-color: #2b97c4;
                               color: #fff; }
 
-.chamber_music              { background-color: #2480a6;
+.chamber_music              { background-color: #2458a6;
                               color: #fff; }
 
 .piano_music, .organ_music,
-.music_for_one_instrument   { background-color: #1b6989;
+.music_for_one_instrument   { background-color: #595aff;
                               color: #fff; }
 
 
 /* red */
 .music_for_vocal_soloists_and_instruments_with_or_without_choir  
-                            { background-color: #f54652;
+                            { background-color: #ff878f;
                               color: #000; }
 
 .choral_music_with_instruments 
@@ -67,36 +67,36 @@ body {
 .a_cappella_choral_music    { background-color: #c33640;
                               color: #fff; }
 
-.song                       { background-color: #a92f38;
+.song                       { background-color: #92232c;
                               color: #fff; }
 
 
 /* texts */
 /* brown */
 .music_theory_analysis_and_criticism
-                           { background-color: #e9a245;
+                           { background-color: #f8fc53;
                               color: #000; }
 
 .poetry
-                           { background-color: #d29340;
+                           { background-color: #ffcd54;
                               color: #000; }
 
 .satirical_and_political_texts 
-                           { background-color: #bc8339;
+                           { background-color: #ff9b19;
                               color: #000; }
 
 .translations
-                           { background-color: #a77432;
+                           { background-color: #905407;
                               color: #000; }
 
 .biographies_and_letters
-                           { background-color: #91642b;
+                           { background-color: #9e7c52;
                               color: #000; }
 
 .other_texts
-                           { background-color: #7e5724;
+                           { background-color: #9b9b9b;
                               color: #000; }
 
 .doubtful_works
-                           { background-color: #6b4a1f;
+                           { background-color: #473016;
                               color: #000; }
