@@ -91,7 +91,7 @@ input[type=button] {
 }
 
 #main a {
-    color: #000;
+    color: inherit;
 }
 
 #footer {
