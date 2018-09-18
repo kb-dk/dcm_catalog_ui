@@ -93,9 +93,19 @@ declare function local:format-reference(
      else
        substring($doc//m:workDesc/m:work/m:creation/m:date/@isodate,1,4)
 
-(: Composer currently not used :)
+   (: Composer currently not used :)
    let $composer :=
    	        <div class="composer">{$doc//m:workDesc/m:work/m:titleStmt/m:respStmt/m:persName[@role='composer']/text()}&#160;</div>
+
+   (: Prefer low resolution incipits if available; otherwise just use the first available image :)
+   let $img := if ($doc//m:workDesc/m:work//m:incip/m:graphic[@target and @targettype='lowres']) then
+       $doc//m:workDesc/m:work//m:incip/m:graphic[@target and @targettype='lowres'][1]
+   else $doc//m:workDesc/m:work//m:incip/m:graphic[@target][1]
+
+   (: some magic needed to resize incipit :)
+   let $incip := if ($img) then
+            <div class="incip_wrap"><img class="incip_scaled" onload="this.width=this.naturalWidth*0.6;this.style.display='block'" src="{$img/@target}" /></div>
+   else ''
 
    let $ref   :=
      <table class="result_table" onclick="location.href='{concat('./document.xq?doc=',util:document-name($doc))}'" cellspacing="0" cellpadding="0">
@@ -108,6 +118,7 @@ declare function local:format-reference(
             <div class="title">
 	          {app:public-view-document-reference($doc)}{" "}
 	        </div>
+	        {$incip}
 	     </td>
        </tr>
        <tr  class="result_row">
