@@ -99,7 +99,7 @@ declare function app:public-view-document-reference($doc as node()) as node()* {
 	  if ($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@type/string()='subordinate'][1]/string()) 
 	  then
 	     element span {
-	        element br {},
+	        " | ",
 	        $doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@type/string()='subordinate'][1]/string()
 	     }
 	  else if ($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[@type/string()='alternative'][1]/string()) 
@@ -116,7 +116,7 @@ declare function app:public-view-document-reference($doc as node()) as node()* {
 	  if ($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate'][1]/string())
 	  then 
 	     element span {
-	        element br {},
+	        " | ",
 	        $doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate'][1]/string()
 	     }
 	  else ""

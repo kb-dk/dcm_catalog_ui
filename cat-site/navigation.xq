@@ -83,19 +83,29 @@ declare function local:format-reference(
            </div>
        
    let $date_output :=
-     if($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notbefore!='' or $doc//m:workDesc/m:work/m:history/m:creation/m:date/@notafter!=''
-       or $doc//m:workDesc/m:work/m:history/m:creation/m:date/@startdate!='' or $doc//m:workDesc/m:work/m:history/m:creation/m:date/@enddate!='') then
-       concat(substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notbefore,1,4),
-       substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@startdate,1,4),
+     if($doc//m:workDesc/m:work/m:creation/m:date/@notbefore!='' or $doc//m:workDesc/m:work/m:creation/m:date/@notafter!=''
+       or $doc//m:workDesc/m:work/m:creation/m:date/@startdate!='' or $doc//m:workDesc/m:work/m:creation/m:date/@enddate!='') then
+       concat(substring($doc//m:workDesc/m:work/m:creation/m:date/@notbefore,1,4),
+       substring($doc//m:workDesc/m:work/m:creation/m:date/@startdate,1,4),
        '-',
-       substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@enddate,1,4),
-       substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@notafter,1,4))
+       substring($doc//m:workDesc/m:work/m:creation/m:date/@enddate,1,4),
+       substring($doc//m:workDesc/m:work/m:creation/m:date/@notafter,1,4))
      else
-       substring($doc//m:workDesc/m:work/m:history/m:creation/m:date/@isodate,1,4)
+       substring($doc//m:workDesc/m:work/m:creation/m:date/@isodate,1,4)
 
-(: Composer currently not used :)
+   (: Composer currently not used :)
    let $composer :=
    	        <div class="composer">{$doc//m:workDesc/m:work/m:titleStmt/m:respStmt/m:persName[@role='composer']/text()}&#160;</div>
+
+   (: Prefer low resolution incipits if available; otherwise just use the first available image :)
+   let $img := if ($doc//m:workDesc/m:work//m:incip/m:graphic[@target and @targettype='lowres']) then
+       $doc//m:workDesc/m:work//m:incip/m:graphic[@target and @targettype='lowres'][1]
+   else $doc//m:workDesc/m:work//m:incip/m:graphic[@target][1]
+
+   (: some magic needed to resize incipit :)
+   let $incip := if ($img) then
+            <div class="incip_wrap"><img class="incip_scaled" onload="this.width=this.naturalWidth*0.6;this.style.display='block'" src="{$img/@target}" /></div>
+   else ''
 
    let $ref   :=
      <table class="result_table" onclick="location.href='{concat('./document.xq?doc=',util:document-name($doc))}'" cellspacing="0" cellpadding="0">
@@ -108,6 +118,7 @@ declare function local:format-reference(
             <div class="title">
 	          {app:public-view-document-reference($doc)}{" "}
 	        </div>
+	        {$incip}
 	     </td>
        </tr>
        <tr  class="result_row">
@@ -124,7 +135,7 @@ declare function local:format-reference(
 
 <html xmlns="http://www.w3.org/1999/xhtml">
    {layout:head($html//h:title/text(),(<link rel="stylesheet" type="text/css" href="style/public_list_style.css"/>),false())}
-    <body class="list_files">
+    <body class="list_files" onload="initialize();">
     
       <div id="all">
       {layout:page-head-doc($html)}

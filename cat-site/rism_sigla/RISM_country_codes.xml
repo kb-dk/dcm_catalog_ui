@@ -1,0 +1,244 @@
+<?xml version="1.0"?>
+<list xmlns="http://www.music-encoding.org/ns/mei" xmlns:m="http://www.music-encoding.org/ns/mei">
+  <head>RISM country codes</head>
+  <li>
+    <geogName codedval="A">Austria</geogName>
+  </li>
+  <li>
+    <geogName codedval="AFG">Afghanistan</geogName>
+  </li>
+  <li>
+    <geogName codedval="AND">Andorra</geogName>
+  </li>
+  <li>
+    <geogName codedval="AS">American Samoa</geogName>
+  </li>
+  <li>
+    <geogName codedval="AUS">Australia</geogName>
+  </li>
+  <li>
+    <geogName codedval="AZ">Azerbaijan</geogName>
+  </li>
+  <li>
+    <geogName codedval="B">Belgium</geogName>
+  </li>
+  <li>
+    <geogName codedval="BD">Bangladesh</geogName>
+  </li>
+  <li>
+    <geogName codedval="BG">Bulgaria</geogName>
+  </li>
+  <li>
+    <geogName codedval="BIH">Bosnia and Herzegovina</geogName>
+  </li>
+  <li>
+    <geogName codedval="BOL">Bolivia</geogName>
+  </li>
+  <li>
+    <geogName codedval="BR">Brazil</geogName>
+  </li>
+  <li>
+    <geogName codedval="BY">Belarus</geogName>
+  </li>
+  <li>
+    <geogName codedval="C">Cuba</geogName>
+  </li>
+  <li>
+    <geogName codedval="CDN">Canada</geogName>
+  </li>
+  <li>
+    <geogName codedval="CH">Switzerland</geogName>
+  </li>
+  <li>
+    <geogName codedval="CN">P. R. China</geogName>
+  </li>
+  <li>
+    <geogName codedval="CO">Colombia</geogName>
+  </li>
+  <li>
+    <geogName codedval="CZ">Czech Republic</geogName>
+  </li>
+  <li>
+    <geogName codedval="D">Germany</geogName>
+  </li>
+  <li>
+    <geogName codedval="DK">Denmark</geogName>
+  </li>
+  <li>
+    <geogName codedval="E">Spain</geogName>
+  </li>
+  <li>
+    <geogName codedval="EC">Ecuador</geogName>
+  </li>
+  <li>
+    <geogName codedval="ET">Ethiopia</geogName>
+  </li>
+  <li>
+    <geogName codedval="EV">Estonia</geogName>
+  </li>
+  <li>
+    <geogName codedval="F">France</geogName>
+  </li>
+  <li>
+    <geogName codedval="FIN">Finland</geogName>
+  </li>
+  <li>
+    <geogName codedval="GB">Great Britain</geogName>
+  </li>
+  <li>
+    <geogName codedval="GCA">Guatemala</geogName>
+  </li>
+  <li>
+    <geogName codedval="GE">Georgia</geogName>
+  </li>
+  <li>
+    <geogName codedval="GR">Greece</geogName>
+  </li>
+  <li>
+    <geogName codedval="H">Hungary</geogName>
+  </li>
+  <li>
+    <geogName codedval="HK">Hong Kong</geogName>
+  </li>
+  <li>
+    <geogName codedval="HR">Croatia</geogName>
+  </li>
+  <li>
+    <geogName codedval="I">Italy</geogName>
+  </li>
+  <li>
+    <geogName codedval="IL">Israel</geogName>
+  </li>
+  <li>
+    <geogName codedval="IND">India</geogName>
+  </li>
+  <li>
+    <geogName codedval="IR">Iran</geogName>
+  </li>
+  <li>
+    <geogName codedval="IRL">Ireland</geogName>
+  </li>
+  <li>
+    <geogName codedval="IRLN">Northern Ireland</geogName>
+  </li>
+  <li>
+    <geogName codedval="IS">Iceland</geogName>
+  </li>
+  <li>
+    <geogName codedval="J">Japan</geogName>
+  </li>
+  <li>
+    <geogName codedval="L">Luxembourg</geogName>
+  </li>
+  <li>
+    <geogName codedval="LT">Lithuania</geogName>
+  </li>
+  <li>
+    <geogName codedval="LV">Latvia</geogName>
+  </li>
+  <li>
+    <geogName codedval="M">Malta</geogName>
+  </li>
+  <li>
+    <geogName codedval="MC">Monaco</geogName>
+  </li>
+  <li>
+    <geogName codedval="MD">Moldova</geogName>
+  </li>
+  <li>
+    <geogName codedval="MEX">Mexico</geogName>
+  </li>
+  <li>
+    <geogName codedval="MK">Macedonia</geogName>
+  </li>
+  <li>
+    <geogName codedval="MNE">Montenegro</geogName>
+  </li>
+  <li>
+    <geogName codedval="N">Norway</geogName>
+  </li>
+  <li>
+    <geogName codedval="NL">Netherlands</geogName>
+  </li>
+  <li>
+    <geogName codedval="NZ">New Zealand</geogName>
+  </li>
+  <li>
+    <geogName codedval="P">Portugal</geogName>
+  </li>
+  <li>
+    <geogName codedval="PE">Peru</geogName>
+  </li>
+  <li>
+    <geogName codedval="PK">Pakistan</geogName>
+  </li>
+  <li>
+    <geogName codedval="PL">Poland</geogName>
+  </li>
+  <li>
+    <geogName codedval="RA">Argentina</geogName>
+  </li>
+  <li>
+    <geogName codedval="RC">Taiwan, Republic of China</geogName>
+  </li>
+  <li>
+    <geogName codedval="RCH">Chile</geogName>
+  </li>
+  <li>
+    <geogName codedval="RI">Indonesia</geogName>
+  </li>
+  <li>
+    <geogName codedval="RL">Lebanon</geogName>
+  </li>
+  <li>
+    <geogName codedval="RO">Romania</geogName>
+  </li>
+  <li>
+    <geogName codedval="ROK">Republic of Korea</geogName>
+  </li>
+  <li>
+    <geogName codedval="ROU">Uruguay</geogName>
+  </li>
+  <li>
+    <geogName codedval="RP">Philippines</geogName>
+  </li>
+  <li>
+    <geogName codedval="RUS">Russia</geogName>
+  </li>
+  <li>
+    <geogName codedval="S">Sweden</geogName>
+  </li>
+  <li>
+    <geogName codedval="SI">Slovenia</geogName>
+  </li>
+  <li>
+    <geogName codedval="SK">Slovakia</geogName>
+  </li>
+  <li>
+    <geogName codedval="SRB">Serbia</geogName>
+  </li>
+  <li>
+    <geogName codedval="TA">Tajikistan</geogName>
+  </li>
+  <li>
+    <geogName codedval="TR">Turkey</geogName>
+  </li>
+  <li>
+    <geogName codedval="UA">Ukraine</geogName>
+  </li>
+  <li>
+    <geogName codedval="US">United States of America</geogName>
+  </li>
+  <li>
+    <geogName codedval="USB">Uzbekistan</geogName>
+  </li>
+  <li>
+    <geogName codedval="V">Vatican City State</geogName>
+  </li>
+  <li>
+    <geogName codedval="VE">Venezuela</geogName>
+  </li>
+  <li>
+    <geogName codedval="ZA">South Africa</geogName>
+  </li>
+</list>

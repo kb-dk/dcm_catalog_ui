@@ -1,0 +1,1169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <collection xmlns="http://www.loc.gov/MARC21/slim">
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005996</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Aae</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Akadēmia Epistēmon Vivliothēkē</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-Aae</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Academy of Sciences Library</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006001</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Aav</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Amerikanikē Vivliothēkē</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-Aav</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">American Library</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005733</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Aels</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Ethniki Lyriki Skini</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-Aels</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005992</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Aeo</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Ethnikon Odeion</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-Aeo</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">National Conservatory of Athens</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006000</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Aer</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Trito Programma Ellēnikēs Radiophonias, Vivliothēkē</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-Aer</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Third Programm of Greek Radio, Library</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005994</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Ag</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Genadeios Vivliothēkē</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-Ag</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Genadeios Library</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005734</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Akounadis</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Panayis Kounadis, private collection</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-Akounadis</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005735</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Aleotsakos</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">George Leotsakos, private collection</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-Aleotsakos</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005736</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Am</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Mousseio ke Kendro Meletis Ellinikou Theatrou</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-Am</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005995</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Amb</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Mouseion Benaki Vivliothēkē</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-Amb</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Library of Benaki Museum</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005998</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Ame</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Kentro Mikrasiatikon Erevnōn kai Spoudōn, Vivliothēkē</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-Ame</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Center for Asia Minor Studies, Library</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005999</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Ams</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Tmēma Mousikōn Spudōn, Ethniko Kapodistriako Pane pistēmio Athenon, Vivliothēkē</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-Ams</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">School of Musical Studies, National Kapodistrian University of Athens, Library</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003035</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-An</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Ethnike Biblioteke tes Hellados</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-An</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">National Library of Greece</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Ethniki Vivliothiki tis Ellados</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005991</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Aoa</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Odeion Athēnōn</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-Aoa</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Athens Conservatory</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003398</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOd</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Dionysiou</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOd</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Dionysiou Monastery</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005980</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOdo</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Dohiariou</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOdo</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Monastery of Dohiariou</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005984</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOg</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Gregoriou</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOg</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Gregoriou Monastery</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003397</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOh</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Hilandariou</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOh</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Chilandariou Monastery</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003400</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOi</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē ton Ivēron</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOi</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Monastery of Iveron</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003396</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOk</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Koutloumousi</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOk</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Koutloumousi Monastery</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005987</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOka</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Karakálou</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOka</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Monastery of Karakalou</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005979</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOkon</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Konstamonitou</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOkon</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Monastery of Konstamonitou</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003399</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOml</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Megistis Lávras</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOml</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Monastery of Greatest Lavra</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005982</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOpan</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Aghiou Panteleimonos</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOpan</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Monastery of St. Panteleimon</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005986</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOpav</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Aghiou Pavlou</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOpav</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Monastery of St. Paul</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005988</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOph</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Philothéou</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOph</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Monastery of Philotheou</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005990</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOpk</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Pantokrátoros</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOpk</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Monastery of Pantokratoros</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003401</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOse</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Serbian Monastery</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOse</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005985</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOsp</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Simōnos Pétra</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOsp</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Monastery of Simonos Petra</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005989</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOsta</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Stavonikēta</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOsta</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Monastery of Stavroniketa</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003402</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOva</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Vatopaidiou</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOva</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Vatopedi Monastery</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005981</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOx</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Xenophōntos</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOx</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Monastery of Xenophontos</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005983</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOxp</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Xeropotámou</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOxp</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Xeropotamou Monastery</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005978</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-AOz</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Zográphou</subfield>
+            <subfield code="c">Aghion Oros</subfield>
+            <subfield code="g">GR-AOz</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Monastery of Zographou</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005766</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-As</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Syllogos Hoi Philoi tēs Mousikēs, Megalē Mousikē Bibliothēkē tēs Hellados Lilian Voudourē</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-As</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">The Friends of Music Society, Music Library of Greece Lilian Voudouri</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Syllogos Hoi Philoi tēs Mousikēs, Megalē,  Mousikē Bibliothēkē tēs Hellados Lilian,  Voudourē, Vas. Sofias &amp; Kokkali 1, 11521 Athēnai, Greece</subfield>
+            <subfield code="u">http://www.megaron.gr/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005997</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Atm</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Theatrikon Mouseion tes Hetaireias Hellēnōn Theatrikōn Syngrapheōn</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-Atm</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Theatrical Museum of the Society of Greek Playwrights</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005993</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Av</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Vivliothēke tēs Voulēs</subfield>
+            <subfield code="c">Athēnai</subfield>
+            <subfield code="g">GR-Av</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Library of the Greek Parliament</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005976</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Ep</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Prousoú</subfield>
+            <subfield code="c">Evrytania</subfield>
+            <subfield code="g">GR-Ep</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Prousos Monastery</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006655</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-KA</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Bibliotheke tes Metropoleos</subfield>
+            <subfield code="c">Kastoria</subfield>
+            <subfield code="g">GR-KA</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006009</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Kae</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Anagnostikē Etaireia, Vivliothēkē</subfield>
+            <subfield code="c">Kérkyra</subfield>
+            <subfield code="g">GR-Kae</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Reading Society, Library</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006010</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Keks</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Etaireia Kerkyraikōn Spoudōn, Vivliothēkē</subfield>
+            <subfield code="c">Kérkyra</subfield>
+            <subfield code="g">GR-Keks</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Society of Corfu Studies Library</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006008</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Kms</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Tmēma Mousikōn Spoudōn, Ionion Panepistēmion, Vivliothēkē</subfield>
+            <subfield code="c">Kérkyra</subfield>
+            <subfield code="g">GR-Kms</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">School of Musical Studies, Ionian University, Library</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006012</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Kpg</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Philarmonikē Etaireia Gastouriou</subfield>
+            <subfield code="c">Kérkyra</subfield>
+            <subfield code="g">GR-Kpg</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Philarmonic Society of Gastouri</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006011</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Kpk</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Philarmonikē Etaireia Kerkyras</subfield>
+            <subfield code="c">Kérkyra</subfield>
+            <subfield code="g">GR-Kpk</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Philarmonic Society of Corfu</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005971</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Kpm</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Philarmonikē Etaireia Mantzaros</subfield>
+            <subfield code="c">Kérkyra</subfield>
+            <subfield code="g">GR-Kpm</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Philarmonic Society of Montzaros</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006013</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Kps</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Philarmonikē Etaireia Skriperou</subfield>
+            <subfield code="c">Kérkyra</subfield>
+            <subfield code="g">GR-Kps</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Philarmonic Society of Skripero</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005975</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Ll</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Leimōnos</subfield>
+            <subfield code="c">Lésvos</subfield>
+            <subfield code="g">GR-Ll</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Leimonos Monastery</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005974</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Mm</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Metamorphóseōs</subfield>
+            <subfield code="c">Metéora</subfield>
+            <subfield code="g">GR-Mm</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Christ's Transfiguration Monastery</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005972</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Mst</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Aghiou Stephánou</subfield>
+            <subfield code="c">Metéora</subfield>
+            <subfield code="g">GR-Mst</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Monastery of St. Stephan</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30005973</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Mv</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Monē Varlaám</subfield>
+            <subfield code="c">Metéora</subfield>
+            <subfield code="g">GR-Mv</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Vaarlam Monastery</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006007</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-Npl</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Peleponisiako Laografiko Idryma, Vivliothēkē</subfield>
+            <subfield code="c">Náfplion</subfield>
+            <subfield code="g">GR-Npl</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Peleponesian Folklore Foundation, Library</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006004</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-THdv</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Demotēkē Vivliothēkē</subfield>
+            <subfield code="c">Thessaloniki</subfield>
+            <subfield code="g">GR-THdv</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Municipal library of Thessaloniki</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006005</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-THko</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Kratiko Ōdeio Thessalonikis, Vivliothēkē</subfield>
+            <subfield code="c">Thessaloniki</subfield>
+            <subfield code="g">GR-THko</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">State Conservatory of Thessaloniki, Library</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006002</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-THms</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Tmēma Mousikōn Spoudōn, Aristoteleio Paneoistēmio Thessalonikis, Vivliothēkē</subfield>
+            <subfield code="c">Thessaloniki</subfield>
+            <subfield code="g">GR-THms</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">School of Musical Studies, Aristotelian University of Thessaloniki, Library</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006003</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-THpi</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Patriarhikó Idryma Paterikōn Meletōn, Vivliothēkē</subfield>
+            <subfield code="c">Thessaloniki</subfield>
+            <subfield code="g">GR-THpi</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Patriarcal Institute of Patristic Studies, Library</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006006</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">GR-THts</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-GR</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Theologhikē Scholē, Aristoteleio Panepistēmio, Vivliothēkē</subfield>
+            <subfield code="c">Thessaloniki</subfield>
+            <subfield code="g">GR-THts</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Faculty of Theological Studies, Aristotle University of Thessaloniki</subfield>
+         </datafield>
+      </record>
+   </collection>
+

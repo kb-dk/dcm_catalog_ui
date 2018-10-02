@@ -26,6 +26,19 @@
         <!--<term>A cappella choral music</term>-->
         <term>Song</term>
     </termList>          
+    <termList label="level1">
+        <term>Text</term>
+    </termList>
+    <termList label="level2">
+        <term>Music theory, analysis and criticism</term>
+        <term>Poetry</term>
+        <term>Satirical and political texts</term>
+        <term>Translations</term>
+        <term>Biographies and letters</term>
+        <term>Other texts</term>
+        <term>Doubtful works</term>
+    </termList>          
+    
     <termList label="keywords">
         <term>Trio</term>
         <term>Quartet</term>

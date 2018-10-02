@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <collection xmlns="http://www.loc.gov/MARC21/slim">
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006192</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-EKu</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Naučnaja biblioteka Ural'skogo gosudarstvennogo universiteta</subfield>
+            <subfield code="c">Ekaterinburg</subfield>
+            <subfield code="g">RUS-EKu</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30080491</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-K</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Muzej-kvartira kompozitora N. G. Žiganova</subfield>
+            <subfield code="c">Kazan'</subfield>
+            <subfield code="g">RUS-K</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Museum of composer Nazib Zhiganov</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Branch of the National Museum of the Republic of Tatarstan</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Muzej-kvartira kompozitora N. G.,  Žiganova, ul. Malaja Krasnaja, d.14, kv. 11, 5,  Ètaž, 420015 Kazan', Russia</subfield>
+            <subfield code="u">http://jiganov.tatmuseum.ru/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002516</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-KA</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Oblastnaja universal'naja naučnaja biblioteka</subfield>
+            <subfield code="c">Kaliningrad</subfield>
+            <subfield code="g">RUS-KA</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003590</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-KAg</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennaja biblioteka</subfield>
+            <subfield code="c">Kaliningrad</subfield>
+            <subfield code="g">RUS-KAg</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003591</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-KAu</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Naučnaja biblioteka Kalingradskogo gosudarstvennogo universiteta</subfield>
+            <subfield code="c">Kaliningrad</subfield>
+            <subfield code="g">RUS-KAu</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Universitetskaya Biblioteka</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006182</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-KLč</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Naučnaja biblioteka gosudarstvennogo doma-muzeja P. I. Čajkovskogo</subfield>
+            <subfield code="c">Klin</subfield>
+            <subfield code="g">RUS-KLč</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006183</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-KRp</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Krasnojarskaja kraevaja universal'naja naučnaja biblioteka im. A. S. Puškina</subfield>
+            <subfield code="c">Krasnojarsk</subfield>
+            <subfield code="g">RUS-KRp</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002525</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-Mcl</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Rossijskij gosudarstvennyj archiv literatury i iskusstva (RGALI)</subfield>
+            <subfield code="c">Moskva</subfield>
+            <subfield code="g">RUS-Mcl</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Gosudartsvennïy Tsentral'nïy Literaturnïy Arkhiv</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennyj central'nyj literaturnyi arhiv</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002526</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-Mcm</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennyj central'nyj muzej muzykal'noj kul'tury im. M. I. Glinki</subfield>
+            <subfield code="c">Moskva</subfield>
+            <subfield code="g">RUS-Mcm</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Государственный центральный музей музыкальной культуры им. М. И. Глинки</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">The Glinka museum of musical culture</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Gosudarstvennyj central'nyj muzej, muzykal'noj kul'tury im. M. I. Glinki, ul. Fadeeva d. 4, 125047 Moskva, Russia</subfield>
+            <subfield code="u">http://www.glinka.museum/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006193</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-Mda</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Rossijskij gosudarstvennyj archiv drevnich aktov</subfield>
+            <subfield code="c">Moskva</subfield>
+            <subfield code="g">RUS-Mda</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30080128</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-Mgarf</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennyj Archiv Rossijskoj Federacii</subfield>
+            <subfield code="c">Moskva</subfield>
+            <subfield code="g">RUS-Mgarf</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Госуда́рственный Архи́в Росси́йской Федера́ции</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">State Archive of the Russian Federation</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Gosudarstvennyj Archiv Rossijskoj,  Federacii, ul. Bol'šaja Pirogovskaja,17, 119435 Moskva, Russia</subfield>
+            <subfield code="u">http://statearchive.ru/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006164</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-Mim</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennyj istoričeskij muzej</subfield>
+            <subfield code="c">Moskva</subfield>
+            <subfield code="g">RUS-Mim</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003857</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-Miv</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Institut vostokovedenija Rossijskoj akademii nauk</subfield>
+            <subfield code="c">Moskva</subfield>
+            <subfield code="g">RUS-Miv</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002527</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-Mk</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Naučnaja muzykal'naja biblioteka im. S. I. Taneeva Moskovskoj gosudarstvennoj konservatorii im. P. I. Čajkovskogo</subfield>
+            <subfield code="c">Moskva</subfield>
+            <subfield code="g">RUS-Mk</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennaya Konservatoriya im.P.I.Chaykovskovo, Nauchnaya Muzïkal'naya Bibl. im.S.I.Taneyeva</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Moskovskaja gosudarstvennaja konservatorija im. P. I. Čajkovskogo</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Naučna a muzykal'naja biblioteka im. S. I. Taneeva, Gosudarstvennaja konservatorija im. P</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003594</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-Mm</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennaja publičnaja istoričeskaja biblioteka Rossii</subfield>
+            <subfield code="c">Moskva</subfield>
+            <subfield code="g">RUS-Mm</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennïy Istoricheskïyi Muzei</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Gosudarstvennaja publičnaja,  istoričeskaja biblioteka Rossii, Starosadskij pereulok, dom 9, str. 1, 101990 Moskva, Russia</subfield>
+            <subfield code="u">http://www.shpl.ru/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003858</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-Mmv</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennyj muzej Vostoka</subfield>
+            <subfield code="c">Moskva</subfield>
+            <subfield code="g">RUS-Mmv</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennyi muzej iskusstva narodov Vostoka</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002528</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-Mrg</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Rossijskaja Gosudarstvennaja biblioteka</subfield>
+            <subfield code="c">Moskva</subfield>
+            <subfield code="g">RUS-Mrg</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Russian State Library</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennaja biblioteka SSSR im. V. I. Lenina</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennaya Ordena Lenina Biblioteka SSSR imeni V. I. Lenina</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Rossijskaja Gosudarstvennaja biblioteka, ul. Vozdviženka, d. 3/5, 119019 Moskva, Russia</subfield>
+            <subfield code="u">http://www.rsl.ru/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002529</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-Mt</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennyj centralnyj teatral'nyj muzej im. A. Bahrušina</subfield>
+            <subfield code="c">Moskva</subfield>
+            <subfield code="g">RUS-Mt</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennïyi Teatral'nïyi Muzei imeni A. Bakhrushina</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006184</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-PAd</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Pavlovskij dvorec-muzej, naučnyj otdel</subfield>
+            <subfield code="c">Pavlovsk</subfield>
+            <subfield code="g">RUS-PAd</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006201</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPaa</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Archiv Akademii nauk Rossii</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPaa</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002518</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPan</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Biblioteka Rossijskoj akademii nauk</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPan</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Library of the Academy of Sciences</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Biblioteka Rossijskoj akademii nauk, Birzevaja linija 1, 199034 Sankt Peterburg, Russia</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006191</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPch</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Naučnaja biblioteka Rossijskoj Akademii chudožestv</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPch</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006185</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPd</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Biblioteka Sankt-Peterburgskoj duchovnoj akademii i seminarii</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPd</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006181</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPe</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Naučnaja biblioteka gosudarstvennogo Ermitaža</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPe</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003592</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPia</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennyj central'nyj istoricheskyj arkhiv</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPia</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003593</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPil</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Biblioteka instituta russkoj literatury Rossijskoj akademii nauk (Puškinskij dom)</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPil</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Institut Russkoy Literaturï</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002519</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPit</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Rossijskij institut istorii iskusstv</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPit</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Leningradsky Gosudarstvennïy Institut Teatra, Muzïki i Kinematografii</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Naučno-issledovatel'skij institut teatra i muzyki</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Naučnaja biblioteka Gosudarstvennogo instituta teatra, muzyki i kinematografii</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Rossijskij institut istorii iskusstv, Isaakievskaja pl., 5, 190000 Sankt Peterburg, Russia</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002520</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPk</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Biblioteka gosudarstvennoj konservatorii im. N. A. Rimskogo-Korsakova</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPk</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Biblioteka Leningradskoy Gosudarstvennoy Konservatoriy imeni N. A. Rimskovo-Korsakova</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Leningradskaja gosudarstvennaja [...] konservatorija im. N. A. Rimskogo-Korsakova</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006155</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPlp</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennyj literaturnyj muzej A. S. Puškina</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPlp</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002521</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPph</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Muzykal'naja biblioteka gosudarstvennoj filarmonii im D. D. Šostakoviča</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPph</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Muzïkal'naya Biblioteka Leningradskoy Gosudarstvennoy Filarmonii</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Muzykal'naja biblioteka Leningradskoj gosudarstvennoj filarmonii</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006170</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPrm</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennyj Russkij muzej</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPrm</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30000181</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPsc</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Rossijskaja nacional'naja biblioteka</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPsc</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">The national Library of Russia</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennaya Ordena Trudovovo Krasnovo Znameni Publichnaya Biblioteka imeni M. E. Saltïkova-S</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Bibliothèque publique Saltykov-Chtchédrine</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennaja publičnaja biblioteka im. M. E. Saltykova-Ščedrina</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Rossijskaja nacional'naja biblioteka im. M. E. Saltykova-Ščedrina</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="e">Rossijskaja nacional'naja biblioteka, ul. Sadovaja, d. 18, 191069 Sankt Peterburg, Russia</subfield>
+            <subfield code="u">http://www.nlr.ru</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002522</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPt</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennaja teatral'naja biblioteka im. A. V. Lunačarskogo</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPt</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Leningradskiy Gosudarstvennïy Teatral'nïy Muzey</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Gosudarstvennaja teatral'naja biblioteka im. A. A. Lunačarskogo</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30002523</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPtob</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Central'naja muzykal'naja biblioteka Mariinskogo teatra</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPtob</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Tsentral'naya Muzïkal'naya Bibl. Gosudarstvennovo Akad. Teatra Operï i Baleta im. S. M. Kirova</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Tsentral'naya Muzïkal'naya Bibl. Gosudarstvennogo Akademicheskogo Mariinskogo Teatra Operï</subfield>
+         </datafield>
+         <datafield tag="410" ind1="2" ind2=" ">
+            <subfield code="a">Central'naja muzykal'naja biblioteka teatra opery i baleta im. S. M. Kirova</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30003859</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-SPu</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Naučnaja biblioteka im. M. Gor'kogo Sankt-Peterburgskogo gosudarstvennogo universiteta</subfield>
+            <subfield code="c">Sankt Peterburg</subfield>
+            <subfield code="g">RUS-SPu</subfield>
+         </datafield>
+         <datafield tag="622" ind1=" " ind2=" ">
+            <subfield code="u">http://www.unilib.neva.ru/</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006186</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-TAp</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Tambovskaja oblastnaja universal'naja naučnaja biblioteka im. A. S. Puškina</subfield>
+            <subfield code="c">Tambov</subfield>
+            <subfield code="g">RUS-TAp</subfield>
+         </datafield>
+      </record>
+      <record>
+         <leader>00000nz  a2200169   4500</leader>
+         <controlfield tag="001">30006187</controlfield>
+         <controlfield tag="003">RISM</controlfield>
+         <controlfield tag="005">20160216</controlfield>
+         <controlfield tag="008">160216n||az|||||||##########||||||||||||</controlfield>
+         <datafield tag="040" ind1=" " ind2=" ">
+            <subfield code="a">RUS-ČE</subfield>
+         </datafield>
+         <datafield tag="043" ind1=" " ind2=" ">
+            <subfield code="c">XA-RU</subfield>
+         </datafield>
+         <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">Čerdynskij kraevedčeskij muzej im. A. S. Puškina</subfield>
+            <subfield code="c">Čerdyn'</subfield>
+            <subfield code="g">RUS-ČE</subfield>
+         </datafield>
+      </record>
+   </collection>
+          
+ 

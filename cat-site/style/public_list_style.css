@@ -282,13 +282,14 @@ div.results {
     width: 100%;
     margin: 15px 0;
     border: 1px solid #666;
-    background-color: #ddd;
+/*    background-color: #ddd; */
     border-radius: 4px;
     cursor: pointer;
 }
 
 .result_table:hover {
-    background-color: #fff;
+/*    background-color: #fff;  */
+    border-color: #aae;
 }
 
 .result_table:hover .list_id {
@@ -299,6 +300,10 @@ div.results {
     vertical-align: top;
 }
 
+/* incipit images */
+.incip_scaled {
+    display: none;
+}
 
 .info_bar {
     padding: 0;
@@ -484,7 +489,7 @@ a:hover.abbr .expan {
 
 /* main categories */
 
-.stage_music, .instrumental_music, .vocal_music
+.stage_music, .instrumental_music, .vocal_music, .text
                             { background-color: #fff;
                               color: #000; }
 

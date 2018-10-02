@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Various controlled lists for CNW</title>
+    <title>Various controlled lists for SchW</title>
     <script src="js/swap_num_type.js" type="application/javascript">
       //
     </script>
@@ -10,12 +10,12 @@
     <div id="persons">
       <select id="name_field" name="name">
         <option value="">&#160;</option>
-        <option value=""></option>
         <option value="Johan Joachim Agrell">Agrell, Johan Joachim</option>
         <option value="Johann Friedrich Agricola">Agricola, Johann Friedrich</option>
         <option value="Bendix von Ahlefelt">Ahlefelt, Bendix von</option>
         <option value="Friedrich Ehrenfried Amthor">Amthor, Friedrich Ehrenfried</option>
         <option value="Prince of Anhalt-Cöthen">Anhalt-Cöthen, Prince of</option>
+        <option value="anonymous">anonymous</option>
         <option value="G.A. Appel">Appel, G.A.</option>
         <option value="Aristotle">Aristotle</option>
         <option value="Johan Samuel Augustin">Augustin, Johan Samuel</option>
@@ -24,16 +24,12 @@
         <option value="Johann Christoph Friedrich Bach">Bach, Johann Christoph Friedrich</option>
         <option value="Johann Sebastian Bach">Bach, Johann Sebastian</option>
         <option value="Johann Michael Baldauff">Baldauff, Johann Michael</option>
-        <option value="C.F. Becker">Becker, C.F.</option>
         <option value="Carl Ferdinand Becker">Becker, Carl Ferdinand</option>
         <option value="Gottfried Behrndt">Behrndt, Gottfried</option>
         <option value="Peter Benary">Benary, Peter</option>
         <option value="Benda">Benda</option>
         <option value="Andreas Peter Berggreen">Berggreen, Andreas Peter</option>
-        <option value="Andreas Peter Berggren">Berggren, Andreas Peter</option>
         <option value="Charlotta Dorothea Biehl">Biehl, Charlotta Dorothea</option>
-        <option value="Charlotte Biehl">Biehl, Charlotte</option>
-        <option value="Charlotte Dorothea Biehl">Biehl, Charlotte Dorothea</option>
         <option value="Johann Abraham Birnbaum">Birnbaum, Johann Abraham</option>
         <option value="Inge Bittman">Bittman, Inge</option>
         <option value="Michel Blavet">Blavet, Michel</option>
@@ -43,20 +39,15 @@
         <option value="Duke of Brandenburg-Kulmbach">Brandenburg-Kulmbach, Duke of</option>
         <option value="Niels Krog Bredal">Bredal, Niels Krog</option>
         <option value="Nikolaj Krog Breding">Breding, Nikolaj Krog</option>
-        <option value="Johan Gottlob Immanuel Breitkopf">Breitkopf, Johan Gottlob Immanuel</option>
-        <option value="Johann Gottlieb Emmanuel Breitkopf">Breitkopf, Johann Gottlieb
-          Emmanuel</option>
-        <option value="Johann Gottlob Imanuel Breitkopf">Breitkopf, Johann Gottlob Imanuel</option>
-        <option value="Johann Gottlob Immanuel Breitkopf">Breitkopf, Johann Gottlob
-          Immanuel</option>
-        <option value="Johann GottlobImmanuel Breitkopf">Breitkopf, Johann GottlobImmanuel</option>
-        <option value="Johann Gottlob Immanuel Brietkopf">Brietkopf, Johann Gottlob
-          Immanuel</option>
+        <option value="Johann Gottlob Immanuel Breitkopf">Breitkopf, Johann Gottlob Immanuel</option>
         <option value="Morten Thrane Brünniche">Brünniche, Morten Thrane</option>
         <option value="Johann Heinrich Buttstett">Buttstett, Johann Heinrich</option>
         <option value="Robert Michael Cammarota">Cammarota, Robert Michael</option>
+        <option value="Caroline Mathilde">Caroline Mathilde, Queen</option>
         <option value="Cervantes">Cervantes</option>
         <option value="Crown Prince Christian">Christian, Crown Prince</option>
+        <option value="Christian VI">Christian VI, King</option>
+        <option value="Christian VII">Christian VII, King</option>
         <option value="Johann Christian">Christian, Johann</option>
         <option value="Christine Sophie of Brandenburg-Kulmbach">Christine Sophie of Brandenburg-Kulmbach</option>
         <option value="Christine Sophie of Braunschweig-Wolfenbüttel-Bevern">Christine Sophie of Braunschweig-Wolfenbüttel-Bevern</option>
@@ -82,9 +73,9 @@
         <option value="Frederick the Great">Frederick II, King (Frederick the Great)</option>
         <option value="Friedrich II ">Friedrich II</option>
         <option value="Crown Prince Frederik">Frederik, Crown Prince</option>
-        <option value="King Frederik">Frederik, King</option>
-        <option value="Friedrich Ernst von Brandenburg-Kulmbach">Friedrich
-          Ernst of Brandenburg-Kulmbach</option>
+        <option value="Frederik V">Frederik V, King</option>
+        <option value="Frederik VI">Frederik VI, King</option>
+        <option value="Friedrich Ernst von Brandenburg-Kulmbach">Friedrich Ernst of Brandenburg-Kulmbach</option>
         <option value="Aage Friis">Friis, Aage</option>
         <option value="Mogens Friis">Friis, Mogens</option>
         <option value="Samuel Gottlob Frisch ">Frisch, Samuel Gottlob</option>
@@ -95,7 +86,6 @@
         <option value="Carl Gotthelf Gerlach">Gerlach, Carl Gotthelf</option>
         <option value="Heinrich August Gerlach">Gerlach, Heinrich August</option>
         <option value="Heinrich Wilhelm von Gerstenberg">Gerstenberg, Heinrich Wilhelm von</option>
-        <option value="Wilhelm Heinrich von Gerstenberg">Gerstenberg, Wilhelm Heinrich von</option>
         <option value="Giannettini">Giannettini, Giovanni Antonio</option>
         <option value="Giedde">Giedde, Werner Hans Rudolph Rosenkrantz</option>
         <option value="Johann Wilhelm Ludwig Gleim">Gleim, Johann Wilhelm Ludwig</option>
@@ -125,28 +115,24 @@
         <option value="Peder Hersleb">Hersleb, Peder</option>
         <option value="G.G. Hertel">Hertel, G.G.</option>
         <option value="Johann Adam Hiller">Hiller, Johann Adam</option>
-        <option value="Lothar Hoffman-Erbrecht">Hoffman-Erbrecht, Lothar</option>
         <option value="Lothar Hoffmann-Erbrecht">Hoffmann-Erbrecht, Lothar</option>
+        <option value="Julius Hoffory">Hoffory, Julius</option>
         <option value="Ludvig Holberg">Holberg, Ludvig</option>
         <option value="Peder Holm">Holm, Peder</option>
         <option value="Johan Ludvig Holstein">Holstein, Johan Ludvig</option>
         <option value="Michael Holzmann">Holzmann, Michael</option>
         <option value="B. Houpfeld">Houpfeld, B.</option>
-
         <option value="Duke Ludwig Casimir von Isenburg">Isenburg, Duke Ludwig Casimir von</option>
         <option value="Johann Erasmus Iversen">Iversen, Johann Erasmus</option>
         <option value="Joachim Jaenecke">Jaenecke, Joachim</option>
         <option value="H.F. Johnsen">Johnsen, H.F.</option>
         <option value="Juliane Marie of Braunschweig-Wolfenbüttel">Juliane Marie of Braunschweig-Wolfenbüttel</option>
         <option value="Otto Kade">Kade, Otto</option>
-        <option value="Karl Alexander von Brandenburg-Ansbach">Karl Alexander
-          von Brandenburg-Ansbach</option>
+        <option value="Karl Alexander von Brandenburg-Ansbach">Karl Alexander von Brandenburg-Ansbach</option>
         <option value="Reinhard Keiser">Keiser, Reinhard</option>
         <option value="Thomas Kingo">Kingo, Thomas</option>
         <option value="Johann Philipp Kirnberger">Kirnberger, Johann Philipp</option>
         <option value="Friedrich Gottlieb Klopstock">Klopstock, Friedrich Gottlieb</option>
-        <option value="Friedrich Gottlob Klopstock">Klopstock, Friedrich Gottlob</option>
-        <option value="Yoshitake Koabayashi">Koabayashi, Yoshitake</option>
         <option value="Yoshitake Kobayashi">Kobayashi, Yoshitake</option>
         <option value="Jens Henrik Koudal">Koudal, Jens Henrik</option>
         <option value="Christian Gottlieb Kratzenstein">Kratzenstein, Christian Gottlieb</option>
@@ -174,8 +160,6 @@
         <option value="Queen Juliane Marie">Marie, Queen Juliane</option>
         <option value="Friedrich Wilhelm Marpurg">Marpurg, Friedrich Wilhelm</option>
         <option value="Hans Joachim Marx">Marx, Hans Joachim</option>
-        <option value="Caroline Mathilde">Mathilde, Caroline</option>
-        <option value="Queen Caroline Mathilde">Mathilde, Queen Caroline</option>
         <option value="Johann Mattheson">Mattheson, Johann</option>
         <option value="Michael Maul">Maul, Michael</option>
         <option value="Marcus Meibom">Meibom, Marcus</option>
@@ -197,12 +181,9 @@
         <option value="Ilsabe Müller">Müller, Ilsabe</option>
         <option value="Johann Georg Müller">Müller, Johann Georg</option>
         <option value="Balthasar Münter">Münter, Balthasar</option>
-        <option value="Bathasar Münter">Münter, Bathasar</option>
         <option value="Christian Gottlob Neefe">Neefe, Christian Gottlob</option>
         <option value="Caroline Neuber">Neuber, Caroline</option>
         <option value="Nissen">Nissen</option>
-        <option value="Princess Sophia Carolina of Ost-Friesland">Ost-Friesland, Princess Sophia
-          Carolina of</option>
         <option value="Johann Pachebel">Pachebel, Johann</option>
         <option value="Paganelli">Paganelli</option>
         <option value="Palschau">Palschau</option>
@@ -218,34 +199,27 @@
         <option value="Pugnani">Pugnani</option>
         <option value="Johann Joachim Quantz">Quantz, Johann Joachim</option>
         <option value="Qvist">Qvist</option>
-        <option value="Count Otto Ludvig Raben">Raben, Count Otto Ludvig</option>
         <option value="Frederik Raben">Raben, Frederik</option>
         <option value="Otto Ludvig Raben">Raben, Otto Ludvig</option>
-        <option value="Racine">Racine</option>
         <option value="Jean Racine">Racine, Jean</option>
         <option value="Karl Wilhelm Ramler">Ramler, Karl Wilhelm</option>
         <option value="Vilhelm Carl Ravn">Ravn, Vilhelm Carl</option>
-        <option value="Lorenz Reerslev">Reerslev, Lorenz</option>
         <option value="Lorenz Christian Reerslev">Reerslev, Lorenz Christian</option>
         <option value="Elias Caspar Reichard">Reichard, Elias Caspar</option>
         <option value="Reichardt">Reichardt</option>
         <option value="Reuter">Reuter</option>
         <option value="Friedrich Wilhelm Riedt">Riedt, Friedrich Wilhelm</option>
         <option value="Johann Heinrich Rolle">Rolle, Johann Heinrich</option>
-        <option value="Burckhard Rosenberger">Rosenberger, Burckhard</option>
         <option value="Burkard Rosenberger">Rosenberger, Burkard</option>
         <option value="Peder Rosenstand-Goiske">Rosenstand-Goiske, Peder</option>
         <option value="Rosetti">Rosetti</option>
         <option value="Caspar Peter Rothe">Rothe, Caspar Peter</option>
-        <option value="Das Gefolge Irenens und des Ruhmes">Ruhmes, Das Gefolge Irenens und
-          des</option>
         <option value="Christian Ræhs">Ræhs, Christian</option>
         <option value="Giuseppe Sarti">Sarti, Giuseppe</option>
         <option value="Angelo Maria Scaccia">Scaccia, Angelo Maria</option>
         <option value="Paolo Scalabrini">Scalabrini, Paolo</option>
         <option value="Christoph Schaffrath">Schaffrath, Christoph</option>
         <option value="Gerhard Schaft">Schaft, Gerhard</option>
-        <option value="Gerhard Schaft?">Schaft?, Gerhard</option>
         <option value="Claus Nielsen Schall">Schall, Claus Nielsen</option>
         <option value="Christian Friedrich">Scheibe, Christian Friedrich</option>
         <option value="Johann Scheibe ">Scheibe, Johann</option>
@@ -253,8 +227,7 @@
         <option value="Johann Gotthelf Scheinpflug">Scheinpflug, Johann Gotthelf</option>
         <option value="Niels Schiørring">Schiørring, Niels</option>
         <option value="Johann Elias Schlegel">Schlegel, Johann Elias</option>
-        <option value="Julius Hoffory &amp; Paul Schlenther">Schlenther, Julius Hoffory &amp;
-          Paul</option>
+        <option value="Paul Schlenther">Schlenther, Paul</option>
         <option value="Schlick">Schlick</option>
         <option value="Schlöger">Schlöger</option>
         <option value="M. Christian Schmid">Schmid, M. Christian</option>
@@ -262,13 +235,12 @@
         <option value="Christoph Gottlieb Schröter">Schröter, Christoph Gottlieb</option>
         <option value="Karl Schüddekopf">Schüddekopf, Karl</option>
         <option value="Schürer">Schürer</option>
-        <option value="Selhof">Selhof</option>
         <option value="Nicolas Selhof">Selhof, Nicolas</option>
         <option value="Socrates">Socrates</option>
         <option value="Rasmus Soelberg">Soelberg, Rasmus</option>
+        <option value="Sophia Carolina of Ost-Friesland">Sophia Carolina, Princess of Ost-Friesland</option>
         <option value="Stefano Spadina">Spadina, Stefano</option>
         <option value="Peder Sparkiær">Sparkiær, Peder</option>
-        <option value="Sporon">Sporon</option>
         <option value="Benjamin Georg Sporon">Sporon, Benjamin Georg</option>
         <option value="Johann Stamitz">Stamitz, Johann</option>
         <option value="Russell Stinson">Stinson, Russell</option>
@@ -277,7 +249,6 @@
         <option value="Johann Friedrich Struensee">Struensee, Johann Friedrich</option>
         <option value="Gottfried Heinrich Stölzel">Stölzel, Gottfried Heinrich</option>
         <option value="Johann Georg Sulzer">Sulzer, Johann Georg</option>
-        <option value="Crown Prince Gustav of Sweden">Sweden, Crown Prince Gustav of</option>
         <option value="Sønnichsen">Sønnichsen</option>
         <option value="Georg Philipp Telemann">Telemann, Georg Philipp</option>
         <option value="Ludvig Fabritius Tengnagel">Tengnagel, Ludvig Fabritius</option>
@@ -293,35 +264,21 @@
         <option value="Trier">Trier</option>
         <option value="Turno">Turno</option>
         <option value="G. Umstatt">Umstatt, G.</option>
-        <option value="Frederik V">V, Frederik</option>
-        <option value="King Frederik V">V, King Frederik</option>
-        <option value="Christian VI">VI, Christian</option>
-        <option value="Frederik VI">VI, Frederik</option>
-        <option value="King Christian VI">VI, King Christian</option>
-        <option value="Christian VII">VII, Christian</option>
-        <option value="King Christian VII">VII, King Christian</option>
         <option value="Prince Vilhelm of Hesse-Cassel">Vilhelm, Prince of Hesse-Cassel</option>
-        <option value="Prince Wilhelm of Hesse-Cassel">Wilhelm, Prince of Hesse-Cassel</option>
-        <option value="Princess Vilhelmine Caroline">Vilhelmine Caroline, Princess</option>
-        <option value="Princess Vilhelmine Caroline of Denmark">Vilhelmine
-          Caroline, Princess of Denmark</option>
+        <option value="Princess Vilhelmine Caroline">Vilhelmine Caroline, Princess of Denmark</option>
         <option value="Leopoldo di Villati">Villati, Leopoldo di</option>
-        <option value="Antonio Vivaldi's">Vivaldi's, Antonio</option>
         <option value="Antonio Vivaldi">Vivaldi, Antonio</option>
         <option value="O.K.F. von Voß-Buch">Voß-Buch, O.K.F. von</option>
         <option value="Peder Topp Wandall">Wandall, Peder Topp</option>
         <option value="Christian Ernst Weiße ">Weiße, Christian Ernst</option>
         <option value="Christian Felix Weiße">Weiße, Christian Felix</option>
         <option value="Christiane Elisabeth Weiße">Weiße, Christiane Elisabeth</option>
-        <option value="Christiane Elizabeth Weiße">Weiße, Christiane Elizabeth</option>
         <option value="Werner">Werner</option>
         <option value="C.E.F. Weyse">Weyse, C.E.F.</option>
         <option value="Alfred Wotquenne">Wotquenne, Alfred</option>
         <option value="Jan Dismas Zelenka">Zelenka, Jan Dismas</option>
         <option value="Zielche">Zielche</option>
         <option value="Johann Christian Zschotzscher">Zschotzscher, Johann Christian</option>
-        <option value="anonymous">anonymous</option>
-        <option value="Société royal des sciences">sciences, Société royal des</option>
       </select>
     </div>
 
