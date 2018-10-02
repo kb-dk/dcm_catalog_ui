@@ -30,7 +30,6 @@
       <copy todir="${service}">
 	<fileset dir="${service.src}"/>
       </copy>
-
     </target>
 
     <target name="upload">
