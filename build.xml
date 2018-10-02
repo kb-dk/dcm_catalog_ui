@@ -33,9 +33,9 @@
     </target>
 
     <target name="add_data" depends="service">
-      <mkdir dir="${service}/cnw/data"/>
+      <mkdir dir="${build}/data-cnw"/>
 
-      <copy todir="${service}/cnw/data">
+      <copy todir="${build}/data-cnw">
 	<fileset dir="./data"/>
       </copy>
 
