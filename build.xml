@@ -5,8 +5,13 @@
 
     <property name="build" value="build"/>
     <property name="service.src" value="./cat-site"/>
-
+    <property name="install" value="css,db,eot,gif,html,js,otf,png,svg,ttf,woff,xml,xq,xqm,xsl"/>
     <property name="hostport" value="localhost:8080"/>
+
+    <property name="xconfig"     value="system/config/db/cat-site"/>
+    <property name="xconfig_source" value="${build}/system/config/db/"/>
+    <property name="target" value="cat-site"/>
+    <property name="service" value="${build}/${target}"/>
 
     <target name="all" depends="service"/>
     <target name="rebuild" depends="clean,all"/>
@@ -16,11 +21,6 @@
     </target>
 
     <target name="service" depends="clean">
-      <property name="xconfig"     value="system/config/db/cat-site"/>
-      <property name="xconfig_source" value="${build}/system/config/db/"/>
-      <property name="target" value="cat-site"/>
-      <property name="service" value="${build}/${target}"/>
-
       <mkdir dir="${build}"/>
       <mkdir dir="${service}"/>
       <mkdir dir="${service}/${target}"/>
@@ -32,12 +32,22 @@
       </copy>
     </target>
 
+    <target name="add_data" depends="service">
+      <mkdir dir="${build}/data-cnw"/>
+
+      <copy todir="${build}/data-cnw">
+	<fileset dir="./data"/>
+      </copy>
+
+    </target>
+
+
     <target name="upload">
       <input message="Enter password:" addproperty="server.pass" defaultvalue="">
 	<handler type="secure"/>
       </input>
       <exec executable="./utilities/load_exist.pl">
-	<arg line="--suffix xconf,html,xml,xq,xqm,xsl --load build  --target / --host-port ${hostport} --user admin --password ${server.pass}"/>
+	<arg line="--suffix ${install} --load build  --target / --host-port ${hostport} --user admin --password ${server.pass}"/>
       </exec>
     </target>
 
