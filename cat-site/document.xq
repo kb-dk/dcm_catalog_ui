@@ -23,7 +23,7 @@ declare variable $score    := request:get-parameter("score", "");
 
 declare variable $coll     := request:get-parameter("c","") cast as xs:string;
 declare variable $database := concat("/db/data-",$coll,"/");
-declare variable $xsl    := xs:anyURI(concat('http://',$host,"/dcm/",$coll,"/style/transforms/mei_to_html_public.xsl"));
+declare variable $xsl      := doc("/db/cat-site/style/transforms/mei_to_html_public.xsl");
 
 let $list := 
 for $doc in collection($database)
@@ -61,10 +61,10 @@ let $result :=
 	<parameters>
 	  <param name="hostname"    value="{$host}"/>
 	  <param name="script_path" value="./document.xq"/>
-	  <param name="doc" value="{util:document-name($doc)}"/>
-	  <param name="cat" value="{$coll}"/>
-      <param name="language" value="{$language}"/>
-      <param name="score" value="{$score}"/>
+	  <param name="doc"         value="{util:document-name($doc)}"/>
+	  <param name="cat"         value="{$coll}"/>
+	  <param name="language"    value="{$language}"/>
+	  <param name="score"       value="{$score}"/>
 	</parameters>
 	return transform:transform($doc,$xsl,$params)
       }
