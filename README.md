@@ -5,3 +5,7 @@ That is, this is a tool for presenting thematic catalogs of music metadata, base
 
 The [Catalogue of Carl Nielsen's Works](http://www.kb.dk/dcm/cnw/navigation.xq) is implemented using
 the software distributed here. 
+
+DCW Catalogue of the Works of Frederick Delius
+https://delius.music.ox.ac.uk/catalogue/welcome.html
+
