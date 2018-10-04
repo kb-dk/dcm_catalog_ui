@@ -9,3 +9,5 @@ the software distributed here.
 DCW Catalogue of the Works of Frederick Delius
 https://delius.music.ox.ac.uk/catalogue/welcome.html
 
+## How to [install](INSTALL.md)
+
