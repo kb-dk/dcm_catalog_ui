@@ -1,5 +1,7 @@
 
-# Building and Installing the DCM catalogue user interface, AKA dcm_catalog_ui
+## Building and Installing
+#  The DCM catalogue user interface
+## AKA dcm_catalog_ui
 
 ## Getting started
 
