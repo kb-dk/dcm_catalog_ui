@@ -24,7 +24,7 @@ each edition. Each page has a script and some of them a content
 file. E.g., the cnw/about.xq takes the content from about.html and publishes that on 
 
 http://localhost/dcm/cnw/about.xq which is actually a rewrite of
-http://localhost:8080/exist/cat-site/about.xq?c=cnw
+http://localhost:8080/exist/rest/db/cat-site/about.xq?c=cnw
 
 In addition to the HTML files the xquery module layout.xqm gives you
 the tools needed to style and customize the look and feel. The most
