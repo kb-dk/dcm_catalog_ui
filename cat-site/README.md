@@ -5,12 +5,14 @@ This is the software.
 
 ## Individual web sites
 
-| collection | URI mapping |
+You'll find four example services, only one of which contains data.
+
+| directory  | URI mapping |
 |:-----------|:------------|
-| cnw        |             |
-| hartw      |             |
-| nwgw       |             |
-| schw       |             |
+| cnw        | http://localhost/dcm/cnw/navigation.xq |
+| hartw      | http://localhost/dcm/hartw/navigation.xq (empty) |
+| nwgw       | http://localhost/dcm/nwgw/navigation.xq (empty) |
+| schw       | http://localhost/dcm/schw/navigation.xq (empty) |
 
 These directories contain editorial texts and specific HTML for each edition.
 
