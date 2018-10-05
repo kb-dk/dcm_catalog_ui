@@ -1,7 +1,7 @@
 
 # The software and how it is structured
 
-This is the software.
+This is the software. The resulting web site is not structured as in here, see [configuration file cat-site.conf](../cat-site.conf)
 
 ## Individual web sites
 
