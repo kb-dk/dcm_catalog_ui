@@ -18,13 +18,16 @@ These directories contain editorial texts and specific HTML for each edition.
 
 ## Misc css, xsl, javascript and tools
 
-./style
-./js
-./jquery
-./tools
+| directory  | URI mapping |
+|:-----------|:------------|
+| style | http://localhost/dcm/style/ |
+| js |  http://localhost/dcm/js/ |
+| jquery | http://localhost/dcm/jquery/ |
+| tools |  http://localhost/dcm/tools/ |
 
 ## Data for controlled names of collections and libraries
 
-./rism_sigla
-./library
-
+| directory  | URI mapping |
+|:-----------|:------------|
+| rism_sigla | http://localhost/dcm/rism_sigla/ |
+| library | http://localhost/dcm/library/ |
