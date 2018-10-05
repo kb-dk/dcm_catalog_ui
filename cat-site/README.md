@@ -45,12 +45,21 @@ modules.
 
 | directory  | URI mapping |
 |:-----------|:------------|
-| style | http://localhost/dcm/style/ |
-| js |  http://localhost/dcm/js/ |
-| jquery | http://localhost/dcm/jquery/ |
-| tools |  http://localhost/dcm/tools/ |
+| style | http://localhost/dcm/cnw/style/ |
+| js |  http://localhost/dcm/cnw/js/ |
+| jquery | http://localhost/dcm/cnw/jquery/ |
+| tools |  http://localhost/dcm/cnw/tools/ |
+
+The content is delivered from these for all of cnw, hartw and
+schw. This explains the linking to javascripts and style sheets etc
+you find in [layout.xqm](layout.xqm).
 
 ## Data for controlled names of collections and libraries
+
+These are not used in the user interfaces directly, but is data for
+looking the meaning of abbreviations etc. Your project might need to
+change that, but then you should start to think about that before
+actually implementing the end user interface.
 
 | directory  | URI mapping |
 |:-----------|:------------|
