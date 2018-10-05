@@ -33,12 +33,16 @@
     </target>
 
     <target name="add_data" depends="service">
+      <mkdir dir="${build}/editor"/>
       <mkdir dir="${build}/data-cnw"/>
+
+      <copy todir="${build}/editor">
+	<fileset dir="./editor"/>
+      </copy>
 
       <copy todir="${build}/data-cnw">
 	<fileset dir="./data"/>
       </copy>
-
     </target>
 
 
