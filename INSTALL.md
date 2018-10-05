@@ -1,4 +1,6 @@
 
+[README](README.md) | [How to install](INSTALL.md) | [About the software package](cat-site/README.md)
+
 ## Building and Installing
 #  The DCM catalogue user interface
 
