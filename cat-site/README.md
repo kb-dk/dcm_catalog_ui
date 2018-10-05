@@ -23,8 +23,11 @@ These directories contain editorial texts and specific HTML files for
 each edition. Each page has a script and some of them a content
 file. E.g., the cnw/about.xq takes the content from about.html and publishes that on 
 
-http://localhost/dcm/cnw/about.xq which is actually a rewrite of
-http://localhost:8080/exist/rest/db/cat-site/about.xq?c=cnw
+http://localhost/dcm/cnw/about.xq which is actually a remapping of
+http://localhost:8080/exist/rest/db/cat-site/about.xq?c=cnw See
+[configuration file cat-site.conf](../cat-site.conf). Not only are the
+remapped URIs more tractable, the who package assumes that it it
+possible to write relative links between those more compact forms.
 
 In addition to the HTML files the xquery module layout.xqm gives you
 the tools needed to style and customize the look and feel. The most
