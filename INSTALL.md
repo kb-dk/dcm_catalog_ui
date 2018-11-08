@@ -6,8 +6,8 @@
 
 ## Getting started with dcm_catalog_ui
 
-You will need an eXist DB installation. There are now special needs
-for that; it is [just to follow the manual](https://exist-db.org/exist/apps/doc/basic-installation).
+You will need an eXist DB installation. There are no special needs
+for that; [just follow the manual](https://exist-db.org/exist/apps/doc/basic-installation).
 
 To get a rudimentary installation follow the following procedure:
 
@@ -45,7 +45,7 @@ The last step (ant upload) requires the admin password of an eXist DB
 server on localhost, running on port 8080.
 
 Having done these three steps you will have a everything installed on
-the server. It remains to make all scripts executable, and you can do
+the server. It remains to make all scripts executable. You can do
 that for all of them in one go sending a GET request to the following URI
 
 ```
@@ -70,10 +70,10 @@ upload now requires an extra option:
 
 c. Preparing your Apache HTTPD
 
-You will not be able to run dcm_catalog_ui without an Apache that
-keeps track of the URI space of the service. It might cause you head
-ache, but for us it means that one server makes it all. We have at
-four catalogues on the same site, working independently of each
+You will not be able to run dcm_catalog_ui without an Apache to
+keep track of the URI space of the service. It might cause you headache, 
+but for us it means that one server makes it all. We have four catalogues 
+on the same site, working independently of each
 other.
 
 The file cat-site.conf should be copied to the configuration directory
@@ -97,7 +97,7 @@ of your HTTPD's virtual servers.
 
 ```
 
-After you've done that, and restarted HTTPD this means that if your
+After you've done that and restarted HTTPD, this means that if your
 eXist DB is on localhost:8080 and your HTTPD is on standard
 localhost:80, you will have one service at
 
