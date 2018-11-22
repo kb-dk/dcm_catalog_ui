@@ -1975,11 +1975,15 @@
 	<xsl:template match="m:extent/@unit | m:dimensions/@unit">
 		<xsl:variable name="elementName" select="concat('unit_',.)"/>
 		<xsl:choose>
+			<xsl:when test=".='page' and normalize-space(..)!='1'">
+				<!-- try to determine whether to use plural -->
+				<xsl:value-of select="$l/unit_pages"/>
+			</xsl:when>
 			<xsl:when test="$l/*[name()=$elementName]!=''"><xsl:value-of select="$l/*[name()=$elementName]"/></xsl:when>
 			<xsl:otherwise><xsl:value-of select="."/></xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-
+	
 	<xsl:template match="m:physDesc">
 		<xsl:if test="m:dimensions[text()] | m:extent[text()]">
 			<p>
