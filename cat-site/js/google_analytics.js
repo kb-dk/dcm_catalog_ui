@@ -3,7 +3,7 @@
      _gaq.push(['_setAccount', 'UA-1269676-1']);
      _gaq.push(['_trackPageview']);
      _gaq.push(['_setDomainName', 'www.kb.dk']);
-	    
+     _gaq.push (['_gat._anonymizeIp']);	    
      (function() {
        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
