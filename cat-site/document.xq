@@ -17,7 +17,10 @@ declare option exist:serialize "method=xml media-type=text/html";
 
 declare variable $document := request:get-parameter("doc", "");
 declare variable $mode     := request:get-parameter("mode","nomode") cast as xs:string;
-declare variable $host     := "localhost"; (: request:get-header('HOST'); :)
+(: For now, Docker users must hard-code their server's name below. For instance :)
+(: declare variable $host     := "catalog.example.org";                         :)
+(: Non-Docker users may use "localhost" or possibly request:get-header("HOST")  :)
+declare variable $host     := "localhost"; 
 declare variable $language := request:get-parameter("language", "");
 declare variable $score    := request:get-parameter("score", "");
 
