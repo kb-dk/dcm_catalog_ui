@@ -44,20 +44,20 @@ declare function local:format-main-title ($key as xs:string) as node()
 		<h2>FS Numbers</h2>
 		<table>
 		    {
-            	    for $c in collection($database)/m:mei/m:meiHead/m:workDesc/m:work[m:identifier[@label='FS']]
+            	    for $c in collection($database)/m:mei/m:meiHead/m:workList/m:work[m:identifier[@label='FS']]
                     order by number(translate(local:simplify-list($c/m:identifier[@label='FS']),'abcdefghijklmnopqrstuvwxyz','')), 
                     translate(local:simplify-list($c/m:identifier[@label='FS']),'01234567890','') 
             	    return 
             	       <tr>
             	           <td>{$c/m:identifier[@label='FS']/string()}</td>
             	           <td>{
-            	               if(not($c/m:titleStmt/m:title[@type='alternative']) and $c/m:classification/m:termList/m:term='Song'
+            	               if(not($c/m:title[@type='alternative']) and $c/m:classification/m:termList/m:term='Song'
             	               and not(fn:contains($c/m:identifier[@label='CNW'],'Coll.'))) then
             	                   (: no alternative title, i.e. title is first line :)
-                    	           $c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string()
+                    	           $c/m:title[@type='main' or not(@type)][1]/string()
                     	       else
-                    	           <span>{local:format-main-title($c/m:titleStmt/m:title[@type='main' or not(@type)][1]/string())}
-                    	             {$c/m:titleStmt/m:title[@type='alternative'][1]}
+                    	           <span>{local:format-main-title($c/m:title[@type='main' or not(@type)][1]/string())}
+                    	             {$c/m:title[@type='alternative'][1]}
                     	           </span>
             	           }
             	           <!--</td>

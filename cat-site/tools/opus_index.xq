@@ -23,7 +23,7 @@ declare variable $database := "/db/cnw/data";
 		<h2>Opus Numbers</h2>
 		<table>
 		    {
-            	    for $c in collection($database)//m:workDesc/m:work[m:identifier[@label='Opus']]
+            	    for $c in collection($database)//m:workList/m:work[m:identifier[@label='Opus']]
                     order by number(translate($c/m:identifier[@label='Opus'],'abcdefghijklmnopqrstuvwxyz',''))
             	    return 
             	       <tr>
@@ -36,10 +36,10 @@ declare variable $database := "/db/cnw/data";
             	           <td>{
             	           if(contains($c/m:identifier[@label='Opus'],'.')) then
             	               <span>{fn:concat($c/m:identifier[@label='Opus'],' ')}
-                	               <i>{fn:substring-before($c/m:titleStmt/m:title[@type='main' or not(@type)][1],', opus')}</i>
+                	               <i>{fn:substring-before($c/m:title[@type='main' or not(@type)][1],', opus')}</i>
             	               </span>
                            else
-                                <i>{fn:substring-before($c/m:titleStmt/m:title[@type='main' or not(@type)][1],', opus')}</i>
+                                <i>{fn:substring-before($c/m:title[@type='main' or not(@type)][1],', opus')}</i>
                                 }<!--</td>
             	           <td>-->{fn:concat(' CNW ',$c/m:identifier[@label='CNW']/string())}</td>
             	       </tr>

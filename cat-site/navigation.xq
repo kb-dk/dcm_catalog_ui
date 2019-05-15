@@ -51,7 +51,7 @@ declare function local:format-reference(
 
     let $genres2 := 
       for $genre in 
-	  distinct-values($doc//m:workDesc/m:work/m:classification/m:termList/m:term[contains(string-join($vocabulary//m:termList[@label='level2']/m:term," "),.) and normalize-space(.)!='']/string())
+	  distinct-values($doc//m:workList/m:work/m:classification/m:termList/m:term[contains(string-join($vocabulary//m:taxonomy/m:category/m:category/m:desc," "),.) and normalize-space(.)!='']/string())
 	  where string-length($genre) > 0   
 	     return
 	       $genre
@@ -66,7 +66,7 @@ declare function local:format-reference(
    let $genres1 := 
       for $genre in $genres2
          return 
-	         $vocabulary//m:termList/m:term[.=$genre]/../preceding-sibling::m:termList[@label='level1'][1]/string()
+	         $vocabulary//m:taxonomy/m:category/m:desc[.=$genre]/ancestor::m:category[1]/string()
 
    let $class1 := 
       for $genre in $genres1
@@ -83,24 +83,24 @@ declare function local:format-reference(
            </div>
        
    let $date_output :=
-     if($doc//m:workDesc/m:work/m:creation/m:date/@notbefore!='' or $doc//m:workDesc/m:work/m:creation/m:date/@notafter!=''
-       or $doc//m:workDesc/m:work/m:creation/m:date/@startdate!='' or $doc//m:workDesc/m:work/m:creation/m:date/@enddate!='') then
-       concat(substring($doc//m:workDesc/m:work/m:creation/m:date/@notbefore,1,4),
-       substring($doc//m:workDesc/m:work/m:creation/m:date/@startdate,1,4),
+     if($doc//m:workList/m:work/m:creation/m:date/@notbefore!='' or $doc//m:workList/m:work/m:creation/m:date/@notafter!=''
+       or $doc//m:workList/m:work/m:creation/m:date/@startdate!='' or $doc//m:workList/m:work/m:creation/m:date/@enddate!='') then
+       concat(substring($doc//m:workList/m:work/m:creation/m:date/@notbefore,1,4),
+       substring($doc//m:workList/m:work/m:creation/m:date/@startdate,1,4),
        '-',
-       substring($doc//m:workDesc/m:work/m:creation/m:date/@enddate,1,4),
-       substring($doc//m:workDesc/m:work/m:creation/m:date/@notafter,1,4))
+       substring($doc//m:workList/m:work/m:creation/m:date/@enddate,1,4),
+       substring($doc//m:workList/m:work/m:creation/m:date/@notafter,1,4))
      else
-       substring($doc//m:workDesc/m:work/m:creation/m:date/@isodate,1,4)
+       substring($doc//m:workList/m:work/m:creation/m:date/@isodate,1,4)
 
    (: Composer currently not used :)
    let $composer :=
-   	        <div class="composer">{$doc//m:workDesc/m:work/m:titleStmt/m:respStmt/m:persName[@role='composer']/text()}&#160;</div>
+   	        <div class="composer">{$doc//m:workList/m:work/m:contributor[@role='composer'][1]/text()}&#160;</div>
 
    (: Prefer low resolution incipits if available; otherwise just use the first available image :)
-   let $img := if ($doc//m:workDesc/m:work//m:incip/m:graphic[@target and @targettype='lowres']) then
-       $doc//m:workDesc/m:work//m:incip/m:graphic[@target and @targettype='lowres'][1]
-   else $doc//m:workDesc/m:work//m:incip/m:graphic[@target][1]
+   let $img := if ($doc//m:workList/m:work//m:incip/m:graphic[@target and @targettype='lowres']) then
+       $doc//m:workList/m:work//m:incip/m:graphic[@target and @targettype='lowres'][1]
+   else $doc//m:workList/m:work//m:incip/m:graphic[@target][1]
 
    (: some magic needed to resize incipit :)
    let $incip := if ($img) then

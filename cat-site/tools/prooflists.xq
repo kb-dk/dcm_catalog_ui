@@ -59,7 +59,7 @@ declare function loop:clean-volumes ($key as xs:string) as xs:string
     CNS: 
 		    {
 (:            	    for $c in distinct-values(
-            		collection($database)//m:workDesc/m:work/m:identifier[@label='CNS']/string()[string-length(.) > 0
+            		collection($database)//m:workList/m:work/m:identifier[@label='CNS']/string()[string-length(.) > 0
             		and not(number(.))])
                     order by number($c)
             	    return 
@@ -74,7 +74,7 @@ declare function loop:clean-volumes ($key as xs:string) as xs:string
 		    {
 (:
                     for $c in distinct-values(
-            		collection($database)//m:workDesc/m:work/m:identifier[@label='CNW']/string()[string-length(.) > 0 and translate(.,'0123456789','')=''])
+            		collection($database)//m:workList/m:work/m:identifier[@label='CNW']/string()[string-length(.) > 0 and translate(.,'0123456789','')=''])
                     order by number($c)
             	    return 
             	       <div>{$c} </div> 
@@ -91,7 +91,7 @@ declare function loop:clean-volumes ($key as xs:string) as xs:string
 		    {
 
                     for $c in distinct-values(
-            		collection($database)//(m:sourceDesc//m:persName | m:work//m:persName)
+            		collection($database)//(m:manifestationList//m:persName | m:work//m:persName)
             		/normalize-space(loop:invert-names(loop:clean-names(string())))[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))])
                     order by $c
             	    return

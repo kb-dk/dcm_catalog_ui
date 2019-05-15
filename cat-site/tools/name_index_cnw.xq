@@ -42,22 +42,22 @@ declare function loop:invert-names ($key as xs:string) as xs:string
 	<body>
 
     <h2>Names</h2>
-    <!-- Names appearing in <workDesc> or <sourceDesc> only)-->
+    <!-- Names appearing in <workList> or <manifestationList> only)-->
     <div>
  
 		    {
                     for $c in distinct-values(
-            		collection($database)/(m:mei/m:meiHead/m:fileDesc/m:sourceDesc//m:persName 
-            		| m:mei/m:meiHead/m:workDesc/m:work//m:persName)
+            		collection($database)/(m:mei/m:meiHead/m:fileDesc/m:manifestationList//m:persName 
+            		| m:mei/m:meiHead/m:workList/m:work//m:persName)
             		/normalize-space(loop:clean-names(string()))[string-length(.) > 0 and not(contains(.,'Carl Nielsen'))])
                     order by loop:invert-names($c)
             	    return
             		  <div>{concat(loop:invert-names($c),'   CNW ')} 
             		  {let $numbers :=
             		  for $n in collection($database)/m:mei/m:meiHead
-                         where contains($n/(m:workDesc | m:fileDesc/m:sourceDesc)//m:persName[not(local-name(..)='event' and count(../preceding-sibling::m:event)>0)],$c)
-                         order by $n/m:workDesc/m:work/m:identifier[@label='CNW']/string() 
-                	     return $n/m:workDesc/m:work/m:identifier[@label='CNW']/string()
+                         where contains($n/(m:workList | m:fileDesc/m:manifestationList)//m:persName[not(local-name(..)='event' and count(../preceding-sibling::m:event)>0)],$c)
+                         order by $n/m:workList/m:work/m:identifier[@label='CNW']/string() 
+                	     return $n/m:workList/m:work/m:identifier[@label='CNW']/string()
                 	   return string-join($numbers,', ') 
                    	   } 
                 	   </div>
