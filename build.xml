@@ -9,7 +9,7 @@
     <property name="hostport" value="localhost:8080"/>
 
     <property name="xconfig"     value="system/config/db/cat-site"/>
-    <property name="xconfig_source" value="${build}/system/config/db/"/>
+    <property name="xconfig_source" value="${build}/system/config/db/cat-site"/>
     <property name="target" value="cat-site"/>
     <property name="service" value="${build}/${target}"/>
 
