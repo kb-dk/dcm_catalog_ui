@@ -110,3 +110,15 @@ http://localhost/dcm/hartw/navigation.xq
 
 However, only the former contains data.
 
+d. Add server name to document.xq
+
+If XSL transformation of data fails when trying to display a particular work record (i.e., 
+URLs like http://your-server-name-here.org/dcm/cnw/document.xq?doc=nielsen_cnw0127.xml), 
+you may need to add your server's name where indicated in the file document.xq, 
+located in /db/cat-site/ in eXist:    
+
+```
+
+declare variable $host  := "your-server-name-here.org";
+
+```

@@ -17,7 +17,10 @@ declare option exist:serialize "method=xml media-type=text/html";
 
 declare variable $document := request:get-parameter("doc", "");
 declare variable $mode     := request:get-parameter("mode","nomode") cast as xs:string;
-declare variable $host     := "localhost"; (: request:get-header('HOST'); :)
+(: For now, Docker users must hard-code their server's name below. For instance :)
+(: declare variable $host     := "catalog.example.org";                         :)
+(: Non-Docker users may use "localhost" or possibly request:get-header("HOST")  :)
+declare variable $host     := "localhost"; 
 declare variable $language := request:get-parameter("language", "");
 declare variable $score    := request:get-parameter("score", "");
 
@@ -32,11 +35,11 @@ return $doc
 
 let $c := $list//m:fileDesc/m:seriesStmt/m:identifier[@type="file_collection"][1]/string()
 (:  should be: 
-    let $work_number := $list//m:meiHead/m:workDesc/m:work[1]/m:identifier[@label=$c][1]/string()
+    let $work_number := $list//m:meiHead/m:workList/m:work[1]/m:identifier[@label=$c][1]/string()
     but that sometimes (apparently randomly) returns 2 results instead of one!? 
     so we need to use the following workaround :)
-let $work_number := $list//m:meiHead/m:workDesc/m:work[1]/m:identifier/@label[.=$c]/../string()    
-let $title := $list//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][not(@type/string())][1]/string()
+let $work_number := $list//m:meiHead/m:workList/m:work[1]/m:identifier/@label[.=$c]/../string()    
+let $title := $list//m:workList/m:work[1]/m:title[string()][not(@type/string())][1]/string()
 let $html := doc(concat("/db/cat-site/",$coll,"/document.html"))
 let $head_title := 
    fn:concat($title," – ",$c," ",$work_number," – ",$html//h:title/text())

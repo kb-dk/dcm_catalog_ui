@@ -37,7 +37,7 @@ declare function loop:valid-work-number($doc as node()) as xs:boolean
   let $result  := 
     if($loop:collection eq "CNW") then
       if($exclude eq "yes") then
-	   let $num:=fn:number($doc//m:workDesc/m:work/m:identifier[@label=$loop:collection ][1]/string())
+	   let $num:=fn:number($doc//m:workList/m:work/m:identifier[@label=$loop:collection ][1]/string())
 	   return $num >= 1 and 9999 >= $num
       else
        true()
@@ -78,7 +78,7 @@ declare function loop:date-filters(
                 
 
   let $date := 
-    for $d in $doc//m:workDesc/m:work/m:creation/m:date
+    for $d in $doc//m:workList/m:work/m:creation/m:date
       return $d
     
   let $earliest := 
@@ -114,8 +114,8 @@ declare function loop:genre-filter(
 {
   (: we are searching in level 2 genre keywords :)
 
-  let $docgenre1 := string-join($doc//m:workDesc/m:work/m:classification/m:termList/m:term[.=$loop:vocabulary//m:termList[@label='level1']/m:term and .!='']/string(), " ")
-  let $docgenre2 := string-join($doc//m:workDesc/m:work/m:classification/m:termList/m:term[.=$loop:vocabulary//m:termList[@label='level2']/m:term and .!='']/string(), " ")
+  let $docgenre1 := string-join($doc//m:workList/m:work/m:classification/m:termList/m:term[.=$loop:vocabulary//m:taxonomy/m:category/m:desc and .!='']/string(), " ")
+  let $docgenre2 := string-join($doc//m:workList/m:work/m:classification/m:termList/m:term[.=$loop:vocabulary//m:taxonomy/m:category/m:category/m:desc and .!='']/string(), " ")
 
   let $occurrence :=
     if( string-length($genre)=0) then
@@ -138,30 +138,30 @@ declare function loop:sort-key (
 
   let $sort_key:=
     if($key eq "person") then
-      replace(lower-case($doc//m:workDesc/m:work[@analog="frbr:work"]/m:titleStmt[1]/m:respStmt/m:persName[1]/string()),"\\\\ ","")
+      replace(lower-case($doc//m:workList/m:work/m:contributor[@role="composer" or @role="cmp"]/string()),"\\\\ ","")
     else if($key eq "title") then
-      replace(lower-case($doc//m:workDesc/m:work[@analog="frbr:work"]/m:titleStmt[1]/m:title[1]/string()),"\\\\ ","")
+      replace(lower-case($doc//m:workList/m:work/m:title[1]/string()),"\\\\ ","")
     else if($key eq "date") then
       let $dates := 
-          for $date in $doc//m:workDesc/m:work/m:creation/m:date/(@notafter|@isodate|@notbefore|@startdate|@enddate)
+          for $date in $doc//m:workList/m:work/m:creation/m:date/(@notafter|@isodate|@notbefore|@startdate|@enddate)
 	    return substring($date,1,4)
       return 
 	if(count($dates)>=1) then
 	  max($dates)
 	else
 	  "0000"
-    else if($key eq "work_number" and $doc//m:workDesc/m:work/m:identifier/@label[.=$loop:collection]/../string()) then
+    else if($key eq "work_number" and $doc//m:workList/m:work/m:identifier/@label[.=$loop:collection]/../string()) then
       (: make the number a 15 character long string padded with zeros :)
-      (: let $num:=$doc//m:workDesc/m:work/m:identifier[@label=$loop:collection][1]/string():)
-      (: let $num:=$doc//m:workDesc/m:work/m:identifier[@label=$doc//m:fileDesc/m:seriesStmt/m:identifier[@type="file_collection"]][1]/string() :)
+      (: let $num:=$doc//m:workList/m:work/m:identifier[@label=$loop:collection][1]/string():)
+      (: let $num:=$doc//m:workList/m:work/m:identifier[@label=$doc//m:fileDesc/m:seriesStmt/m:identifier[@type="file_collection"]][1]/string() :)
       (: workaround to avoid random duplicates :)
       
-      (: was: let $num:=$doc//m:workDesc/m:work/m:identifier/@label[.=$loop:collection]/../string() 
+      (: was: let $num:=$doc//m:workList/m:work/m:identifier/@label[.=$loop:collection]/../string() 
       let $padded_number:=concat("0000000000000000",normalize-space($num))
       let $len:=string-length($padded_number)-14  
 	return substring($padded_number,$len,15) :)
 	   
-	   loop:padded-numbers($doc//m:workDesc/m:work/m:identifier/@label[.=$loop:collection]/../string())
+	   loop:padded-numbers($doc//m:workList/m:work/m:identifier/@label[.=$loop:collection]/../string())
 	
     else 
       ""
@@ -184,9 +184,9 @@ declare function loop:getlist (
 	collection($database)/m:mei[
           (not($query) or ft:query(.,$query)) 
           and
-	  (not($loop:title) or ft:query(.//m:titleStmt/m:title,$loop:title))
+	  (not($loop:title) or ft:query(.//m:title,$loop:title))
 	  and
-	  (not($loop:name)  or ft:query(.//m:recipient|.//m:author|.//m:persName,concat('&quot;',$loop:name,'&quot;')))
+	  (not($loop:name)  or ft:query(.//m:contributor|.//m:recipient|.//m:author|.//m:persName,concat('&quot;',$loop:name,'&quot;')))
 	  and
 	  (not($loop:workno) 
 	       or .//m:identifier[ft:query(@label,$loop:scheme) and ft:query(.,concat('&quot;',$loop:workno,'&quot;'))] )]

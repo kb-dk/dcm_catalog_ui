@@ -57,8 +57,8 @@ declare function app:get-edition-and-number($doc as node() ) as xs:string* {
   (: was: 
   let $c := $doc//m:fileDesc/m:seriesStmt/m:identifier[@type="file_collection"][1]/string() :)
   (: was:
-  let $no := $doc//m:meiHead/m:workDesc/m:work[1]/m:identifier[@label[.=$c]]/string() :)
-  let $no := $doc//m:meiHead/m:workDesc/m:work[1]/m:identifier[@label/string()=$c][1]/string() 
+  let $no := $doc//m:meiHead/m:workList/m:work[1]/m:identifier[@label[.=$c]]/string() :)
+  let $no := $doc//m:meiHead/m:workList/m:work[1]/m:identifier[@label/string()=$c][1]/string() 
     (: shorten very long identifiers (i.e. lists of numbers) :)
     let $part1 := substring($no, 1, 11)
     let $part2 := substring($no, 12)
@@ -77,7 +77,7 @@ declare function app:view-document-reference($doc as node()) as node() {
   <a  target="_blank"
   title="View" 
   href="present.xq?doc={util:document-name($doc)}">
-    {$doc//m:workDesc/m:work[@analog="frbr:work"]/m:titleStmt[1]/m:title[1]/string()}
+    {$doc//m:workList/m:work[@analog="frbr:work"]/m:title[1]/string()}
   </a>
   return $ref
 };
@@ -85,39 +85,39 @@ declare function app:view-document-reference($doc as node()) as node() {
 declare function app:public-view-document-reference($doc as node()) as node()* {
   let $langs :=
     comment{
-      for $lang in distinct-values($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()]/@xml:lang/string())
+      for $lang in distinct-values($doc//m:workList/m:work[1]/m:title[string()]/@xml:lang/string())
       return $lang
     }
     let $ref := 
       ($langs,
       element span {
-	attribute lang {$doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][not(@type/string())][1]/@xml:lang},
-	$doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][not(@type/string())][1]/string(),
+	attribute lang {$doc//m:workList/m:work[1]/m:title[string()][not(@type/string())][1]/@xml:lang},
+	$doc//m:workList/m:work[1]/m:title[string()][not(@type/string())][1]/string(),
 	" ",
 	element span {
 	  attribute class {"list_subtitle"},
-	  if ($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@type/string()='subordinate'][1]/string()) 
+	  if ($doc//m:workList/m:work[1]/m:title[string()][@type/string()='subordinate'][1]/string()) 
 	  then
 	     element span {
 	        " | ",
-	        $doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@type/string()='subordinate'][1]/string()
+	        $doc//m:workList/m:work[1]/m:title[string()][@type/string()='subordinate'][1]/string()
 	     }
-	  else if ($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[@type/string()='alternative'][1]/string()) 
-	     then concat( '(',$doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@type/string()='alternative'][1]/string(),')') else ""
+	  else if ($doc//m:workList/m:work[1]/m:title[@type/string()='alternative'][1]/string()) 
+	     then concat( '(',$doc//m:workList/m:work[1]/m:title[string()][@type/string()='alternative'][1]/string(),')') else ""
 	}
       },
     element br {},
     element span {
 	  attribute class {"alternative_language"},
 	  attribute lang {"en"},
-	  concat($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and not(@type/string())][1]/string()," "),
+	  concat($doc//m:workList/m:work[1]/m:title[string()][@xml:lang='en' and not(@type/string())][1]/string()," "),
   	  element span {
   	  attribute class {"list_subtitle"},
-	  if ($doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate'][1]/string())
+	  if ($doc//m:workList/m:work[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate'][1]/string())
 	  then 
 	     element span {
 	        " | ",
-	        $doc//m:workDesc/m:work[1]/m:titleStmt[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate'][1]/string()
+	        $doc//m:workList/m:work[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate'][1]/string()
 	     }
 	  else ""
 	}

@@ -4,22 +4,23 @@
     <lucene>
       <analyzer 
 	  class="org.apache.lucene.analysis.standard.StandardAnalyzer"/>
-      <text qname="m:mei"        type="xs:string"/>
-      <text qname="m:title"      type="xs:string"/>
-      <text qname="m:persName"   type="xs:string"/>
-      <text qname="m:author"     type="xs:string"/>
-      <text qname="m:recipient"  type="xs:string"/>
-      <text qname="m:term"       type="xs:string"/>
-      <text qname="m:identifier" type="xs:string"/>
-      <text qname="@type"        type="xs:string"/>
-      <text qname="@label"       type="xs:string"/>
+      <text qname="m:mei"         type="xs:string"/>
+      <text qname="m:title"       type="xs:string"/>
+      <text qname="m:contributor" type="xs:string"/>
+      <text qname="m:persName"    type="xs:string"/>
+      <text qname="m:author"      type="xs:string"/>
+      <text qname="m:recipient"   type="xs:string"/>
+      <text qname="m:term"        type="xs:string"/>
+      <text qname="m:identifier"  type="xs:string"/>
+      <text qname="@type"         type="xs:string"/>
+      <text qname="@label"        type="xs:string"/>
     </lucene>
     <range>
-      <create qname="m:identifier" type="xs:string"/>
-      <create qname="@target"  type="xs:string"/>
-      <create qname="@type"    type="xs:string"/>
-      <create qname="@label"    type="xs:string"/>
-      <create qname="m:source" type="xs:string"/>
+      <create qname="m:identifier"    type="xs:string"/>
+      <create qname="@target"         type="xs:string"/>
+      <create qname="@type"           type="xs:string"/>
+      <create qname="@label"          type="xs:string"/>
+      <create qname="m:manifestation" type="xs:string"/>
     </range>
   </index>
 </collection>

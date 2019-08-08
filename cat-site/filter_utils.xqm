@@ -195,12 +195,12 @@ declare function filter:print-filters(
 
     <div class="genre_filter filter_block">
 	{
-	  for $genre in $filter:vocabulary/m:classification/m:termList[@label="level1" or @label="level2"]/m:term/string()
+	  for $genre in $filter:vocabulary/m:classification/m:taxonomy//m:desc/string()
 	    let $selected :=
           if ($genre=$filter:genre) then "selected" else ""
 
  	return 
-	  if ($filter:vocabulary/m:classification/m:termList[m:term/string()=$genre]/@label="level2")
+	  if ($filter:vocabulary/m:classification/m:taxonomy/m:category/m:category[m:desc/string()=$genre]) (: top-level genre keyword :)
 	    then 
 	    (  
 	      <div class="genre_filter_row">
@@ -221,7 +221,7 @@ declare function filter:print-filters(
 	       </label>
 	     </div>
 	    )
-          else
+        else (: sub-level genre keyword :)
           <div class="genre_filter_row">
 	      { element input {
 	            attribute type {"radio"},
@@ -273,7 +273,7 @@ declare function filter:count-hits(
   $list as node()*) as xs:integer* 
 {
   let $number :=
-  for $count in count($list//m:workDesc[contains(m:work/m:classification/m:termList/m:term/string(),$term) ])
+  for $count in count($list//m:workList[contains(m:work/m:classification/m:termList/m:term/string(),$term) ])
     return $count
   return $number
 };
