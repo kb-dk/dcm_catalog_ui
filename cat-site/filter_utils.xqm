@@ -62,7 +62,7 @@ declare function filter:print-filters(
   </a>
 
   let $filter:=
-  <form action="navigation.xq" method="get" class="search" id="query_form" name="query_form">
+  <form action="" method="get" class="search" id="query_form" name="query_form">
 
     {forms:pass-as-hidden-except("notafter notbefore name title genre query scheme workno anthologies")}
 
