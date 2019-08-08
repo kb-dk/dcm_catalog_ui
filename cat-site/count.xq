@@ -79,7 +79,7 @@ declare variable $database := "/db/dcm";
     	       <!-- Hardcoded here: count what? -->
     	       <!-- Potential number of incipits: fn:count($list//m:expression[not(.//m:expression)]) -->
     	       <!-- Actual number of incipits: fn:count($list//m:incip[m:graphic[string-length(@target) > 0]]) -->
-    	       <!-- Number of sources: fn:count($list//m:source[*//text()]) -->
+    	       <!-- Number of sources: fn:count($list//m:manifestation[*//text()]) -->
     	       <!-- Number of letter references: fn:count($list//m:biblList[m:head='Documents']/m:bibl[m:genre='letter']) -->
     	       <!-- Number of other document references: fn:count($list//m:biblList[m:head='Documents']/m:bibl[m:genre!='letter']) -->
     	       <!-- Number of other bibliographic references: fn:count($list//m:biblList[m:head='Bibliography']/m:bibl) -->
