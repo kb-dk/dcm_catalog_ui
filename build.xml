@@ -10,6 +10,7 @@
 
     <property name="xconfig"     value="system/config/db/cat-site"/>
     <property name="xconfig_source" value="${build}/system/config/db/cat-site"/>
+    <property name="xconfig_source_cnw" value="${build}/system/config/db/data-cnw"/>
     <property name="target" value="cat-site"/>
     <property name="service" value="${build}/${target}"/>
 
@@ -26,6 +27,7 @@
       <mkdir dir="${service}/${target}"/>
       <mkdir dir="${xconfig_source}"/>
       <copy todir="${xconfig_source}" file="collection.xconf"/>
+      <copy todir="${xconfig_source_cnw}" file="collection.xconf"/>
 
       <copy todir="${service}">
 	<fileset dir="${service.src}"/>
