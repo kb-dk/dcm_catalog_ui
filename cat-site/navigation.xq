@@ -116,7 +116,7 @@ declare function local:format-reference(
           <td class="result_cell" rowspan="2">
 	        <div class="date">&#160;{$date_output}</div>
             <div class="title">
-	          {app:public-view-document-reference($doc)}{" "}
+	          {app:public-view-document-reference($doc)}{" "}{fn:base-uri($doc)}{" xxxxxxx "}
 	        </div>
 	        {$incip}
 	     </td>
