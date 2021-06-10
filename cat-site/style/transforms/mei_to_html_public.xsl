@@ -27,7 +27,7 @@
 	<xsl:strip-space elements="*"/>
 
 	<xsl:param name="doc"/>
-	<xsl:param name="hostname"/>
+	<xsl:param name="hostname" select="'localhost'"/>
     <xsl:param name="language"/>
 	<xsl:param name="score"/>
 
@@ -1085,7 +1085,7 @@
 								<xsl:attribute name="border">0</xsl:attribute>
 								<xsl:attribute name="style">text-decoration: none;</xsl:attribute>
 								<xsl:attribute name="alt"/>
-								<xsl:attribute name="src">/dcm<xsl:value-of select="@target"/></xsl:attribute>
+								<xsl:attribute name="src"><xsl:value-of select="@target"/></xsl:attribute>
 							</xsl:element>
 						</a>
 					</xsl:when>
@@ -1094,7 +1094,7 @@
 							<xsl:attribute name="border">0</xsl:attribute>
 							<xsl:attribute name="style">text-decoration: none;</xsl:attribute>
 							<xsl:attribute name="alt"/>
-							<xsl:attribute name="src">/dcm/<xsl:value-of select="../m:graphic[@targettype='lowres'][$pos]/@target"/>
+							<xsl:attribute name="src">/<xsl:value-of select="../m:graphic[@targettype='lowres'][$pos]/@target"/>
 							</xsl:attribute>
 						</xsl:element>
 					</xsl:otherwise>
