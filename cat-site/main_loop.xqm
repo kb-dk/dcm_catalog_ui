@@ -86,8 +86,8 @@ declare function loop:date-filters(
       fn:number(substring($date/@notbefore/string(),1,4))
     else if ($date/@startdate/string()) then
       fn:number(substring($date/@startdate/string(),1,4))
-    else if ($date/@isodate/string()) then
-      fn:number(substring($date/@isodate/string(),1,4))
+    else if ($date[1]/@isodate/string()) then
+      fn:number(substring($date[1]/@isodate/string(),1,4))
     else
       $loop:minyear
 
@@ -96,13 +96,13 @@ declare function loop:date-filters(
       fn:number(substring($date/@notafter/string(),1,4))
     else if ($date/@enddate/string()) then 
       fn:number(substring($date/@enddate/string(),1,4))
-    else if ($date/@isodate/string()) then 
-      fn:number(substring($date/@isodate/string(),1,4))
+    else if ($date[1]/@isodate/string()) then 
+      fn:number(substring($date[1]/@isodate/string(),1,4))
     else
       $loop:maxyear
 
       
-  let $inside := (($earliest>=$notbefore and $earliest<=$notafter) or ($latest>=$notbefore and $latest<=$notafter))       
+  let $inside := ($earliest>=$notbefore and $earliest<=$notafter) or ($latest>=$notbefore and $latest<=$notafter)       
 
   return $inside
 
