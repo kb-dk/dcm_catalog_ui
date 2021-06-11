@@ -115,9 +115,9 @@ declare function local:format-reference(
           </td>
           <td class="result_cell" rowspan="2">
 	        <div class="date">&#160;{$date_output}</div>
-            <div class="title">{$doc//@meiversion/string()}{" xxxxxxx "}
-						{$doc//m:meiHead/m:fileDesc/m:titleStmt/m:title/string()}{" xxxxxxx "}
-	          {app:public-view-document-reference($doc)}{" "}{ "  yyyyyyyy  " }{fn:base-uri($doc)}
+            <div class="title">{$doc//@meiversion/string()}
+						{$doc//m:meiHead/m:fileDesc/m:titleStmt/m:title/string()}
+	          {app:public-view-document-reference($doc)}{" "}
 	        </div>
 	        {$incip}
 	     </td>
