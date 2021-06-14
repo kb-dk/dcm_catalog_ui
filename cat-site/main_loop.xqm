@@ -82,20 +82,20 @@ declare function loop:date-filters(
       return $d
     
   let $earliest := 
-    if($date/@notbefore/string()) then
-      fn:number(substring($date/@notbefore/string(),1,4))
-    else if ($date/@startdate/string()) then
-      fn:number(substring($date/@startdate/string(),1,4))
+    if($date[1]/@notbefore/string()) then
+      fn:number(substring($date[1]/@notbefore/string(),1,4))
+    else if ($date[1]/@startdate/string()) then
+      fn:number(substring($date[1]/@startdate/string(),1,4))
     else if ($date[1]/@isodate/string()) then
       fn:number(substring($date[1]/@isodate/string(),1,4))
     else
       $loop:minyear
 
   let $latest   := 
-    if($date/@notafter/string()) then
-      fn:number(substring($date/@notafter/string(),1,4))
-    else if ($date/@enddate/string()) then 
-      fn:number(substring($date/@enddate/string(),1,4))
+    if($date[1]/@notafter/string()) then
+      fn:number(substring($date[1]/@notafter/string(),1,4))
+    else if ($date[1]/@enddate/string()) then 
+      fn:number(substring($date[1]/@enddate/string(),1,4))
     else if ($date[1]/@isodate/string()) then 
       fn:number(substring($date[1]/@isodate/string(),1,4))
     else
