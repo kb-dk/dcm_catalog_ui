@@ -1,44 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<classification xmlns="http://www.music-encoding.org/ns/mei" >
-    <termList label="level1">
-        <term>Instrumental music</term>
-    </termList>
-    <termList label="level2">
-        <!--<term>Symphony</term>-->
-        <term>Concerto</term>
-        <term>Other orchestral music</term>
-        <term>Chamber music</term>
-        <term>Music for one instrument</term>
-    </termList>
-    <termList label="level1">
-        <term>Stage music</term>
-    </termList>
-    <termList label="level2">
-        <term>Opera</term>
-        <term>Incidental music</term>
-    </termList>
-    <termList label="level1">
-        <term>Vocal music</term>
-    </termList>
-    <termList label="level2">
-        <term>Music for vocal soloists and instruments with or without choir</term>
-        <term>Choral music with instruments</term>
-        <!--<term>A cappella choral music</term>-->
-        <term>Song</term>
-    </termList>          
-    <termList label="level1">
-        <term>Text</term>
-    </termList>
-    <termList label="level2">
-        <term>Music theory, analysis and criticism</term>
-        <term>Poetry</term>
-        <term>Satirical and political texts</term>
-        <term>Translations</term>
-        <term>Biographies and letters</term>
-        <term>Other texts</term>
-        <term>Doubtful works</term>
-    </termList>          
-    
+<classification xmlns="http://www.music-encoding.org/ns/mei">
+
+    <taxonomy xml:id="Genre">
+        <category xml:id="InstrumentalMusic">
+            <desc>Instrumental music</desc>
+            <!--<category xml:id="Symphony">
+                <desc>Symphony</desc>
+            </category>-->
+            <category xml:id="Concerto">
+                <desc>Concerto</desc>
+            </category>
+            <category xml:id="OtherOrchestralMusic">
+                <desc>Other orchestral music</desc>
+            </category>
+            <category xml:id="ChamberMusic">
+                <desc>Chamber music</desc>
+            </category>
+            <category xml:id="MusicForOneInstrument">
+                <desc>Music for one instrument</desc>
+            </category>
+        </category>
+        <category xml:id="StageMusic">
+            <desc>Stage music</desc>
+            <category xml:id="Opera">
+                <desc>Opera</desc>
+            </category>
+            <category xml:id="IncidentalMusic">
+                <desc>Incidental music</desc>
+            </category>
+        </category>
+        <category xml:id="VocalMusic">
+            <desc>Vocal music</desc>
+            <category xml:id="VocalMusicSoloistsInstrumentsOptionalChoir">
+                <desc>Music for vocal soloists and instruments with or without choir</desc>
+            </category>
+            <category xml:id="ChoralMusicWithInstrumental">
+                <desc>Choral music with instruments</desc>
+            </category>
+            <category xml:id="Song">
+                <desc>Song</desc>
+            </category>
+        </category>
+        <category xml:id="Text">
+            <desc>Text</desc>
+            <category xml:id="MusicTheoryAnalysisAndCriticism">
+                <desc>Music theory, analysis and criticism</desc>
+            </category>
+            <category xml:id="Poetry">
+                <desc>Poetry</desc>
+            </category>
+            <category xml:id="SatiricalAndPoliticalTexts">
+                <desc>Satirical and political texts</desc>
+            </category>
+            <category xml:id="Translations">
+                <desc>Translations</desc>
+            </category>
+            <category xml:id="BiographiesAndLetters">
+                <desc>Biographies and letters</desc>
+            </category>
+            <category xml:id="OtherTexts">
+                <desc>Other texts</desc>
+            </category>
+            <category xml:id="DoubtfulWorks">
+                <desc>Doubtful works</desc>
+            </category>
+        </category>
+    </taxonomy>
+
     <termList label="keywords">
         <term>Trio</term>
         <term>Quartet</term>
@@ -58,7 +86,6 @@
         <term>Mass</term>
         <term>Cantata</term>
         <term>Motet</term>
-        <term>Lied</term>            
-    </termList>          
+        <term>Lied</term>
+    </termList>
 </classification>
-
