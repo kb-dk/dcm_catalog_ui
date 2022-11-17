@@ -27,7 +27,6 @@
       <mkdir dir="${service}/${target}"/>
       <mkdir dir="${xconfig_source}"/>
       <copy todir="${xconfig_source}" file="collection.xconf"/>
-      <copy todir="${xconfig_source_cnw}" file="collection.xconf"/>
 
       <copy todir="${service}">
 	<fileset dir="${service.src}"/>
@@ -45,6 +44,8 @@
       <copy todir="${build}/data-cnw">
 	<fileset dir="./data"/>
       </copy>
+
+      <copy todir="${xconfig_source_cnw}" file="collection.xconf"/>
     </target>
 
 
