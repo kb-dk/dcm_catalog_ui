@@ -20,9 +20,6 @@
             <category xml:id="IncidentalMusic">
                 <desc>Incidental music</desc>
             </category>
-            <category xml:id="Ballet">
-                <desc>Ballet</desc>
-            </category>
         </category>
         <category xml:id="InstrumentalMusic">
             <desc>Instrumental music</desc>
