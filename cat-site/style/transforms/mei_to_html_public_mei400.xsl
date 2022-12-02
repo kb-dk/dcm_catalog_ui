@@ -32,9 +32,15 @@
 	<xsl:param name="score"/>
 
 	<xsl:param name="cat" select="'cnw'"/>
-	<xsl:param name="base_uri" select="concat('http://',$hostname,'/dcm/',$cat)"/>
-	<xsl:param name="base_file_uri" select="concat('http://',$hostname,'/dcm/data-',$cat)"/>
+	<!-- xsl:param name="base_uri" select="concat('http://',$hostname,'/dcm/',$cat)"/>
+	     <xsl:param name="base_file_uri" select="concat('http://',$hostname,'/dcm/data-',$cat)"/ -->
 
+        <!-- So, we are assuming that the data is on the same host in server on port 8080 -->
+
+	<xsl:param name="base_uri" select="'http://localhost:8080/exist/rest/db/cat-site/'"/>
+	<xsl:param name="base_file_uri" select="concat('http://localhost:8080/exist/rest/db/data-',$cat)"/>
+
+        
 	<!-- GLOBAL VARIABLES -->
 
 	<!-- Default values -->
@@ -726,7 +732,7 @@
 		</xsl:apply-templates>
 		<!-- meter, key, incipit – only relevant at this level in single movement works -->
 		<xsl:apply-templates select="m:tempo[text()]"/>
-		<xsl:if test="m:meter[normalize-space(concat(@count,@unit,@sym))]">
+		<xsl:if test="m:meter[normalize-space(concat(@count,@unit,@sym,text()))]">
 			<xsl:apply-templates select="m:meter"/>
 		</xsl:if>
 		<xsl:apply-templates select="m:key[normalize-space(concat(@pname,@accid,@mode,string(.)))]"/>
@@ -813,7 +819,7 @@
 		<!-- display title etc. only with components or versions -->
 		<xsl:if
 			test="ancestor-or-self::*[local-name()='componentList'] or count(../m:expression)&gt;1">
-			<xsl:if test="@n!='' or m:title/text()">
+		   <xsl:if test="@label!='' or @n!='' or m:title/text()">
 				<xsl:variable name="level">
 					<!-- expression headings start with <H3>, decreasing in size with each level -->
 					<xsl:choose>
@@ -827,17 +833,24 @@
 				<xsl:variable name="element" select="concat('h',$level)"/>
 				<xsl:element name="{$element}">
 					<xsl:attribute name="class">movement_heading</xsl:attribute>
-					<xsl:if test="@n!=''">
-						<xsl:value-of select="@n"/>
-						<xsl:text>. </xsl:text>
-					</xsl:if>
-					<xsl:apply-templates select=".[m:title/text()]" mode="titles"/>
+				   <xsl:choose>
+				      <!-- Use @label value for movement numbers if possible -->
+				      <xsl:when test="@label!=''">
+				         <xsl:value-of select="@label"/>
+				         <xsl:text>. </xsl:text>
+				      </xsl:when>
+				      <xsl:when test="@n!=''">
+				         <xsl:value-of select="@n"/>
+				         <xsl:text>. </xsl:text>
+				      </xsl:when>
+				   </xsl:choose>
+				   <xsl:apply-templates select=".[m:title/text()]" mode="titles"/>
 				</xsl:element>
 			</xsl:if>
 		</xsl:if>
 
 		<xsl:apply-templates select="m:tempo[text()]"/>
-		<xsl:if test="m:meter[normalize-space(concat(@count,@unit,@sym))]">
+		<xsl:if test="m:meter[normalize-space(concat(@count,@unit,@sym,text()))]">
 			<xsl:apply-templates select="m:meter"/>
 		</xsl:if>
 		<xsl:apply-templates select="m:key[normalize-space(concat(@pname,@accid,@mode,string(.)))]"/>
