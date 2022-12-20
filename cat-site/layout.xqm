@@ -56,10 +56,6 @@ declare function layout:head($title as xs:string,
     
     <!-- insert slider.js script here to activate the year slider -->
     
-    <script type="text/javascript" src="js/google_analytics.js">
-    //
-    </script>
-    
     { if($verovio) then   
 			<script src="http://www.verovio.org/javascript/latest/verovio-toolkit-light.js" type="text/javascript">
 			//
