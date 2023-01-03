@@ -593,7 +593,7 @@
 		<!-- internal cross references between works in the catalogue are treated in a special way -->
 		<xsl:variable name="mermeid_crossref">
 			<xsl:choose>
-				<xsl:when test="contains(@target,'://') or contains(@target,'#')">false</xsl:when>
+				<xsl:when test="contains(@target,'://') or contains(@target,'#') or substring(@target,1,1)='/'">false</xsl:when>
 				<xsl:otherwise>true</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
