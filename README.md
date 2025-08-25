@@ -8,6 +8,7 @@ That is, this is a tool for presenting thematic catalogs of music
 metadata, based on the the Music Encoding Initiative (MEI) XML
 schema. As of August 2019 both DCM Catalog UI and MerMEId support MEI
 4.0.0.
+For recent versions of MerMEId, see [https://music-encoding.org/tools/mermeid](https://music-encoding.org/tools/mermeid) 
 
 The following catalogues are known to us as being made using this tool. 
 
