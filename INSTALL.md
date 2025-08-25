@@ -101,11 +101,11 @@ After you've done that and restarted HTTPD, this means that if your
 eXist DB is on localhost:8080 and your HTTPD is on standard
 localhost:80, you will have one service at
 
-http://localhost/dcm/cnw/navigation.xq
+http://localhost/dcm/cnw/index.xq
 
 and 
 
-http://localhost/dcm/hartw/navigation.xq
+http://localhost/dcm/hartw/index.xq
 
 
 However, only the former contains data.

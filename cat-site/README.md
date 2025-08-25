@@ -14,10 +14,10 @@ running the thing on your own your localhost.
 
 | directory  | URI mapping |
 |:-----------|:------------|
-| cnw        | http://localhost/dcm/cnw/navigation.xq |
-| hartw      | http://localhost/dcm/hartw/navigation.xq (empty) |
-| nwgw       | http://localhost/dcm/nwgw/navigation.xq (empty) |
-| schw       | http://localhost/dcm/schw/navigation.xq (empty) |
+| cnw        | http://localhost/dcm/cnw/index.xq |
+| hartw      | http://localhost/dcm/hartw/index.xq (empty) |
+| nwgw       | http://localhost/dcm/nwgw/index.xq (empty) |
+| schw       | http://localhost/dcm/schw/index.xq (empty) |
 
 These directories contain editorial texts and specific HTML files for
 each edition. Each page has a script and some of them a content
@@ -31,7 +31,7 @@ possible to write relative links between those more compact forms.
 
 In addition to the HTML files the xquery module layout.xqm gives you
 the tools needed to style and customize the look and feel. The most
-important functions are in navigation.xq, and it uses the following
+important functions are in index.xq, and it uses the following
 modules.
 
 1. dates.xqm

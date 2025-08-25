@@ -50,8 +50,17 @@ declare function app:generate-href($field as xs:string,
 
 };
 
+declare function app:get-work-number($doc as node() ) as xs:string* {
+  (: Returns only the number part of the full work, e.g. '12' or 'Coll. 2' :)
+  let $c := 
+    $doc//m:fileDesc/m:seriesStmt/m:identifier[@type/string()='file_collection'][1]/string()
+  let $no := $doc//m:meiHead/m:workList/m:work[1]/m:identifier[@label/string()=$c][1]/string() 
+  return ($no)	
+};
+
 
 declare function app:get-edition-and-number($doc as node() ) as xs:string* {
+  (: Returns a formatted string containing the full work reference (list name and identifying number, e.g. CNW 12) :)
   let $c := 
     $doc//m:fileDesc/m:seriesStmt/m:identifier[@type/string()='file_collection'][1]/string()
   (: was: 

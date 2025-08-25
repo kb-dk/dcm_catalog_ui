@@ -103,7 +103,7 @@ declare function layout:page-head(
   let $header :=
   <div id="header">
     <div class="kb_logo">
-      <a href="http://www.kb.dk" title="Det Kgl. Bibliotek"><img
+      <a href="https://www.kb.dk" title="Det Kgl. Bibliotek"><img
          id="KBLogo"
 	 title="Det Kgl. Bibliotek" 
 	 alt="KB Logo" src="style/images/kb_white.png"/><img
@@ -114,9 +114,9 @@ declare function layout:page-head(
     </div>
     <h1>
     <a style="text-decoration:none;" 
-       href="http://www.kb.dk/dcm/{$layout:coll}.html" 
+       href="https://www.kb.dk/dcm/{$layout:coll}.html" 
        title="{$title} – {$subtitle}">{$title}</a></h1>
-    <h2><a style="text-decoration:none;" href="http://www.kb.dk/dcm/{$layout:coll}.html" title="{$title} – {$subtitle}">{$subtitle}</a></h2>
+    <h2><a style="text-decoration:none;" href="https://www.kb.dk/dcm/{$layout:coll}.html" title="{$title} – {$subtitle}">{$subtitle}</a></h2>
   </div>
 
   return $header
@@ -144,7 +144,7 @@ declare function layout:page-footer($mode as xs:string) as node()
 {
   let $footer :=
   <div id="footer" style="text-align: center; height: auto; padding: 10px 20px;">
-    <a href="http://www.kb.dk/en/nb/dcm" title="DCM" 
+    <a href="https://www.kb.dk" title="DCM/Royal Danish Library" 
     style="text-decoration:none;"><img 
     style="border: 0px; vertical-align:middle;" 
     alt="DCM Logo" 
@@ -155,7 +155,7 @@ declare function layout:page-footer($mode as xs:string) as node()
     src="style/images/dcm_logo_small.png"
     id="dcm_logo_print"
     /></a>
-    2014–2018 Danish Centre for Music Editing | Royal Danish Library | P.O. Box 2149 | Copenhagen K, Denmark | <a name="www.kb.dk" id="www.kb.dk" href="http://www.kb.dk/en/nb/dcm/">www.kb.dk/en/nb/dcm/</a> 
+    2014–2018 Danish Centre for Music Editing | Royal Danish Library | Søren Kierkegaards Plads 1 | 1221 Copenhagen K, Denmark | <a name="www.kb.dk" id="www.kb.dk" href="https://www.kb.dk">www.kb.dk</a> 
   </div>
 
   return $footer
