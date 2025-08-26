@@ -1,7 +1,6 @@
 xquery version "1.0" encoding "UTF-8";
 
 declare namespace request="http://exist-db.org/xquery/request";
-declare namespace response="http://exist-db.org/xquery/response";
 
 declare variable $coll   := request:get-parameter("c","") cast as xs:string;
 declare variable $params := request:get-parameter-names();
@@ -26,8 +25,7 @@ let $uri :=
 return
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <!--<meta http-equiv="refresh" content="5;url=index.xq"/>-->
-        <!--<meta http-equiv="refresh" content="0;url={$uri}"/>-->
+        <meta http-equiv="refresh" content="0;url={$uri}"/>
         <meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <script type="text/javascript">
