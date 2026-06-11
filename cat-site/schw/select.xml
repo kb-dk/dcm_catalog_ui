@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>Various controlled lists for SchW</title>
@@ -9,7 +9,7 @@
   <body>
     <div id="persons">
       <select id="name_field" name="name">
-        <option value="">&#160;</option>
+        <option value=""> </option>
         <option value="Johan Joachim Agrell">Agrell, Johan Joachim</option>
         <option value="Johann Friedrich Agricola">Agricola, Johann Friedrich</option>
         <option value="Bendix von Ahlefelt">Ahlefelt, Bendix von</option>
@@ -292,7 +292,7 @@
 
     <div id="numbers">
       <select id="SchW" name="workno" style="display:inline;">
-        <option value="">&#160;</option>
+        <option value=""> </option>
         <option value="A1:001">A1:001</option>
         <option value="A1:002">A1:002</option>
         <option value="A1:003">A1:003</option>

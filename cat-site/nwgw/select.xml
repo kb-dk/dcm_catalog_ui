@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>Various controlled lists for NWGW</title>
@@ -9,7 +9,7 @@
 	<body>
 		<div id="persons">
 			<select id="name_field" name="name">
-				<option value="">&#160;</option>
+				<option value=""> </option>
 				<option value="Hr. Aagaard">Aagaard, Hr.</option>
 				<option value="Emil Aarestrup">Aarestrup, Emil</option>
 				<option value="Caja Aarup">Aarup, Caja</option>
@@ -938,7 +938,7 @@
 		</select>
 		<div id="numbers">
 			<select id="NWGW" name="workno" style="display:inline;">
-				<option value="">&#160;</option>
+				<option value=""> </option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -1425,7 +1425,7 @@
 			</select>
 
 			<select id="Opus" name="noname" style="display:none;">
-				<option value="">&#160;</option>
+				<option value=""> </option>
 				<option value="1">1</option>
 				<option value="2 A">2 A</option>
 				<option value="2 A:1">2 A:1</option>

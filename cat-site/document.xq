@@ -13,7 +13,7 @@ declare namespace app="http://kb.dk/this/app";
 declare namespace ft="http://exist-db.org/xquery/lucene";
 declare namespace m="http://www.music-encoding.org/ns/mei";
 
-declare option exist:serialize "method=xml media-type=text/html"; 
+declare option exist:serialize "method=xhtml5 media-type=text/html doctype-public=html";
 
 declare variable $mode     := request:get-parameter("mode","nomode") cast as xs:string;
 (: For now, Docker users must hard-code their server's name below. For instance :)
@@ -37,7 +37,8 @@ declare variable $l := request:get-parameter("l",$coll) cast as xs:string;
 
 let $list :=
     if ($n != "") then
-        for $doc in collection($database)/m:mei[.//m:work/m:identifier[ft:query(@label,$l) and .=$n]]
+        (:for $doc in collection($database)/m:mei[.//m:work/m:identifier[ft:query(@label,$l) and text()=$n]]:)
+        for $doc in collection($database)/m:mei[.//m:work/m:identifier[lower-case(@label)=$l and text()=$n]]
         return $doc
     else 
         for $doc in collection($database)
@@ -48,26 +49,26 @@ let $html := doc(concat("/db/cat-site/",$coll,"/document.html"))
 
 let $result :=
     if(not(count($list) eq 1)) then
-        <html xmlns="http://www.w3.org/1999/xhtml">
+        <h:html xmlns="http://www.w3.org/1999/xhtml" lang="en">
           {layout:head($coll,
-        	  (<link rel="stylesheet" type="text/css" href="style/mei_to_html_public.css"/>,
-        	  <script type="text/javascript" src="js/toggle_openness.js">{"
-        	  "}</script>
+        	  (<h:link rel="stylesheet" type="text/css" href="style/mei_to_html_public.css"/>,
+        	  <h:script type="text/javascript" src="js/toggle_openness.js">{"
+        	  "}</h:script>
         	  ),
         	  false())}
-          <body class="list_files">
-            <div id="all">
+          <h:body class="list_files document">
+            <h:div id="all">
               {layout:page-head-doc($html)}
               {layout:page-menu($mode)}
               {if (count($list) eq 0) then
-                  <div id="main">No matching work found. Please make sure to use valid work identifiers.</div>
+                  <h:div id="main">No matching work found. Please make sure to use valid work identifiers.</h:div>
                else 
-                  <div id="main">Provided parameters match more than one work. Please make sure to use unique identifiers.</div>
+                  <h:div id="main">Provided parameters match more than one work. Please make sure to use unique identifiers.</h:div>
               }
               {layout:page-footer($mode)}
-            </div>
-          </body>
-        </html>
+            </h:div>
+          </h:body>
+        </h:html>
     else
         let $c := $list//m:fileDesc/m:seriesStmt/m:identifier[@type="file_collection"][1]/string()
         (:  should be: 
@@ -80,35 +81,35 @@ let $result :=
            fn:concat($title," – ",$c," ",$work_number," – ",$html//h:title/text())
         let $verovio := if($list//m:incip/m:score/* or normalize-space(//m:incipCode[@form='pae' or @form='PAE' or @form='plaineAndEasie']/text())) then true() else false()
         return 
-            <html xmlns="http://www.w3.org/1999/xhtml">
+            <h:html xmlns="http://www.w3.org/1999/xhtml" lang="en">
               {layout:head($head_title,
-            	  (<link rel="stylesheet" type="text/css" href="style/mei_to_html_public.css"/>,
-            	  <script type="text/javascript" src="js/toggle_openness.js">{"
-            	  "}</script>
+            	  (<h:link rel="stylesheet" type="text/css" href="style/mei_to_html_public.css"/>,
+            	  <h:script type="text/javascript" src="js/toggle_openness.js">{"
+            	  "}</h:script>
             	  ),
             	  $verovio)}
-              <body class="list_files">
-                <div id="all">
+              <h:body class="list_files document">
+                <h:div id="all">
                   {layout:page-head-doc($html)}
                   {layout:page-menu($mode)}
-                  <div id="main">
+                  <h:div id="main">
                   {
             	for $doc in $list
             	let $params := 
-            	<parameters>
-            	  <param name="hostname"    value="{$host}"/>
-            	  <param name="script_path" value="./document.xq"/>
-            	  <param name="doc"         value="{util:document-name($doc)}"/>
-            	  <param name="cat"         value="{$coll}"/>
-            	  <param name="language"    value="{$language}"/>
-            	  <param name="score"       value="{$score}"/>
-            	</parameters>
+            	<h:parameters>
+            	  <h:param name="hostname"    value="{$host}"/>
+            	  <h:param name="script_path" value="./document.xq"/>
+            	  <h:param name="doc"         value="{util:document-name($doc)}"/>
+            	  <h:param name="cat"         value="{$coll}"/>
+            	  <h:param name="language"    value="{$language}"/>
+            	  <h:param name="score"       value="{$score}"/>
+            	</h:parameters>
             	return transform:transform($doc,$xsl,$params)
                   }
-                  </div>
+                  </h:div>
                   {layout:page-footer($mode)}
-                </div>
-              </body>
-            </html>
+                </h:div>
+              </h:body>
+            </h:html>
 
 return $result

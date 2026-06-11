@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei">
     <!-- Catalogue-specific settings for the filter -->
     <date type="yearSelection" notbefore="1865" notafter="1931"/>

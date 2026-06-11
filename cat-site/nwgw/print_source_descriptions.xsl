@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!-- 
 	Conversion of MEI metadata to HTML using XSLT 1.0
 	Output intended for the Gade Edition
@@ -10,18 +9,9 @@
 	The Royal Library, Copenhagen
 	2014
 	
--->
+--><xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exsl="http://exslt.org/common" xmlns:java="http://xml.apache.org/xalan/java" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:foo="http://www.kb.dk/foo" xmlns:zs="http://www.loc.gov/zing/srw/" xmlns:m="http://www.music-encoding.org/ns/mei" xmlns:dcm="http://www.kb.dk/dcm" version="1.0" extension-element-prefixes="exsl java" exclude-result-prefixes="m xsl exsl foo java">
 
-<xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:m="http://www.music-encoding.org/ns/mei"
-	xmlns:dcm="http://www.kb.dk/dcm" xmlns:xl="http://www.w3.org/1999/xlink"
-	xmlns:foo="http://www.kb.dk/foo" xmlns:exsl="http://exslt.org/common"
-	xmlns:java="http://xml.apache.org/xalan/java" xmlns:zs="http://www.loc.gov/zing/srw/"
-	xmlns:marc="http://www.loc.gov/MARC21/slim" extension-element-prefixes="exsl java"
-	exclude-result-prefixes="m xsl exsl foo java">
-
-	<xsl:output method="xml" encoding="UTF-8" cdata-section-elements="" omit-xml-declaration="yes"
-		indent="no" xml:space="default"/>
+	<xsl:output method="xml" encoding="UTF-8" cdata-section-elements="" omit-xml-declaration="yes" indent="no" xml:space="default"/>
 
 	<xsl:param name="hostname"/>
 	<xsl:param name="doc"/>
@@ -32,20 +22,15 @@
 	<!-- preferred language in titles and other multilingual fields -->
 	<xsl:variable name="preferred_language">none</xsl:variable>
 	<!-- general MerMEId settings -->
-	<xsl:variable name="settings"
-		select="document(concat('http://',$hostname,'/editor/forms/mei/mermeid_configuration.xml'))"/>
+	<xsl:variable name="settings" select="document(concat('http://',$hostname,'/editor/forms/mei/mermeid_configuration.xml'))"/>
 	<!-- file context - i.e. collection identifier like 'CNW' -->
 	<xsl:variable name="file_context">
-		<xsl:value-of
-			select="/m:mei/m:meiHead/m:fileDesc/m:seriesStmt/m:identifier[@type='file_collection']"
-		/>
+		<xsl:value-of select="/m:mei/m:meiHead/m:fileDesc/m:seriesStmt/m:identifier[@type='file_collection']"/>
 	</xsl:variable>
 	<!-- files containing look-up information -->
-	<xsl:variable name="bibl_file_name"
-		select="string(concat('http://',$hostname,'/',$settings/dcm:parameters/dcm:exist_dir,'library/standard_bibliography.xml'))"/>
+	<xsl:variable name="bibl_file_name" select="string(concat('http://',$hostname,'/',$settings/dcm:parameters/dcm:exist_dir,'library/standard_bibliography.xml'))"/>
 	<xsl:variable name="bibl_file" select="document($bibl_file_name)"/>
-	<xsl:variable name="abbreviations_file_name"
-		select="string(concat('http://',$hostname,'/',$settings/dcm:parameters/dcm:exist_dir,'library/abbreviations.xml'))"/>
+	<xsl:variable name="abbreviations_file_name" select="string(concat('http://',$hostname,'/',$settings/dcm:parameters/dcm:exist_dir,'library/abbreviations.xml'))"/>
 	<xsl:variable name="abbreviations_file" select="document($abbreviations_file_name)"/>
 
 
@@ -96,10 +81,8 @@
 						<xsl:when test="string-length($catalogue_no)&gt;11">
 							<xsl:variable name="part1" select="substring($catalogue_no, 1, 11)"/>
 							<xsl:variable name="part2" select="substring($catalogue_no, 12)"/>
-							<xsl:variable name="delimiter"
-								select="substring(concat(translate($part2,'0123456789',''),' '),1,1)"/>
-							<xsl:value-of
-								select="concat($part1,substring-before($part2,$delimiter),'...')"/>
+							<xsl:variable name="delimiter" select="substring(concat(translate($part2,'0123456789',''),' '),1,1)"/>
+							<xsl:value-of select="concat($part1,substring-before($part2,$delimiter),'...')"/>
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:value-of select="$catalogue_no"/>
@@ -115,40 +98,33 @@
 
 	<xsl:template name="body_main_content">
 
-		<xsl:for-each select="m:meiHead/
-			m:workDesc/
-			m:work/
-			m:titleStmt">
+		<xsl:for-each select="m:meiHead/    m:workDesc/    m:work/    m:titleStmt">
 			<xsl:if test="m:title[@type='main' or not(@type)][text()]">
 				<xsl:for-each select="m:title[@type='main' or not(@type)][text()]">
 					<xsl:variable name="lang" select="@xml:lang"/>
 					<xsl:variable name="language_class">
 						<xsl:choose>
-							<xsl:when test="position()&gt;1 and @xml:lang!=parent::node()/m:title[1]/@xml:lang"
-								>alternative_language</xsl:when>
+							<xsl:when test="position()&gt;1 and @xml:lang!=parent::node()/m:title[1]/@xml:lang">alternative_language</xsl:when>
 							<xsl:otherwise>preferred_language</xsl:otherwise>
 						</xsl:choose>
 					</xsl:variable>
 					<h1 class="work_title">
 						<xsl:element name="span">
-							<xsl:attribute name="class"><xsl:value-of
-								select="$language_class"/></xsl:attribute>
+							<xsl:attribute name="class"><xsl:value-of select="$language_class"/></xsl:attribute>
 							<xsl:apply-templates select="."/>
 						</xsl:element>
 					</h1>
 					<xsl:for-each select="../m:title[@type='subordinate'][@xml:lang=$lang]">
 						<h2 class="subtitle">
 							<xsl:element name="span">
-								<xsl:attribute name="class"><xsl:value-of
-									select="$language_class"/></xsl:attribute>
+								<xsl:attribute name="class"><xsl:value-of select="$language_class"/></xsl:attribute>
 								<xsl:apply-templates select="."/>
 							</xsl:element>
 						</h2>
 					</xsl:for-each>
 				</xsl:for-each>
 			</xsl:if>
-			<xsl:if test="m:title[@type='alternative'][text()] |
-				m:title[@type='original'][text()]">
+			<xsl:if test="m:title[@type='alternative'][text()] |     m:title[@type='original'][text()]">
 				<xsl:element name="h2">
 					<xsl:for-each select="m:title[@type='original'][text()]">
 						<xsl:element name="span"> 
@@ -159,8 +135,7 @@
 					</xsl:for-each>
 					<xsl:for-each select="m:title[@type='alternative'][text()]">
 						<xsl:element name="span">
-							<xsl:call-template name="maybe_print_lang"/> (<xsl:apply-templates
-								select="."/>) </xsl:element>
+							<xsl:call-template name="maybe_print_lang"/> (<xsl:apply-templates select="."/>) </xsl:element>
 						<xsl:call-template name="maybe_print_br"/>
 					</xsl:for-each>
 				</xsl:element>
@@ -186,21 +161,18 @@
 		<!-- works with versions: show global sources and performances before version details -->
 		<xsl:if test="count(m:meiHead/m:workDesc/m:work/m:expressionList/m:expression)&gt;1">
 			<!-- global sources -->
-			<xsl:apply-templates
-				select="m:meiHead/m:fileDesc/m:sourceDesc[m:source[not(m:relationList/m:relation[@rel='isEmbodimentOf']/@target)]]">
+			<xsl:apply-templates select="m:meiHead/m:fileDesc/m:sourceDesc[m:source[not(m:relationList/m:relation[@rel='isEmbodimentOf']/@target)]]">
 				<xsl:with-param name="global">true</xsl:with-param>
 			</xsl:apply-templates>
 		</xsl:if>
 
 		<!-- top-level expression (versions and one-movement work details) -->
-		<xsl:apply-templates select="m:meiHead/m:workDesc/m:work/m:expressionList/m:expression"
-			mode="top_level"/>
+		<xsl:apply-templates select="m:meiHead/m:workDesc/m:work/m:expressionList/m:expression" mode="top_level"/>
 
 		<!-- works with only one version: show performances and global sources after movements -->
 		<xsl:if test="count(m:meiHead/m:workDesc/m:work/m:expressionList/m:expression)&lt;2">
 			<!-- sources -->
-			<xsl:apply-templates
-				select="m:meiHead/m:fileDesc/m:sourceDesc[normalize-space(*//text()) or m:source/@target!='']"/>
+			<xsl:apply-templates select="m:meiHead/m:fileDesc/m:sourceDesc[normalize-space(*//text()) or m:source/@target!='']"/>
 		</xsl:if>
 	</xsl:template>
 
@@ -209,10 +181,7 @@
 
 	<!-- generate a page title -->
 	<xsl:template name="page_title">
-		<xsl:for-each select="m:meiHead/
-			m:workDesc/
-			m:work/
-			m:titleStmt">
+		<xsl:for-each select="m:meiHead/    m:workDesc/    m:work/    m:titleStmt">
 			<xsl:choose>
 				<xsl:when test="m:title[@type='main']//text()">
 					<xsl:value-of select="m:title[@type='main']"/>
@@ -257,7 +226,7 @@
 		<!-- top-level expression (versions and one-movement work details) -->
 		<!-- show title/tempo/number as heading only if more than one version -->
 		<xsl:if test="count(../m:expression)&gt;1">
-			<p>&#160;</p>
+			<p> </p>
 			<xsl:variable name="title">
 				<xsl:apply-templates select="m:titleStmt">
 					<xsl:with-param name="tempo">
@@ -287,40 +256,27 @@
 		<!-- version-specific sources -->
 		<xsl:if test="count(../m:expression)&gt;1">
 			<xsl:variable name="expression_id" select="@xml:id"/>
-			<xsl:for-each
-				select="/m:mei/m:meiHead/m:fileDesc/
-				m:sourceDesc[(normalize-space(*//text()) or m:source/@target!='') 
-				and m:source/m:relationList/m:relation[@rel='isEmbodimentOf' and substring-after(@target,'#')=$expression_id]]">
+			<xsl:for-each select="/m:mei/m:meiHead/m:fileDesc/     m:sourceDesc[(normalize-space(*//text()) or m:source/@target!='')      and m:source/m:relationList/m:relation[@rel='isEmbodimentOf' and substring-after(@target,'#')=$expression_id]]">
 				<xsl:apply-templates select="." mode="fold_section">
-					<xsl:with-param name="id"
-						select="concat('version_source',generate-id(.),$expression_id)"/>
+					<xsl:with-param name="id" select="concat('version_source',generate-id(.),$expression_id)"/>
 					<xsl:with-param name="heading">Sources</xsl:with-param>
 					<xsl:with-param name="content">
 						<!-- sort order lists must begin and end with a semicolon -->
-						<xsl:variable name="state_order"
-							select="';sketch;draft;fair copy;printers copy;first edition;later edition;'"/>
-						<xsl:variable name="scoring_order"
-							select="';score;score and parts;vocal score;piano score;choral score;short score;parts;'"/>
-						<xsl:variable name="authority_order"
-							select="';autograph;partly autograph;doubtful autograph;copy;'"/>
+						<xsl:variable name="state_order" select="';sketch;draft;fair copy;printers copy;first edition;later edition;'"/>
+						<xsl:variable name="scoring_order" select="';score;score and parts;vocal score;piano score;choral score;short score;parts;'"/>
+						<xsl:variable name="authority_order" select="';autograph;partly autograph;doubtful autograph;copy;'"/>
 						
 						<!-- collect all external source data first to create a complete list of sources -->
 						<xsl:variable name="sources">
 							<!-- skip reproductions (=reprints) - they are treated elsewhere -->
-							<xsl:for-each
-								select="m:source[m:relationList/m:relation[@rel='isEmbodimentOf' 
-								and substring-after(@target,'#')=$expression_id] and 
-								not(m:relationList/m:relation[@rel='isReproductionOf'])]">
+							<xsl:for-each select="m:source[m:relationList/m:relation[@rel='isEmbodimentOf'          and substring-after(@target,'#')=$expression_id] and          not(m:relationList/m:relation[@rel='isReproductionOf'])]">
 								<xsl:choose>
 									<xsl:when test="@target!=''">
 										<!-- get external source description -->
-										<xsl:variable name="ext_id"
-											select="substring-after(@target,'#')"/>
-										<xsl:variable name="doc_name"
-											select="concat('http://',$hostname,'/',$settings/dcm:parameters/dcm:document_root,substring-before(@target,'#'))"/>
+										<xsl:variable name="ext_id" select="substring-after(@target,'#')"/>
+										<xsl:variable name="doc_name" select="concat('http://',$hostname,'/',$settings/dcm:parameters/dcm:document_root,substring-before(@target,'#'))"/>
 										<xsl:variable name="doc" select="document($doc_name)"/>
-										<xsl:copy-of
-											select="$doc/m:mei/m:meiHead/m:fileDesc/m:sourceDesc/m:source[@xml:id=$ext_id]"/>
+										<xsl:copy-of select="$doc/m:mei/m:meiHead/m:fileDesc/m:sourceDesc/m:source[@xml:id=$ext_id]"/>
 									</xsl:when>
 									<xsl:when test="*//text()">
 										<xsl:copy-of select="."/>
@@ -332,19 +288,13 @@
 						<xsl:variable name="source_nodeset" select="exsl:node-set($sources)"/>
 						<xsl:for-each select="$source_nodeset/m:source">
 							<!-- process all sources, sorted according to classification -->
-							<xsl:sort
-								select="m:classification/m:termList/m:term[@classcode='DcmContentClass']"/>
-							<xsl:sort
-								select="m:classification/m:termList/m:term[@classcode='DcmPresentationClass']"/>
+							<xsl:sort select="m:classification/m:termList/m:term[@classcode='DcmContentClass']"/>
+							<xsl:sort select="m:classification/m:termList/m:term[@classcode='DcmPresentationClass']"/>
 							<!-- adding 100 ensures that combinations of 1- and 2-digit numbers are sorted correctly -->
-							<xsl:sort
-								select="number(100 + string-length(substring-before($authority_order,concat(';',m:classification/m:termList/m:term[@classcode='DcmAuthorityClass'],';'))))"/>
-							<xsl:sort
-								select="number(100 + string-length(substring-before($state_order,concat(&quot;;&quot;,translate(m:classification/m:termList/m:term[@classcode=&quot;DcmStateClass&quot;],&quot;&apos;&quot;,&quot;&quot;),&quot;;&quot;))))"/>
-							<xsl:sort
-								select="number(100 + string-length(substring-before($scoring_order,concat(';',m:classification/m:termList/m:term[@classcode='DcmScoringClass'],';'))))"/>
-							<xsl:sort
-								select="m:classification/m:termList/m:term[@classcode='DcmCompletenessClass']"/>
+							<xsl:sort select="number(100 + string-length(substring-before($authority_order,concat(';',m:classification/m:termList/m:term[@classcode='DcmAuthorityClass'],';'))))"/>
+							<xsl:sort select="number(100 + string-length(substring-before($state_order,concat(&#34;;&#34;,translate(m:classification/m:termList/m:term[@classcode=&#34;DcmStateClass&#34;],&#34;'&#34;,&#34;&#34;),&#34;;&#34;))))"/>
+							<xsl:sort select="number(100 + string-length(substring-before($scoring_order,concat(';',m:classification/m:termList/m:term[@classcode='DcmScoringClass'],';'))))"/>
+							<xsl:sort select="m:classification/m:termList/m:term[@classcode='DcmCompletenessClass']"/>
 							<xsl:apply-templates select="."/>
 						</xsl:for-each>
 					</xsl:with-param>
@@ -357,15 +307,13 @@
 
 	<xsl:template match="m:expression">
 		<!-- display title etc. only with components or versions -->
-		<xsl:if
-			test="ancestor-or-self::*[local-name()='componentGrp'] or count(../m:expression)&gt;1">
+		<xsl:if test="ancestor-or-self::*[local-name()='componentGrp'] or count(../m:expression)&gt;1">
 			<xsl:if test="@n!='' or m:titleStmt//text()">
 				<xsl:variable name="level">
 					<!-- expression headings start with <H3>, decreasing in size with each level -->
 					<xsl:choose>
 						<xsl:when test="ancestor-or-self::*[local-name()='componentGrp']">
-							<xsl:value-of
-								select="count(ancestor-or-self::*[local-name()='componentGrp'])+2"/>
+							<xsl:value-of select="count(ancestor-or-self::*[local-name()='componentGrp'])+2"/>
 						</xsl:when>
 						<xsl:otherwise>3</xsl:otherwise>
 					</xsl:choose>
@@ -441,30 +389,21 @@
 			<xsl:with-param name="heading">Sources</xsl:with-param>
 			<xsl:with-param name="content">
 				<!-- sort order lists must begin and end with a semicolon -->
-				<xsl:variable name="state_order"
-					select="';sketch;draft;fair copy;printers copy;first edition;later edition;'"/>
-				<xsl:variable name="scoring_order"
-					select="';score;score and parts;vocal score;piano score;choral score;short score;parts;'"/>
-				<xsl:variable name="authority_order"
-					select="';autograph;partly autograph;doubtful autograph;copy;'"/>
+				<xsl:variable name="state_order" select="';sketch;draft;fair copy;printers copy;first edition;later edition;'"/>
+				<xsl:variable name="scoring_order" select="';score;score and parts;vocal score;piano score;choral score;short score;parts;'"/>
+				<xsl:variable name="authority_order" select="';autograph;partly autograph;doubtful autograph;copy;'"/>
 				<!-- collect all external source data first to create a complete list of sources -->
 				<xsl:variable name="sources">
 					<!-- skip reproductions (=reprints) - they are treated elsewhere. -->
 					<!-- If listing global sources, list only those not referring to a specific version (if more than one) -->
-					<xsl:for-each
-						select="m:source[not(m:relationList/m:relation[@rel='isReproductionOf'])]
-						[$global!='true' or ($global='true' and (count(//m:work/m:expressionList/m:expression)&lt;2
-						or not(m:relationList/m:relation[@rel='isEmbodimentOf']/@target)))]">
+					<xsl:for-each select="m:source[not(m:relationList/m:relation[@rel='isReproductionOf'])]       [$global!='true' or ($global='true' and (count(//m:work/m:expressionList/m:expression)&lt;2       or not(m:relationList/m:relation[@rel='isEmbodimentOf']/@target)))]">
 						<xsl:choose>
 							<xsl:when test="@target!=''">
 								<!-- get external source description -->
-								<xsl:variable name="ext_id"
-									select="substring-after(@target,'#')"/>
-								<xsl:variable name="doc_name"
-									select="concat('http://',$hostname,'/',$settings/dcm:parameters/dcm:document_root,substring-before(@target,'#'))"/>
+								<xsl:variable name="ext_id" select="substring-after(@target,'#')"/>
+								<xsl:variable name="doc_name" select="concat('http://',$hostname,'/',$settings/dcm:parameters/dcm:document_root,substring-before(@target,'#'))"/>
 								<xsl:variable name="doc" select="document($doc_name)"/>
-								<xsl:copy-of
-									select="$doc/m:mei/m:meiHead/m:fileDesc/m:sourceDesc/m:source[@xml:id=$ext_id]"/>
+								<xsl:copy-of select="$doc/m:mei/m:meiHead/m:fileDesc/m:sourceDesc/m:source[@xml:id=$ext_id]"/>
 							</xsl:when>
 							<xsl:when test="*//text()">
 								<xsl:copy-of select="."/>
@@ -476,19 +415,13 @@
 				<xsl:variable name="source_nodeset" select="exsl:node-set($sources)"/>
 				<xsl:for-each select="$source_nodeset/m:source">
 					<!-- process all sources, sorted according to classification -->
-					<xsl:sort
-						select="m:classification/m:termList/m:term[@classcode='DcmContentClass']"/>
-					<xsl:sort
-						select="m:classification/m:termList/m:term[@classcode='DcmPresentationClass']"/>
+					<xsl:sort select="m:classification/m:termList/m:term[@classcode='DcmContentClass']"/>
+					<xsl:sort select="m:classification/m:termList/m:term[@classcode='DcmPresentationClass']"/>
 					<!-- adding 100 ensures that combinations of 1- and 2-digit numbers are sorted correctly -->
-					<xsl:sort
-						select="number(100 + string-length(substring-before($authority_order,concat(';',m:classification/m:termList/m:term[@classcode='DcmAuthorityClass'],';'))))"/>
-					<xsl:sort
-						select="number(100 + string-length(substring-before($state_order,concat(&quot;;&quot;,translate(m:classification/m:termList/m:term[@classcode=&quot;DcmStateClass&quot;],&quot;&apos;&quot;,&quot;&quot;),&quot;;&quot;))))"/>
-					<xsl:sort
-						select="number(100 + string-length(substring-before($scoring_order,concat(';',m:classification/m:termList/m:term[@classcode='DcmScoringClass'],';'))))"/>
-					<xsl:sort
-						select="m:classification/m:termList/m:term[@classcode='DcmCompletenessClass']"/>
+					<xsl:sort select="number(100 + string-length(substring-before($authority_order,concat(';',m:classification/m:termList/m:term[@classcode='DcmAuthorityClass'],';'))))"/>
+					<xsl:sort select="number(100 + string-length(substring-before($state_order,concat(&#34;;&#34;,translate(m:classification/m:termList/m:term[@classcode=&#34;DcmStateClass&#34;],&#34;'&#34;,&#34;&#34;),&#34;;&#34;))))"/>
+					<xsl:sort select="number(100 + string-length(substring-before($scoring_order,concat(';',m:classification/m:termList/m:term[@classcode='DcmScoringClass'],';'))))"/>
+					<xsl:sort select="m:classification/m:termList/m:term[@classcode='DcmCompletenessClass']"/>
 					<xsl:apply-templates select="."/>
 				</xsl:for-each>
 			</xsl:with-param>
@@ -496,12 +429,9 @@
 	</xsl:template>
 	
 	<xsl:template name="list_agents">
-		<xsl:if test="m:respStmt/m:persName[text()] |
-			m:respStmt/m:corpName[text()]">
+		<xsl:if test="m:respStmt/m:persName[text()] |    m:respStmt/m:corpName[text()]">
 			<p>
-				<xsl:for-each
-					select="m:respStmt/m:persName[text()] |
-					m:respStmt/m:corpName[text()]">
+				<xsl:for-each select="m:respStmt/m:persName[text()] |      m:respStmt/m:corpName[text()]">
 					<xsl:if test="string-length(@role) &gt; 0">
 						<xsl:call-template name="capitalize">
 							<xsl:with-param name="str" select="@role"/>
@@ -519,10 +449,7 @@
 					</xsl:choose>
 				</xsl:for-each>
 
-				<xsl:for-each
-					select="m:geogName[text()] | 
-					m:date[text()] |
-					m:identifier[text()]">
+				<xsl:for-each select="m:geogName[text()] |       m:date[text()] |      m:identifier[text()]">
 					<xsl:if test="string-length(@type) &gt; 0">
 						<xsl:apply-templates select="@type"/>
 						<xsl:text>: </xsl:text>
@@ -544,7 +471,7 @@
 	</xsl:template>
 
 	<xsl:template match="*" mode="list_persons_by_role">
-		<xsl:if test="count(m:persName[text()] | m:corpName[text()])>0">
+		<xsl:if test="count(m:persName[text()] | m:corpName[text()])&gt;0">
 			<xsl:for-each select="m:corpName[text()]|m:persName[text()]">
 				<xsl:variable name="role">
 					<xsl:call-template name="capitalize">
@@ -559,14 +486,10 @@
 									<!-- make it plural... -->
 									<xsl:variable name="label">
 										<xsl:choose>
-											<xsl:when
-												test="substring(@role,string-length(@role),1)='y'">
-												<xsl:value-of
-												select="concat(substring($role,1,string-length($role)-1),'ies')"
-												/>
+											<xsl:when test="substring(@role,string-length(@role),1)='y'">
+												<xsl:value-of select="concat(substring($role,1,string-length($role)-1),'ies')"/>
 											</xsl:when>
-											<xsl:otherwise><xsl:value-of select="concat($role,'s')"
-												/></xsl:otherwise>
+											<xsl:otherwise><xsl:value-of select="concat($role,'s')"/></xsl:otherwise>
 										</xsl:choose>
 									</xsl:variable>
 									<xsl:value-of select="$label"/><xsl:text>: </xsl:text>
@@ -624,18 +547,15 @@
 			<!-- source title -->
 			<xsl:for-each select="m:titleStmt[m:title/text()]">
 				<xsl:if test="normalize-space(../m:identifier[@type='GW source'])">
-					<b><xsl:apply-templates select="../m:identifier[@type='GW source']"
-					/></b>:<xsl:text> </xsl:text>
+					<b><xsl:apply-templates select="../m:identifier[@type='GW source']"/></b>:<xsl:text> </xsl:text>
 				</xsl:if>
 				<xsl:apply-templates select="m:title" mode="source_title"/>
 				<br/>
 			</xsl:for-each>
 			<!-- item label -->
-			<xsl:if
-				test="local-name()='item' and normalize-space(@label) and name(..)!='componentGrp'">
+			<xsl:if test="local-name()='item' and normalize-space(@label) and name(..)!='componentGrp'">
 				<xsl:if test="normalize-space(m:identifier[@type='GW source'])">
-					<b><xsl:apply-templates select="m:identifier[@type='GW source']"
-					/></b>:<xsl:text> </xsl:text>
+					<b><xsl:apply-templates select="m:identifier[@type='GW source']"/></b>:<xsl:text> </xsl:text>
 				</xsl:if>
 				<xsl:value-of select="@label"/>
 				<br/>
@@ -652,8 +572,7 @@
 				<xsl:call-template name="list_agents"/>
 			</xsl:for-each>
 
-			<xsl:for-each
-				select="m:pubStmt[normalize-space(concat(m:publisher, m:date, m:pubPlace))]">
+			<xsl:for-each select="m:pubStmt[normalize-space(concat(m:publisher, m:date, m:pubPlace))]">
 				<xsl:comment>publication</xsl:comment>
 				<div>
 					<xsl:if test="m:publisher/text()">
@@ -715,10 +634,7 @@
 					which should be shown before the components.
 				-->
 			<xsl:choose>
-				<xsl:when
-					test="local-name()='source' and 
-						(count(m:itemList/m:item[//text()])&gt;1 or 
-						(m:itemList/m:item/@label and m:itemList/m:item/@label!=''))">
+				<xsl:when test="local-name()='source' and        (count(m:itemList/m:item[//text()])&gt;1 or        (m:itemList/m:item/@label and m:itemList/m:item/@label!=''))">
 					<xsl:apply-templates select="m:componentGrp"/>
 					<xsl:apply-templates select="m:itemList"/>
 				</xsl:when>
@@ -729,9 +645,7 @@
 			</xsl:choose>
 
 			<!-- list reproductions (reprints) -->
-			<xsl:for-each
-				select="/*//m:source[m:relationList/m:relation[@rel='isReproductionOf'
-					and substring-after(@target,'#')=$source_id]]">
+			<xsl:for-each select="/*//m:source[m:relationList/m:relation[@rel='isReproductionOf'      and substring-after(@target,'#')=$source_id]]">
 				<xsl:if test="position()=1">
 					<xsl:if test="not(m:titleStmt/m:title/text())">
 						<br/>
@@ -791,10 +705,7 @@
 			<!-- Show items as bulleted list if 
 				1) there are more than one item or
 				2) an item has a label, and source is not a manuscript -->
-			<xsl:when
-				test="count(m:item)&gt;1 or 
-				(m:item/@label and m:item/@label!='' and
-				../m:classification/m:termList/m:term[@classcode='DcmPresentationClass']!='manuscript')">
+			<xsl:when test="count(m:item)&gt;1 or      (m:item/@label and m:item/@label!='' and     ../m:classification/m:termList/m:term[@classcode='DcmPresentationClass']!='manuscript')">
 				<ul class="item_list">
 					<xsl:for-each select="m:item[*//text()]">
 						<li>
@@ -804,10 +715,7 @@
 				</ul>
 			</xsl:when>
 			<!-- Add a DIV wrapper if item is a labeled manuscript item (for styling) -->
-			<xsl:when
-				test="(count(m:item)&lt;=1 and
-				m:item/@label and m:item/@label!='' and
-				../m:classification/m:termList/m:term[@classcode='DcmPresentationClass']='manuscript')">
+			<xsl:when test="(count(m:item)&lt;=1 and     m:item/@label and m:item/@label!='' and     ../m:classification/m:termList/m:term[@classcode='DcmPresentationClass']='manuscript')">
 				<div class="ms_item">
 					<xsl:apply-templates select="m:item[*//text()]"/>
 				</div>
@@ -854,11 +762,8 @@
 		<xsl:if test="m:dimensions[text()] | m:extent[text()]">
 			<xsl:for-each select="m:dimensions[text()] | m:extent[text()]">
 				<xsl:choose>
-					<xsl:when
-						test="contains(.,'x') and number(substring-before(.,'x')) and number(substring-after(.,'x'))">
-						<xsl:value-of
-							select="concat(number(substring-before(.,'x')),' x ',number(substring-after(.,'x')))"
-						/>
+					<xsl:when test="contains(.,'x') and number(substring-before(.,'x')) and number(substring-after(.,'x'))">
+						<xsl:value-of select="concat(number(substring-before(.,'x')),' x ',number(substring-after(.,'x')))"/>
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:value-of select="."/>
@@ -937,8 +842,7 @@
 				<xsl:choose>
 					<xsl:when test="m:corpName[text()]">
 						<xsl:apply-templates select="m:corpName[text()]"/>
-						<xsl:if test="m:identifier[text()]"> (<em><xsl:apply-templates
-									select="m:identifier[text()]"/></em>) </xsl:if>
+						<xsl:if test="m:identifier[text()]"> (<em><xsl:apply-templates select="m:identifier[text()]"/></em>) </xsl:if>
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:for-each select="m:identifier[text()]">
@@ -1016,27 +920,22 @@
 	<xsl:template mode="volumes_pages" match="m:bibl">
 		<xsl:variable name="number_of_volumes" select="count(m:biblScope[@unit='vol' and text()])"/>
 		<xsl:choose>
-			<xsl:when test="$number_of_volumes &gt; 0">: <xsl:for-each
-					select="m:biblScope[@unit='vol' and text()]">
+			<xsl:when test="$number_of_volumes &gt; 0">: <xsl:for-each select="m:biblScope[@unit='vol' and text()]">
 					<xsl:if test="position()&gt;1">; </xsl:if> Vol. <xsl:value-of select="."/>
-					<xsl:if test="../m:biblScope[@unit='issue'][position()]/text()">/<xsl:value-of
-							select="../m:biblScope[@unit='issue'][position()]"/></xsl:if>
+					<xsl:if test="../m:biblScope[@unit='issue'][position()]/text()">/<xsl:value-of select="../m:biblScope[@unit='issue'][position()]"/></xsl:if>
 					<xsl:if test="../m:biblScope[@unit='page'][position()]/text()">, p.
-							<xsl:value-of select="../m:biblScope[@unit='page'][position()]"
-						/></xsl:if>
+							<xsl:value-of select="../m:biblScope[@unit='page'][position()]"/></xsl:if>
 				</xsl:for-each>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:variable name="number_of_issues"
-					select="count(m:biblScope[@unit='issue' and text()])"/>
+				<xsl:variable name="number_of_issues" select="count(m:biblScope[@unit='issue' and text()])"/>
 				<xsl:choose>
 					<xsl:when test="$number_of_issues &gt; 0">
 						<xsl:for-each select="m:biblScope[@unit='issue' and text()]">
 							<xsl:if test="position()&gt;1">; </xsl:if>
 							<xsl:value-of select="."/>
 							<xsl:if test="../m:biblScope[@unit='page'][position()]/text()">, p.
-									<xsl:value-of select="../m:biblScope[@unit='page'][position()]"
-								/></xsl:if>
+									<xsl:value-of select="../m:biblScope[@unit='page'][position()]"/></xsl:if>
 						</xsl:for-each>
 					</xsl:when>
 					<xsl:otherwise>
@@ -1049,8 +948,7 @@
 				</xsl:choose>
 			</xsl:otherwise>
 		</xsl:choose>
-		<xsl:for-each
-			select="m:biblScope[@unit and (@unit!='vol' and @unit!='issue' and @unit!='page')]">
+		<xsl:for-each select="m:biblScope[@unit and (@unit!='vol' and @unit!='issue' and @unit!='page')]">
 			<xsl:text> </xsl:text>
 			<xsl:choose>
 				<xsl:when test="@unit='no'">no.</xsl:when>
@@ -1151,11 +1049,7 @@
 		<xsl:param name="str"/>
 		<xsl:choose>
 			<xsl:when test="contains($str,'_')">
-				<xsl:value-of
-					select="concat(substring-before($str,'_'),
-					' ',
-					substring-after($str,'_'))"
-				/>
+				<xsl:value-of select="concat(substring-before($str,'_'),      ' ',      substring-after($str,'_'))"/>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:value-of select="$str"/>
@@ -1176,9 +1070,7 @@
 				<xsl:variable name="day" select="substring($date,9,2)"/>
 				<xsl:choose>
 					<!-- check if date format is YYYY-MM-DD; if so, display as D.M.YYYY -->
-					<xsl:when
-						test="(string(number($year))!='NaN' or string($year)='????' or (string(number(substring($year,1,2)))!='NaN' and substring($year,3,2)='??')) 
-						and (string(number($month))!='NaN' or string($month)='??') and (string(number($day))!='NaN' or string($day)='??') and substring($date,5,1)='-' and substring($date,8,1)='-'">
+					<xsl:when test="(string(number($year))!='NaN' or string($year)='????' or (string(number(substring($year,1,2)))!='NaN' and substring($year,3,2)='??'))        and (string(number($month))!='NaN' or string($month)='??') and (string(number($day))!='NaN' or string($day)='??') and substring($date,5,1)='-' and substring($date,8,1)='-'">
 						<xsl:choose>
 							<xsl:when test="substring($day,1,1)='0'">
 								<xsl:value-of select="substring($day,2,1)"/>
@@ -1214,8 +1106,7 @@
 			<xsl:value-of select="@xml:lang"/>
 		</xsl:attribute>
 		<xsl:choose>
-			<xsl:when
-				test="position()&gt;1 and @xml:lang!=parent::node()/*[name()=$element][1]/@xml:lang">
+			<xsl:when test="position()&gt;1 and @xml:lang!=parent::node()/*[name()=$element][1]/@xml:lang">
 				<xsl:attribute name="class">alternative_language</xsl:attribute>
 				<!-- [<xsl:value-of
 					select="concat(@xml:lang,':')"/>] -->
@@ -1247,8 +1138,7 @@
 	
 	
 	<!-- omit pop-up information -->
-	<xsl:template match="m:bibl//m:title | m:identifier[@authority='RISM'] | m:instrVoice/text() | 
-		m:identifier/text() | m:identifier/@type">
+	<xsl:template match="m:bibl//m:title | m:identifier[@authority='RISM'] | m:instrVoice/text() |    m:identifier/text() | m:identifier/@type">
 		<xsl:value-of select="."/>
 	</xsl:template>
 	
@@ -1263,17 +1153,17 @@
 		<xsl:param name="attr"/>
 		<span class="accidental">
 			<xsl:choose>
-				<xsl:when test="$attr='f'">&#x266d;</xsl:when>
-				<xsl:when test="$attr='ff'">&#x266d;&#x266d;</xsl:when>
-				<xsl:when test="$attr='s'">&#x266f;</xsl:when>
+				<xsl:when test="$attr='f'">♭</xsl:when>
+				<xsl:when test="$attr='ff'">♭♭</xsl:when>
+				<xsl:when test="$attr='s'">♯</xsl:when>
 				<xsl:when test="$attr='ss'">x</xsl:when>
-				<xsl:when test="$attr='n'">&#x266e;</xsl:when>
-				<xsl:when test="$attr='-flat'">&#x266d;</xsl:when>
-				<xsl:when test="$attr='-dblflat'">&#x266d;&#x266d;</xsl:when>
-				<xsl:when test="$attr='-sharp'">&#x266f;</xsl:when>
+				<xsl:when test="$attr='n'">♮</xsl:when>
+				<xsl:when test="$attr='-flat'">♭</xsl:when>
+				<xsl:when test="$attr='-dblflat'">♭♭</xsl:when>
+				<xsl:when test="$attr='-sharp'">♯</xsl:when>
 				<xsl:when test="$attr='-dblsharp'">x</xsl:when>
-				<xsl:when test="$attr='-neutral'">&#x266e;</xsl:when>
-				<xsl:when test="$attr='-natural'">&#x266e;</xsl:when>
+				<xsl:when test="$attr='-neutral'">♮</xsl:when>
+				<xsl:when test="$attr='-natural'">♮</xsl:when>
 				<xsl:otherwise/>
 			</xsl:choose>
 		</span>
@@ -1298,156 +1188,156 @@
 		<span class="music_symbols">♯</span>
 		<xsl:apply-templates select="exsl:node-set(substring-after(.,'♯'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d10b;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- segno -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d10b;'))"/>
-		<span class="music_symbols">&#x1d10b;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d10b;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝄋</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d10c;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- coda -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d10c;'))"/>
-		<span class="music_symbols">&#x1d10c;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d10c;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝄌</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d11e;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- g clef -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d11e;'))"/>
-		<span class="music_symbols">&#x1d11e;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d11e;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝄞</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d122;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- f clef -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d122;'))"/>
-		<span class="music_symbols">&#x1d122;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d122;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝄢</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d12a;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- dbl sharp -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d12a;'))"/>
-		<span class="music_symbols">&#x1d12a;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d12a;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝄪</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d12b;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- dbl flat -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d12b;'))"/>
-		<span class="music_symbols">&#x1d12b;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d12b;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝄫</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d134;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- common time -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d134;'))"/>
-		<span class="music_symbols time_signature">&#x1d134;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d134;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols time_signature">𝄴</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d135;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- cut time -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d135;'))"/>
-		<span class="music_symbols time_signature">&#x1d135;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d135;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols time_signature">𝄵</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d13b;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- whole rest -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d13b;'))"/>
-		<span class="music_symbols">&#x1d13b;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d13b;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝄻</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d13b;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- whole rest -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d13b;'))"/>
-		<span class="music_symbols">&#x1d13b;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d13b;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝄻</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d13c;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- half rest -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d13c;'))"/>
-		<span class="music_symbols">&#x1d13c;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d13c;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝄼</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d13d;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- quarter rest -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d13d;'))"/>
-		<span class="music_symbols">&#x1d13d;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d13d;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝄽</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d13e;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- eigth rest -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d13e;'))"/>
-		<span class="music_symbols">&#x1d13e;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d13e;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝄾</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d13f;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- 16th rest -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d13f;'))"/>
-		<span class="music_symbols">&#x1d13f;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d13f;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝄿</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d15d;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- whole note -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d15d;'))"/>
-		<span class="music_symbols">&#x1d15d;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d15d;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝅝</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d15e;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- half note -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d15e;'))"/>
-		<span class="music_symbols">&#x1d15e;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d15e;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝅗𝅥</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d15f;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- quarter note -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d15f;'))"/>
-		<span class="music_symbols">&#x1d15f;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d15f;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝅘𝅥</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d160;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- eigth note -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d160;'))"/>
-		<span class="music_symbols">&#x1d160;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d160;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝅘𝅥𝅮</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
-	<xsl:template match="text()[contains(.,'&#x1d161;')]">
+	<xsl:template match="text()[contains(.,'��')]">
 		<!-- 16th note -->
-		<xsl:apply-templates select="exsl:node-set(substring-before(.,'&#x1d161;'))"/>
-		<span class="music_symbols">&#x1d161;</span>
-		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[&#x1d161;]'))"/>
+		<xsl:apply-templates select="exsl:node-set(substring-before(.,'��'))"/>
+		<span class="music_symbols">𝅘𝅥𝅯</span>
+		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[��]'))"/>
 	</xsl:template>
 	<!-- end unicode replacements -->
 
 	<!-- ad hoc code replacements -->
 	<xsl:template match="text()[contains(.,'[flat]')]">
 		<xsl:apply-templates select="exsl:node-set(substring-before(.,'[flat]'))"/>
-		<span class="music_symbols">&#x266d;</span>
+		<span class="music_symbols">♭</span>
 		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[flat]'))"/>
 	</xsl:template>
 	<xsl:template match="text()[contains(.,'[natural]')]">
 		<xsl:apply-templates select="exsl:node-set(substring-before(.,'[natural]'))"/>
-		<span class="music_symbols">&#x266e;</span>
+		<span class="music_symbols">♮</span>
 		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[natural]'))"/>
 	</xsl:template>
 	<xsl:template match="text()[contains(.,'[sharp]')]">
 		<xsl:apply-templates select="exsl:node-set(substring-before(.,'[sharp]'))"/>
-		<span class="music_symbols">&#x266f;</span>
+		<span class="music_symbols">♯</span>
 		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[sharp]'))"/>
 	</xsl:template>
 	<xsl:template match="text()[contains(.,'[dblflat]')]">
 		<xsl:apply-templates select="exsl:node-set(substring-before(.,'[dblflat]'))"/>
-		<span class="music_symbols">&#x1d12b;</span>
+		<span class="music_symbols">𝄫</span>
 		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[dblflat]'))"/>
 	</xsl:template>
 	<xsl:template match="text()[contains(.,'[dblsharp]')]">
 		<xsl:apply-templates select="exsl:node-set(substring-before(.,'[dblsharp]'))"/>
-		<span class="music_symbols">&#x1d12a;</span>
+		<span class="music_symbols">𝄪</span>
 		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[dblsharp]'))"/>
 	</xsl:template>
 	<xsl:template match="text()[contains(.,'[common]')]">
 		<xsl:apply-templates select="exsl:node-set(substring-before(.,'[common]'))"/>
-		<span class="music_symbols time_signature">&#x1d134;</span>
+		<span class="music_symbols time_signature">𝄴</span>
 		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[common]'))"/>
 	</xsl:template>
 	<xsl:template match="text()[contains(.,'[cut]')]">
 		<xsl:apply-templates select="exsl:node-set(substring-before(.,'[cut]'))"/>
-		<span class="music_symbols time_signature">&#x1d135;</span>
+		<span class="music_symbols time_signature">𝄵</span>
 		<xsl:apply-templates select="exsl:node-set(substring-after(.,'[cut]'))"/>
 	</xsl:template>
 
@@ -1455,17 +1345,14 @@
 	<!-- Look up abbreviations -->
 
 	<xsl:template match="m:identifier[@authority='RISM']">
-		<xsl:variable name="RISM_file_name"
-			select="string(concat('http://',$hostname,'/',$settings/dcm:parameters/dcm:exist_dir,'rism_sigla/',
-			substring-before(normalize-space(.),'-'),'.xml'))"/>
+		<xsl:variable name="RISM_file_name" select="string(concat('http://',$hostname,'/',$settings/dcm:parameters/dcm:exist_dir,'rism_sigla/',    substring-before(normalize-space(.),'-'),'.xml'))"/>
 		<xsl:choose>
 			<xsl:when test="boolean(document($RISM_file_name))">
 				<xsl:variable name="RISM_file" select="document($RISM_file_name)"/>
 				<xsl:variable name="siglum" select="normalize-space(.)"/>
 				<xsl:choose>
 					<xsl:when test="$RISM_file//marc:datafield[marc:subfield[@code='g']=$siglum]">
-						<xsl:variable name="record"
-							select="$RISM_file//marc:datafield[marc:subfield[@code='g']=$siglum]"/>
+						<xsl:variable name="record" select="$RISM_file//marc:datafield[marc:subfield[@code='g']=$siglum]"/>
 						<a href="javascript:void(0);" class="abbr">
 							<xsl:value-of select="."/>
 							<span class="expan">
@@ -1487,8 +1374,7 @@
 
 	<xsl:template match="m:bibl//m:title">
 		<xsl:variable name="title" select="."/>
-		<xsl:variable name="reference"
-			select="$bibl_file//m:biblList[m:head=$file_context or m:head='' or not(m:head)]/m:bibl[@label=$title]"/>
+		<xsl:variable name="reference" select="$bibl_file//m:biblList[m:head=$file_context or m:head='' or not(m:head)]/m:bibl[@label=$title]"/>
 		<xsl:choose>
 			<xsl:when test="$reference/m:title">
 				<a href="javascript:void(0);" class="abbr">
@@ -1509,12 +1395,10 @@
 		In that case, it could be generalized to match all text() nodes. -->
 	<xsl:template match="m:instrVoice/text() | m:identifier/text() | m:identifier/@type">
 		<xsl:variable name="string" select="."/>
-		<xsl:variable name="abbr"
-			select="$abbreviations_file/m:p/m:choice/m:abbr[contains($string,.)]"/>
+		<xsl:variable name="abbr" select="$abbreviations_file/m:p/m:choice/m:abbr[contains($string,.)]"/>
 		<xsl:choose>
 			<xsl:when test="$abbr">
-				<xsl:variable name="expan"
-					select="$abbreviations_file/m:p/m:choice/m:expan[../m:abbr=$abbr]"/>
+				<xsl:variable name="expan" select="$abbreviations_file/m:p/m:choice/m:expan[../m:abbr=$abbr]"/>
 				<xsl:apply-templates select="exsl:node-set(substring-before($string,$abbr))"/>
 				<a href="javascript:void(0);" class="abbr">
 					<xsl:value-of select="$abbr"/>

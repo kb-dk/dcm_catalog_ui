@@ -12,65 +12,65 @@ declare function layout:head($title as xs:string,
 			) as node() 
 {
   let $head :=
-  <head>
-    <title>{$title}</title>
+  <h:head>
+    <h:title>{$title}</h:title>
       
-    <meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <h:meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8" />
+    <h:meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
-    <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
+    <h:link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
       
-    <link type="text/css" 
+    <h:link type="text/css" 
           href="style/dcm.css" 
 	  rel="stylesheet" />
 
    {$additions}
 
-    <link type="text/css" 
+    <h:link type="text/css" 
           href="style/{$layout:coll}/collection.css" 
 	  rel="stylesheet" />
 
-    <link href="jquery/jquery-ui-1.10.3/css/base/jquery-ui.css" 
+    <h:link href="jquery/jquery-ui-1.10.3/css/base/jquery-ui.css" 
        rel="stylesheet" 
        type="text/css"/>
 
-    <link href="jquery/jquery-ui-1.10.3/css/style.css" 
+    <h:link href="jquery/jquery-ui-1.10.3/css/style.css" 
        rel="stylesheet"  
        type="text/css"/>
       
-    <script type="text/javascript" src="js/swap_num_type.js">
+    <h:script type="text/javascript" src="js/swap_num_type.js">
       //
-    </script>
+    </h:script>
 
-    <script type="text/javascript" src="js/filter.js">
+    <h:script type="text/javascript" src="js/filter.js">
       //
-    </script>
+    </h:script>
       
-    <script type="text/javascript" src="jquery/jquery-ui-1.10.3/js/jquery-1.9.1.js">
+    <h:script type="text/javascript" src="jquery/jquery-ui-1.10.3/js/jquery-1.9.1.js">
       //
-    </script>
+    </h:script>
 
-    <script type="text/javascript" src="jquery/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js">
+    <h:script type="text/javascript" src="jquery/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js">
       //
-    </script>
+    </h:script>
     
     <!-- insert slider.js script here to activate the year slider -->
     
     { if($verovio) then   
-			<script src="http://www.verovio.org/javascript/latest/verovio-toolkit-light.js" type="text/javascript">
+			<h:script src="http://www.verovio.org/javascript/latest/verovio-toolkit-light.js" type="text/javascript">
 			//
-			</script>
+			</h:script>
     else () }
     
     { if($verovio) then   
-			<script type="text/javascript">
+			<h:script type="text/javascript">
 				/* Create the Verovio toolkit instance */
 				var vrvToolkit = new verovio.toolkit();
-			</script>
+			</h:script>
     else () }
     
     
-  </head>
+  </h:head>
 
   return $head
 
@@ -101,23 +101,23 @@ declare function layout:page-head(
 			$subtitle as xs:string) as node()
 {
   let $header :=
-  <div id="header">
-    <div class="kb_logo">
-      <a href="https://www.kb.dk" title="Det Kgl. Bibliotek"><img
+  <h:div id="header">
+    <h:div class="kb_logo">
+      <h:a href="http://www.kb.dk" title="Det Kgl. Bibliotek"><h:img
          id="KBLogo"
 	 title="Det Kgl. Bibliotek" 
-	 alt="KB Logo" src="style/images/kb_white.png"/><img
+	 alt="Logo of the Royal Danish Library. Click to go to the library's web site" src="style/images/kb_white.png"/><h:img
 	 id="KBLogo_print"
 	 title="Det Kgl. Bibliotek" 
-	 alt="KB Logo" src="style/images/kb.png"
-	 /></a>
-    </div>
-    <h1>
-    <a style="text-decoration:none;" 
-       href="https://www.kb.dk/dcm/{$layout:coll}.html" 
-       title="{$title} – {$subtitle}">{$title}</a></h1>
-    <h2><a style="text-decoration:none;" href="https://www.kb.dk/dcm/{$layout:coll}.html" title="{$title} – {$subtitle}">{$subtitle}</a></h2>
-  </div>
+	 alt="Logo of the Royal Danish Library. Click to go to the library's web site" src="style/images/kb.png"
+	 /></h:a>
+    </h:div>
+    <h:h1>
+    <h:a style="text-decoration:none;" 
+       href="http://www.kb.dk/dcm/{$layout:coll}.html" 
+       title="{$title} – {$subtitle}">{$title}</h:a></h:h1>
+    <h:h2><h:a style="text-decoration:none;" href="http://www.kb.dk/dcm/{$layout:coll}.html" title="{$title} – {$subtitle}">{$subtitle}</h:a></h:h2>
+  </h:div>
 
   return $header
 
@@ -127,14 +127,14 @@ declare function layout:page-menu($mode as xs:string) as node()
 {
 
   let $menudoc  :=
-  <div id="menu" class="noprint"> {
+  <h:div id="menu" class="noprint"> {
   for $anchor in doc(concat("/db/cat-site/",$layout:coll,"/menu.html"))/div/a
     return 
       if(contains($anchor/@href,$mode)) then
-	<a href="{$anchor/@href}" class="selected">{$anchor/text()}</a>
+	<h:a href="{$anchor/@href}" class="selected">{$anchor/text()}</h:a>
       else
-	<a href="{$anchor/@href}" class="">{$anchor/text()}</a>
-  } </div>
+	<h:a href="{$anchor/@href}" class="">{$anchor/text()}</h:a>
+  } </h:div>
   return $menudoc
 
 };
@@ -143,20 +143,9 @@ declare function layout:page-menu($mode as xs:string) as node()
 declare function layout:page-footer($mode as xs:string) as node()
 {
   let $footer :=
-  <div id="footer" style="text-align: center; height: auto; padding: 10px 20px;">
-    <a href="https://www.kb.dk" title="DCM/Royal Danish Library" 
-    style="text-decoration:none;"><img 
-    style="border: 0px; vertical-align:middle;" 
-    alt="DCM Logo" 
-    src="style/images/dcm_logo_small_white.png"
-    id="dcm_logo"/><img 
-    style="border: 0px; vertical-align:middle;" 
-    alt="DCM Logo" 
-    src="style/images/dcm_logo_small.png"
-    id="dcm_logo_print"
-    /></a>
-    2014–2018 Danish Centre for Music Editing | Royal Danish Library | Søren Kierkegaards Plads 1 | 1221 Copenhagen K, Denmark | <a name="www.kb.dk" id="www.kb.dk" href="https://www.kb.dk">www.kb.dk</a> 
-  </div>
+  <h:div id="footer">
+    <h:p>2014–2018 Danish Centre for Music Editing | Royal Danish Library | P.O. Box 2149 | Copenhagen K, Denmark | <h:a name="www.kb.dk" id="www.kb.dk" href="http://www.kb.dk/en/nb/dcm/">www.kb.dk/en/nb/dcm/</h:a></h:p>
+  </h:div>
 
   return $footer
 

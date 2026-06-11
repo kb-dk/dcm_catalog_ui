@@ -30,170 +30,170 @@ declare function filter:print-filters(
   let $notafter  := request:get-parameter("notafter",$filter:settings/m:mei/m:date[@type="yearSelection"]/@notafter)
   let $notbefore := request:get-parameter("notbefore",$filter:settings/m:mei/m:date[@type="yearSelection"]/@notbefore)
   let $search_help := 
-    <a class="help">?<span class="comment"> 
+    <h:a class="help">?<h:span class="comment"> 
       Search terms may be combined using boolean operators. Wildcards allowed. 
       Search is case insensitive (except for boolean operators, which must be uppercase).
-      Some examples:<br/>
-      <span class="help_table">
-        <span class="help_example">
-          <span class="help_label">carl OR nielsen</span>
-          <span class="help_value">Boolean OR (default)</span>
-        </span>                        
-        <span class="help_example">
-          <span class="help_label">carl AND nielsen</span>
-          <span class="help_value">Boolean AND</span>
-        </span>
-        <span class="help_example">
-          <span class="help_label">"carl nielsen"</span>
-          <span class="help_value">Exact phrase</span>
-        </span>
-        <span class="help_example">
-          <span class="help_label">niels*</span>
-          <span class="help_value">Match any number of characters. Finds Niels, Nielsen and Nielsson<br/>
+      Some examples:<h:br/>
+      <h:span class="help_table">
+        <h:span class="help_example">
+          <h:span class="help_label">carl OR nielsen</h:span>
+          <h:span class="help_value">Boolean OR (default)</h:span>
+        </h:span>                        
+        <h:span class="help_example">
+          <h:span class="help_label">carl AND nielsen</h:span>
+          <h:span class="help_value">Boolean AND</h:span>
+        </h:span>
+        <h:span class="help_example">
+          <h:span class="help_label">"carl nielsen"</h:span>
+          <h:span class="help_value">Exact phrase</h:span>
+        </h:span>
+        <h:span class="help_example">
+          <h:span class="help_label">niels*</h:span>
+          <h:span class="help_value">Match any number of characters. Finds Niels, Nielsen and Nielsson<h:br/>
           (use only at end of word)
-          </span>
-        </span>
-        <span class="help_example">
-          <span class="help_label">niels?n</span>
-          <span class="help_value">Match 1 character. Finds Nielsen and Nielson, but not Nielsson</span>
-        </span>
-      </span>
-    </span>
-  </a>
+          </h:span>
+        </h:span>
+        <h:span class="help_example">
+          <h:span class="help_label">niels?n</h:span>
+          <h:span class="help_value">Match 1 character. Finds Nielsen and Nielson, but not Nielsson</h:span>
+        </h:span>
+      </h:span>
+    </h:span>
+  </h:a>
 
   let $filter:=
-  <form action="" method="get" class="search" id="query_form" name="query_form">
+  <h:form action="" method="get" class="search" id="query_form" name="query_form">
 
     {forms:pass-as-hidden-except("notafter notbefore name title genre query scheme workno anthologies")}
 
-    <div class="filter_block">
+    <h:div class="filter_block">
 
-      <span class="label input_label">Keywords</span>
-      <br/>
-      <input name="query" 
+      <h:label class="label input_label" for="query_input">Keywords</h:label>
+      <h:br/>
+      <h:input name="query" 
              class="query_input" 
 	     value='{request:get-parameter("query","")}' 
 	     id="query_input"/>
         {$search_help}
-    </div>
+    </h:div>
 
-    <div class="filter_block">
-      <span class="label input_label">Title</span>
-      <br/>
-      <input name="title" 
+    <h:div class="filter_block">
+      <h:label class="label input_label" for="title_input">Title</h:label>
+      <h:br/>
+      <h:input name="title" 
              class="query_input" 
 	     value='{request:get-parameter("title","")}' 
 	     id="title_input"/>
         {$search_help}
-    </div>
+    </h:div>
 
-    <div class="filter_block">
-    <span class="label input_label">Name</span>
-    <br/>
-    <select id="name_field" name="name" onchange="swap_num_type();return true;">
+    <h:div class="filter_block">
+    <h:label class="label input_label" for="name_field">Name</h:label>
+    <h:br/>
+    <h:select id="name_field" name="name" onchange="swap_num_type();return true;">
     {
       for $nam in $filter:numnam//h:select[@id="name_field"]/h:option
 	return 
 	  if($nam/@value eq request:get-parameter("name", "")) then
-	    <option value="{$nam/@value}" selected="selected">{$nam/text()}</option>
+	    <h:option value="{$nam/@value}" selected="selected">{$nam/text()}</h:option>
 	  else
-	    <option value="{$nam/@value}">{$nam/text()}</option>
+	    <h:option value="{$nam/@value}">{$nam/text()}</h:option>
     }
-    </select>
-    </div>
+    </h:select>
+    </h:div>
 
-    <div class="filter_block">
+    <h:div class="filter_block">
     {
       let $defaultscheme := $filter:numnam//*[@id="scheme_selector"]/h:option[@value!=""][1]/@value/string()
 
       let $schemeselectors :=
       if (count($filter:numnam//*[@id="scheme_selector"]/h:option[@value!=""]) eq 1) then
-        (<span class="label input_label">{$filter:numnam//*[@id="scheme_selector"]/h:option[@value!=""][1]/@value/string()} number</span>,
-        <input type="hidden" id="scheme_selector" name="scheme" value="{$defaultscheme}"/>,
-        <br/>)    
+        (<h:label class="label input_label" for="scheme_selector">{$filter:numnam//*[@id="scheme_selector"]/h:option[@value!=""][1]/@value/string()} number</h:label>,
+        <h:input type="hidden" id="scheme_selector" name="scheme" value="{$defaultscheme}"/>,
+        <h:br/>)    
       else
-        (<span class="label input_label">Numbers</span>,
-        <br/>,
-        <select id="scheme_selector" 
+        (<h:label class="label input_label" for="scheme_selector">Identifier</h:label>,
+        <h:br/>,
+        <h:select id="scheme_selector" 
               name="scheme" 
               onchange="swap_num_type();return true;">
 	    {
 	      for $numschema in $filter:numnam//h:div[@id="numbers"]/h:select/@id
 	      return 
 	        if(  $numschema eq request:get-parameter("scheme", $filter:collection)) then
-	          <option value="{$numschema}" selected="selected">{$numschema/string()}</option>
+	          <h:option value="{$numschema}" selected="selected">{$numschema/string()}</h:option>
 	        else
-	          <option value="{$numschema}">{$numschema/string()}</option>
+	          <h:option value="{$numschema}">{$numschema/string()}</h:option>
 	    }
-        </select>)
+        </h:select>)
 
       let $numselectors :=
       for $nums in $filter:numnam//h:div[@id="numbers"]/h:select
-	let $nam :=
-	  if($nums/@id/string() eq request:get-parameter("scheme", $filter:collection)) then 
-	    "workno"
-	  else
-	    "noname"
-
-	let $sty :=
-	  if($nums/@id/string() eq request:get-parameter("scheme", $filter:collection)) then 
-	    "display:inline;"
-	  else
-	    "display:none;"
-
-        return 
-	<select id="{$nums/@id/string()}" 
-	        name="{$nam}" 
-		style="{$sty}">
-	  { 
-          for $opt in $nums/h:option
-	  return
-	    if(  $opt/@value eq request:get-parameter("workno", "")) then
-	    <option value="{$opt/@value}" selected="selected">{$opt/string()}</option>
-	    else
-	    <option value="{$opt/@value}">{$opt/string()}</option>
-	  }
-	</select>
+    	let $nam :=
+    	  if($nums/@id/string() eq request:get-parameter("scheme", $filter:collection)) then 
+    	    "workno"
+    	  else
+    	    "noname"
+    
+    	let $sty :=
+    	  if($nums/@id/string() eq request:get-parameter("scheme", $filter:collection)) then 
+    	    "display:inline;"
+    	  else
+    	    "display:none;"
+    
+        return (
+            <h:label class="label input_label" for="{$nums/@id/string()}" style="{$sty}">number: </h:label>,
+        	<h:select id="{$nums/@id/string()}" name="{$nam}" style="{$sty}">
+        	  { 
+                  for $opt in $nums/h:option
+        	  return
+        	    if(  $opt/@value eq request:get-parameter("workno", "")) then
+        	    <h:option value="{$opt/@value}" selected="selected">{$opt/string()}</h:option>
+        	    else
+        	    <h:option value="{$opt/@value}">{$opt/string()}</h:option>
+        	  }
+        	</h:select>
+        )
 
 	return ($schemeselectors, $numselectors)
       }
-    </div>
+    </h:div>
 
-    <div class="filter_block">
-      <span class="label">Year of composition</span>   
-      <input type="hidden" name="maxyear" id="maxyear" value="{string($filter:settings/m:mei/m:date/@notafter)}"/>
-      <input type="hidden" name="minyear" id="minyear" value="{string($filter:settings/m:mei/m:date/@notbefore)}"/>
-      <div>
-        Between 
-        <input id="notbefore" name="notbefore" value="{string($filter:settings/m:mei/m:date/@notbefore)}"
+    <h:div class="filter_block">
+      <h:label class="label">Year of composition</h:label>   
+      <h:input type="hidden" name="maxyear" id="maxyear" value="{string($filter:settings/m:mei/m:date/@notafter)}"/>
+      <h:input type="hidden" name="minyear" id="minyear" value="{string($filter:settings/m:mei/m:date/@notbefore)}"/>
+      <h:div>
+        <h:label for="notbefore">Between </h:label>
+        <h:input id="notbefore" name="notbefore" value="{string($filter:settings/m:mei/m:date/@notbefore)}"
         onblur="checkYearRange()"/> 
-        and 
-        <input id="notafter" name="notafter" value="{string($filter:settings/m:mei/m:date/@notafter)}"
+        <h:label for="notafter"> and </h:label> 
+        <h:input id="notafter" name="notafter" value="{string($filter:settings/m:mei/m:date/@notafter)}"
         onblur="checkYearRange()"/>
-      </div>
+      </h:div>
 
       <!-- slider temporarily disabled -->  
-      <!--<table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td style="padding-left: 0;">
-            <input id="notbefore" name="notbefore" value="{string($filter:settings/m:mei/m:date/@notbefore)}" onblur="setYearSlider()"/>
-          </td>
-          <td>
-	    <div class="slider" id="year_slider">
+      <!--<h:table cellpadding="0" cellspacing="0" border="0">
+        <h:tr>
+          <h:td style="padding-left: 0;">
+            <h:input id="notbefore" name="notbefore" value="{string($filter:settings/m:mei/m:date/@notbefore)}" onblur="setYearSlider()"/>
+          </h:td>
+          <h:td>
+	    <h:div class="slider" id="year_slider">
 	      {" "}
-	    </div>
-          </td>
-          <td>
-	    <input id="notafter" 
+	    </h:div>
+          </h:td>
+          <h:td>
+	    <h:input id="notafter" 
 	    name="notafter" 
 	    value="{string($filter:settings/m:mei/m:date/@notafter)}" 
 	    onblur="setYearSlider()"/>
-          </td>
-        </tr>
-      </table>-->
-    </div>
+          </h:td>
+        </h:tr>
+      </h:table>-->
+    </h:div>
 
-    <div class="genre_filter filter_block">
+    <h:div class="genre_filter filter_block">
 	{
 	  for $genre in $filter:vocabulary/m:classification/m:taxonomy//m:desc/string()
 	    let $selected :=
@@ -203,8 +203,8 @@ declare function filter:print-filters(
 	  if ($filter:vocabulary/m:classification/m:taxonomy/m:category/m:category[m:desc/string()=$genre]) (: top-level genre keyword :)
 	    then 
 	    (  
-	      <div class="genre_filter_row">
-	         { element input {
+	      <h:div class="genre_filter_row">
+	         { element h:input {
 	            attribute type {"radio"},
                 attribute name {"genre"},
                 attribute value {$genre},
@@ -216,14 +216,14 @@ declare function filter:print-filters(
 	            ()
               }
 	       }
-           <label for="{concat('id',translate($genre,' ',''))}" class="level2 {$selected}">
-              <span><span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</span></span> {$genre} 
-	       </label>
-	     </div>
+           <h:label for="{concat('id',translate($genre,' ',''))}" class="level2 {$selected}">
+              <h:span><h:span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</h:span></h:span> {$genre} 
+	       </h:label>
+	     </h:div>
 	    )
         else (: sub-level genre keyword :)
-          <div class="genre_filter_row">
-	      { element input {
+          <h:div class="genre_filter_row">
+	      { element h:input {
 	            attribute type {"radio"},
                 attribute name {"genre"},
                 attribute value {$genre},
@@ -235,17 +235,17 @@ declare function filter:print-filters(
 	           ()
            }
 	      }
-              <label for="{concat('id',translate($genre,' ',''))}" class="level1 {$selected}">
-        	      <span><span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</span></span> {$genre} 
-              </label>
-           </div>
+              <h:label for="{concat('id',translate($genre,' ',''))}" class="level1 {$selected}">
+        	      <h:span><h:span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</h:span></h:span> {$genre} 
+              </h:label>
+           </h:div>
         }
-         </div>
+         </h:div>
       <!-- "song collection" filter disabled -->
       <!--   
-      <div class="filter_block anthologies">
+      <h:div class="filter_block anthologies">
         {     
-            element input {
+            element h:input {
     	    attribute type {"checkbox"},
             attribute name {"anthologies"},
             attribute value {"yes"},
@@ -256,13 +256,13 @@ declare function filter:print-filters(
 	        else
 	           ()
 	        }
-        } <label for="idAnthologies"><span><span>&#160;</span></span>Exclude song collections</label>
-         </div>-->
+        } <h:label for="idAnthologies"><h:span><h:span>&#160;</h:span></h:span>Exclude song collections</h:label>
+         </h:div>-->
 
-	      <div class="filter_block search_button">
-            <input type="submit" value="" class="search_submit" id="search_submit" onclick="this.form.elements['page'].value = '1'; return true;"/>
-          </div>
-        </form>
+	      <h:div class="filter_block search_button">
+            <h:input type="submit" value="" class="search_submit" id="search_submit" onclick="this.form.elements['page'].value = '1'; return true;"/>
+          </h:div>
+        </h:form>
 
     return $filter
 };
@@ -298,77 +298,77 @@ declare function filter:filter-elements()
  
   let $year_block :=
       if(($notbefore and $notbefore!=$filter:settings/m:mei/m:date[@type="yearSelection"]/@notbefore) or ($notafter and $notafter!=$filter:settings/m:mei/m:date[@type="yearSelection"]/@notafter)) then
-       <a class="filter_element"
+       <h:a class="filter_element"
            href="{fn:replace(fn:replace(fn:replace($this_uri,'notbefore=[^&amp;]+[&amp;]?',''),'notafter=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
            Year of composition: {$notbefore}–{$notafter} 
-       </a>
+       </h:a>
     else
        ""
 
   let $title_block :=
       if($title) then
-       <a class="filter_element"
+       <h:a class="filter_element"
            href="{fn:replace(fn:replace($this_uri,'title=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
            Title: {$title} 
-       </a>
+       </h:a>
     else
        ""
 
   let $name_block :=
       if($name) then
-       <a class="filter_element"
+       <h:a class="filter_element"
            href="{fn:replace(fn:replace($this_uri,'name=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
            Name: {$name} 
-       </a>
+       </h:a>
     else
        ""
 
   let $query_block :=
       if($query) then
-       <a class="filter_element"
+       <h:a class="filter_element"
            href="{fn:replace(fn:replace($this_uri,'query=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
            Keyword(s): {$query} 
-       </a>
+       </h:a>
     else
        ""
 
     let $workno_block :=
       if($workno) then
-       <a class="filter_element"
+       <h:a class="filter_element"
            href="{fn:replace(fn:replace($this_uri,'workno=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
            {$scheme} number: {$workno} 
-       </a>
+       </h:a>
     else
        ""
 
   let $genre_block :=
       if($genre) then
-       <a class="filter_element" 
+       <h:a class="filter_element" 
            href="{fn:replace(fn:replace($this_uri,'genre=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
            Genre: {$genre} 
-       </a>
+       </h:a>
        else
        ""
 
   let $anthology_block :=
       if($anthologies="yes") then
-       <a class="filter_element" 
+       <h:a class="filter_element" 
            href="{fn:replace(fn:replace($this_uri,'anthologies=[^&amp;]+[&amp;]?',''),'[&amp;]$','')}">
            Exclude song collections 
-       </a>
+       </h:a>
        else
        ""
   let $reset_block :=
       if($genre_block or $year_block or $query_block or $anthology_block or $title_block or $name_block or $workno_block ) then
-       <a class="filter_element reset" 
+       <h:a class="filter_element reset" 
            href="{fn:concat($filter:uri,'?itemsPerPage=',request:get-parameter("itemsPerPage",""),'&amp;sortby=',request:get-parameter("sortby",$filter:sortby))}">
            Reset all
-       </a> 
+       </h:a> 
     else
        ""
 
   let $clear :=
-      <br style="clear:both"/>
+      <h:br style="clear:both"/>
   return ($title_block, $query_block, $name_block, $workno_block, $year_block, $genre_block, $anthology_block, $reset_block, $clear)
 };
 
@@ -381,7 +381,7 @@ declare function filter:print-filtered-link(
   $term            as xs:string) as node()*
 {
   let $link := (
-    element a 
+    element h:a 
     {
       attribute title {"Filter with ",$term},
       attribute href {

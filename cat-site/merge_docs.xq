@@ -56,7 +56,7 @@ let $params :=
 let $list := loop:getlist($database,$coll,$genre,$query)
 
 return
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
 <title>Merged documents</title>
 <link rel="stylesheet" type="text/css" href="style/cnw/cnw.css"/>

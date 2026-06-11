@@ -27,7 +27,7 @@ declare variable $published_only := request:get-parameter("published_only","") c
 declare variable $database := "/db/dcm";
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
     <head>
       <title>Counting results</title>
       <link rel="stylesheet" type="text/css" href="/editor/style/dcm.css"/>

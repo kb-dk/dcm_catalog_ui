@@ -2,6 +2,7 @@ xquery version "1.0" encoding "UTF-8";
 
 module namespace forms="http://kb.dk/this/formutils";
 
+declare namespace  h="http://www.w3.org/1999/xhtml";
 declare namespace request="http://exist-db.org/xquery/request";
 
 declare variable $forms:notbefore := request:get-parameter("notbefore", "") cast as xs:string;
@@ -25,18 +26,18 @@ declare variable $forms:anthologies := request:get-parameter("anthologies","") c
 declare function forms:pass-as-hidden() as node()* {
   let $inputs :=
     (
-    <input name="query"          type="hidden" value="{$forms:query}"  />,
-    <input name="page"           type="hidden" value="{$forms:page}"   />,
-    <input name="itemsPerPage"   type="hidden" value="{$forms:number}" />,
-    <input name="genre"          type="hidden" value="{$forms:genre}" />,
-    <input name="notbefore"      type="hidden" value="{$forms:notbefore}" />,
-    <input name="notafter"       type="hidden" value="{$forms:notafter}" />,
-    <input name="sortby"         type="hidden" value="{$forms:sortby}" />,
-    <input name="anthologies"    type="hidden" value="{$forms:anthologies}" />,
-    <input name="title"          type="hidden" value="{$forms:title}" />,
-    <input name="name"           type="hidden" value="{$forms:name}" />,
-    <input name="scheme"         type="hidden" value="{$forms:scheme}" />,
-    <input name="workno"         type="hidden" value="{$forms:workno}" /> 
+    <h:input name="query"          type="hidden" value="{$forms:query}"  />,
+    <h:input name="page"           type="hidden" value="{$forms:page}"   />,
+    <h:input name="itemsPerPage"   type="hidden" value="{$forms:number}" />,
+    <h:input name="genre"          type="hidden" value="{$forms:genre}" />,
+    <h:input name="notbefore"      type="hidden" value="{$forms:notbefore}" />,
+    <h:input name="notafter"       type="hidden" value="{$forms:notafter}" />,
+    <h:input name="sortby"         type="hidden" value="{$forms:sortby}" />,
+    <h:input name="anthologies"    type="hidden" value="{$forms:anthologies}" />,
+    <h:input name="title"          type="hidden" value="{$forms:title}" />,
+    <h:input name="name"           type="hidden" value="{$forms:name}" />,
+    <h:input name="scheme"         type="hidden" value="{$forms:scheme}" />,
+    <h:input name="workno"         type="hidden" value="{$forms:workno}" /> 
     )
     return $inputs
 };
@@ -49,8 +50,8 @@ declare function forms:emit-select-form(
 
   {    
   let $form := 
-  <form action="" id="{$id}">
-    <select name="{$param}" onchange="this.form.submit();return true;"> 
+  <h:form action="" id="{$id}">
+    <h:select name="{$param}" onchange="this.form.submit();return true;"> 
       {
 	for $opt in $options
 	let $option:=
@@ -64,9 +65,9 @@ declare function forms:emit-select-form(
 	      attribute value {$opt/@value/string()},$opt/string()}
 	return $option
       }
-    </select>
+    </h:select>
     {forms:pass-as-hidden-except($param)}
-  </form>
+  </h:form>
 
   return $form
 };
@@ -114,7 +115,7 @@ declare function forms:pass-as-hidden-except(
       $input
     else
       if($input/@name eq "page") then
-	(<input name="page" type="hidden" value="1" />)
+	(<h:input name="page" type="hidden" value="1" />)
       else
 	()
 	    

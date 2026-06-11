@@ -14,12 +14,12 @@ declare namespace local="http://kb.dk/this/app";
 
 declare namespace request="http://exist-db.org/xquery/request";
 
-import module namespace loop="http://kb.dk/this/getlist" at "./main_loop.xqm";
 import module namespace app="http://kb.dk/this/listapp" at "./list_utils.xqm";
 import module namespace filter="http://kb.dk/this/app/filter" at "./filter_utils.xqm";
 import module namespace layout="http://kb.dk/this/app/layout" at "./layout.xqm";
+import module namespace loop="http://kb.dk/this/getlist" at "./main_loop.xqm";
 
-declare option exist:serialize "method=xml media-type=text/html"; 
+declare option exist:serialize "method=xhtml5 media-type=text/html doctype-public=html";
 
 declare variable $coll   := request:get-parameter("c","") cast as xs:string;
 declare variable $genre  := request:get-parameter("genre","") cast as xs:string;
@@ -36,7 +36,7 @@ declare variable $from     := ($page - 1) * $number + 1;
 declare variable $to       :=  $from      + $number - 1;
 
 
-declare variable $sort-options :=
+declare variable $sort-options  as node()*:=
 (<option value="null,work_number">Work number</option>,
 <option value="null,title">Title</option>,
 <option value="date,title">Year</option>
@@ -78,9 +78,9 @@ translate(translate(normalize-space($genre),' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXY
 let $genre_boxes := 
 for $genre at $pos in $genres2 
 return 
-<div class="genre_list">
-    <a class="{$class[$pos]} genre_indicator abbr"><img src="style/images/spacer.png" border="0" width="12" height="12"/><span class="expan">{$genre}</span></a>
-</div>
+<h:div class="genre_list">
+    <h:a class="{$class[$pos]} genre_indicator abbr"><h:img src="style/images/spacer.png" alt="" border="0" width="12" height="12"/><h:span class="expan">{$genre}</h:span></h:a>
+</h:div>
 
 let $date_output :=
 if($doc//m:workList/m:work/m:creation/m:date/@notbefore!='' or $doc//m:workList/m:work/m:creation/m:date/@notafter!=''
@@ -95,7 +95,7 @@ substring($doc//m:workList/m:work/m:creation/m:date/@isodate,1,4)
 
 (: Composer currently not used :)
 let $composer :=
-<div class="composer">{$doc//m:workList/m:work/m:contributor[@role='composer'][1]/text()}&#160;</div>
+<h:div class="composer">{$doc//m:workList/m:work/m:contributor[@role='composer'][1]/text()}&#160;</h:div>
 
 (: Prefer low resolution incipits if available; otherwise just use the first available image :)
 let $img := if ($doc//m:workList/m:work//m:incip/m:graphic[@target and @targettype='lowres']) then
@@ -104,82 +104,85 @@ else $doc//m:workList/m:work//m:incip/m:graphic[@target][1]
 
 (: some magic needed to resize incipit :)
 let $incip := if ($img) then
-<div class="incip_wrap"><img class="incip_scaled" onload="this.width=this.naturalWidth*0.6;this.style.display='block'" src="{$img/@target}" /></div>
+(:  Relative scaling :)
+(: <h:div class="incip_wrap"><h:img class="incip_scaled" alt="Music incipit (first bars of music for identification)" onload="this.width=this.naturalWidth*0.6;this.style.display='block'" src="{$img/@target}" /></h:div> :)
+(: Absolute scaling (safer) :)
+<h:div class="incip_wrap"><h:img class="incip_scaled" alt="Music incipit (first bars of music for identification)" onload="this.width=369;this.style.display='block'" src="{$img/@target}" /></h:div>
 else ''
 
 let $ref   :=
-(:<table class="result_table" onclick="location.href='{concat('./document.xq?doc=',util:document-name($doc))}'" cellspacing="0" cellpadding="0">:)
-    <table class="result_table" onclick="location.href='{concat('./document.xq?n=',xmldb:encode-uri(app:get-work-number($doc)))}'" cellspacing="0" cellpadding="0">
-        <tr class="result_row">
-            <td class="list_id result_cell">
+(:<h:table class="result_table" onclick="location.href='{concat('./document.xq?doc=',util:document-name($doc))}'" cellspacing="0" cellpadding="0">:)
+    <h:div class="result_table" onclick="location.href='{concat('./document.xq?n=',xmldb:encode-uri(app:get-work-number($doc)))}'" cellspacing="0" cellpadding="0">
+        <h:div class="result_row top">
+            <h:div class="list_id">
                 {app:get-edition-and-number($doc)}{" "}
-            </td>
-            <td class="result_cell" rowspan="2">
-                <div class="date">&#160;{$date_output}</div>
-                <div class="title">
-                    {app:public-view-document-reference($doc)}{" "}
-                </div>
-                {$incip}
-            </td>
-        </tr>
-        <tr  class="result_row">
-            <td class="list_id result_cell genre_cell">
-                <div class="info_bar">
+            <!--</h:td>
+            <h:td class="list_id result_cell genre_cell">-->
+                <h:div class="info_bar">
                     {$genre_boxes}&#160;
-                </div>
-            </td>
-        </tr>
-    </table>
+                </h:div>
+            </h:div>
+        </h:div>
+        <h:div class="result_row main">
+            <h:div class="result_cell">
+                <h:div class="result_main">
+                    <h:div class="date">&#160;{$date_output}</h:div>
+                    <h:div class="title">
+                        {app:public-view-document-reference($doc)}{" "}
+                    </h:div>
+                    {$incip}
+                </h:div>
+            </h:div>
+        </h:div>
+    </h:div>
     return $ref
     
     };
-    
-    <html xmlns="http://www.w3.org/1999/xhtml">
-        {layout:head($html//h:title/text(),(<link rel="stylesheet" type="text/css" href="style/public_list_style.css"/>),false())}
-        <body class="list_files" onload="initialize();">
+
+    <h:html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+        {layout:head($html//h:title/text(),(<h:link rel="stylesheet" type="text/css" href="style/public_list_style.css"/>),false())}
+        <h:body class="list_files" onload="initialize();">
             
-            <div id="all">
+            <h:div id="all">
                 {layout:page-head-doc($html)}
                 {layout:page-menu($mode)}
                 
-                <div id="main">
-                    <div class="content_box">
+                <h:div id="main">
+                    <h:div class="content_box">
                         {
                         let $list := loop:getlist($database,$genre,$query)
                         return
                         (
-                        <div class="files_list">
-                            <div class="filter">
+                        <h:div class="files_list">
+                            <h:div class="filter">
                                 {filter:print-filters($database,string($number),$genre,$query)}
-                            </div>
-                            <div class="spacer"><div>&#160;</div></div>
-                            <div class="results">
-                                <div class="nav_bar noprint">
+                            </h:div>
+                            <h:div class="spacer"><h:div>&#160;</h:div></h:div>
+                            <h:div class="results">
+                                <h:div class="nav_bar noprint">
                                     {app:navigation($sort-options,$list)}
-                                </div>
-                                <div class="filter_elements">
+                                </h:div>
+                                <h:div class="filter_elements">
                                     {filter:filter-elements()}
-                                </div>
-                                
-                                <!-- temporary error message -->
-                                <!--<div style="background-color:#faa;border: 1px solid #f88;font-size: 8pt; padding: 4px;">Please note: We are currently updating this service. Information may be temporarily missing or misplaced.<br/>
-               We apologize and hope to fix any problems within a few days.
-           </div>-->
-                                
+                                </h:div>
+
                                 {
                                 for $doc at $count in $list[position() = ($from to $to)]
                                 return local:format-reference($doc,$count)
                                 }
-                            </div>
-                        </div>)
+                            </h:div>
+                        </h:div>)
                         }
-                    </div> 
-                </div> 
+                    </h:div> 
+                </h:div> 
                 
                 {layout:page-footer($mode)}
                 
-            </div> 
-            
-        </body>
-    </html>
+            </h:div> 
+            <h:script type="text/javascript" src="js/layout.js">
+              //
+            </h:script>
+
+        </h:body>
+    </h:html>
     

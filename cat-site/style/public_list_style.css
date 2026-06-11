@@ -5,7 +5,9 @@ h2 {
 input, select {
     background-color: #fff;
     color: #000;
-    border-radius: 4px;
+    border: 0px;
+    padding: 2px;
+    margin-right: 5px;
 }
 
 div.spacer {
@@ -29,10 +31,13 @@ div.filter {
     display: table-cell;
     vertical-align: top;
     width: 250px;
-    background-color: #d0d0d0;
+}
+
+#query_form {
     padding: 10px;
-    margin: 15px 15px 0 0;
-    border-radius: 4px;
+    background-color: #ccc;
+    background-color: rgba(255, 255, 255, .8);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .5);
 }
 
 div.filter_block {
@@ -97,9 +102,9 @@ div.genre_filter input[type=radio   ] {
     margin: 6px 0 0 6px;
 }
 
-label {
+/*label {
     cursor: pointer;
-}
+}*/
 
 /* for newer browsers: */
 
@@ -151,7 +156,7 @@ div.genre_filter span.genre_indicator {
     border-radius: 8px;
     border: 1px solid #555;
     display: inline-block;
-    margin: 1px 0 0 0;
+    margin: 1px 5px 0 0;
     vertical-align: text-top;
 }
 /* end radio buttons and checkboxes */
@@ -201,37 +206,42 @@ div.genre_filter span.genre_indicator {
 
 /* CSS for the paging */
 
+.nav_bar .navigation_label {
+    color: #fff;
+}
+
 .paging_div {
     clear: right;
     float:left;
 }
 
-a.paging:link, a.paging:active, a.paging:visited, a.paging:hover {
+.paging_div a:link, .paging_div a:active, .paging_div a:visited, .paging_div a:hover {
     text-decoration: none; 
+    width: 20px;
 }  
 
-a.paging:hover {
+.paging_div a:hover {
     background-color: #f8f8f8;
 }
 
 .paging {
     background-color: #e8e8e8;
-    color: #999;
-    display: block;
-    float: left;
-    position: relative;
+    color: #000;
+    display: inline-block;
     text-align: center;
-    height: 21px;
-    width: 26px;
+    vertical-align: bottom;
+    width: 32px;
     text-decoration: none;
-    border: 1px solid #777;
-    border-radius: 4px;
     margin: 2px 2px 0 0;
     padding-top: 2px;
 }
 
 .paging img {
     margin-top: 6px;
+}
+
+#total_pages {
+    display: inline-block;
 }
 
 #sortForm, #itemsPerPageForm {
@@ -255,10 +265,6 @@ div.results {
     color: inherit;
 }
 
-.result_row a:hover {
-    text-decoration: underline;
-}
-
 .result_row .composer {
     font-size: .85em;
     padding: 2px 5px;
@@ -278,45 +284,78 @@ div.results {
     float: right;
     padding: 2px 5px;
 }
+
 .result_table {
-    width: 100%;
-    margin: 15px 0;
-    border: 1px solid #666;
-/*    background-color: #ddd; */
-    border-radius: 4px;
+    font-weight: 700;
+    vertical-align: top;
+    display: inline-block;
+    width: 380px;
+    margin: 15px 10px 0 0;
     cursor: pointer;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.5);
+    transition: box-shadow .2s;
+    transition: transform .1s;
+}
+
+
+.result_row.top {
+    width: inherit;
+    background-color: rgba(255, 255, 255, .05);
+}
+
+.result_table:hover .result_row.top {
+    /* fall back to parent's semi-transparent background on hover */
+    background: none;
+}
+
+.result_row.main {
+    background-color: #fff;  
 }
 
 .result_table:hover {
-/*    background-color: #fff;  */
-    border-color: #aae;
+/*    box-shadow: 5px 5px 30px #222;*/
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.5);
+    transform: translate(-2px, -2px);
 }
 
-.result_table:hover .list_id {
-    background-color: #666;
-}
 
-.result_cell {
+.result_cell, .list_id {
     vertical-align: top;
 }
 
+.result_cell .result_content {
+    position: relative;
+}
+
 /* incipit images */
+
+
+.incip_wrap {
+    width: fit-content;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
 .incip_scaled {
     display: none;
+/*    opacity: 0.95;*/
 }
 
 .info_bar {
-    padding: 0;
+    float: right;
+    padding: 4px 0 0 0;
     font-size: 6px;
+    width: fit-content;
+    height: 16px;
 }
 
 .info_bar .expan {
     font-size: 10pt;
 }
 
-.info_bar .genre_list {
-    float: left;
-    padding: 0 2px 0 0;
+.genre_list {
+    float: right;
+    margin: 0 0 0 4px;
 }
 
 .genre_cell {
@@ -325,24 +364,21 @@ div.results {
 
 .info_bar div.genre_list .genre_indicator {
     display: block;
-    width: 18px;
     width: 12px;
     height: 12px;
     border-radius: 6px;
 }
 
 .result_table .list_id {
-    width: 9%;
-    background-color: #444;
     white-space: nowrap;
     padding: 2px 8px 2px 8px;
     color: #fff;
-    font-size: 9pt
+    font-size: 12pt
 }
 
 .alternative_language {
     font-size : .95em;
-    color: #666;
+    color: #444;
 }
 
 /* css for help and other pop-ups */
@@ -354,22 +390,20 @@ div.popup button {
 }
 
 a.help {
+    position: absolute;
+    margin: 1px 0 0 5px;
     text-decoration: none;
-    text-align: left;
-    vertical-align:text-top;
+    text-align: center;
     color: #888888;
     background-color: #ffffcc;
-    border: 1px solid #888888;
     font-weight: bold;
-    padding-top: 0px;
-    padding-left: 2px;
-    padding-right: 2px;
-    padding-bottom: 1px;
+    padding: 0 0 0 1px;
     font-size:.8em;   
     cursor: help;
-    border-radius: 2px;
+    border-radius: 8px;
+    width: 14px;
     /* For non-CSS3 FireFox */
-    -moz-border-radius: 2px;    
+    -moz-border-radius: 8px;    
 }
 
 a.help_plain {
@@ -378,6 +412,7 @@ a.help_plain {
 
 a.help span.comment, a.help_plain span.comment {
     display:inline;
+    text-align: left;
     position: absolute;
     visibility:hidden;
     white-space: normal;
@@ -392,11 +427,9 @@ a.help span.comment, a.help_plain span.comment {
     margin-left: -5px;
     border: 1px solid #ddd;
     font-weight:normal;
-    box-shadow: 10px 10px 10px #333;
-    border-radius: 4px;
+    box-shadow: 5px 5px 30px #333;
     /* For non-CSS3 FireFox */
-    -moz-box-shadow: 10px 10px 10px #333;
-    -moz-border-radius: 4px;
+    -moz-box-shadow: 5px 5px 30px #333;
     /* For MSIE 6-8 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333')"; 
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333'); 
@@ -412,7 +445,7 @@ a:hover.help span.comment, a:hover.help_plain span.comment  {
 
 form.search a.help span.comment {
     width: 250px;
-    margin-left:-250px;
+    margin-left:-200px;
 }
 
 
@@ -455,10 +488,10 @@ a:hover.abbr .expan {
 }
 
 .expan {
-    display:inline;
     position: absolute;
+    right: 5px;
     visibility:hidden;
-    white-space: normal;
+    /*white-space: normal;*/
     text-decoration:none;
     color: black;
     background-color:#ddd;
@@ -467,18 +500,16 @@ a:hover.abbr .expan {
     z-index:250;
     padding: 8px 4px 4px 4px;
     width: auto;
-    max-width: 300px;
-    margin-top: 20px;
-    margin-left: -5px;
+    /*max-width: 300px;*/
+    margin-top: 15px;
+    margin-left: -50px;
     border: 1px solid #ddd;
     font-weight:normal;
     font-style: normal;
     text-align: left;
-    box-shadow: 7px 7px 10px 5px #333;
-    border-radius: 4px;
+    box-shadow: 5px 5px 30px #333;
     /* For non-CSS3 FireFox */
-    -moz-box-shadow: 7px 7px 10px 5px #333;
-    -moz-border-radius: 4px;
+    -moz-box-shadow: 5px 5px 30px #333;
     /* For MSIE 6-8 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333')"; 
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333'); 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>Various controlled lists for CNW</title>
@@ -9,7 +9,7 @@
   <body>
     <div id="persons">
       <select id="name_field" name="name">
-	<option value="">&#160;</option>
+	<option value=""> </option>
 	<option value="-r-h">-r-h</option>
 	<option value="-r.">-r.</option>
 	<option value="-r.-h.">-r.-h.</option>
@@ -877,8 +877,7 @@
       </select>
     </div>
 
-    <select id="scheme_selector" name="scheme"
-	    onchange="swap_num_type();return true;"> 
+    <select id="scheme_selector" name="scheme" onchange="swap_num_type();return true;"> 
       <option value="CNW" selected="selected">CNW</option>
       <option value="Opus">Opus</option>
       <option value="FS">FS</option>
@@ -889,7 +888,7 @@
     <div id="numbers">
 
       <select id="CNW" name="workno" style="display:inline;">
-	<option value="">&#160;</option>
+	<option value=""> </option>
 	<option value="Coll. 1">Coll. 1</option>
 	<option value="Coll. 2">Coll. 2</option>
 	<option value="Coll. 3">Coll. 3</option>
@@ -1339,7 +1338,7 @@
       </select>
 
       <select id="Opus" name="noname" style="display:none;">
-	<option value="">&#160;</option>
+	<option value=""> </option>
 	<option value="1">1</option>
 	<option value="2">2</option>
 	<option value="3">3</option>
@@ -1411,7 +1410,7 @@
       </select>
 
       <select id="FS" name="noname" style="display:none;">
-	<option value="">&#160;</option>
+	<option value=""> </option>
 	<option value="1">1</option>
 	<option value="3a">3a</option>
 	<option value="3b">3b</option>
