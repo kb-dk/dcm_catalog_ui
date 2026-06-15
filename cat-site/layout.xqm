@@ -30,14 +30,10 @@ declare function layout:head($title as xs:string,
           href="style/{$layout:coll}/collection.css" 
 	  rel="stylesheet" />
 
-    <h:link href="jquery/jquery-ui-1.10.3/css/base/jquery-ui.css" 
+    <h:link href="jquery/jquery-ui-1.14.2/jquery-ui.css" 
        rel="stylesheet" 
        type="text/css"/>
 
-    <h:link href="jquery/jquery-ui-1.10.3/css/style.css" 
-       rel="stylesheet"  
-       type="text/css"/>
-      
     <h:script type="text/javascript" src="js/swap_num_type.js">
       //
     </h:script>
@@ -45,15 +41,11 @@ declare function layout:head($title as xs:string,
     <h:script type="text/javascript" src="js/filter.js">
       //
     </h:script>
-      
-    <h:script type="text/javascript" src="jquery/jquery-ui-1.10.3/js/jquery-1.9.1.js">
-      //
-    </h:script>
 
-    <h:script type="text/javascript" src="jquery/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js">
+    <h:script type="text/javascript" src="jquery/jquery-4.0.0.js">
       //
     </h:script>
-    
+      
     <!-- insert slider.js script here to activate the year slider -->
     
     { if($verovio) then   
@@ -103,7 +95,7 @@ declare function layout:page-head(
   let $header :=
   <h:div id="header">
     <h:div class="kb_logo">
-      <h:a href="http://www.kb.dk" title="Det Kgl. Bibliotek"><h:img
+      <h:a href="https://www.kb.dk" title="Det Kgl. Bibliotek"><h:img
          id="KBLogo"
 	 title="Det Kgl. Bibliotek" 
 	 alt="Logo of the Royal Danish Library. Click to go to the library's web site" src="style/images/kb_white.png"/><h:img
@@ -114,9 +106,9 @@ declare function layout:page-head(
     </h:div>
     <h:h1>
     <h:a style="text-decoration:none;" 
-       href="http://www.kb.dk/dcm/{$layout:coll}.html" 
+       href="https://www.kb.dk/dcm/{$layout:coll}.html" 
        title="{$title} – {$subtitle}">{$title}</h:a></h:h1>
-    <h:h2><h:a style="text-decoration:none;" href="http://www.kb.dk/dcm/{$layout:coll}.html" title="{$title} – {$subtitle}">{$subtitle}</h:a></h:h2>
+    <h:h2><h:a style="text-decoration:none;" href="https://www.kb.dk/dcm/{$layout:coll}.html" title="{$title} – {$subtitle}">{$subtitle}</h:a></h:h2>
   </h:div>
 
   return $header
@@ -144,10 +136,9 @@ declare function layout:page-footer($mode as xs:string) as node()
 {
   let $footer :=
   <h:div id="footer">
-    <h:p>2014–2018 Danish Centre for Music Editing | Royal Danish Library | Copenhagen, Denmark | <h:a name="www.kb.dk" id="www.kb.dk" href="http://www.kb.dk/">www.kb.dk/en/</h:a></h:p>
+    <h:p>2014–2018 Danish Centre for Music Editing | Royal Danish Library | Copenhagen, Denmark | <h:a name="www.kb.dk" id="www.kb.dk" href="https://www.kb.dk/">www.kb.dk/en/</h:a></h:p>
   </h:div>
 
   return $footer
 
 };
-
