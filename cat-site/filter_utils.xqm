@@ -368,8 +368,11 @@ declare function filter:filter-elements()
        ""
 
   let $clear :=
-      <h:br style="clear:both"/>
-  return ($title_block, $query_block, $name_block, $workno_block, $year_block, $genre_block, $anthology_block, $reset_block, $clear)
+        <h:div style="width: 100%; height: 1px"><!-- spacer --></h:div>
+      (: <h:br style="clear:both"/> :)
+      
+  (: return ($title_block, $query_block, $name_block, $workno_block, $year_block, $genre_block, $anthology_block, $reset_block, $clear) :)
+  return ($title_block, $query_block, $name_block, $workno_block, $year_block, $genre_block, $anthology_block, $reset_block) 
 };
 
 

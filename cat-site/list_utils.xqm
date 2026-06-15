@@ -30,7 +30,9 @@ declare variable $app:workno   := request:get-parameter("workno", "") cast as xs
 
 declare variable $app:from     := ($app:page - 1) * $app:number + 1;
 declare variable $app:to       :=  $app:from      + $app:number - 1;
+declare variable $app:view     := request:get-parameter("view","") cast as xs:string;
 declare variable $app:anthologies := request:get-parameter("anthologies","") cast as xs:string;
+
 
 
 declare function app:generate-href($field as xs:string,
@@ -88,7 +90,7 @@ declare function app:view-document-reference($doc as node()) as node() {
   let $ref := 
   <h:a  target="_blank"
   title="View" 
-  href="present.xq?doc={util:document-name($doc)}">Title comes here &lt;&lt;
+  href="present.xq?doc={util:document-name($doc)}">Title here &lt;&lt;
     {$doc//m:workList/m:work[@analog="frbr:work"]/m:title[1]/string()}
   </h:a>
   return $ref
@@ -153,19 +155,24 @@ declare function app:navigation(
   let $next     :=
     if($app:from + $app:number <$total) then
       (element h:a {
-	attribute rel   {"next"},
-	attribute title {"Go to next page"},
-	attribute class {"paging"},
-	attribute href {
-	  fn:string-join((
-	    $uri,"?",
-	    app:generate-href("page",$nextpage)),"")
-	},
-	element h:img {
-	  attribute src {"style/images/next.png"},
-	  attribute alt {"Next"},
-	  attribute border {"0"}
-	}
+    	attribute rel   {"next"},
+    	attribute title {"Go to next page"},
+    	attribute class {"paging"},
+    	attribute href {
+    	  fn:string-join((
+    	    $uri,"?",
+    	    app:generate-href("page",$nextpage)),"")
+    	},
+    	(: element h:img {
+    	  attribute src {"style/images/next.svg"},
+    	  attribute alt {"Next"},
+    	  attribute border {"0"}
+    	}:)
+		<svg width="12" height="20" version="1.1" viewBox="2 1 3 3.5" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <path d="m4.4979 3.175-2.1167 1.5875v-3.175z" stroke-width=".70201"/>
+            </g>
+        </svg>
       })
     else
       ("") 
@@ -183,11 +190,16 @@ declare function app:navigation(
        	      fn:string-join(
 		($uri,"?",
 		app:generate-href("page",$prevpage)),"")},
-		element h:img {
-		  attribute src {"style/images/previous.png"},
-		  attribute alt {"Previous"},
+		(: element h:img {
+		  attribute src {"style/images/previous.svg"},
+		  attribute alt {"Go to previous page"},
 		  attribute border {"0"}
-		}
+		} :)
+		<svg width="12" height="20" version="1.1" viewBox="1 1 3 3.5" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(3.175 3.175) scale(-1 1) translate(-3.175 -3.175)">
+                <path d="m4.4979 3.175-2.1167 1.5875v-3.175z" stroke-width=".70201"/>
+            </g>
+        </svg>
 	  })
 	else
 	  ("") 

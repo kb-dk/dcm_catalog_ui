@@ -165,7 +165,8 @@ let $ref   :=
                                 <h:div class="filter_elements">
                                     {filter:filter-elements()}
                                 </h:div>
-
+                                <h:div style="width: 100%; height: 1px"><!-- spacer --></h:div>
+  
                                 {
                                 for $doc at $count in $list[position() = ($from to $to)]
                                 return local:format-reference($doc,$count)

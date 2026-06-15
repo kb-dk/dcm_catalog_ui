@@ -35,8 +35,7 @@ div.filter {
 
 #query_form {
     padding: 10px;
-    background-color: #ccc;
-    background-color: rgba(255, 255, 255, .8);
+    background-color: #d8d8d8;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, .5);
 }
 
@@ -147,7 +146,7 @@ input[type=checkbox]:not(old):checked + label{
 }
 
 input[type=radio]:not(old):checked + label{
-  background-color: #eee;
+  background-color: #ffe;
 }
 
 div.genre_filter span.genre_indicator {
@@ -179,7 +178,10 @@ div.genre_filter span.genre_indicator {
 /* CSS for the "clear filter" elements */
 
 .filter_elements {
-    padding: 5px 0 0 0;
+    padding: 10px 0 0 0;
+    /* make the div contain the floated elements inside */
+    overflow: auto;
+    display: flow-root; /* effectively the same as overflow: auto, but possibly not supported by all browsers yet */
 }
 
 #main a.filter_element {
@@ -190,7 +192,7 @@ div.genre_filter span.genre_indicator {
   text-decoration: none;
   margin: 0 5px 5px 0;
   padding: 3px 21px 4px 7px;
-  background: url('images/filter_remove.png') no-repeat right 0 #515251;
+  background: url('images/filter_remove.png') no-repeat right 0 #666;
   float: left;
   border-radius: 4px;
 }
@@ -206,9 +208,9 @@ div.genre_filter span.genre_indicator {
 
 /* CSS for the paging */
 
-.nav_bar .navigation_label {
+/*.nav_bar .navigation_label {
     color: #fff;
-}
+}*/
 
 .paging_div {
     clear: right;
@@ -220,25 +222,31 @@ div.genre_filter span.genre_indicator {
     width: 20px;
 }  
 
-.paging_div a:hover {
-    background-color: #f8f8f8;
-}
-
 .paging {
-    background-color: #e8e8e8;
     color: #000;
     display: inline-block;
     text-align: center;
-    vertical-align: bottom;
+    vertical-align: middle;
     width: 32px;
     text-decoration: none;
-    margin: 2px 2px 0 0;
-    padding-top: 2px;
+    margin: -5px 2px 0 0;
 }
 
 .paging img {
-    margin-top: 6px;
+    width: 16px;
+    vertical-align: center;
 }
+
+.paging svg {
+    fill: #000;
+    stroke: #000;
+}
+
+.paging:hover svg {
+    fill: #fff;
+    stroke: #fff;
+}
+
 
 #total_pages {
     display: inline-block;
@@ -289,7 +297,7 @@ div.results {
     font-weight: 700;
     vertical-align: top;
     display: inline-block;
-    width: 380px;
+    width: 400px;
     margin: 15px 10px 0 0;
     cursor: pointer;
     box-shadow: 0 1px 1px rgba(0,0,0,0.5);
@@ -304,8 +312,7 @@ div.results {
 }
 
 .result_table:hover .result_row.top {
-    /* fall back to parent's semi-transparent background on hover */
-    background: none;
+    background-color: #be331a;
 }
 
 .result_row.main {
@@ -418,7 +425,7 @@ a.help span.comment, a.help_plain span.comment {
     white-space: normal;
     text-decoration:none;
     color: black;
-    background-color:#dbd9ba;
+    background-color:#f6f5e5;
     padding: 1px;
     z-index:250;
     padding: 4px;

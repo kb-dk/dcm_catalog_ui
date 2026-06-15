@@ -62,12 +62,14 @@ input[type=button] {
     margin: auto;
     min-height: 100%;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #header {
     color: #fff;
     padding: 15px 20px 10px 20px;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #fff; 
     
 }
 
@@ -90,6 +92,10 @@ input[type=button] {
     min-height: 300px; 
     color: #000;
     clear: both;
+    background-color: #eee;
+    background-color: rgba(255,255,255,.85);
+    flex: 1;
+    overflow: auto;
 }
 
 .document #main {
@@ -101,10 +107,14 @@ input[type=button] {
     color: inherit;
 }
 
+#main h1 {
+    margin-top: 20px;
+}
+
 #footer {
     color: #fff;
     padding: 10px 20px;
-    border-top: 1px solid #fff;
+    /* border-top: 1px solid #fff;*/
     height: auto;
     min-height: 48px;
     text-align: center;
@@ -215,22 +225,26 @@ ol {
 /* Top menu */
 
 #menu {
-    height: 24px;
+    height: 27px;
     padding: 0 10px 0 10px;
     /*border-bottom: 1px solid #fff;*/
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .5);
+    position: relative;
 }
 
 #menu a {
     display: block;
+    font-size: 12pt;
     float:left;
     width: auto;
-    height: 21px;
+    height: 24px;
     padding: 3px 10px 0 10px;
     text-decoration: none;
     color: #fff;
 }
 
-#menu a:hover, #menu .selected {
+/* #menu .selected, */
+#menu a:hover {
     color: #fff;
     background-color: #799158;
 }
