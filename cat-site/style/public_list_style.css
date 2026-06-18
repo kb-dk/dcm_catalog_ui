@@ -27,17 +27,23 @@ div.error {
 
 /* CSS for the filter area */
 
-div.filter {
+#filter_container {
     display: table-cell;
     vertical-align: top;
     width: 250px;
 }
 
-#query_form {
+div.filter {
     padding: 10px;
     background-color: #d8d8d8;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, .5);
 }
+
+/*#query_form {
+    padding: 10px;
+    background-color: #d8d8d8;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .5);
+}*/
 
 div.filter_block {
     width: auto;    
@@ -166,7 +172,7 @@ div.genre_filter span.genre_indicator {
 /* end radio buttons and checkboxes */
 
 .filter_block.anthologies, .filter_block.search_button {
-    margin-top: 20px;
+    margin: 20px 0 0 0;
 }
 
 #search_submit {

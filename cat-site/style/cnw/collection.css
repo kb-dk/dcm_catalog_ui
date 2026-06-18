@@ -12,7 +12,6 @@ body {
 
 /* Header and footer */
 #all {
-    /*background-color: #445566;*/
     background-color: #20354a;
     background: linear-gradient(120deg,rgba(32, 53, 74, .9) 0%, rgba(68, 85, 102, .9) 25%, rgba(46, 72, 102, .9) 100%);    
 }

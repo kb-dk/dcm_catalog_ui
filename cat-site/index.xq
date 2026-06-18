@@ -154,7 +154,7 @@ let $ref   :=
                         return
                         (
                         <h:div class="files_list">
-                            <h:div class="filter">
+                            <h:div id="filter_container">
                                 {filter:print-filters($database,string($number),$genre,$query)}
                             </h:div>
                             <h:div class="spacer"><h:div>&#160;</h:div></h:div>
