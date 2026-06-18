@@ -112,7 +112,7 @@ else ''
 
 let $ref   :=
 (:<h:table class="result_table" onclick="location.href='{concat('./document.xq?doc=',util:document-name($doc))}'" cellspacing="0" cellpadding="0">:)
-    <h:div class="result_table" onclick="location.href='{concat('./document.xq?n=',xmldb:encode-uri(app:get-work-number($doc)))}'" cellspacing="0" cellpadding="0">
+    <h:button class="result_table" onclick="location.href='{concat('./document.xq?n=',xmldb:encode-uri(app:get-work-number($doc)))}'" cellspacing="0" cellpadding="0">
         <h:div class="result_row top">
             <h:div class="list_id">
                 {app:get-edition-and-number($doc)}{" "}
@@ -134,7 +134,7 @@ let $ref   :=
                 </h:div>
             </h:div>
         </h:div>
-    </h:div>
+    </h:button>
     return $ref
     
     };

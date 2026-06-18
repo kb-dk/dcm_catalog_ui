@@ -199,8 +199,9 @@ declare function filter:print-filters(
         </h:div>
 
     </h:div>
-    <br/>
+    <h:br/>
     <h:div class="filter">
+        <h:input type="hidden" name="genre" id="genre" value="{string($filter:genre)}"/>
 
         <h:div class="genre_filter filter_block">
     	{
@@ -209,46 +210,26 @@ declare function filter:print-filters(
               if ($genre=$filter:genre) then "selected" else ""
     
      	return 
-    	  if ($filter:vocabulary/m:classification/m:taxonomy/m:category/m:category[m:desc/string()=$genre]) (: top-level genre keyword :)
+    	  if ($filter:vocabulary/m:classification/m:taxonomy/m:category/m:category[m:desc/string()=$genre]) (: sub-level genre keyword :)
     	    then 
     	    (  
-    	      <h:div class="genre_filter_row">
-    	         { element h:input {
-    	            attribute type {"radio"},
-                    attribute name {"genre"},
-                    attribute value {$genre},
-                    attribute id {concat("id",translate($genre," ",""))},
-                    attribute class {"radio"},
-                    attribute onchange {"this.form.elements['page'].value = '1'; this.form.submit(); return false;"},
-    	           if($selected="selected") then
-    	            attribute checked {"checked"}
-    	           else
-    	            ()
-                  }
-    	       }
-               <h:label for="{concat('id',translate($genre,' ',''))}" class="level2 {$selected}">
-                  <h:span><h:span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</h:span></h:span> {$genre} 
-    	       </h:label>
-    	     </h:div>
+
+    	      <h:button id="{concat('id',translate($genre,' ',''))}" 
+    	        onclick="this.form.elements['page'].value = '1'; document.getElementById('genre').value = '{$genre}';this.form.submit(); return false;"
+    	        class="genre_filter_row level2 {$selected}">
+    	        <h:span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</h:span> 
+    	        {$genre}
+    	     </h:button>
+
     	    )
-            else (: sub-level genre keyword :)
-              <h:div class="genre_filter_row">
-    	      { element h:input {
-    	            attribute type {"radio"},
-                    attribute name {"genre"},
-                    attribute value {$genre},
-                    attribute id {concat("id",translate($genre," ",""))},
-                    attribute class {"checkbox"},
-    	       if($selected="selected") then
-    	           attribute checked {"checked"}
-    	       else
-    	           ()
-               }
-    	      }
-                  <h:label for="{concat('id',translate($genre,' ',''))}" class="level1 {$selected}">
-            	      <h:span><h:span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</h:span></h:span> {$genre} 
-                  </h:label>
-               </h:div>
+            else (: top-level genre keyword :)
+    	      <h:button id="{concat('id',translate($genre,' ',''))}" 
+    	        onclick="this.form.elements['page'].value = '1'; document.getElementById('genre').value = '{$genre}';this.form.submit(); return false;"
+    	        class="genre_filter_row level1 {$selected}">
+    	        <h:span class="genre_indicator {translate(translate($genre,' ,','_'),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">&#160;</h:span> 
+    	        {$genre}
+    	     </h:button>
+
             }
             
          </h:div>

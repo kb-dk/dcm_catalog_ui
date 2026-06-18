@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:zs="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:m="http://www.music-encoding.org/ns/mei" xmlns:local="urn:my-stuff" version="2.0" exclude-result-prefixes="m xsl xs local marc zs xl">
     <!-- 
         Conversion of MEI 4.0.0 metadata to HTML using XSLT 2.0
@@ -996,7 +995,7 @@
                         <!-- enable image enlarging only if there are the same number of low and high resolution images
                             (there is currently no way of indicating which lowres image corresponds to which hires image)
                         -->
-                        <a target="incipit" title="Click to enlarge image" style="text-decoration: none;">
+                        <a target="incipit" title="Click to enlarge incipit" style="text-decoration: none;" class="incipit_img_container">
                             <xsl:attribute name="href">
                                 <xsl:value-of select="../m:graphic[@targettype = 'hires'][$pos]/@target"/>
                             </xsl:attribute>
@@ -2822,11 +2821,11 @@
         <xsl:param name="content"/>
         <xsl:text>
     </xsl:text>
-        <button class="collapsible" title="Click to show or hide">
+        <button class="collapsible" title="Click to show or hide {lower-case($heading)}" aria-label="Click to show or hide {lower-case($heading)}">
             <span class="section_heading">
                 <xsl:copy-of select="$heading"/>
             </span>
-            <div class="collapse-icon-container">
+            <div class="collapse-icon-container" aria-label="Expand/collapse icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 16 16" version="1.1">
                     <rect width="16" height="16" id="icon-bound" fill="none"/>
                     <path id="expand-collapse" d="M4.414,15.414L8,11.828L11.586,15.414L13,14L8,9L3,14L4.414,15.414ZM11.586,0.586L8,4.172L4.414,0.586L3,2L8,7L13,2L11.586,0.586Z" style="fill-rule:nonzero;"/>

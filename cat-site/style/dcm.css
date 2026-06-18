@@ -58,7 +58,6 @@ input[type=button] {
     width: auto;
     min-width: 600px;
     padding: 0;
-    /*background-color: #637F57;*/
     color: #fff;
     margin: auto;
     min-height: 100%;
@@ -69,9 +68,8 @@ input[type=button] {
 
 #header {
     color: #fff;
-    padding: 15px 20px 10px 20px;
+    padding: 15px 30px 10px 30px;
     border-bottom: 1px solid #fff; 
-    
 }
 
 #header h1, #header h2, #header h3, #header h4 {
@@ -89,7 +87,7 @@ input[type=button] {
 }
 
 #main {
-    padding: 5px 10px 5px 20px;
+    padding: 10px 30px 5px 30px;
     min-height: 300px; 
     color: #000;
     clear: both;
@@ -111,20 +109,22 @@ input[type=button] {
     margin-top: 20px;
 }
 
-#main h1 + h1 {
+#main h1 + h1, #main h2 + h1 {
     margin-top: 0;
 }
 
 #footer {
     color: #fff;
-    padding: 10px 20px;
-    /* border-top: 1px solid #fff;*/
     height: auto;
     min-height: 48px;
     text-align: center;
     position: relative;
     left: 0;
     bottom: 0;
+}
+
+#footer p {
+    margin: 20px auto;
 }
 
 #header a:link, #header a:active, #header a:visited, #header a:hover {
@@ -229,7 +229,7 @@ ol {
 
 #menu {
     height: 27px;
-    padding: 0 10px 0 10px;
+    padding: 0 20px 0 20px;
     /*border-bottom: 1px solid #fff;*/
     box-shadow: 5px 5px 15px rgba(0, 0, 0, .5);
     position: relative;

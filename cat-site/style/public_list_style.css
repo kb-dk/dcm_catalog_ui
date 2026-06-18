@@ -33,17 +33,13 @@ div.error {
     width: 250px;
 }
 
-div.filter {
+.filter {
     padding: 10px;
     background-color: #d8d8d8;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, .5);
+    border: none;
+    margin: 0;
 }
-
-/*#query_form {
-    padding: 10px;
-    background-color: #d8d8d8;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, .5);
-}*/
 
 div.filter_block {
     width: auto;    
@@ -90,7 +86,7 @@ div.genre_filter input[type=text] {
     background-color: #fff;
 }
 
-div.genre_filter label.level1 {
+div.genre_filter .level1 {
     font-weight: bold;
     text-transform: uppercase;
     margin-top: 20px;
@@ -104,11 +100,13 @@ div.genre_filter input[type=text] {
 /* radio buttons and checkboxes */
 
 div.genre_filter input[type=checkbox],
-div.genre_filter input[type=radio   ] {
+div.genre_filter input[type=radio   ],
+div.genre_filter button {
     background-color: transparent;
     color: #000;
     border: 0px;
     margin: 6px 0 0 6px;
+    text-align: left;
 }
 
 /*label {
@@ -118,7 +116,8 @@ div.genre_filter input[type=radio   ] {
 /* for newer browsers: */
 
 input[type=checkbox]:not(old),
-input[type=radio   ]:not(old){
+input[type=radio   ]:not(old)
+div.genre_filter button:not(old) {
   width   : 0;
   margin  : 0;
   padding : 0;
@@ -128,7 +127,8 @@ input[type=radio   ]:not(old){
 }
 
 input[type=checkbox]:not(old) + label,
-input[type=radio   ]:not(old) + label{
+input[type=radio   ]:not(old) + label,
+div.genre_filter button:not(old) {
   display      : inline-block;
   margin: 2px 0 2px 0;
   padding : 2px 0 2px 4px;
@@ -136,10 +136,12 @@ input[type=radio   ]:not(old) + label{
   font-size: 10.5pt;
 }
 
-input[type=radio   ]:not(old) + label{
-  padding : 0 0 0 20px;
+input[type=radio   ]:not(old) + label,
+div.genre_filter button:not(old) {
+  padding : 2px 0 1px 25px;
   text-indent: -20px;
   width: 234px;
+  margin: 1px 0;
 }
 
 input[type=checkbox]:not(old) + label {
@@ -148,7 +150,8 @@ input[type=checkbox]:not(old) + label {
 }
 
 input[type=checkbox]:not(old) + label:hover,
-input[type=radio   ]:not(old) + label:hover{
+input[type=radio   ]:not(old) + label:hover,
+div.genre_filter button:not(old):hover {
     background-color: #fff;
 }
 
@@ -156,7 +159,8 @@ input[type=checkbox]:not(old):checked + label{
   background   : url('images/checked.png') no-repeat 0 0;
 }
 
-input[type=radio]:not(old):checked + label{
+input[type=radio]:not(old):checked + label,
+div.genre_filter .selected {
   background-color: #ffe;
 }
 
@@ -301,11 +305,16 @@ div.results {
 }
 
 .result_table {
+    border: none;
+    text-align: left;
+    font-family: inherit;
+    font-size: inherit;
     font-weight: 700;
     vertical-align: top;
     display: inline-block;
     width: 400px;
-    margin: 15px 10px 0 0;
+    margin: 15px 15px 0 0;
+    padding: 0;
     cursor: pointer;
     transition: box-shadow .2s;
     transition: transform .1s;

@@ -176,6 +176,11 @@ ul {
   background-color: #777;
 }
 
+button:focus-visible {
+    outline:2px solid #0054AE;
+    outline-offset:2px;
+}
+
 .collapsible .alternative_language {
     font-size : .8em;
     color: #eee;
@@ -236,6 +241,8 @@ ul {
 
 .list_block {
     display: table;
+    margin-top: 0.5em;
+    max-width: 1000px;
 }
 
 .relation_list {
@@ -435,6 +442,10 @@ img.link_indicator {
     margin-right: 5px;
 }
 
+img.link_indicator + * {
+    margin-right: 15px;
+}
+
 a.anchor {
     text-decoration: none;
 }
@@ -528,6 +539,10 @@ a img.incipit:hover {
     transform: translate(-2px, -2px);    
     transition: box-shadow .2s;
     transition: transform .1s;
+}
+
+.incipit_img_container {
+    display: inline-block;
 }
 
 .meter {
