@@ -163,11 +163,6 @@ declare function app:navigation(
     	    $uri,"?",
     	    app:generate-href("page",$nextpage)),"")
     	},
-    	(: element h:img {
-    	  attribute src {"style/images/next.svg"},
-    	  attribute alt {"Next"},
-    	  attribute border {"0"}
-    	}:)
 		<svg width="12" height="20" version="1.1" viewBox="2 1 3 3.5" xmlns="http://www.w3.org/2000/svg">
             <g>
                 <path d="m4.4979 3.175-2.1167 1.5875v-3.175z" stroke-width=".70201"/>
@@ -190,11 +185,6 @@ declare function app:navigation(
        	      fn:string-join(
 		($uri,"?",
 		app:generate-href("page",$prevpage)),"")},
-		(: element h:img {
-		  attribute src {"style/images/previous.svg"},
-		  attribute alt {"Go to previous page"},
-		  attribute border {"0"}
-		} :)
 		<svg width="12" height="20" version="1.1" viewBox="1 1 3 3.5" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(3.175 3.175) scale(-1 1) translate(-3.175 -3.175)">
                 <path d="m4.4979 3.175-2.1167 1.5875v-3.175z" stroke-width=".70201"/>
@@ -214,9 +204,6 @@ declare function app:navigation(
     	      attribute id {"current_page"},
     	      attribute onchange {
                 fn:string-join(("location.href='", $uri, "?", app:generate-href("page",""), "&amp;page=' + this.value;"),"")    	          
-    	          
-           		(: fn:string-join(
-    		  ("location.href='", $uri, "?page=' + this.value;")) :)
     	      },
     	      attribute value {$page}
     	    }
@@ -254,32 +241,33 @@ declare function app:navigation(
 
             let $links := ( 
 	      element h:div {
-		element h:strong {
-		  attribute class {"navigation_label"},
-		  "Found ",$total, $work
-		},
-		if($sort-options) then
-		  (<h:form action="" id="sortForm" style="display:inline;float:right;">
-		  <h:label for="sortby" class="navigation_label">Sort by </h:label>
-		  <h:select name="sortby" id="sortby" onchange="this.form.elements['page'].value = '1';this.form.submit();return true;"> 
-		    {
-		      for $opt in $sort-options
-		      let $option:=
-			if($opt/@value/string()=$app:sortby) then
-			  element h:option {
-			    attribute value {$opt/@value/string()},
-			    attribute selected {"selected"},
-			    $opt/string()}
-			  else
-			    element h:option {
-			      attribute value {$opt/@value/string()},$opt/string()}
-   			      return $option
-		    }
-		  </h:select>
-		  {forms:pass-as-hidden-except("sortby")}
-		  </h:form>)
-		else
-		  (),
+    		element h:strong {
+    		  attribute id {"works_found"},
+    		  attribute class {"navigation_label"},
+    		  "Found ",$total, $work
+    		},
+    		if($sort-options) then
+    		  (<h:form action="" id="sortForm" style="display:inline;float:right;">
+    		  <h:label for="sortby" class="navigation_label">Sort by </h:label>
+    		  <h:select name="sortby" id="sortby" onchange="this.form.elements['page'].value = '1';this.form.submit();return true;"> 
+    		    {
+    		      for $opt in $sort-options
+    		      let $option:=
+    			if($opt/@value/string()=$app:sortby) then
+    			  element h:option {
+    			    attribute value {$opt/@value/string()},
+    			    attribute selected {"selected"},
+    			    $opt/string()}
+    			  else
+    			    element h:option {
+    			      attribute value {$opt/@value/string()},$opt/string()}
+       			      return $option
+    		    }
+    		  </h:select>
+    		  {forms:pass-as-hidden-except("sortby")}
+    		  </h:form>)
+    		else
+    		  (),
 		  (<h:form action="" id="itemsPerPageForm" style="display:inline;float:right;">
 		  <h:label for="itemsPerPage" class="navigation_label">Results per page: </h:label>
 		  <h:select name="itemsPerPage" id="itemsPerPage" onchange="this.form.elements['page'].value = '1';this.form.submit();return true;"> 
@@ -320,6 +308,7 @@ declare function app:navigation(
 		  {forms:pass-as-hidden-except("itemsPerPage")}
 		      
 		  </h:form>),
+		  <h:br/>,
 		  if ($total > $app:number) then
 		    element h:div {
        		      attribute class {"paging_div noprint"},

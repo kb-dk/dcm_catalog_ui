@@ -142,3 +142,4 @@ declare function layout:page-footer($mode as xs:string) as node()
   return $footer
 
 };
+

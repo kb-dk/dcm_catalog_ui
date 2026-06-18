@@ -1,14 +1,31 @@
 /* Collection-specific colors */
 body {
-    background-color: #326f3e;
+    background-color: #1B4724;
+    background-image: url('style/nwgw/NWG_signature_trsp.png');
+    background-size: auto;
+    background-position: 0px -25px;
+    background-position-y: -25px;
+    background-position-x: center;  
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Header and footer */
 #all {
+    background-color: #1B4724;
+    background-color: rgba(27, 71, 36, .8);
+}
+
+/* Top menu and result box headers */
+.result_table:hover .result_row.top, 
+.collapsible:hover,
+#menu a:hover {
     background-color: #326f3e;
 }
 
-/* Top menu */
-#menu a:hover, #menu .selected {
-    background-color: #3d874c;
+
+.collapsible,
+.result_row.top {
+    background-color: #1B4724;
 }
+

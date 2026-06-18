@@ -15,7 +15,7 @@ div.spacer {
 }
 
 div.spacer div {
-    width: 15px;
+    width: 24px;
 }
 
 div.error {
@@ -61,6 +61,10 @@ div.filter_block .label {
     line-height: 2em;
     margin: 5px 0 0 0;
 } 
+
+div.filter_block select {
+    max-width: 250px;
+}
 
 #notbefore,
 #notafter {
@@ -122,13 +126,14 @@ input[type=radio   ]:not(old) + label{
   display      : inline-block;
   margin: 2px 0 2px 0;
   padding : 2px 0 2px 4px;
-  line-height  : 16px;
-  font-size: 9pt;
+  line-height  : 1.5em;
+  font-size: 10.5pt;
 }
 
 input[type=radio   ]:not(old) + label{
-  padding : 2px 0 2px 4px;
-  width: 100%;
+  padding : 0 0 0 20px;
+  text-indent: -20px;
+  width: 234px;
 }
 
 input[type=checkbox]:not(old) + label {
@@ -208,10 +213,6 @@ div.genre_filter span.genre_indicator {
 
 /* CSS for the paging */
 
-/*.nav_bar .navigation_label {
-    color: #fff;
-}*/
-
 .paging_div {
     clear: right;
     float:left;
@@ -279,7 +280,7 @@ div.results {
 }
 
 .result_row .title {
-    font-size: 11pt;
+    font-size: 12pt;
     padding: 2px 5px 2px 5px;
 }
 
@@ -288,7 +289,7 @@ div.results {
 }
 
 .result_row .date {
-    font-size: 8pt;
+    font-size: 9pt;
     float: right;
     padding: 2px 5px;
 }
@@ -300,7 +301,6 @@ div.results {
     width: 400px;
     margin: 15px 10px 0 0;
     cursor: pointer;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.5);
     transition: box-shadow .2s;
     transition: transform .1s;
 }
@@ -311,16 +311,15 @@ div.results {
     background-color: rgba(255, 255, 255, .05);
 }
 
-.result_table:hover .result_row.top {
+/*.result_table:hover .result_row.top {
     background-color: #be331a;
-}
+}*/
 
 .result_row.main {
     background-color: #fff;  
 }
 
 .result_table:hover {
-/*    box-shadow: 5px 5px 30px #222;*/
     box-shadow: 5px 5px 30px rgba(0,0,0,0.5);
     transform: translate(-2px, -2px);
 }
@@ -451,7 +450,7 @@ a:hover.help span.comment, a:hover.help_plain span.comment  {
 }
 
 form.search a.help span.comment {
-    width: 250px;
+    width: 400px;
     margin-left:-200px;
 }
 

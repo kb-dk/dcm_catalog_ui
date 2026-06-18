@@ -52,11 +52,11 @@ let $result :=
         <h:html xmlns="http://www.w3.org/1999/xhtml" lang="en">
           {layout:head($coll,
         	  (<h:link rel="stylesheet" type="text/css" href="style/mei_to_html_public.css"/>,
-        	  <h:script type="text/javascript" src="js/toggle_openness.js">{"
+        	  <h:script type="text/javascript" src="js/page_functions.js">{"
         	  "}</h:script>
         	  ),
         	  false())}
-          <h:body class="list_files document">
+          <h:body class="document">
             <h:div id="all">
               {layout:page-head-doc($html)}
               {layout:page-menu($mode)}
@@ -84,11 +84,12 @@ let $result :=
             <h:html xmlns="http://www.w3.org/1999/xhtml" lang="en">
               {layout:head($head_title,
             	  (<h:link rel="stylesheet" type="text/css" href="style/mei_to_html_public.css"/>,
-            	  <h:script type="text/javascript" src="js/toggle_openness.js">{"
+            	  <h:script type="text/javascript" src="js/page_functions.js">{"
             	  "}</h:script>
             	  ),
             	  $verovio)}
-              <h:body class="list_files document">
+              <h:body class="document" onload="init_collapsible();">
+                <h:div id="overlay" onclick="overlay_off();"><!-- overlay for incipit viewing --></h:div>
                 <h:div id="all">
                   {layout:page-head-doc($html)}
                   {layout:page-menu($mode)}

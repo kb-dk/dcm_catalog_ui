@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" 
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
-    xmlns:xl="http://www.w3.org/1999/xlink" 
-    xmlns:marc="http://www.loc.gov/MARC21/slim" 
-    xmlns:zs="http://www.loc.gov/zing/srw/" 
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-    xmlns:m="http://www.music-encoding.org/ns/mei" 
-    xmlns:local="urn:my-stuff" 
-    version="2.0" 
-    exclude-result-prefixes="m xsl xs local marc zs xl">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:zs="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:m="http://www.music-encoding.org/ns/mei" xmlns:local="urn:my-stuff" version="2.0" exclude-result-prefixes="m xsl xs local marc zs xl">
     <!-- 
         Conversion of MEI 4.0.0 metadata to HTML using XSLT 2.0
         
@@ -221,7 +212,7 @@
         <!-- works with versions: draw separator before general bibliography -->
         <xsl:if test="count(m:meiHead/m:workList/m:work/m:expressionList/m:expression) &gt; 1">
             <xsl:if test="m:meiHead/m:workList/m:work/m:biblList[m:bibl/*[text()]]">
-                <hr class="noprint"/>
+                <hr class="noprint main_separator"/>
             </xsl:if>
         </xsl:if>
         <!-- bibliography -->
@@ -378,7 +369,7 @@
         <xsl:if test="m:relation[@target != '']">
             <p>
                 <xsl:for-each select="m:relation[@target != '']">
-                    <img src="dcm/{$cat}/style/images/html_link.png" title="Link to external resource"/>
+                    <img class="link_indicator" alt="" src="dcm/{$cat}/style/images/html_link.png" title="Link to external resource"/>
                     <xsl:element name="a">
                         <xsl:attribute name="href">
                             <xsl:apply-templates select="@target"/>
@@ -638,6 +629,7 @@
         <!-- show title/tempo/number as heading only if more than one version -->
         <xsl:if test="count(../m:expression) &gt; 1">
             <xsl:if test="normalize-space(m:title//text())">
+                <hr class="noprint main_separator"/>
                 <h2 class="expression_heading">
                     <xsl:apply-templates select="." mode="titles"/>
                 </h2>
@@ -738,12 +730,13 @@
     </xsl:template>
 
     <!-- end top-level expressions (versions) -->
+    
     <xsl:template match="m:expression">
         <!-- display title etc. only with components or versions -->
-        <xsl:if test="ancestor-or-self::*[local-name() = 'componentList'] or count(../m:expression) &gt; 1">
+        <xsl:if test="(ancestor-or-self::*[local-name() = 'componentList'] or count(../m:expression) &gt; 1) and not(m:componentList)">
             <xsl:if test="@label != '' or @n != '' or m:title/text()">
+                <!-- expression headings start with <H3>, decreasing in size with each level -->
                 <xsl:variable name="level">
-                    <!-- expression headings start with <H3>, decreasing in size with each level -->
                     <xsl:choose>
                         <xsl:when test="ancestor-or-self::*[local-name() = 'componentList']">
                             <xsl:value-of select="count(ancestor-or-self::*[local-name() = 'componentList']) + 2"/>
@@ -830,11 +823,25 @@
          </xsl:for-each>
          </xsl:element>
     -->
+                <xsl:variable name="mvtHeading">
+                    <!-- Generic caption: "Sections" <xsl:value-of select="$l/sections"/>-->
+                    <!-- Title as caption: -->
+                    <xsl:choose>
+                        <!-- Use @label value for movement numbers if possible -->
+                        <xsl:when test="../@label != ''">
+                            <xsl:value-of select="../@label"/>
+                            <xsl:text>. </xsl:text>
+                        </xsl:when>
+                        <xsl:when test="../@n != ''">
+                            <xsl:value-of select="../@n"/>
+                            <xsl:text>. </xsl:text>
+                        </xsl:when>
+                    </xsl:choose>
+                    <xsl:apply-templates select="..[m:title/text()]" mode="titles"/>
+                </xsl:variable>
                 <xsl:apply-templates select="." mode="fold_section">
                     <xsl:with-param name="id" select="concat('subsection', ../../@xml:id, generate-id(), position())"/>
-                    <xsl:with-param name="heading">
-                        <xsl:value-of select="$l/sections"/>
-                    </xsl:with-param>
+                    <xsl:with-param name="heading" select="$mvtHeading"/>
                     <xsl:with-param name="content">
                         <xsl:element name="ul">
                             <xsl:attribute name="class">movement_list</xsl:attribute>
@@ -993,8 +1000,10 @@
                             <xsl:attribute name="href">
                                 <xsl:value-of select="../m:graphic[@targettype = 'hires'][$pos]/@target"/>
                             </xsl:attribute>
-                            <xsl:attribute name="onclick"> window.open('<xsl:value-of select="../m:graphic[@targettype = 'hires'][$pos]/@target"/>','incipit','height=550,width=1250,toolbar=0,status=0,menubar=0,resizable=1,location=0,scrollbars=1');return false; </xsl:attribute>
+                            <!--<xsl:attribute name="onclick"> window.open('<xsl:value-of select="../m:graphic[@targettype = 'hires'][$pos]/@target"/>','incipit','height=550,width=1250,toolbar=0,status=0,menubar=0,resizable=1,location=0,scrollbars=1');return false; </xsl:attribute>-->
+                            <xsl:attribute name="onclick">incipit_load('<xsl:value-of select="../m:graphic[@targettype = 'hires'][$pos]/@target"/>'); overlay_on();return false;</xsl:attribute>
                             <xsl:element name="img">
+                                <xsl:attribute name="class">incipit</xsl:attribute>
                                 <xsl:attribute name="border">0</xsl:attribute>
                                 <xsl:attribute name="style">text-decoration: none;</xsl:attribute>
                                 <xsl:attribute name="alt"/>
@@ -2072,14 +2081,10 @@
         <xsl:param name="compact" select="'false'"/>
         <xsl:choose>
             <xsl:when test="m:genre = 'book' and not(m:genre = 'article')"> <xsl:if test="m:title[@level = 'm']/text()">
-                <!-- show entry only if a title is stated --> <xsl:choose> <xsl:when test="m:author/text()"> <xsl:call-template name="list_authors"/>: </xsl:when> <xsl:otherwise> <xsl:call-template name="list_editors"/> </xsl:otherwise> </xsl:choose> <xsl:apply-templates select="m:title[@level = 'm']" mode="bibl_title"> <xsl:with-param name="quotes" select="'false'"/> <xsl:with-param name="italic" select="'true'"/> </xsl:apply-templates> <xsl:if test="m:title[@level = 's']/text()"> <xsl:text> (= </xsl:text> <xsl:apply-templates select="m:title[@level = 's']"/> <xsl:if test="m:biblScope[@unit = 'vol']/text()"> <xsl:text>, </xsl:text> <xsl:value-of select="$l/vol"/> <xsl:text> </xsl:text> <xsl:apply-templates select="m:biblScope[@unit = 'vol']"/> </xsl:if>)</xsl:if> <xsl:apply-templates
-                select="m:imprint"> <xsl:with-param name="append_to_text">true</xsl:with-param> </xsl:apply-templates> <xsl:choose> <xsl:when test="normalize-space(m:title[@level = 's']) = ''"> <xsl:apply-templates select="current()" mode="volumes_pages"/> </xsl:when> <xsl:otherwise> <xsl:if test="normalize-space(m:biblScope[@unit = 'page'])">, <xsl:apply-templates select="m:biblScope[@unit = 'page']" mode="pp"/> </xsl:if> </xsl:otherwise> </xsl:choose> <xsl:apply-templates select="m:biblScope[not(@unit) or @unit = '']" mode="volumes_pages"/> <xsl:if test="normalize-space(m:title[@level = 's']) = ''"> </xsl:if> </xsl:if>. </xsl:when>
+                <!-- show entry only if a title is stated --> <xsl:choose> <xsl:when test="m:author/text()"> <xsl:call-template name="list_authors"/>: </xsl:when> <xsl:otherwise> <xsl:call-template name="list_editors"/> </xsl:otherwise> </xsl:choose> <xsl:apply-templates select="m:title[@level = 'm']" mode="bibl_title"> <xsl:with-param name="quotes" select="'false'"/> <xsl:with-param name="italic" select="'true'"/> </xsl:apply-templates> <xsl:if test="m:title[@level = 's']/text()"> <xsl:text> (= </xsl:text> <xsl:apply-templates select="m:title[@level = 's']"/> <xsl:if test="m:biblScope[@unit = 'vol']/text()"> <xsl:text>, </xsl:text> <xsl:value-of select="$l/vol"/> <xsl:text> </xsl:text> <xsl:apply-templates select="m:biblScope[@unit = 'vol']"/> </xsl:if>)</xsl:if> <xsl:apply-templates select="m:imprint"> <xsl:with-param name="append_to_text">true</xsl:with-param> </xsl:apply-templates> <xsl:choose> <xsl:when test="normalize-space(m:title[@level = 's']) = ''"> <xsl:apply-templates select="current()" mode="volumes_pages"/> </xsl:when> <xsl:otherwise> <xsl:if test="normalize-space(m:biblScope[@unit = 'page'])">, <xsl:apply-templates select="m:biblScope[@unit = 'page']" mode="pp"/> </xsl:if> </xsl:otherwise> </xsl:choose> <xsl:apply-templates select="m:biblScope[not(@unit) or @unit = '']" mode="volumes_pages"/> <xsl:if test="normalize-space(m:title[@level = 's']) = ''"> </xsl:if> </xsl:if>. </xsl:when>
             <xsl:when test="m:genre = 'article' and m:genre = 'book'">
                 <!-- show entry only if a title is stated -->
-                <xsl:if test="m:title[@level = 'a']/text()"> <xsl:if test="m:author/text()"> <xsl:call-template name="list_authors"/>: </xsl:if> <xsl:apply-templates select="m:title[@level = 'a']" mode="bibl_title"> <xsl:with-param name="quotes" select="'true'"/> <xsl:with-param name="italic" select="'false'"/> </xsl:apply-templates> <xsl:choose> <xsl:when test="m:title[@level = 'm']/text()"> <xsl:text>, </xsl:text> <xsl:value-of select="$l/in"/> <xsl:text>: </xsl:text> <xsl:if test="m:editor/text()"> <xsl:call-template name="list_editors"/> </xsl:if> <xsl:apply-templates select="m:title[@level = 'm']" mode="bibl_title"> <xsl:with-param name="quotes" select="'false'"/> <xsl:with-param name="italic" select="'true'"/> </xsl:apply-templates> <xsl:choose> <xsl:when
-                    test="m:title[@level = 's']/text()">(= <xsl:apply-templates select="m:title[@level = 's']/text()"/> <xsl:if test="m:biblScope[@unit = 'vol']/text()"> <xsl:text>, </xsl:text> <xsl:value-of select="$l/vol"/> <xsl:text> </xsl:text> <xsl:value-of select="m:biblScope[@unit = 'vol']/text()"/> </xsl:if>) </xsl:when> <xsl:otherwise> <xsl:if test="m:biblScope[@unit = 'vol']/text()">, <xsl:value-of select="$l/vol"/> <xsl:value-of select="normalize-space(m:biblScope[@unit = 'vol'])"/> </xsl:if> </xsl:otherwise> </xsl:choose> </xsl:when> <xsl:otherwise> <xsl:choose> <xsl:when test="normalize-space(m:title[@level = 's']) != ''"> <xsl:text>, </xsl:text> <xsl:value-of select="$l/in"/> <xsl:text>: </xsl:text> <xsl:apply-templates select="m:title[@level = 's' and text()]"/> <xsl:if
-                    test="normalize-space(m:biblScope[@unit = 'vol']) != ''"> <xsl:text>, </xsl:text> <xsl:value-of select="$l/in"/> <xsl:text> </xsl:text> <xsl:value-of select="normalize-space(m:biblScope[@unit = 'vol'])"/> </xsl:if> </xsl:when> </xsl:choose> </xsl:otherwise> </xsl:choose> <xsl:if test="normalize-space(concat(m:imprint/m:publisher, m:imprint/m:pubPlace, m:imprint/m:date)) != ''"> (<xsl:if test="normalize-space(m:imprint/m:publisher) != ''"> <xsl:value-of select="normalize-space(m:imprint/m:publisher)"/>: </xsl:if> <xsl:if test="normalize-space(m:imprint/m:pubPlace) != ''"> <xsl:value-of select="normalize-space(m:imprint/m:pubPlace)"/> </xsl:if> <xsl:if test="normalize-space(m:imprint/m:date) != ''"> <xsl:text> </xsl:text> <xsl:value-of
-                    select="normalize-space(m:imprint/m:date)"/> </xsl:if> <xsl:text>)</xsl:text> </xsl:if> <xsl:if test="normalize-space(m:biblScope[@unit = 'page']) != ''"> <xsl:text>, </xsl:text> <xsl:apply-templates select="m:biblScope[@unit = 'page']" mode="pp"/> </xsl:if> <xsl:apply-templates select="m:biblScope[not(@unit) or @unit = '']" mode="volumes_pages"/>. </xsl:if>
+                <xsl:if test="m:title[@level = 'a']/text()"> <xsl:if test="m:author/text()"> <xsl:call-template name="list_authors"/>: </xsl:if> <xsl:apply-templates select="m:title[@level = 'a']" mode="bibl_title"> <xsl:with-param name="quotes" select="'true'"/> <xsl:with-param name="italic" select="'false'"/> </xsl:apply-templates> <xsl:choose> <xsl:when test="m:title[@level = 'm']/text()"> <xsl:text>, </xsl:text> <xsl:value-of select="$l/in"/> <xsl:text>: </xsl:text> <xsl:if test="m:editor/text()"> <xsl:call-template name="list_editors"/> </xsl:if> <xsl:apply-templates select="m:title[@level = 'm']" mode="bibl_title"> <xsl:with-param name="quotes" select="'false'"/> <xsl:with-param name="italic" select="'true'"/> </xsl:apply-templates> <xsl:choose> <xsl:when test="m:title[@level = 's']/text()">(= <xsl:apply-templates select="m:title[@level = 's']/text()"/> <xsl:if test="m:biblScope[@unit = 'vol']/text()"> <xsl:text>, </xsl:text> <xsl:value-of select="$l/vol"/> <xsl:text> </xsl:text> <xsl:value-of select="m:biblScope[@unit = 'vol']/text()"/> </xsl:if>) </xsl:when> <xsl:otherwise> <xsl:if test="m:biblScope[@unit = 'vol']/text()">, <xsl:value-of select="$l/vol"/> <xsl:value-of select="normalize-space(m:biblScope[@unit = 'vol'])"/> </xsl:if> </xsl:otherwise> </xsl:choose> </xsl:when> <xsl:otherwise> <xsl:choose> <xsl:when test="normalize-space(m:title[@level = 's']) != ''"> <xsl:text>, </xsl:text> <xsl:value-of select="$l/in"/> <xsl:text>: </xsl:text> <xsl:apply-templates select="m:title[@level = 's' and text()]"/> <xsl:if test="normalize-space(m:biblScope[@unit = 'vol']) != ''"> <xsl:text>, </xsl:text> <xsl:value-of select="$l/in"/> <xsl:text> </xsl:text> <xsl:value-of select="normalize-space(m:biblScope[@unit = 'vol'])"/> </xsl:if> </xsl:when> </xsl:choose> </xsl:otherwise> </xsl:choose> <xsl:if test="normalize-space(concat(m:imprint/m:publisher, m:imprint/m:pubPlace, m:imprint/m:date)) != ''"> (<xsl:if test="normalize-space(m:imprint/m:publisher) != ''"> <xsl:value-of select="normalize-space(m:imprint/m:publisher)"/>: </xsl:if> <xsl:if test="normalize-space(m:imprint/m:pubPlace) != ''"> <xsl:value-of select="normalize-space(m:imprint/m:pubPlace)"/> </xsl:if> <xsl:if test="normalize-space(m:imprint/m:date) != ''"> <xsl:text> </xsl:text> <xsl:value-of select="normalize-space(m:imprint/m:date)"/> </xsl:if> <xsl:text>)</xsl:text> </xsl:if> <xsl:if test="normalize-space(m:biblScope[@unit = 'page']) != ''"> <xsl:text>, </xsl:text> <xsl:apply-templates select="m:biblScope[@unit = 'page']" mode="pp"/> </xsl:if> <xsl:apply-templates select="m:biblScope[not(@unit) or @unit = '']" mode="volumes_pages"/>. </xsl:if>
             </xsl:when>
             <xsl:when test="(m:genre = 'journal' or m:genre = 'newspaper') and (m:genre = 'article' or m:genre = 'interview')">
                 <!-- show entry only if some type of title is stated -->
@@ -2240,8 +2245,7 @@
                 <xsl:apply-templates select="m:ptr"/>
             </xsl:when>
             <xsl:otherwise>
-                <!-- unrecognized reference types are marked with an asterisk --> <xsl:if test="m:author//text()"> <xsl:apply-templates select="m:author"/>: </xsl:if> <xsl:if test="m:title//text()"> <em> <xsl:apply-templates select="m:title"/> </em> </xsl:if> <xsl:if test="m:biblScope[@unit = 'vol']//text()"> <xsl:text>, </xsl:text> <xsl:value-of select="$l/vol"/> <xsl:text> </xsl:text> <xsl:value-of select="normalize-space(m:biblScope[@unit = 'vol'])"/> </xsl:if>. <xsl:apply-templates select="m:imprint"/> <xsl:if test="m:creation/m:date//text()"> <xsl:apply-templates select="m:creation/m:date"/> </xsl:if> <xsl:if test="m:biblScope[@unit = 'page']//text()"> <xsl:text>, </xsl:text> <xsl:apply-templates select="m:biblScope[@unit = 'page']" mode="pp"/> </xsl:if> <xsl:apply-templates
-                select="m:biblScope[not(@unit) or @unit = '']" mode="volumes_pages"/>.* </xsl:otherwise>
+                <!-- unrecognized reference types are marked with an asterisk --> <xsl:if test="m:author//text()"> <xsl:apply-templates select="m:author"/>: </xsl:if> <xsl:if test="m:title//text()"> <em> <xsl:apply-templates select="m:title"/> </em> </xsl:if> <xsl:if test="m:biblScope[@unit = 'vol']//text()"> <xsl:text>, </xsl:text> <xsl:value-of select="$l/vol"/> <xsl:text> </xsl:text> <xsl:value-of select="normalize-space(m:biblScope[@unit = 'vol'])"/> </xsl:if>. <xsl:apply-templates select="m:imprint"/> <xsl:if test="m:creation/m:date//text()"> <xsl:apply-templates select="m:creation/m:date"/> </xsl:if> <xsl:if test="m:biblScope[@unit = 'page']//text()"> <xsl:text>, </xsl:text> <xsl:apply-templates select="m:biblScope[@unit = 'page']" mode="pp"/> </xsl:if> <xsl:apply-templates select="m:biblScope[not(@unit) or @unit = '']" mode="volumes_pages"/>.* </xsl:otherwise>
         </xsl:choose>
         <!-- links to full text (exception: letters and diary entries handled elsewhere) -->
         <xsl:if test="not(m:genre = 'diary entry' or m:genre = 'letter' or (contains(string-join(m:genre, ''), 'concert') and contains(string-join(m:genre, ''), 'program')))">
@@ -2487,7 +2491,7 @@
 
     <!-- display external link -->
     <xsl:template match="m:ptr[normalize-space(@target) or normalize-space(@xl:href)]">
-        <img src="/dcm/{$cat}/style/images/html_link.png" title="Link to external resource"/>
+        <img class="link_indicator" alt="" src="/dcm/{$cat}/style/images/html_link.png" title="Link to external resource"/>
         <a target="_blank">
             <xsl:attribute name="href">
                 <xsl:choose>
@@ -2816,25 +2820,25 @@
         <xsl:param name="heading"/>
         <xsl:param name="id"/>
         <xsl:param name="content"/>
-        <script type="application/javascript">
-            <xsl:text>openness["</xsl:text>
-            <xsl:value-of select="$id"/>
-            <xsl:text>"]=false;</xsl:text>
-        </script>
         <xsl:text>
     </xsl:text>
-        <div class="fold">
-            <h3 class="section_heading" id="p{$id}">
-                <span onclick="toggle('{$id}')" title="Click to show or hide">
-                    <img class="noprint" id="img{$id}" border="0" src="/dcm/{$cat}/style/images/plus.png" alt="+"/>
-                    <xsl:value-of select="concat(' ', $heading)"/>
-                </span>
-            </h3>
-            <div class="folded_content" style="display:none" id="{$id}">
-                <xsl:copy-of select="$content"/>
+        <button class="collapsible" title="Click to show or hide">
+            <span class="section_heading">
+                <xsl:copy-of select="$heading"/>
+            </span>
+            <div class="collapse-icon-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 16 16" version="1.1">
+                    <rect width="16" height="16" id="icon-bound" fill="none"/>
+                    <path id="expand-collapse" d="M4.414,15.414L8,11.828L11.586,15.414L13,14L8,9L3,14L4.414,15.414ZM11.586,0.586L8,4.172L4.414,0.586L3,2L8,7L13,2L11.586,0.586Z" style="fill-rule:nonzero;"/>
+                </svg>
             </div>
+        </button>
+        <div class="collapsible_content">
+            <xsl:copy-of select="$content"/>
         </div>
     </xsl:template>
+    
+    
 
     <!-- HANDLE TEXT AND SPECIAL CHARACTERS -->
     <xsl:template name="maybe_print_br">
