@@ -104,7 +104,7 @@
                         </span>
                     </xsl:if>
                     <span class="tools noprint">
-                        <a href="./download_xml.xq?doc={$doc}" title="Get this record as XML (MEI)" target="_blank">
+                        <a href="./download_xml.xq?doc={$doc}" title="Get this record as XML (MEI)" aria-label="Get this record as XML (MEI)" target="_blank">
                             <img src="/dcm/{$cat}/style/images/xml.gif" alt="XML" border="0"/>
                             <!--<img src="{$base_uri}/style/images/xml.gif" alt="XML" border="0"/>-->
                         </a>
@@ -2963,7 +2963,7 @@
                         <xsl:choose>
                             <xsl:when test="$RISM_file//marc:datafield[marc:subfield[@code = 'g'] = $siglum]">
                                 <xsl:variable name="record" select="$RISM_file//marc:datafield[marc:subfield[@code = 'g'] = $siglum]"/>
-                                <a href="javascript:void(0);" class="abbr">
+                                <a href="javascript:void(0);" class="abbr" aria-label="Expand abbreviation">
                                     <xsl:value-of select="."/>
                                     <span class="expan"> <xsl:value-of select="$record/marc:subfield[@code = 'a']"/>, <xsl:value-of select="$record/marc:subfield[@code = 'c']"/> </span>
                                 </a>
@@ -2989,7 +2989,7 @@
         <xsl:variable name="reference" select="$bibl_file//m:biblList[m:head = $file_context or m:head = '' or not(m:head)]/m:bibl[@label = $title]"/>
         <xsl:choose>
             <xsl:when test="$reference/m:title">
-                <a href="javascript:void(0);" class="abbr">
+                <a href="javascript:void(0);" class="abbr" aria-label="Expand abbreviation">
                     <xsl:value-of select="$title"/>
                     <span class="expan">
                         <xsl:apply-templates select="$reference"/>
@@ -3015,7 +3015,7 @@
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:variable name="expan" select="$vPat/m:expan/node()"/>
-                    <a href="javascript:void(0);" class="abbr">
+                    <a href="javascript:void(0);" class="abbr" aria-label="Expand abbreviation">
                         <xsl:value-of select="$vPat/m:abbr"/>
                         <span class="expan">
                             <xsl:choose>
@@ -3048,7 +3048,7 @@
             <xsl:otherwise>
                 <xsl:variable name="abbr" select="."/>
                 <xsl:variable name="expan" select="$abbreviations[m:abbr = $str]/m:expan"/>
-                <a href="javascript:void(0);" class="abbr">
+                <a href="javascript:void(0);" class="abbr" aria-label="Expand abbreviation">
                     <xsl:value-of select="$str"/>
                     <span class="expan">
                         <xsl:choose>

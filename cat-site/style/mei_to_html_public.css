@@ -255,6 +255,15 @@ button:focus-visible {
     line-height: 1.6em;
 }
 
+#main a:hover {
+    background-color: #eef;
+}
+
+#main a:active {
+    outline: 1px dotted #888;
+    outline-offset: 2px;
+}
+
 #main a.work_number_reference {
     border: 1px solid #666;
     padding: 0px 2px;
@@ -543,6 +552,11 @@ a img.incipit:hover {
 
 .incipit_img_container {
     display: inline-block;
+}
+
+#main a.incipit_img_container:hover {
+    background-color: #fff;
+    background-color: transparent;
 }
 
 .meter {
