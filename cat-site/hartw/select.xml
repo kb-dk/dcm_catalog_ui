@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>Various controlled lists for HartW</title>
@@ -9,7 +9,7 @@
   <body>
     <div id="persons">
       <select id="name_field" name="name">
-        <option value="">&#160;</option>
+        <option value=""> </option>
         <option value="N.C.L. Abrahams">Abrahams, N.C.L.</option>
         <option value="Severin Abrahams">Abrahams, Severin</option>
         <option value="Ida Adams">Adams, Ida</option>
@@ -618,7 +618,7 @@
 
     <div id="numbers">
       <select id="HartW" name="workno" style="display:inline;">
-        <option value="">&#160;</option>
+        <option value=""> </option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -1211,7 +1211,7 @@
         <option value="Coll. 23">Coll. 23</option>
       </select>
       <select id="Opus" name="noname" style="display:none;">
-        <option value="">&#160;</option>
+        <option value=""> </option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>

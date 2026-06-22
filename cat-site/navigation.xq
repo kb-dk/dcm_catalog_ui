@@ -23,7 +23,7 @@ let $uri :=
             $uri
         
 return
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
     <head>
         <meta http-equiv="refresh" content="0;url={$uri}"/>
         <meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8"/>

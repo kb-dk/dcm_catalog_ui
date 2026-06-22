@@ -1,17 +1,33 @@
 /* Collection-specific colors */
 body {
     background-color: #664426;
+    background-image: url('style/schw/JAS_signature_trsp.png');
+    background-size: 50%;
+    background-position: 0px -160px;
+    background-position-y: -160px;
+    background-position-x: center;  
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Header and footer */
 #all {
     background-color: #664426;
+    background-color: rgba(102, 68, 38, .8);
 }
 
-/* Top menu */
-#menu a:hover, #menu .selected {
+/* Top menu and result box headers */
+.result_table:hover .result_row.top, 
+.collapsible:hover,
+#menu a:hover {
     background-color: #9c7751;
 }
+
+.collapsible,
+.result_row.top {
+    background-color: #664426;
+}
+
 
 
 /* Genre color codes */

@@ -196,5 +196,5 @@ declare function loop:getlist (
 				loop:valid-work-number($doc) 
       order by loop:sort-key ($doc,$sort0),loop:sort-key($doc,$sort1)
       return $doc	    
-    return $list
+    return ($list)
 };

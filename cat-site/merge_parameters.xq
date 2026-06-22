@@ -19,7 +19,7 @@ declare variable $database := request:get-parameter("db","/db/cnw/data") cast as
 let $stURI    := xs:anyURI(request:get-parameter("style",$style))
 
 let $formpage :=
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   {layout:head("Set parameters",(),false())}
   <body class="list_files">
     <div id="all">

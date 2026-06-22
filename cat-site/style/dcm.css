@@ -1,33 +1,35 @@
 body { 
-    font-family: Roboto-Regular, Helvetica, Arial, sans-serif;
-    font-size: 10pt;
+    font-family: noway, Helvetica, Arial, sans-serif;
+    font-size: 12pt;
     padding: 0;
     margin: 0;
 }
 
 h1, h2, h3, h4 {
-    line-height: 1.4em;
+    font-family: noway, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.5em;
     margin: 0;
-    font-weight: normal;
 }
 
 h1 {
-    font-size: 18pt;
+    font-size: 28pt;
 }
 
 h2 {
-    font-size: 14pt;
+    font-size: 18pt;
     padding-bottom: 10px;
 }
 
 h3 {
-    font-size: 12pt;
+    font-size: 14pt;
     padding-bottom: 10px;
 }
 
 p {
-    line-height: 1.4em;
+    line-height: 1.5em;
     margin: 0.5em 0 0 0;
+    max-width: 1000px;
 }
 
 a, a:link, a:visited, a:active, a:hover {
@@ -56,16 +58,18 @@ input[type=button] {
     width: auto;
     min-width: 600px;
     padding: 0;
-    background-color: #637F57;
     color: #fff;
     margin: auto;
+    min-height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #header {
     color: #fff;
-    padding: 15px 20px 10px 20px;
-    border-bottom: 1px solid #fff;
-    
+    padding: 15px 30px 10px 30px;
+    border-bottom: 1px solid #fff; 
 }
 
 #header h1, #header h2, #header h3, #header h4 {
@@ -83,23 +87,44 @@ input[type=button] {
 }
 
 #main {
-    padding: 5px 10px 5px 20px;
+    padding: 10px 30px 5px 30px;
     min-height: 300px; 
-    background-color: #fff;
     color: #000;
     clear: both;
+    background-color: #fff;
+    flex: 1;
+    overflow: auto;
+}
+
+.list_files #main {
+    background-color: #eee;
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 #main a {
     color: inherit;
 }
 
+#main h1 {
+    margin-top: 20px;
+}
+
+#main h1 + h1, #main h2 + h1 {
+    margin-top: 0;
+}
+
 #footer {
     color: #fff;
-    padding: 10px 20px 10px 20px;
-    border-top: 1px solid #fff;
+    height: auto;
     min-height: 48px;
     text-align: center;
+    position: relative;
+    left: 0;
+    bottom: 0;
+}
+
+#footer p {
+    margin: 20px auto;
 }
 
 #header a:link, #header a:active, #header a:visited, #header a:hover {
@@ -203,22 +228,26 @@ ol {
 /* Top menu */
 
 #menu {
-    height: 24px;
-    padding: 0 10px 0 10px;
-    border-bottom: 1px solid #fff;
+    height: 27px;
+    padding: 0 20px 0 20px;
+    /*border-bottom: 1px solid #fff;*/
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .5);
+    position: relative;
 }
 
 #menu a {
     display: block;
+    font-size: 12pt;
     float:left;
     width: auto;
-    height: 21px;
+    height: 24px;
     padding: 3px 10px 0 10px;
     text-decoration: none;
     color: #fff;
 }
 
-#menu a:hover, #menu .selected {
+/* #menu .selected, */
+#menu a:hover {
     color: #fff;
     background-color: #799158;
 }
@@ -284,7 +313,7 @@ p.illustration_text {
 
 /* Embedded fonts */
 
-@font-face{
+/*@font-face{
     font-family:RobotoCondensed-Regular;
     src:url('fonts/RobotoCondensed-Regular.ttf');
 }
@@ -298,7 +327,77 @@ p.illustration_text {
 
 @font-face{
     font-family:RobotoSlab-Regular;
-    src:url('fonts/RobotoSlab-Regular.ttf')
+    src:url('fonts/RobotoSlab-Regular.ttf');
+}
+
+@font-face {
+	font-family:"noticia-text";
+	font-style:normal;
+	font-weight:400;
+	src:url(fonts/noticia-text-v10-latin-regular.eot);
+	src:local("Noticia Text Regular"),local("noticia-text-regular"),url(/fonts/noticia-text-v10-latin-regular.eot) format("embedded-opentype");
+}
+@font-face {
+	font-family:"noticia-text";
+	font-style:italic;
+	font-weight:400;
+	src:url(fonts//noticia-text-v10-latin-italic.eot);
+	src:local("Noticia Text Italic"),local("noticia-text-italic"),url(fonts/noticia-text-v10-latin-italic.eot) format("embedded-opentype");
+}
+@font-face {
+	font-family:"noticia-text";
+	font-style:normal;
+	font-weight:700;
+	src:url(fonts/noticia-text-v10-latin-700.eot);
+	src:local("Noticia Text 700"),local("noticia-text-700"),url(fonts/noticia-text-v10-latin-700.eot) format("embedded-opentype");
+}
+@font-face {
+	font-family:"noticia-text";
+	font-style:italic;
+	font-weight:700;
+	src:url(fonts/noticia-text-v10-latin-700italic.eot);
+	src:local("Noticia Text 700 Italic"),local("noticia-text-700italic"),url(fonts/noticia-text-v10-latin-700italic.eot) format("embedded-opentype");
+}*/
+
+@font-face {
+	font-family:"noway";
+	font-weight:400;
+	font-style:normal;
+	src:url(fonts/noway-regular-webfont.eot);
+	src:local("Noway Regular"),local("noway-regular"),
+	    url(fonts/noway-regular-webfont.eot) format("embedded-opentype"),
+    	url(fonts/noway-regular-webfont.woff2) format("woff2"),
+	    url(fonts/noway-regular-webfont.ttf) format("truetype");
+}
+@font-face {
+	font-family:"noway";
+	font-weight:700;
+	font-style:normal;
+	src:url(fonts/noway-medium-webfont.eot);
+	src:local("Noway Medium"),local("noway-medium"),
+	    url(fonts/noway-medium-webfont.eot) format("embedded-opentype"),
+		url(fonts/noway-medium-webfont.woff2) format("woff2"),
+    	url(fonts/noway-medium-webfont.ttf) format("truetype");
+}
+@font-face {
+	font-family:"noway";
+	font-weight:700;
+	font-style:italic;
+	src:url(fonts/noway-medium-italic-webfont.eot);
+	src:local("Noway Medium Italic"),local("noway-medium-italic"),
+	    url(fonts/noway-medium-italic-webfont.eot) format("embedded-opentype"),
+		url(fonts/noway-medium-italic-webfont.woff2) format("woff2"),
+    	url(fonts/noway-medium-italic-webfont.ttf) format("truetype");
+}
+@font-face {
+	font-family:"noway";
+	font-weight:400;
+	font-style:italic;
+	src:url(fonts/noway-regular-italic-webfont.eot);
+	src:local("Noway Regular Italic"),local("noway-regular-italic"),
+	    url(fonts/noway-regular-italic-webfont.eot) format("embedded-opentype"),
+    	url(fonts/noway-regular-webfont.woff2) format("woff2"),
+	    url(fonts/noway-regular-webfont.ttf) format("truetype");
 }
 
 

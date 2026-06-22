@@ -1,16 +1,30 @@
 /* Collection-specific colors */
 body {
     background-color: #445566;
+    background-image: url('style/cnw/CN_signature_trsp.png');
+    background-size: auto;
+    background-position: 0px -100px;
+    background-position-y: -100px;
+    background-position-x: center;  
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Header and footer */
 #all {
-    background-color: #445566;
+    background-color: #20354a;
+    background: linear-gradient(120deg,rgba(32, 53, 74, .9) 0%, rgba(68, 85, 102, .9) 25%, rgba(46, 72, 102, .9) 100%);    
 }
 
-/* Top menu */
-#menu a:hover, #menu .selected {
+/* Top menu and result box headers */
+.result_table:hover .result_row.top, 
+.collapsible:hover,
+#menu a:hover {
     background-color: #778899;
 }
 
+.collapsible,
+.result_row.top {
+    background-color: #20354a;
+}
 

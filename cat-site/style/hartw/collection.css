@@ -1,15 +1,29 @@
 /* Collection-specific colors */
 body {
-    background-color: #88292f;
+    background-color: #6F1A1F;
+    background-image: url('style/hartw/JPEH_signature_trsp.png');
+    background-size: auto;
+    background-position: 0px -120px;
+    background-position-y: -120px;
+    background-position-x: center;  
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Header and footer */
 #all {
-    background-color: #88292f;
+    background-color: #6F1A1F;
+    background-color: rgba(111, 26, 31, .8);
 }
 
-/* Top menu */
-#menu a:hover, #menu .selected {
-    background-color: #a84648;
+/* Top menu and result box headers */
+.result_table:hover .result_row.top, 
+.collapsible:hover,
+#menu a:hover {
+    background-color: #9A2C34;
 }
 
+.collapsible,
+.result_row.top {
+    background-color: #6F1A1F;
+}

@@ -54,7 +54,7 @@ ul {
 
 /* Top menu */
 
-#menu {
+/*#menu {
     height: 24px;
     padding: 0 10px 0 10px;
     border-bottom: 1px solid #fff;
@@ -72,7 +72,7 @@ ul {
 
 #menu a:hover, #menu .selected {
     color: #fff;
-}
+}*/
 /* menu end */
 
 
@@ -80,8 +80,12 @@ ul {
     padding: 0px;
 }
 
+#header h1, #header h2 {
+    font-weight: 700;
+}
+
 #main {
-    line-height: 1.4em;
+    line-height: 1.5em;
 }
 
 #backlink {
@@ -122,6 +126,7 @@ ul {
 
 .section_heading {
     padding: 0;
+    float: left;
 }
 
 .bibl_record_short {
@@ -153,6 +158,78 @@ ul {
     cursor: default;
 }
 
+
+.collapsible {
+  background-color: #555;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.collapsible:hover {
+  background-color: #777;
+}
+
+button:focus-visible {
+    outline:2px solid #0054AE;
+    outline-offset:2px;
+}
+
+.collapsible .alternative_language {
+    font-size : .8em;
+    color: #eee;
+}
+
+
+.collapsible_content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out; /* does not work with max-height: fit-content, though; consider using display:grid, cf. https://theosoti.com/blog/height-transition/  */
+  border: 2px solid #555;
+  border-top: none;
+  margin-top: -2px;
+}
+
+.collapsible_content:after {
+  content: "\00A0";
+}
+
+.collapsible.active + .collapsible_content {
+  max-height: fit-content;
+  overflow: visible;
+  display: block;
+  padding-top: 20px;
+}
+
+.collapsible:not(.active) + .collapsible_content * {
+    display: none;
+}
+
+
+.collapse-icon-container {
+  display: inline-block;
+  height: 10px;
+  overflow: hidden;
+}
+
+.collapse-icon-container svg {
+    fill: #fff;
+}
+
+
+.active .collapse-icon-container svg {
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+
 .incipit_lowres {
     margin-top : 5px;
     margin-bottom : 10px;
@@ -164,6 +241,8 @@ ul {
 
 .list_block {
     display: table;
+    margin-top: 0.5em;
+    max-width: 1000px;
 }
 
 .relation_list {
@@ -174,6 +253,15 @@ ul {
     display: table-cell;
     padding: .5em .5em 0 0;
     line-height: 1.6em;
+}
+
+#main a:hover {
+    background-color: #eef;
+}
+
+#main a:active {
+    outline: 1px dotted #888;
+    outline-offset: 2px;
 }
 
 #main a.work_number_reference {
@@ -195,6 +283,7 @@ ul {
 #main a.work_number_reference:hover {
     background-color: #ddd;
 }
+
 
 .rism {
     font-style: italic;
@@ -251,6 +340,8 @@ body.text #toc li {
 
 body.text #toc li a {
     text-decoration: none;
+    display: inline-block;
+    min-height: 24px;    
 }
 
 body.text #toc li a:hover {
@@ -259,6 +350,7 @@ body.text #toc li a:hover {
 
 body.text #toc ul li {
     margin: 0;
+    height: 26px;
 }
 
 body.text #colophon {
@@ -331,6 +423,38 @@ body.text #main.appendix .list_section li {
 }
 /* end appendix */
 
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Stack order */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+#overlay * {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+img.link_indicator {
+    margin-right: 5px;
+}
+
+img.link_indicator + * {
+    margin-right: 15px;
+}
+
 a.anchor {
     text-decoration: none;
 }
@@ -353,7 +477,7 @@ a:hover.abbr .expan {
     white-space: normal;
     text-decoration:none;
     color: black;
-    background-color:#ddd;
+    background-color:#fff;
     padding: 1px;
     padding-bottom: 5px;
     z-index:250;
@@ -362,18 +486,18 @@ a:hover.abbr .expan {
     max-width: 300px;
     margin-top: 15px;
     margin-left: -5px;
-    border: 1px solid #ddd;
+    border: 1px solid #fff;
     font-weight:normal;
     font-style: normal;
     text-align: left;
-    box-shadow: 7px 7px 10px 5px #333;
+    box-shadow: 8px 8px 20px 0px #666;
     border-radius: 4px;
     /* For non-CSS3 FireFox */
-    -moz-box-shadow: 7px 7px 10px 5px #333;
+    -moz-box-shadow: 8px 8px 20px 0px #666;
     -moz-border-radius: 4px;
     /* For MSIE 6-8 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333')"; 
-    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333'); 
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#666666')"; 
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#666666'); 
 }
 
 a.ftnref {
@@ -389,21 +513,25 @@ a.ftnref span.expan {
     line-height: 1.5em;
 }
 
+hr.main_separator {
+    margin: 60px 0 20px 0;
+    border: 2px dashed #999;
+}
+
 div.perfmedium p { 
     margin-top: 0;
 }
 
-.movement_list {
-    list-style-type: none;
-    padding-left: 0;
-    border-left: 1px dashed black;
-    margin-left: 3px;
-}
 
 ul.single_movement {
     list-style-type: none;
     border-left: none;
     padding-left: 44px;
+}
+
+.movement_list {
+    padding-top: 20px;
+    /*list-style-type: "*";*/
 }
 
 .movement_list li {
@@ -413,6 +541,22 @@ ul.single_movement {
 
 .movement_list p {
     margin: 0;
+}
+
+a img.incipit:hover {
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+    transform: translate(-2px, -2px);    
+    transition: box-shadow .2s;
+    transition: transform .1s;
+}
+
+.incipit_img_container {
+    display: inline-block;
+}
+
+#main a.incipit_img_container:hover {
+    background-color: #fff;
+    background-color: transparent;
 }
 
 .meter {
@@ -441,11 +585,11 @@ ul.single_movement {
 
 .alternative_language, .classification, .colophon {
     font-size : .9em;
-    color: #666;
+    color: #555;
 }
 
 .colophon a:link, .colophon a:visited, .colophon a:active {
-    color: #666;
+    color: #555;
 }
 
 .colophon_heading {
@@ -453,7 +597,7 @@ ul.single_movement {
 }
 
 .revision_history td, .revision_history th {
-    color: #666;
+    color: #555;
     text-align: left;
 }
 

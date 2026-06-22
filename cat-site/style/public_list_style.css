@@ -5,7 +5,9 @@ h2 {
 input, select {
     background-color: #fff;
     color: #000;
-    border-radius: 4px;
+    border: 0px;
+    padding: 2px;
+    margin-right: 5px;
 }
 
 div.spacer {
@@ -13,7 +15,7 @@ div.spacer {
 }
 
 div.spacer div {
-    width: 15px;
+    width: 24px;
 }
 
 div.error {
@@ -25,14 +27,18 @@ div.error {
 
 /* CSS for the filter area */
 
-div.filter {
+#filter_container {
     display: table-cell;
     vertical-align: top;
     width: 250px;
-    background-color: #d0d0d0;
+}
+
+.filter {
     padding: 10px;
-    margin: 15px 15px 0 0;
-    border-radius: 4px;
+    background-color: #d8d8d8;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .5);
+    border: none;
+    margin: 0;
 }
 
 div.filter_block {
@@ -58,6 +64,10 @@ div.filter_block .label {
     margin: 5px 0 0 0;
 } 
 
+div.filter_block select {
+    max-width: 250px;
+}
+
 #notbefore,
 #notafter {
     width : 40px;
@@ -76,7 +86,7 @@ div.genre_filter input[type=text] {
     background-color: #fff;
 }
 
-div.genre_filter label.level1 {
+div.genre_filter .level1 {
     font-weight: bold;
     text-transform: uppercase;
     margin-top: 20px;
@@ -90,21 +100,24 @@ div.genre_filter input[type=text] {
 /* radio buttons and checkboxes */
 
 div.genre_filter input[type=checkbox],
-div.genre_filter input[type=radio   ] {
+div.genre_filter input[type=radio   ],
+div.genre_filter button {
     background-color: transparent;
     color: #000;
     border: 0px;
     margin: 6px 0 0 6px;
+    text-align: left;
 }
 
-label {
+/*label {
     cursor: pointer;
-}
+}*/
 
 /* for newer browsers: */
 
 input[type=checkbox]:not(old),
-input[type=radio   ]:not(old){
+input[type=radio   ]:not(old)
+div.genre_filter button:not(old) {
   width   : 0;
   margin  : 0;
   padding : 0;
@@ -114,17 +127,21 @@ input[type=radio   ]:not(old){
 }
 
 input[type=checkbox]:not(old) + label,
-input[type=radio   ]:not(old) + label{
+input[type=radio   ]:not(old) + label,
+div.genre_filter button:not(old) {
   display      : inline-block;
   margin: 2px 0 2px 0;
   padding : 2px 0 2px 4px;
-  line-height  : 16px;
-  font-size: 9pt;
+  line-height  : 1.5em;
+  font-size: 10.5pt;
 }
 
-input[type=radio   ]:not(old) + label{
-  padding : 2px 0 2px 4px;
-  width: 100%;
+input[type=radio   ]:not(old) + label,
+div.genre_filter button:not(old) {
+  padding : 2px 0 1px 25px;
+  text-indent: -20px;
+  width: 234px;
+  margin: 1px 0;
 }
 
 input[type=checkbox]:not(old) + label {
@@ -133,7 +150,8 @@ input[type=checkbox]:not(old) + label {
 }
 
 input[type=checkbox]:not(old) + label:hover,
-input[type=radio   ]:not(old) + label:hover{
+input[type=radio   ]:not(old) + label:hover,
+div.genre_filter button:not(old):hover {
     background-color: #fff;
 }
 
@@ -141,8 +159,9 @@ input[type=checkbox]:not(old):checked + label{
   background   : url('images/checked.png') no-repeat 0 0;
 }
 
-input[type=radio]:not(old):checked + label{
-  background-color: #eee;
+input[type=radio]:not(old):checked + label,
+div.genre_filter .selected {
+  background-color: #ffe;
 }
 
 div.genre_filter span.genre_indicator {
@@ -151,13 +170,13 @@ div.genre_filter span.genre_indicator {
     border-radius: 8px;
     border: 1px solid #555;
     display: inline-block;
-    margin: 1px 0 0 0;
+    margin: 1px 5px 0 0;
     vertical-align: text-top;
 }
 /* end radio buttons and checkboxes */
 
 .filter_block.anthologies, .filter_block.search_button {
-    margin-top: 20px;
+    margin: 20px 0 0 0;
 }
 
 #search_submit {
@@ -174,7 +193,10 @@ div.genre_filter span.genre_indicator {
 /* CSS for the "clear filter" elements */
 
 .filter_elements {
-    padding: 5px 0 0 0;
+    padding: 10px 0 0 0;
+    /* make the div contain the floated elements inside */
+    overflow: auto;
+    display: flow-root; /* effectively the same as overflow: auto, but possibly not supported by all browsers yet */
 }
 
 #main a.filter_element {
@@ -185,7 +207,7 @@ div.genre_filter span.genre_indicator {
   text-decoration: none;
   margin: 0 5px 5px 0;
   padding: 3px 21px 4px 7px;
-  background: url('images/filter_remove.png') no-repeat right 0 #515251;
+  background: url('images/filter_remove.png') no-repeat right 0 #666;
   float: left;
   border-radius: 4px;
 }
@@ -206,32 +228,39 @@ div.genre_filter span.genre_indicator {
     float:left;
 }
 
-a.paging:link, a.paging:active, a.paging:visited, a.paging:hover {
+.paging_div a:link, .paging_div a:active, .paging_div a:visited, .paging_div a:hover {
     text-decoration: none; 
+    width: 20px;
 }  
 
-a.paging:hover {
-    background-color: #f8f8f8;
-}
-
 .paging {
-    background-color: #e8e8e8;
-    color: #999;
-    display: block;
-    float: left;
-    position: relative;
+    color: #000;
+    display: inline-block;
     text-align: center;
-    height: 21px;
-    width: 26px;
+    vertical-align: middle;
+    width: 32px;
     text-decoration: none;
-    border: 1px solid #777;
-    border-radius: 4px;
-    margin: 2px 2px 0 0;
-    padding-top: 2px;
+    margin: -5px 2px 0 0;
 }
 
 .paging img {
-    margin-top: 6px;
+    width: 16px;
+    vertical-align: center;
+}
+
+.paging svg {
+    fill: #000;
+    stroke: #000;
+}
+
+.paging:hover svg {
+    fill: #fff;
+    stroke: #fff;
+}
+
+
+#total_pages {
+    display: inline-block;
 }
 
 #sortForm, #itemsPerPageForm {
@@ -255,17 +284,13 @@ div.results {
     color: inherit;
 }
 
-.result_row a:hover {
-    text-decoration: underline;
-}
-
 .result_row .composer {
     font-size: .85em;
     padding: 2px 5px;
 }
 
 .result_row .title {
-    font-size: 11pt;
+    font-size: 12pt;
     padding: 2px 5px 2px 5px;
 }
 
@@ -274,49 +299,84 @@ div.results {
 }
 
 .result_row .date {
-    font-size: 8pt;
+    font-size: 9pt;
     float: right;
     padding: 2px 5px;
 }
+
 .result_table {
-    width: 100%;
-    margin: 15px 0;
-    border: 1px solid #666;
-/*    background-color: #ddd; */
-    border-radius: 4px;
+    border: none;
+    text-align: left;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 700;
+    vertical-align: top;
+    display: inline-block;
+    width: 400px;
+    margin: 15px 15px 0 0;
+    padding: 0;
     cursor: pointer;
+    transition: box-shadow .2s;
+    transition: transform .1s;
+}
+
+
+.result_row.top {
+    width: inherit;
+    background-color: rgba(255, 255, 255, .05);
+}
+
+/*.result_table:hover .result_row.top {
+    background-color: #be331a;
+}*/
+
+.result_row.main {
+    background-color: #fff;  
 }
 
 .result_table:hover {
-/*    background-color: #fff;  */
-    border-color: #aae;
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.5);
+    transform: translate(-2px, -2px);
 }
 
-.result_table:hover .list_id {
-    background-color: #666;
-}
 
-.result_cell {
+.result_cell, .list_id {
     vertical-align: top;
 }
 
+.result_cell .result_content {
+    position: relative;
+}
+
 /* incipit images */
+
+
+.incip_wrap {
+    width: fit-content;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
 .incip_scaled {
     display: none;
+/*    opacity: 0.95;*/
 }
 
 .info_bar {
-    padding: 0;
+    float: right;
+    padding: 4px 0 0 0;
     font-size: 6px;
+    width: fit-content;
+    height: 16px;
 }
 
 .info_bar .expan {
     font-size: 10pt;
 }
 
-.info_bar .genre_list {
-    float: left;
-    padding: 0 2px 0 0;
+.genre_list {
+    float: right;
+    margin: 0 0 0 4px;
 }
 
 .genre_cell {
@@ -325,24 +385,21 @@ div.results {
 
 .info_bar div.genre_list .genre_indicator {
     display: block;
-    width: 18px;
     width: 12px;
     height: 12px;
     border-radius: 6px;
 }
 
 .result_table .list_id {
-    width: 9%;
-    background-color: #444;
     white-space: nowrap;
     padding: 2px 8px 2px 8px;
     color: #fff;
-    font-size: 9pt
+    font-size: 12pt
 }
 
 .alternative_language {
     font-size : .95em;
-    color: #666;
+    color: #444;
 }
 
 /* css for help and other pop-ups */
@@ -354,22 +411,20 @@ div.popup button {
 }
 
 a.help {
+    position: absolute;
+    margin: 1px 0 0 5px;
     text-decoration: none;
-    text-align: left;
-    vertical-align:text-top;
+    text-align: center;
     color: #888888;
     background-color: #ffffcc;
-    border: 1px solid #888888;
     font-weight: bold;
-    padding-top: 0px;
-    padding-left: 2px;
-    padding-right: 2px;
-    padding-bottom: 1px;
+    padding: 0 0 0 1px;
     font-size:.8em;   
     cursor: help;
-    border-radius: 2px;
+    border-radius: 8px;
+    width: 14px;
     /* For non-CSS3 FireFox */
-    -moz-border-radius: 2px;    
+    -moz-border-radius: 8px;    
 }
 
 a.help_plain {
@@ -378,12 +433,13 @@ a.help_plain {
 
 a.help span.comment, a.help_plain span.comment {
     display:inline;
+    text-align: left;
     position: absolute;
     visibility:hidden;
     white-space: normal;
     text-decoration:none;
     color: black;
-    background-color:#dbd9ba;
+    background-color:#f6f5e5;
     padding: 1px;
     z-index:250;
     padding: 4px;
@@ -392,11 +448,9 @@ a.help span.comment, a.help_plain span.comment {
     margin-left: -5px;
     border: 1px solid #ddd;
     font-weight:normal;
-    box-shadow: 10px 10px 10px #333;
-    border-radius: 4px;
+    box-shadow: 5px 5px 30px #333;
     /* For non-CSS3 FireFox */
-    -moz-box-shadow: 10px 10px 10px #333;
-    -moz-border-radius: 4px;
+    -moz-box-shadow: 5px 5px 30px #333;
     /* For MSIE 6-8 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333')"; 
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333'); 
@@ -411,8 +465,8 @@ a:hover.help span.comment, a:hover.help_plain span.comment  {
 }
 
 form.search a.help span.comment {
-    width: 250px;
-    margin-left:-250px;
+    width: 400px;
+    margin-left:-200px;
 }
 
 
@@ -455,10 +509,10 @@ a:hover.abbr .expan {
 }
 
 .expan {
-    display:inline;
     position: absolute;
+    right: 5px;
     visibility:hidden;
-    white-space: normal;
+    /*white-space: normal;*/
     text-decoration:none;
     color: black;
     background-color:#ddd;
@@ -467,18 +521,16 @@ a:hover.abbr .expan {
     z-index:250;
     padding: 8px 4px 4px 4px;
     width: auto;
-    max-width: 300px;
-    margin-top: 20px;
-    margin-left: -5px;
+    /*max-width: 300px;*/
+    margin-top: 15px;
+    margin-left: -50px;
     border: 1px solid #ddd;
     font-weight:normal;
     font-style: normal;
     text-align: left;
-    box-shadow: 7px 7px 10px 5px #333;
-    border-radius: 4px;
+    box-shadow: 5px 5px 30px #333;
     /* For non-CSS3 FireFox */
-    -moz-box-shadow: 7px 7px 10px 5px #333;
-    -moz-border-radius: 4px;
+    -moz-box-shadow: 5px 5px 30px #333;
     /* For MSIE 6-8 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333')"; 
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333'); 

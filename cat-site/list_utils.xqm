@@ -9,6 +9,7 @@ declare namespace fn="http://www.w3.org/2005/xpath-functions";
 declare namespace ft="http://exist-db.org/xquery/lucene";
 declare namespace ht="http://exist-db.org/xquery/httpclient";
 declare namespace m="http://www.music-encoding.org/ns/mei";
+declare namespace h="http://www.w3.org/1999/xhtml";
 declare namespace request="http://exist-db.org/xquery/request";
 declare namespace response="http://exist-db.org/xquery/response";
 declare namespace util="http://exist-db.org/xquery/util";
@@ -29,21 +30,25 @@ declare variable $app:workno   := request:get-parameter("workno", "") cast as xs
 
 declare variable $app:from     := ($app:page - 1) * $app:number + 1;
 declare variable $app:to       :=  $app:from      + $app:number - 1;
+declare variable $app:view     := request:get-parameter("view","") cast as xs:string;
 declare variable $app:anthologies := request:get-parameter("anthologies","") cast as xs:string;
+
 
 
 declare function app:generate-href($field as xs:string,
   $value as xs:string) as xs:string {
     let $inputs := forms:pass-as-hidden()
     let $pars   :=
-    for $inp in $inputs[@value/string()]
-    let $str:=
-      if($field = $inp/@name/string() ) then
-    	string-join(($field,fn:escape-uri($value,true())),"=")
-      else
-    	string-join(($inp/@name,fn:escape-uri($inp/@value,true())),"=")
-	return 
-	  $str
+        for $inp in $inputs[@value/string()]
+        let $str:=
+          if($field = $inp/@name/string() ) then
+                if ($value != "") then
+            	    string-join(($field,fn:escape-uri($value,true())),"=")
+                else
+                    ""
+          else
+        	string-join(($inp/@name,fn:escape-uri($inp/@value,true())),"=")
+    	return $str
 
   let $link := string-join($pars,"&amp;")
   return $link
@@ -83,11 +88,11 @@ declare function app:get-edition-and-number($doc as node() ) as xs:string* {
 
 declare function app:view-document-reference($doc as node()) as node() {
   let $ref := 
-  <a  target="_blank"
+  <h:a  target="_blank"
   title="View" 
-  href="present.xq?doc={util:document-name($doc)}">Title comes here &lt;&lt;
+  href="present.xq?doc={util:document-name($doc)}">Title here &lt;&lt;
     {$doc//m:workList/m:work[@analog="frbr:work"]/m:title[1]/string()}
-  </a>
+  </h:a>
   return $ref
 };
 
@@ -99,15 +104,15 @@ declare function app:public-view-document-reference($doc as node()) as node()* {
     }
     let $ref := 
       ($langs,
-      element span {
+      element h:span {
 	attribute lang {$doc//m:workList/m:work[1]/m:title[string()][not(@type/string())][1]/@xml:lang},
 	$doc//m:workList/m:work[1]/m:title[string()][not(@type/string())][1]/string(),
 	" ",
-	element span {
+	element h:span {
 	  attribute class {"list_subtitle"},
 	  if ($doc//m:workList/m:work[1]/m:title[string()][@type/string()='subordinate'][1]/string()) 
 	  then
-	     element span {
+	     element h:span {
 	        " | ",
 	        $doc//m:workList/m:work[1]/m:title[string()][@type/string()='subordinate'][1]/string()
 	     }
@@ -115,16 +120,16 @@ declare function app:public-view-document-reference($doc as node()) as node()* {
 	     then concat( '(',$doc//m:workList/m:work[1]/m:title[string()][@type/string()='alternative'][1]/string(),')') else ""
 	}
       },
-    element br {},
-    element span {
+    element h:br {},
+    element h:span {
 	  attribute class {"alternative_language"},
 	  attribute lang {"en"},
 	  concat($doc//m:workList/m:work[1]/m:title[string()][@xml:lang='en' and not(@type/string())][1]/string()," "),
-  	  element span {
+  	  element h:span {
   	  attribute class {"list_subtitle"},
 	  if ($doc//m:workList/m:work[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate'][1]/string())
 	  then 
-	     element span {
+	     element h:span {
 	        " | ",
 	        $doc//m:workList/m:work[1]/m:title[string()][@xml:lang='en' and @type/string()='subordinate'][1]/string()
 	     }
@@ -142,35 +147,37 @@ declare function app:navigation(
 {
 
   let $total := fn:count($list/m:meiHead)
+  let $total_pages := fn:ceiling($total div $app:number)
+  let $page := if ($app:page > $total_pages) then $total_pages else $app:page
   let $uri   := "" 
-  let $nextpage := ($app:page+1) cast as xs:string
+  let $nextpage := ($page+1) cast as xs:string
 
   let $next     :=
     if($app:from + $app:number <$total) then
-      (element a {
-	attribute rel   {"next"},
-	attribute title {"Go to next page"},
-	attribute class {"paging"},
-	attribute href {
-	  fn:string-join((
-	    $uri,"?",
-	    app:generate-href("page",$nextpage)),"")
-	},
-	element img {
-	  attribute src {"style/images/next.png"},
-	  attribute alt {"Next"},
-	  attribute border {"0"}
-	}
+      (element h:a {
+    	attribute rel   {"next"},
+    	attribute title {"Go to next page"},
+    	attribute class {"paging"},
+    	attribute href {
+    	  fn:string-join((
+    	    $uri,"?",
+    	    app:generate-href("page",$nextpage)),"")
+    	},
+		<svg width="12" height="20" version="1.1" viewBox="2 1 3 3.5" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <path d="m4.4979 3.175-2.1167 1.5875v-3.175z" stroke-width=".70201"/>
+            </g>
+        </svg>
       })
     else
       ("") 
 
-    let $prevpage := ($app:page - 1) cast as xs:string
+    let $prevpage := ($page - 1) cast as xs:string
 
     let $previous :=
       if($app:from - $app:number + 1 > 0) then
 	(
-	  element a {
+	  element h:a {
 	    attribute rel {"prev"},
 	    attribute title {"Go to previous page"},
 	    attribute class {"paging"},
@@ -178,19 +185,36 @@ declare function app:navigation(
        	      fn:string-join(
 		($uri,"?",
 		app:generate-href("page",$prevpage)),"")},
-		element img {
-		  attribute src {"style/images/previous.png"},
-		  attribute alt {"Previous"},
-		  attribute border {"0"}
-		}
+		<svg width="12" height="20" version="1.1" viewBox="1 1 3 3.5" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(3.175 3.175) scale(-1 1) translate(-3.175 -3.175)">
+                <path d="m4.4979 3.175-2.1167 1.5875v-3.175z" stroke-width=".70201"/>
+            </g>
+        </svg>
 	  })
 	else
 	  ("") 
 
+
+
+	  let $app:page_nav := 
+	    (element h:div {
+	        attribute id {"total_pages"},
+	        element h:input {
+    	      attribute class {"paging"},
+    	      attribute id {"current_page"},
+    	      attribute onchange {
+                fn:string-join(("location.href='", $uri, "?", app:generate-href("page",""), "&amp;page=' + this.value;"),"")    	          
+    	      },
+    	      attribute value {$page}
+    	    }
+	    }
+	    )
+
+(: 
 	  let $app:page_nav := for $p in 1 to fn:ceiling( $total div $app:number ) cast as xs:integer
 	  return 
 	    (if(not($app:page = $p)) then
-	    element a {
+	    element h:a {
 	      attribute title {"Go to page ",xs:string($p)},
 	      attribute class {"paging"},
 	      attribute href {
@@ -201,11 +225,13 @@ declare function app:navigation(
 	      ($p)
 	    }
 	  else 
-	    element span {
+	    element h:span {
 	      attribute class {"paging selected"},
 	      ($p)
 	    }
 	  )
+:)
+    
 
       let $work := 
 		if($total=1) then
@@ -214,78 +240,95 @@ declare function app:navigation(
 		  " works"
 
             let $links := ( 
-	      element div {
-		element strong {
-		  "Found ",$total, $work
-		},
-		if($sort-options) then
-		  (<form action="" id="sortForm" style="display:inline;float:right;">
-		  <select name="sortby" onchange="this.form.elements['page'].value = '1';this.form.submit();return true;"> 
-		    {
-		      for $opt in $sort-options
-		      let $option:=
-			if($opt/@value/string()=$app:sortby) then
-			  element option {
-			    attribute value {$opt/@value/string()},
-			    attribute selected {"selected"},
-			    concat("Sort by: ",$opt/string())}
-			  else
-			    element option {
-			      attribute value {$opt/@value/string()},$opt/string()}
-   			      return $option
-		    }
-		  </select>
-		  {forms:pass-as-hidden-except("sortby")}
-		  </form>)
-		else
-		  (),
-		  (<form action="" id="itemsPerPageForm" style="display:inline;float:right;">
-		  <select name="itemsPerPage" onchange="this.form.elements['page'].value = '1';this.form.submit();return true;"> 
+	      element h:div {
+    		element h:strong {
+    		  attribute id {"works_found"},
+    		  attribute class {"navigation_label"},
+    		  "Found ",$total, $work
+    		},
+    		if($sort-options) then
+    		  (<h:form action="" id="sortForm" style="display:inline;float:right;">
+    		  <h:label for="sortby" class="navigation_label">Sort by </h:label>
+    		  <h:select name="sortby" id="sortby" onchange="this.form.elements['page'].value = '1';this.form.submit();return true;"> 
+    		    {
+    		      for $opt in $sort-options
+    		      let $option:=
+    			if($opt/@value/string()=$app:sortby) then
+    			  element h:option {
+    			    attribute value {$opt/@value/string()},
+    			    attribute selected {"selected"},
+    			    $opt/string()}
+    			  else
+    			    element h:option {
+    			      attribute value {$opt/@value/string()},$opt/string()}
+       			      return $option
+    		    }
+    		  </h:select>
+    		  {forms:pass-as-hidden-except("sortby")}
+    		  </h:form>)
+    		else
+    		  (),
+		  (<h:form action="" id="itemsPerPageForm" style="display:inline;float:right;">
+		  <h:label for="itemsPerPage" class="navigation_label">Results per page: </h:label>
+		  <h:select name="itemsPerPage" id="itemsPerPage" onchange="this.form.elements['page'].value = '1';this.form.submit();return true;"> 
 		    {(
-		      element option {attribute value {"10"},
+		      element h:option {attribute value {"10"},
 		      if($app:number=10) then 
 			attribute selected {"selected"}
 		      else
 			"",
-			"10 results per page"},
-			element option {attribute value {"20"},
+			"10"},
+			element h:option {attribute value {"20"},
 			if($app:number=20) then 
 			  attribute selected {"selected"}
 			else
 			  "",
-			  "20 results per page"},
-			  element option {attribute value {"50"},
+			  "20"},
+			  element h:option {attribute value {"50"},
 			  if($app:number=50) then 
 			    attribute selected {"selected"}
 			  else
 			    "",
-			    "50 results per page"},
-			    element option {attribute value {"100"},
+			    "50"},
+			    element h:option {attribute value {"100"},
 			    if($app:number=100) then 
 			      attribute selected {"selected"}
 			    else
 			      "",
-			      "100 results per page"},
-			      element option {attribute value {$total cast as xs:string},
+			      "100"},
+			      element h:option {attribute value {$total cast as xs:string},
 			      if($app:number=$total or $app:number>$total) then 
 				attribute selected {"selected"}
 			      else
 				"",
-				"View all results"}
+				"all"}
 		    )}
-		  </select>
+		  </h:select>
 
 		  {forms:pass-as-hidden-except("itemsPerPage")}
 		      
-		  </form>),
+		  </h:form>),
+		  <h:br/>,
 		  if ($total > $app:number) then
-		    element div {
+		    element h:div {
        		      attribute class {"paging_div noprint"},
+        	      element h:label {
+    	              attribute for {"current_page"},
+    	              attribute class {"navigation_label"},
+    	              "Page "
+        	      },
        		      $previous,"&#160;",
        		      $app:page_nav,
-       		      "&#160;", $next}
+       		      "&#160;", 
+       		      $next,
+		          element h:span {
+		              attribute class {"navigation_label"},
+    		          " of ",
+    		          fn:ceiling($total div $app:number)
+		          }
+		    }
        		    else "",
-		      element br {
+		      element h:br {
 			attribute clear {"both"}
 		      }
 })
