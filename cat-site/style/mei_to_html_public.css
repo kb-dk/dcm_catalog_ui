@@ -13,10 +13,6 @@ h1, h2, h3, h4, h5 {
     font-weight: normal;
 }
 
-h3, h4, h5 {
-    padding: 10px 0 0 0;
-    margin: 0;
-}
 
 h4, h5 {
     font-weight: bold;
@@ -119,10 +115,10 @@ ul {
     padding: 0;
 }
 
-.movement_heading {
-    margin-top: 1em;  
-    font-size: 1.4 em;
+.movement_heading.alternative_language {
+    font-size: 1em;
 }
+
 
 .section_heading {
     padding: 0;
@@ -182,7 +178,7 @@ button:focus-visible {
 }
 
 .collapsible .alternative_language {
-    font-size : .8em;
+    font-size : .9em;
     color: #eee;
 }
 
@@ -529,11 +525,6 @@ ul.single_movement {
     padding-left: 44px;
 }
 
-.movement_list {
-    padding-top: 20px;
-    /*list-style-type: "*";*/
-}
-
 .movement_list li {
     padding-left: 30px;
     margin-bottom: 20px;
@@ -584,9 +575,21 @@ a img.incipit:hover {
 }
 
 .alternative_language, .classification, .colophon {
-    font-size : .9em;
     color: #555;
 }
+
+.work_title.alternative_language {
+    font-size: 24pt;
+}
+
+.subtitle.alternative_language {
+    font-size: 1.4em;
+}
+
+.classification, .colophon {
+    font-size : .9em;
+}
+
 
 .colophon a:link, .colophon a:visited, .colophon a:active {
     color: #555;

@@ -261,23 +261,16 @@
                         <xsl:otherwise>preferred_language</xsl:otherwise>
                     </xsl:choose>
                 </xsl:variable>
-                <h1 class="work_title">
-                    <xsl:element name="span">
-                        <xsl:attribute name="class">
-                            <xsl:value-of select="$language_class"/>
-                        </xsl:attribute>
-                        <xsl:apply-templates select="."/>
-                    </xsl:element>
+                <h1 class="{concat ('work_title ', $language_class)}">
+                    <xsl:attribute name="lang">
+                        <xsl:value-of select="$lang"/>
+                    </xsl:attribute>
+                    <xsl:apply-templates select="."/>
                 </h1>
                 <!-- for each title, find the matching subtitle (i.e., same language and position) -->
                 <xsl:for-each select="../m:title[@type = 'subordinate'][@xml:lang = $lang][position() = $pos]">
-                    <h2 class="subtitle">
-                        <xsl:element name="span">
-                            <xsl:attribute name="class">
-                                <xsl:value-of select="$language_class"/>
-                            </xsl:attribute>
-                            <xsl:apply-templates select="."/>
-                        </xsl:element>
+                    <h2 class="{concat ('subtitle ', $language_class)}">
+                        <xsl:apply-templates select="."/>
                     </h2>
                 </xsl:for-each>
                 <xsl:for-each select="../m:title[@type = 'alternative'][@xml:lang = $lang and text()][position() = $pos]">
@@ -292,6 +285,9 @@
             <xsl:variable name="lang" select="@xml:lang"/>
             <xsl:if test="not(../m:title[(@type = 'main' or not(@type)) and text() and @xml:lang = $lang])">
                 <h2 class="subtitle">
+                    <xsl:attribute name="lang">
+                        <xsl:value-of select="$lang"/>
+                    </xsl:attribute>
                     <span class="alternative_language">
                         <xsl:apply-templates select="."/>
                     </span>
@@ -629,9 +625,10 @@
         <xsl:if test="count(../m:expression) &gt; 1">
             <xsl:if test="normalize-space(m:title//text())">
                 <hr class="noprint main_separator"/>
-                <h2 class="expression_heading">
-                    <xsl:apply-templates select="." mode="titles"/>
-                </h2>
+                <xsl:apply-templates select="." mode="titles">
+                    <xsl:with-param name="element" select="'h2'"/>
+                    <xsl:with-param name="class" select="'expression_heading'"/>
+                </xsl:apply-templates>
             </xsl:if>
         </xsl:if>
         <xsl:if test="m:identifier/text()">
@@ -744,10 +741,10 @@
                     </xsl:choose>
                 </xsl:variable>
                 <xsl:variable name="element" select="concat('h', $level)"/>
-                <xsl:element name="{$element}">
-                    <xsl:attribute name="class">movement_heading</xsl:attribute>
-                    <xsl:choose>
-                        <!-- Use @label value for movement numbers if possible -->
+                <!--<xsl:element name="{$element}">
+                    <xsl:attribute name="class">movement_heading</xsl:attribute>-->
+                    <!--<xsl:choose>
+                        - Use @label value for movement numbers if possible -
                         <xsl:when test="@label != ''">
                             <xsl:value-of select="@label"/>
                             <xsl:text>. </xsl:text>
@@ -756,9 +753,26 @@
                             <xsl:value-of select="@n"/>
                             <xsl:text>. </xsl:text>
                         </xsl:when>
-                    </xsl:choose>
-                    <xsl:apply-templates select=".[m:title/text()]" mode="titles"/>
-                </xsl:element>
+                    </xsl:choose>-->
+                    <xsl:variable name="prefix">
+                        <xsl:choose>
+                        <!-- Use @label value for movement numbers if possible -->
+                            <xsl:when test="@label != ''">
+                                <xsl:value-of select="@label"/>
+                                <xsl:text>. </xsl:text>
+                            </xsl:when>
+                            <xsl:when test="@n != ''">
+                                <xsl:value-of select="@n"/>
+                                <xsl:text>. </xsl:text>
+                            </xsl:when>
+                        </xsl:choose>             
+                    </xsl:variable>
+                    <xsl:apply-templates select=".[m:title/text() or normalize-space($prefix)]" mode="titles">
+                        <xsl:with-param name="element" select="$element"/>
+                        <xsl:with-param name="class" select="'movement_heading'"/>
+                        <xsl:with-param name="prefix" select="$prefix"/>
+                    </xsl:apply-templates>
+                <!--</xsl:element>-->
             </xsl:if>
         </xsl:if>
         <xsl:apply-templates select="m:tempo[text()]"/>
@@ -780,30 +794,74 @@
     </xsl:template>
 
     <xsl:template match="m:expression" mode="titles">
-        <xsl:if test="m:title/text()">
-            <xsl:for-each select="m:title[text()]">
+        <xsl:param name="element"/>
+        <xsl:param name="class"/>
+        <xsl:param name="prefix"/>
+        <xsl:for-each select="m:title[text() or normalize-space($prefix)]">
+            <xsl:element name="{$element}">
+                <xsl:attribute name="class" select="$class"/>
+                <xsl:if test="@xml:lang">
+                    <xsl:attribute name="lang">
+                        <xsl:value-of select="@xml:lang"/>
+                    </xsl:attribute>
+                </xsl:if>
                 <xsl:choose>
                     <xsl:when test="position() &gt; 1">
-                        <span class="alternative_language">
+                        <xsl:attribute name="class">
+                            <xsl:value-of select="$class"/> alternative_language</xsl:attribute>
+                        <!--<span class="alternative_language">-->
                             <!-- uncomment this to display indication of language (like [de] or [en])
            <xsl:text>[</xsl:text>
            <xsl:value-of select="@xml:lang"/>
            <xsl:text>] </xsl:text>-->
-                            <xsl:apply-templates/>
+                            <!--<xsl:if test="$class = 'movement_heading'">
+                                <xsl:choose>
+                                    - Use @label value for movement numbers if possible -
+                                    <xsl:when test="@label != ''">
+                                        <xsl:value-of select="@label"/>
+                                        <xsl:text>. </xsl:text>
+                                    </xsl:when>
+                                    <xsl:when test="@n != ''">
+                                        <xsl:value-of select="@n"/>
+                                        <xsl:text>. </xsl:text>
+                                    </xsl:when>
+                                </xsl:choose>
+                            </xsl:if>                                      -->
+                            <xsl:variable name="title">
+                                <xsl:apply-templates/>
+                            </xsl:variable>
+                            <xsl:value-of select="normalize-space(concat($prefix, ' ', $title))"/>
                             <xsl:if test="position() &lt; last()">
                                 <br/>
                             </xsl:if>
-                        </span>
+                        <!--</span>-->
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:apply-templates select="."/>
+                        <!--<xsl:if test="$class = 'movement_heading'">
+                            <xsl:choose>
+                                - Use @label value for movement numbers if possible -
+                                <xsl:when test="@label != ''">
+                                    <xsl:value-of select="@label"/>
+                                    <xsl:text>. </xsl:text>
+                                </xsl:when>
+                                <xsl:when test="@n != ''">
+                                    <xsl:value-of select="@n"/>
+                                    <xsl:text>. </xsl:text>
+                                </xsl:when>
+                            </xsl:choose>
+                        </xsl:if>                                      
+                        <xsl:apply-templates select="."/>-->
+                        <xsl:variable name="title">
+                            <xsl:apply-templates/>
+                        </xsl:variable>
+                        <xsl:value-of select="normalize-space(concat($prefix, ' ', $title))"/>
                         <xsl:if test="position() &lt; last()">
                             <br/>
                         </xsl:if>
                     </xsl:otherwise>
                 </xsl:choose>
-            </xsl:for-each>
-        </xsl:if>
+            </xsl:element>
+        </xsl:for-each>
     </xsl:template>
 
     <xsl:template match="m:expression/m:componentList">
@@ -825,18 +883,24 @@
                 <xsl:variable name="mvtHeading">
                     <!-- Generic caption: "Sections" <xsl:value-of select="$l/sections"/>-->
                     <!-- Title as caption: -->
-                    <xsl:choose>
-                        <!-- Use @label value for movement numbers if possible -->
-                        <xsl:when test="../@label != ''">
-                            <xsl:value-of select="../@label"/>
-                            <xsl:text>. </xsl:text>
-                        </xsl:when>
-                        <xsl:when test="../@n != ''">
-                            <xsl:value-of select="../@n"/>
-                            <xsl:text>. </xsl:text>
-                        </xsl:when>
-                    </xsl:choose>
-                    <xsl:apply-templates select="..[m:title/text()]" mode="titles"/>
+                    <xsl:variable name="prefix">
+                        <xsl:choose>
+                            <!-- Use @label value for movement numbers if possible -->
+                            <xsl:when test="../@label != ''">
+                                <xsl:value-of select="../@label"/>
+                                <xsl:text>. </xsl:text>
+                            </xsl:when>
+                            <xsl:when test="../@n != ''">
+                                <xsl:value-of select="../@n"/>
+                                <xsl:text>. </xsl:text>
+                            </xsl:when>
+                        </xsl:choose>
+                    </xsl:variable>
+                    <xsl:apply-templates select="..[m:title/text() or normalize-space($prefix)]" mode="titles">
+                        <xsl:with-param name="element">span</xsl:with-param>
+                        <xsl:with-param name="class" select="'movement_heading'"/>
+                        <xsl:with-param name="prefix" select="$prefix"/>
+                    </xsl:apply-templates>
                 </xsl:variable>
                 <xsl:apply-templates select="." mode="fold_section">
                     <xsl:with-param name="id" select="concat('subsection', ../../@xml:id, generate-id(), position())"/>
@@ -2963,7 +3027,7 @@
                         <xsl:choose>
                             <xsl:when test="$RISM_file//marc:datafield[marc:subfield[@code = 'g'] = $siglum]">
                                 <xsl:variable name="record" select="$RISM_file//marc:datafield[marc:subfield[@code = 'g'] = $siglum]"/>
-                                <a href="javascript:void(0);" class="abbr" aria-label="Expand abbreviation">
+                                <a href="javascript:void(0);" class="abbr" aria-label="Expand abbreviation '{.}'">
                                     <xsl:value-of select="."/>
                                     <span class="expan"> <xsl:value-of select="$record/marc:subfield[@code = 'a']"/>, <xsl:value-of select="$record/marc:subfield[@code = 'c']"/> </span>
                                 </a>
@@ -2989,7 +3053,7 @@
         <xsl:variable name="reference" select="$bibl_file//m:biblList[m:head = $file_context or m:head = '' or not(m:head)]/m:bibl[@label = $title]"/>
         <xsl:choose>
             <xsl:when test="$reference/m:title">
-                <a href="javascript:void(0);" class="abbr" aria-label="Expand abbreviation">
+                <a href="javascript:void(0);" class="abbr" aria-label="Expand abbreviation '{$title}'">
                     <xsl:value-of select="$title"/>
                     <span class="expan">
                         <xsl:apply-templates select="$reference"/>
@@ -3015,7 +3079,7 @@
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:variable name="expan" select="$vPat/m:expan/node()"/>
-                    <a href="javascript:void(0);" class="abbr" aria-label="Expand abbreviation">
+                    <a href="javascript:void(0);" class="abbr" aria-label="Expand abbreviation '{$vPat/m:abbr}'">
                         <xsl:value-of select="$vPat/m:abbr"/>
                         <span class="expan">
                             <xsl:choose>
@@ -3048,7 +3112,7 @@
             <xsl:otherwise>
                 <xsl:variable name="abbr" select="."/>
                 <xsl:variable name="expan" select="$abbreviations[m:abbr = $str]/m:expan"/>
-                <a href="javascript:void(0);" class="abbr" aria-label="Expand abbreviation">
+                <a href="javascript:void(0);" class="abbr" aria-label="Expand abbreviation '{$str}'">
                     <xsl:value-of select="$str"/>
                     <span class="expan">
                         <xsl:choose>
