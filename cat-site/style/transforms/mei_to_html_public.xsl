@@ -85,26 +85,29 @@
                 <xsl:variable name="catalogue_no">
                     <xsl:value-of select="m:meiHead/m:workList/m:work/m:identifier[@label = $file_context]"/>
                 </xsl:variable>
+                <xsl:variable name="work_id">
+                    <xsl:value-of select="$file_context"/>
+                    <xsl:text> </xsl:text>
+                    <xsl:choose>
+                        <xsl:when test="string-length($catalogue_no) &gt; 11">
+                            <xsl:variable name="part1" select="substring($catalogue_no, 1, 11)"/>
+                            <xsl:variable name="part2" select="substring($catalogue_no, 12)"/>
+                            <xsl:variable name="delimiter" select="substring(concat(translate($part2, '0123456789', ''), ' '), 1, 1)"/>
+                            <xsl:value-of select="concat($part1, substring-before($part2, $delimiter), '...')"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="$catalogue_no"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
                 <div class="info_bar {$file_context}">
                     <xsl:if test="m:meiHead/m:workList/m:work/m:identifier[@label = $file_context]/text()">
                         <span class="list_id">
-                            <xsl:value-of select="$file_context"/>
-                            <xsl:text> </xsl:text>
-                            <xsl:choose>
-                                <xsl:when test="string-length($catalogue_no) &gt; 11">
-                                    <xsl:variable name="part1" select="substring($catalogue_no, 1, 11)"/>
-                                    <xsl:variable name="part2" select="substring($catalogue_no, 12)"/>
-                                    <xsl:variable name="delimiter" select="substring(concat(translate($part2, '0123456789', ''), ' '), 1, 1)"/>
-                                    <xsl:value-of select="concat($part1, substring-before($part2, $delimiter), '...')"/>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:value-of select="$catalogue_no"/>
-                                </xsl:otherwise>
-                            </xsl:choose>
+                            <xsl:value-of select="$work_id"/>
                         </span>
                     </xsl:if>
                     <span class="tools noprint">
-                        <a href="./download_xml.xq?doc={$doc}" title="Get this record as XML (MEI)" aria-label="Get this record as XML (MEI)" target="_blank">
+                        <a href="./download_xml.xq?doc={$doc}" title="Get this record as XML (MEI)" aria-label="Get this record as XML (MEI)" download="{translate($work_id, ' .:;()[]', '________')}.xml">
                             <img src="/dcm/{$cat}/style/images/xml.gif" alt="XML" border="0"/>
                             <!--<img src="{$base_uri}/style/images/xml.gif" alt="XML" border="0"/>-->
                         </a>
@@ -662,15 +665,18 @@
         <xsl:apply-templates select="m:incip"/>
         <!-- external relation links -->
         <xsl:apply-templates select="m:relationList[m:relation[@target != '']]"/>
-        <!-- components (movements) -->
+        <!-- components (movements or sections) -->
         <xsl:for-each select="m:componentList[normalize-space(string-join(*//text(), '')) or *//@n != '' or *//@pitch != '' or *//@symbol != '' or *//@count != '']">
+        <!--<xsl:for-each select="m:componentList">-->
+        <!--DEBUG: FOLD: <xsl:value-of select="@xml:id"/>-->
             <xsl:apply-templates select="." mode="fold_section">
                 <xsl:with-param name="id" select="concat('movements', generate-id(), position())"/>
                 <xsl:with-param name="heading">
                     <xsl:value-of select="$l/music"/>
                 </xsl:with-param>
                 <xsl:with-param name="content">
-                    <xsl:apply-templates select="m:expression"/>
+                    <!--<xsl:apply-templates select="m:expression"/>-->
+                    <xsl:apply-templates/>
                 </xsl:with-param>
             </xsl:apply-templates>
         </xsl:for-each>
@@ -741,22 +747,9 @@
                     </xsl:choose>
                 </xsl:variable>
                 <xsl:variable name="element" select="concat('h', $level)"/>
-                <!--<xsl:element name="{$element}">
-                    <xsl:attribute name="class">movement_heading</xsl:attribute>-->
-                    <!--<xsl:choose>
-                        - Use @label value for movement numbers if possible -
-                        <xsl:when test="@label != ''">
-                            <xsl:value-of select="@label"/>
-                            <xsl:text>. </xsl:text>
-                        </xsl:when>
-                        <xsl:when test="@n != ''">
-                            <xsl:value-of select="@n"/>
-                            <xsl:text>. </xsl:text>
-                        </xsl:when>
-                    </xsl:choose>-->
                     <xsl:variable name="prefix">
                         <xsl:choose>
-                        <!-- Use @label value for movement numbers if possible -->
+                            <!-- Use @label value for movement numbers if possible -->
                             <xsl:when test="@label != ''">
                                 <xsl:value-of select="@label"/>
                                 <xsl:text>. </xsl:text>
@@ -772,7 +765,6 @@
                         <xsl:with-param name="class" select="'movement_heading'"/>
                         <xsl:with-param name="prefix" select="$prefix"/>
                     </xsl:apply-templates>
-                <!--</xsl:element>-->
             </xsl:if>
         </xsl:if>
         <xsl:apply-templates select="m:tempo[text()]"/>
@@ -814,19 +806,6 @@
            <xsl:text>[</xsl:text>
            <xsl:value-of select="@xml:lang"/>
            <xsl:text>] </xsl:text>-->
-                            <!--<xsl:if test="$class = 'movement_heading'">
-                                <xsl:choose>
-                                    - Use @label value for movement numbers if possible -
-                                    <xsl:when test="@label != ''">
-                                        <xsl:value-of select="@label"/>
-                                        <xsl:text>. </xsl:text>
-                                    </xsl:when>
-                                    <xsl:when test="@n != ''">
-                                        <xsl:value-of select="@n"/>
-                                        <xsl:text>. </xsl:text>
-                                    </xsl:when>
-                                </xsl:choose>
-                            </xsl:if>                                      -->
                             <xsl:variable name="title">
                                 <xsl:apply-templates/>
                             </xsl:variable>
@@ -837,20 +816,6 @@
                         <!--</span>-->
                     </xsl:when>
                     <xsl:otherwise>
-                        <!--<xsl:if test="$class = 'movement_heading'">
-                            <xsl:choose>
-                                - Use @label value for movement numbers if possible -
-                                <xsl:when test="@label != ''">
-                                    <xsl:value-of select="@label"/>
-                                    <xsl:text>. </xsl:text>
-                                </xsl:when>
-                                <xsl:when test="@n != ''">
-                                    <xsl:value-of select="@n"/>
-                                    <xsl:text>. </xsl:text>
-                                </xsl:when>
-                            </xsl:choose>
-                        </xsl:if>                                      
-                        <xsl:apply-templates select="."/>-->
                         <xsl:variable name="title">
                             <xsl:apply-templates/>
                         </xsl:variable>
@@ -866,7 +831,7 @@
 
     <xsl:template match="m:expression/m:componentList">
         <xsl:choose>
-            <xsl:when test="count(m:expression) &gt; 1">
+            <xsl:when test="(count(m:expression) &gt; 1) or m:expression//m:expression">
                 <!-- displaying movements non-folding 
          <xsl:element name="ul">
          <xsl:attribute name="class">movement_list</xsl:attribute>
@@ -920,14 +885,21 @@
                     </xsl:with-param>
                 </xsl:apply-templates>
             </xsl:when>
-            <xsl:when test="count(m:expression) = 1">
+            <xsl:otherwise>
+                <ul class="single_movement">
+                    <li>
+                        <xsl:apply-templates select="m:expression"/>
+                    </li>
+                </ul>
+            </xsl:otherwise>
+            <!--<xsl:when test="count(m:expression) = 1">
                 <ul class="single_movement">
                     <li>
                         <xsl:apply-templates select="m:expression"/>
                     </li>
                 </ul>
             </xsl:when>
-            <xsl:otherwise/>
+            <xsl:otherwise/>-->
         </xsl:choose>
     </xsl:template>
 

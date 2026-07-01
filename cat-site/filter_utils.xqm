@@ -30,7 +30,7 @@ declare function filter:print-filters(
   let $notafter  := request:get-parameter("notafter",$filter:settings/m:mei/m:date[@type="yearSelection"]/@notafter)
   let $notbefore := request:get-parameter("notbefore",$filter:settings/m:mei/m:date[@type="yearSelection"]/@notbefore)
   let $search_help := 
-    <h:a class="help">?<h:span class="comment"> 
+    <h:button class="help" aria-label="Search tips" aria-expanded="false" aria-controls="info-text">?<h:span class="comment"> 
       Search terms may be combined using boolean operators. Wildcards allowed. 
       Search is case insensitive (except for boolean operators, which must be uppercase).
       Some examples:<h:br/>
@@ -59,7 +59,7 @@ declare function filter:print-filters(
         </h:span>
       </h:span>
     </h:span>
-  </h:a>
+  </h:button>
 
   let $filter:=
   <h:form action="" method="get" class="search" id="query_form" name="query_form">

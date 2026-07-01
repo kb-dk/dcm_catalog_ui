@@ -410,28 +410,29 @@ div.popup button {
     min-height: 26px; 
 }
 
-a.help {
+.help {
     position: absolute;
-    margin: 1px 0 0 5px;
+    margin: 3px 0 0 0;
     text-decoration: none;
     text-align: center;
-    color: #888888;
+    color: #000;
     background-color: #ffffcc;
     font-weight: bold;
     padding: 0 0 0 1px;
     font-size:.8em;   
     cursor: help;
+    border: none;
     border-radius: 8px;
-    width: 14px;
+    width: 16px;
     /* For non-CSS3 FireFox */
     -moz-border-radius: 8px;    
 }
 
-a.help_plain {
+.help_plain {
     cursor: help;
 }
 
-a.help span.comment, a.help_plain span.comment {
+.help span.comment, .help_plain span.comment {
     display:inline;
     text-align: left;
     position: absolute;
@@ -456,55 +457,56 @@ a.help span.comment, a.help_plain span.comment {
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#333333'); 
 }
 
-a.help span.comment {
+.help span.comment {
     font-size: 1.2em;
 }
 
-a:hover.help span.comment, a:hover.help_plain span.comment  {
+.help:hover span.comment, .help_plain:hover span.comment  {
     visibility:visible;
 }
 
-form.search a.help span.comment {
+form.search .help span.comment {
     width: 400px;
     margin-left:-200px;
 }
 
 
-a.help .help_table {
+.help .help_table {
     display: table;
 }
 
-a.help .help_example {
+.help .help_example {
     display: table-row;
 }
 
-a.help .help_label, a.help .help_value {
+.help .help_label, .help .help_value {
     padding-top: 6px;
     display: table-cell;
 }
 
-form.search a.help .help_label {
+form.search .help .help_label {
     padding-right: 8px;
     white-space: nowrap;
     font-family: courier, fixed, monospace;
 }
 
-a.abbr {
+.abbr {
     border-bottom: 1px dashed #666;
     cursor: help;   
     text-decoration: none;
     color: #000;
 }
 
-.genre_list a.abbr {
+.genre_list .abbr {
     border: none;
 }
 
-.genre_list a:link, .genre_list a:active, .genre_list a:visited, .genre_list a:hover {
+.genre_list :link, .genre_list :active, .genre_list :visited, .genre_list :hover {
     text-decoration: none;
 }
 
-a:hover.abbr .expan {
+/*a:hover.abbr .expan {*/
+.abbr:hover .expan {
     visibility:visible;
 }
 

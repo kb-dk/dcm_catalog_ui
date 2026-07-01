@@ -79,7 +79,7 @@ let $genre_boxes :=
 for $genre at $pos in $genres2 
 return 
 <h:div class="genre_list">
-    <h:a class="{$class[$pos]} genre_indicator abbr" aria-label="Genre: {$genre}"><h:img src="style/images/spacer.png" alt="" border="0" width="12" height="12"/><h:span class="expan">{$genre}</h:span></h:a>
+    <h:a class="{$class[$pos]} genre_indicator abbr"><h:img src="style/images/spacer.png" alt="Genre indicator: {$genre}" border="0" width="12" height="12"/><h:span class="expan">{$genre}</h:span></h:a>
 </h:div>
 
 let $date_output :=
