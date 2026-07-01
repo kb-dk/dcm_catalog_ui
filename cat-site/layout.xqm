@@ -136,7 +136,10 @@ declare function layout:page-footer($mode as xs:string) as node()
 {
   let $footer :=
   <h:div id="footer">
-    <h:p>2014–2018 Danish Centre for Music Editing | Royal Danish Library | Copenhagen, Denmark | <h:a name="www.kb.dk" id="www.kb.dk" href="https://www.kb.dk/">www.kb.dk/en/</h:a></h:p>
+    <h:p>2014–2018 Danish Centre for Music Editing | Royal Danish Library | Copenhagen, Denmark | <h:a name="www.kb.dk" id="www.kb.dk" href="https://www.kb.dk/">www.kb.dk/en/</h:a>
+        <h:br/>
+        <h:a href="https://was.digst.dk/kb-dk-dcm">Accessibility Statement</h:a>
+    </h:p>
   </h:div>
 
   return $footer
