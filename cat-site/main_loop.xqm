@@ -48,10 +48,13 @@ declare function loop:valid-work-number($doc as node()) as xs:boolean
 
 declare function loop:padded-numbers ($key as xs:string) as xs:string
 {
+  (: whether the key ends in one or more digits; the patterns below must
+     not be able to match the empty string, or fn:replace raises FORX0003 :)
+  let $has_number:= matches($key,'\d+$')
   (: extract any trailing number :)
-  let $number:= replace($key,'^.*?(\d*)$','$1')
+  let $number:= if($has_number) then replace($key,'^.*?(\d+)$','$1') else ''
   (: and anything that might be before the number :)
-  let $prefix:= replace($key,'^(.*?)\d*$','$1')
+  let $prefix:= if($has_number) then replace($key,'^(.*?)\d+$','$1') else $key
   (: make the number a 15 character long string padded with zeros :)
   let $padded_number:=concat("0000000000000000",normalize-space($number))
   let $len:=string-length($padded_number)-14
